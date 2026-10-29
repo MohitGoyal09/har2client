@@ -234,7 +234,7 @@ def bibtex() -> str:
 def space_readme() -> str:
     return f"""---
 title: HAR2Client
-emoji: null
+emoji: 🧪
 colorFrom: gray
 colorTo: gray
 sdk: static

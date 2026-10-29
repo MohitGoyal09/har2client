@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAR2Client: write an API client from recorded traffic</title>
+<meta name="description" content="HAR2Client grades models on one skill: read recorded HTTP traffic, write client.py, pass hidden tests on a fresh server. Results for Beam, GPT-OSS-120B and Qwen3.5-397B-A17B.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta name="theme-color" content="#fcfcfb">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HAR2Client: write an API client from recorded traffic">
+<meta property="og:description" content="Beam scores {{H1_VISIBLE}}% when the recording shows everything and {{H1_HIDDEN}}% when one header is hidden.">
+<meta property="og:image" content="{{OG_IMAGE}}">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="1380">
+<meta property="og:url" content="{{SPACE_URL}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{OG_IMAGE}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400..600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="top">
+  <div class="bar-in">
+    <a class="mark" href="#top" aria-label="HAR2Client, top of page">HAR<span>2</span>Client</a>
+    <nav aria-label="Sections" class="bar-nav">
+      <a href="#task">The task</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#effort">Effort</a>
+      <a href="#information">Extra information</a>
+      <a href="#beam">Beam</a>
+      <a href="#explore">Tasks</a>
+      <a href="#method">Method</a>
+      <a href="#use">Use it</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- SECTION 1: hero. SIGNATURE MOMENT: "the missing piece" chart (#sig), a withheld <-> supplied toggle per case with Beam's real score moving. -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-text">
+    <p class="eyebrow">A benchmark and RL environment for API clients</p>
+    <h1 id="h1">Beam writes a near-perfect API client from recorded traffic, until the recording leaves one header out.</h1>
+    <p class="dek">It scores {{H1_VISIBLE}}% when the recording shows everything and {{H1_HIDDEN}}% when one header is hidden. Give it the missing piece and it recovers to {{H1_SUPPLIED_LOW}} to {{H1_SUPPLIED_HIGH}}%.</p>
+    <p class="hero-links">
+      <a class="btn btn-ink" href="{{DATASET_URL}}">Dataset</a>
+      <a class="btn btn-line" href="{{CODE_URL}}">Code</a>
+      <a class="btn btn-line" href="{{PREREG_URL}}">Pre-registration</a>
+    </p>
+  </div>
+  <figure class="sig" id="sig" aria-label="Beam pass rate when the missing piece is withheld and when it is supplied">
+    <noscript><p class="note">This chart needs JavaScript. The same numbers are in the leaderboard table below.</p></noscript>
+  </figure>
+</section>
+
+<!-- SECTION 2: the task -->
+<section class="sec" id="task" aria-labelledby="task-h">
+  <div class="sec-head">
+    <p class="eyebrow">01 The task</p>
+    <h2 id="task-h">A recording in, a client out, hidden tests on a server the model never saw.</h2>
+  </div>
+
+  <ol class="flow" aria-label="How a task is graded">
+    <li class="flow-step">
+      <span class="flow-k">Recording</span>
+      <code class="flow-code">GET /v2/invoices?page=2<br>200 application/json</code>
+      <p>A HAR file: the requests and responses of one real or invented API, plus a goal that names the methods to write.</p>
+    </li>
+    <li class="flow-step">
+      <span class="flow-k">Model</span>
+      <code class="flow-code">Beam, GPT-OSS,<br>Qwen</code>
+      <p>Reads the files and writes one Python file. No LLM judge anywhere in the loop.</p>
+    </li>
+    <li class="flow-step">
+      <span class="flow-k">client.py</span>
+      <code class="flow-code">class Client:<br>&nbsp;&nbsp;def list_invoices(...)</code>
+      <p>Must work for any host, key and data, so replaying the recording does not pass.</p>
+    </li>
+    <li class="flow-step flow-last">
+      <span class="flow-k">Hidden tests</span>
+      <code class="flow-code">fresh server<br>new data, keys, host</code>
+      <p>The score is the share of hidden tests that pass.</p>
+    </li>
+  </ol>
+  <p class="flow-note">Boxes show an example of each file type, not a real task.</p>
+
+  <ol class="cases">
+    <li class="case case-1">
+      <span class="case-n" aria-hidden="true">1</span>
+      <div>
+        <h3>Build</h3>
+        <p>Goal and recording in, <code>client.py</code> out, in one call. Tier B is {{N_TIER_B}} invented stateful APIs, each built with six switches. Tier A is {{N_TIER_A}} tasks from real public API specs. The leaderboard uses Tier B.</p>
+        <ul class="switches" aria-label="Tier B switches"><li>Login type</li><li>Paging</li><li>Token expiry</li><li>Version check</li><li>Hidden header</li><li>Response envelope</li></ul>
+      </div>
+    </li>
+    <li class="case case-2">
+      <span class="case-n" aria-hidden="true">2</span>
+      <div>
+        <h3>Investigate</h3>
+        <p>The same {{N_TIER_B}} tasks, but the model may send test requests to a practice server before it writes. The control arm has the tool removed (no probes). The other arm allows up to 5 probes.</p>
+      </div>
+    </li>
+    <li class="case case-3">
+      <span class="case-n" aria-hidden="true">3</span>
+      <div>
+        <h3>Repair</h3>
+        <p>An old client, the error it now throws and a short new recording. Five of the ten kinds of change are silent: the server still answers 200, but the data looks different. {{N_CASE3}} tasks in 7 families. One call, no tools, no retries. Two arms: the base task, and the same task with a contract hint in the goal text.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- SECTION 3: leaderboard -->
+<section class="sec" id="leaderboard" aria-labelledby="lb-h">
+  <div class="sec-head">
+    <p class="eyebrow">02 Leaderboard</p>
+    <h2 id="lb-h">Seven settings, five benchmarks, one grader.</h2>
+    <p class="lede">Pass rate is the share of hidden tests passed, averaged over tasks. Hover or focus a cell for its 95% confidence interval. Click a column to sort.</p>
+  </div>
+  <div id="lb"></div>
+</section>
+
+<!-- SECTION 4: effort -->
+<section class="sec" id="effort" aria-labelledby="ef-h">
+  <div class="sec-head">
+    <p class="eyebrow">03 Effort</p>
+    <h2 id="ef-h">Effort helps, but less than the missing piece, and it costs about four times the tokens.</h2>
+    <p class="lede" id="effort-facts"></p>
+  </div>
+  <div id="effort-chart"></div>
+</section>
+
+<!-- SECTION 5: extra information -->
+<section class="sec" id="information" aria-labelledby="in-h">
+  <div class="sec-head">
+    <p class="eyebrow">04 What extra information buys</p>
+    <h2 id="in-h">Telling the model the missing piece moves the score more than any effort setting.</h2>
+    <p class="lede">Each row is one setting. The hollow dot is the score without the extra information, the filled dot is with it.</p>
+  </div>
+  <div id="gains"></div>
+</section>
+
+<!-- SECTION 6: Beam in detail -->
+<section class="sec" id="beam" aria-labelledby="be-h">
+  <div class="sec-head">
+    <p class="eyebrow">05 Beam in detail</p>
+    <h2 id="be-h">Where the extra information lands, by effort.</h2>
+    <p class="lede">Light bars are the score with the piece missing. Dark bars are the score with it supplied. Low and medium are one run per task; high is the mean of three runs in cases 1 and 3.</p>
+  </div>
+  <div id="beam-detail"></div>
+</section>
+
+<!-- SECTION 7: explore -->
+<section class="sec" id="explore" aria-labelledby="ex-h">
+  <div class="sec-head">
+    <p class="eyebrow">06 Explore a task</p>
+    <h2 id="ex-h">What the model sees.</h2>
+    <p class="lede">Only the visible files are shown: the goal, the requests in the recording and one short excerpt. Hidden tests, credentials for grading and reference clients are not published.</p>
+  </div>
+  <div id="explorer" class="explorer"></div>
+</section>
+
+<!-- SECTION 8: method -->
+<section class="sec sec-method" id="method" aria-labelledby="me-h">
+  <div class="sec-head">
+    <p class="eyebrow">07 Method</p>
+    <h2 id="me-h">Hidden tests, no judge, hypotheses written first.</h2>
+  </div>
+  <div class="method-grid">
+    <div class="prose">
+      <h3>Grading</h3>
+      <p>Each task starts a new fake server with new data, a new key and a new host. The submitted <code>client.py</code> runs against it. A hidden test suite counts what passes. A client that copies the recording fails. Missing submissions count as failures. API errors are excluded and stay visible in the raw files.</p>
+      <h3>How Beam was used</h3>
+      <ul>
+        <li>Model <code>Beam-1.0-501B-A23B</code> through Reflection's OpenAI-compatible API, with <code>reasoning_effort</code> set to low, medium or high on every call.</li>
+        <li>Cases 1 and 3 are one call with no tools. Case 2 is multi-turn tool calling: <code>http_request</code> to the practice server and <code>submit_client</code> to end. The <code>reasoning_content</code> of each assistant turn is sent back in the next request.</li>
+        <li>Beam at high effort in cases 1 and 3 is the mean of 3 runs per task. Everything else is one run.</li>
+      </ul>
+      <h3>Comparing models</h3>
+      <ul>
+        <li>GPT-OSS-120B and Qwen3.5-397B-A17B ran through the Hugging Face router (provider Novita), one run per cell.</li>
+        <li>Their output was capped at 32,768 tokens per call. Beam's runs used 65,536.</li>
+        <li>Qwen was run with thinking on. It has no effort levels, so it is never labelled low, medium or high and is not equivalent to any Beam effort.</li>
+        <li>Intervals are percentile bootstraps over tasks (<span id="nboot"></span> resamples).</li>
+      </ul>
+    </div>
+    <div class="verdicts">
+      <h3>Pre-registered hypotheses</h3>
+      <p class="small">Written in <a href="{{PREREG_URL}}">PREREG.md</a> before the runs. Verdicts come from the analysis summaries. H18 was not tested because the xhigh effort level was dropped.</p>
+      <div class="table-scroll">
+        <table class="vtable">
+          <caption class="sr">Pre-registered hypotheses and their verdicts</caption>
+          <thead><tr><th scope="col">ID</th><th scope="col">Claim</th><th scope="col">Verdict</th><th scope="col">Evidence</th></tr></thead>
+          <tbody>
+{{VERDICT_ROWS}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: use it -->
+<section class="sec" id="use" aria-labelledby="us-h">
+  <div class="sec-head">
+    <p class="eyebrow">08 Use it</p>
+    <h2 id="us-h">Grade a client in three commands. Train against it as an environment.</h2>
+  </div>
+  <div class="use-grid">
+    <div class="use-a">
+      <h3>Install</h3>
+      <div class="code"><button class="copy" type="button" data-copy="code-install">Copy</button><pre><code id="code-install">{{CODE_INSTALL}}</code></pre></div>
+      <h3>Grade a reference client</h3>
+      <p class="small">No API key and no model call. Build one Tier B task, then grade any <code>client.py</code> you wrote or a model returned. The repository README also shows how to grade a task's own reference client, which scores <code>pass_rate=1.000</code>.</p>
+      <div class="code"><button class="copy" type="button" data-copy="code-grade">Copy</button><pre><code id="code-grade">{{CODE_GRADE}}</code></pre></div>
+    </div>
+    <div class="use-b">
+      <h3>As an RL environment</h3>
+      <p class="small">An episode is observe, then submit one client. The reward is the pass rate on a fresh grading instance. The environments are built and tested. No training run is reported.</p>
+      <div class="code"><button class="copy" type="button" data-copy="code-rl">Copy</button><pre><code id="code-rl">{{CODE_RL}}</code></pre></div>
+    </div>
+  </div>
+
+  <div class="cite-grid">
+    <div>
+      <h3>Cite</h3>
+      <div class="code"><button class="copy" type="button" data-copy="code-bib">Copy</button><pre><code id="code-bib">{{BIBTEX}}</code></pre></div>
+    </div>
+    <div class="prose">
+      <h3>Licences</h3>
+      <p>Code: Apache-2.0. Data and results: CC-BY-4.0. Tier A tasks keep the licence of the public API spec they come from; the dataset card lists it per task.</p>
+      <h3>Authors</h3>
+      <p>Mohit Goyal and Ananya Bhattacharya.</p>
+      <p class="small">Entry for the Reflection x Hugging Face "Build with Beam" challenge.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <p>HAR2Client. <a href="{{DATASET_URL}}">Dataset</a>, <a href="{{CODE_URL}}">code</a>, <a href="{{PREREG_URL}}">pre-registration</a>.</p>
+</footer>
+
+<div id="tip" class="tip" role="tooltip" hidden></div>
+<script id="site-data" type="application/json">{{SITE_JSON}}</script>
+</body>
+</html>

@@ -219,7 +219,7 @@ class PublishSh(unittest.TestCase):
         fake_uv.write_text("#!/bin/sh\necho uv-was-called >&2\nexit 99\n", encoding="utf-8")
         fake_uv.chmod(0o755)
         # CODE_URL is ignored: the GitHub link is fixed in the text; links.json holds the dataset URL only
-        r = self.sh("acme", "--dry-run", env={"PATH": f"{bindir}:{os.environ['PATH']}", "CODE_URL": "https://example.org/code"})
+        r = self.sh("acme", "--dry-run", "--gradio", env={"PATH": f"{bindir}:{os.environ['PATH']}", "CODE_URL": "https://example.org/code"})
         self.assertEqual(r.returncode, 0, r.stdout[-800:] + r.stderr[-800:])
         self.assertNotIn("uv-was-called", r.stderr)
         staged = RELEASE / "build" / "space" / "data"

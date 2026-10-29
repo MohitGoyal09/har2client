@@ -18,7 +18,7 @@ import publish_guard
 COMMIT_MESSAGE = "Release har2client"
 # Remote files with these extensions that are not in the staged folder are deleted, so a re-run cannot leave an old file
 # (for example a removed config) online. `.gitattributes` has no extension in this list and stays.
-DELETE_PATTERNS = ["*.jsonl", "*.parquet", "*.json", "*.md", "*.csv", "*.txt", "*.py"]
+DELETE_PATTERNS = ["*.jsonl", "*.parquet", "*.json", "*.md", "*.csv", "*.txt", "*.py", "*.html", "*.css", "*.js"]
 IGNORE_PATTERNS = ["__pycache__/*", "*/__pycache__/*", "*.pyc", ".DS_Store"]
 
 
@@ -39,6 +39,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--space-name", default="har2client-leaderboard")
     ap.add_argument("--dataset-dir", required=True, type=Path)
     ap.add_argument("--space-dir", required=True, type=Path)
+    ap.add_argument("--space-sdk", choices=("static", "gradio"), default="static",
+                    help="Space SDK: static (plain HTML/CSS/JS from release/static_space, the default) or gradio (the older app)")
     ap.add_argument("--private", action="store_true", help="create the repos as private (default: public)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args(argv)
@@ -54,7 +56,8 @@ def main(argv: list[str] | None = None) -> int:
         publish_guard.check([args.dataset_dir / "README.md", args.dataset_dir / "croissant.json", args.space_dir / "README.md"], dry_run=True)
         for kind, repo_id, folder in plan:
             files = files_to_upload(folder)
-            print(f"[dry run] would create/update {kind} {repo_id} (private={args.private}) from {folder} ({len(files)} files)")
+            sdk = f", sdk={args.space_sdk}" if kind == "space" else ""
+            print(f"[dry run] would create/update {kind} {repo_id} (private={args.private}{sdk}) from {folder} ({len(files)} files)")
             for rel, size in files:
                 print(f"[dry run]   {rel:<48} {size:>12} bytes")
             print(f"[dry run]   total {sum(size for _, size in files)} bytes in {len(files)} files")
@@ -72,7 +75,7 @@ def main(argv: list[str] | None = None) -> int:
 
     api = HfApi(token=token)
     for kind, repo_id, folder in plan:
-        extra = {"space_sdk": "gradio"} if kind == "space" else {}
+        extra = {"space_sdk": args.space_sdk} if kind == "space" else {}
         api.create_repo(repo_id=repo_id, repo_type=kind, private=args.private, exist_ok=True, **extra)
         api.upload_folder(folder_path=str(folder), repo_id=repo_id, repo_type=kind, commit_message=COMMIT_MESSAGE,
                           ignore_patterns=IGNORE_PATTERNS, delete_patterns=DELETE_PATTERNS)

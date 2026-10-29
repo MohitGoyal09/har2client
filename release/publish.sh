@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 # One command to publish the har2client dataset and the leaderboard Space to the Hugging Face Hub.
 #
-#   HF_TOKEN=hf_xxx ./release/publish.sh <namespace> [--private] [--dry-run]
+#   HF_TOKEN=hf_xxx ./release/publish.sh <namespace> [--private] [--dry-run] [--static|--gradio]
 #   ./release/publish.sh <namespace> --dry-run      (no token, no network)
 #
 #   <namespace>   Hub user or organisation that will own the repos
 #   --private     create the repos as private (default: public)
 #   --dry-run     build, check and stage everything, but do not upload (no token needed)
+#   --static      publish the Space as a static Space (sdk: static; plain HTML/CSS/JS from release/static_space). This is the default,
+#                 because the Hub no longer hosts free Gradio Spaces.
+#   --gradio      publish the older Gradio Space from release/space instead
 #
-# Steps: guard -> export the dataset (without the restricted Tier A specs) -> leak check -> Croissant check -> sync Space data
-#        -> leak check again -> stage the Space -> leak check of the staged Space -> upload.
+# Steps (static): guard -> export the dataset (without the restricted Tier A specs) -> leak check -> Croissant check -> build the static site
+#        -> leak check again -> leak check of the built site -> upload (dataset, then Space with space_sdk="static").
+# Steps (gradio): guard -> export -> leak check -> Croissant check -> sync Space data -> leak check again -> stage the Space -> leak check -> upload.
 # The guard refuses a real publish while the card, croissant.json or the Space README hold TBD, TODO, "<code repository>" or
 # "Open decision" (a dry run only prints a warning). Any failed check stops the script before anything is uploaded.
 # Needs: python3, uv (upload only). Never put the token in a file.
@@ -23,10 +27,14 @@ esac
 shift
 EXTRA_ARGS=("$@")
 DRY=0
+SPACE_MODE=static
+PUBLISH_ARGS=()
 for a in "${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"}"; do
   case "$a" in
-    --dry-run) DRY=1 ;;
-    --private) ;;
+    --dry-run) DRY=1; PUBLISH_ARGS+=("$a") ;;
+    --private) PUBLISH_ARGS+=("$a") ;;
+    --static) SPACE_MODE=static ;;
+    --gradio) SPACE_MODE=gradio ;;
     *) echo "error: unknown option '$a'" >&2; exit 2 ;;
   esac
 done
@@ -61,33 +69,58 @@ print("rows: " + ", ".join(f"{k}={v}" for k, v in rows.items()) + f"; results fi
 PY
 
 echo "2/8 leak check (dataset)"
-python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"}
+if [ "$SPACE_MODE" = static ]; then
+  # The static Space has no space/data folder: check the dataset, the card and the Croissant file here, and the built site in step 7.
+  python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"} \
+    --extra "$HERE/DATASET_CARD.md" "$HERE/croissant.json"
+else
+  python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"}
+fi
 
 echo "3/8 Croissant check"
 python3 "$HERE/validate_croissant.py" "$BUILD/dataset/croissant.json" --strict
 
-echo "4/8 sync Space data"
-python3 "$HERE/sync_space_data.py"
+if [ "$SPACE_MODE" = static ]; then
+  SPACE_DIR="$BUILD/static_space"
+  echo "4/8 build static Space (release/static_space/build.py)"
+  python3 "$HERE/static_space/build.py" --out "$SPACE_DIR"
 
-echo "5/8 leak check (dataset, results and Space data)"
-python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"}
+  echo "5/8 leak check (dataset, card, Croissant)"
+  python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"} \
+    --extra "$HERE/DATASET_CARD.md" "$HERE/croissant.json"
 
-echo "6/8 stage Space"
-rm -rf "$BUILD/space"
-mkdir -p "$BUILD/space"
-cp -R "$HERE/space/." "$BUILD/space/"
-rm -rf "$BUILD/space/__pycache__"
-python3 -c 'import json, sys; print(json.dumps({"dataset": "https://huggingface.co/datasets/" + sys.argv[1], "report": ""}))' "$DATASET_ID" > "$BUILD/space/data/links.json"
+  echo "6/8 stage static Space: $SPACE_DIR (sdk: static)"
+  grep -q '^sdk: static$' "$SPACE_DIR/README.md" || { echo "error: $SPACE_DIR/README.md has no 'sdk: static' frontmatter" >&2; exit 1; }
+  test -f "$SPACE_DIR/index.html" || { echo "error: $SPACE_DIR/index.html missing" >&2; exit 1; }
 
-echo "7/8 leak check (staged Space)"
-python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"} \
-  --extra "$HERE/DATASET_CARD.md" "$HERE/croissant.json" "$BUILD/space"
+  echo "7/8 leak check (built static Space)"
+  python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"} \
+    --extra "$HERE/DATASET_CARD.md" "$HERE/croissant.json" "$SPACE_DIR"
+else
+  SPACE_DIR="$BUILD/space"
+  echo "4/8 sync Space data"
+  python3 "$HERE/sync_space_data.py"
 
-echo "8/8 upload"
+  echo "5/8 leak check (dataset, results and Space data)"
+  python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"}
+
+  echo "6/8 stage Space"
+  rm -rf "$BUILD/space"
+  mkdir -p "$BUILD/space"
+  cp -R "$HERE/space/." "$BUILD/space/"
+  rm -rf "$BUILD/space/__pycache__"
+  python3 -c 'import json, sys; print(json.dumps({"dataset": "https://huggingface.co/datasets/" + sys.argv[1], "report": ""}))' "$DATASET_ID" > "$BUILD/space/data/links.json"
+
+  echo "7/8 leak check (staged Space)"
+  python3 "$HERE/check_no_leak.py" "${V3_ARGS[@]}" ${PROBE_DIR:+--probe "$PROBE_DIR"} ${HEAL_DIR:+--heal "$HEAL_DIR"} \
+    --extra "$HERE/DATASET_CARD.md" "$HERE/croissant.json" "$BUILD/space"
+fi
+
+echo "8/8 upload (Space sdk: $SPACE_MODE)"
 if [ "$DRY" = 1 ]; then
   # --dry-run needs no network: publish_hf.py imports huggingface_hub only when it uploads.
-  python3 "$HERE/publish_hf.py" --namespace "$NAMESPACE" --dataset-dir "$BUILD/dataset" --space-dir "$BUILD/space" "${EXTRA_ARGS[@]}"
+  python3 "$HERE/publish_hf.py" --namespace "$NAMESPACE" --dataset-dir "$BUILD/dataset" --space-dir "$SPACE_DIR" --space-sdk "$SPACE_MODE" "${PUBLISH_ARGS[@]}"
   exit 0
 fi
 uv run --quiet --with "huggingface_hub>=1.0" python "$HERE/publish_hf.py" \
-  --namespace "$NAMESPACE" --dataset-dir "$BUILD/dataset" --space-dir "$BUILD/space" "${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"}"
+  --namespace "$NAMESPACE" --dataset-dir "$BUILD/dataset" --space-dir "$SPACE_DIR" --space-sdk "$SPACE_MODE" "${PUBLISH_ARGS[@]+"${PUBLISH_ARGS[@]}"}"

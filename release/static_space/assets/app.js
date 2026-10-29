@@ -613,6 +613,14 @@
   }
 
   /* ---------- nav scroll-spy, copy buttons ---------- */
+  // Scroll only the nav bar sideways. Element.scrollIntoView would also scroll the page (and the
+  // Hugging Face iframe) back toward the sticky link, which locks page scrolling.
+  function centerInNav(a) {
+    var nav = a.parentNode;
+    if (!nav || nav.scrollWidth <= nav.clientWidth) return;
+    var left = a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2;
+    nav.scrollTo({ left: Math.max(0, left), behavior: 'auto' });
+  }
   function initNav() {
     var links = [].slice.call(document.querySelectorAll('.bar-nav a'));
     var map = {};
@@ -621,7 +629,7 @@
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
         links.forEach(function (a) { a.removeAttribute('aria-current'); });
-        var a = map[e.target.id]; if (a) { a.setAttribute('aria-current', 'true'); a.scrollIntoView({ block: 'nearest', inline: 'center' }); }
+        var a = map[e.target.id]; if (a) { a.setAttribute('aria-current', 'true'); centerInNav(a); }
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });

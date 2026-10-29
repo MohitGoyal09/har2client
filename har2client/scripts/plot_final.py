@@ -12,7 +12,8 @@ Reads (read-only, no number is typed in here):
 Beam high on Cases 1 and 3 is the per-task mean of 3 runs (scripts/high_runs.py via analyze_models.py); every other cell is 1 run.
 Case 2 P20 (probe20) is dropped on load and appears in no figure.
 
-Writes results/figures/final_{scoreboard,leaderboard,effort_curves,information_gain,gap_vs_beam,beam_missing_info,cost_vs_score}
+Writes results/figures/final_{scoreboard,leaderboard,effort_curves,information_gain,gap_vs_beam,beam_missing_info,cost_vs_score,
+effort_matched,all_scores,beam_by_effort}
 as .png (200 dpi), .svg and .json (the plotted numbers).
 """
 
@@ -589,10 +590,171 @@ def fig_cost_vs_score(rows: dict, doc: dict):
     return fig, {"title": title, "points": data}
 
 
+# ---- 8. matched effort: Beam against GPT-OSS-120B at low, medium and high --
+
+
+def effort_label(e: str) -> str:
+    return {"low": "low", "medium": "medium", "high": "high"}[e]
+
+
+def fig_effort_matched(rows: dict, doc: dict):
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
+
+    setup()
+    cells = {(m, e, s): cell(rows, m, e, s) for m in ("beam", "gpt") for e in EFFORTS for s in SUITES}
+    ahead = [(e, s) for e in EFFORTS for s in SUITES if cells[("beam", e, s)]["pass_rate"] > cells[("gpt", e, s)]["pass_rate"]]
+    gpt_ahead = [s for e in EFFORTS for s in SUITES if cells[("gpt", e, s)]["pass_rate"] > cells[("beam", e, s)]["pass_rate"]]
+    n_cells = len(EFFORTS) * len(SUITES)
+    only_no_info = bool(gpt_ahead) and all(s in ("probe0", "v3base") for s in gpt_ahead)
+    title = f"At the same effort setting Beam is ahead of GPT-OSS-120B in {len(ahead)} of {n_cells} cells"
+    if only_no_info:
+        title += "; GPT-OSS-120B leads only where no extra information is given"
+    fig, top, bottom = frame(11, 7.4, title,
+                             "pass rate at low, medium and high reasoning effort, Beam against GPT-OSS-120B; the line is Qwen3.5-397B-A17B with "
+                             f"thinking on (one setting, no effort levels); {n_text(rows)}", ci_note(doc), bottom_in=0.65)
+    gs = fig.add_gridspec(2, 3, left=0.085, right=0.925, top=top, bottom=bottom, hspace=0.5, wspace=0.5)
+    axes = [fig.add_subplot(gs[i // 3, i % 3]) for i in range(6)]
+    data = []
+    width = 0.38
+    for ax, (suite, label) in zip(axes, BENCHMARKS):
+        style_axes(ax, "y")
+        for j, m in enumerate(("beam", "gpt")):
+            for i, e in enumerate(EFFORTS):
+                c = cells[(m, e, suite)]
+                x = i + (j - 0.5) * width
+                ax.bar(x, c["pass_rate"], width=width * 0.94, color=MODEL_COLOR[m], zorder=3)
+                ax.text(x, c["pass_rate"] + 1.5, f"{c['pass_rate']:.1f}", ha="center", va="bottom", fontsize=7.6, fontweight="bold", color=INK,
+                        zorder=5, path_effects=halo())
+                data.append(c)
+        q = cell(rows, "qwen", "thinking", suite)
+        data.append(q)
+        ax.axhline(q["pass_rate"], color=MODEL_COLOR["qwen"], lw=2, ls=(0, (5, 2)), zorder=4)
+        ax.text(2.6, q["pass_rate"], f"Qwen3.5\n{q['pass_rate']:.1f}", ha="left", va="center", fontsize=8.5, fontweight="bold", color=INK, linespacing=1.1,
+                clip_on=False, path_effects=halo())
+        ax.set_xlim(-0.55, 2.55)
+        ax.set_ylim(0, 112)
+        ax.set_xticks(range(3), [effort_label(e) for e in EFFORTS], fontsize=9.5, color=INK)
+        ax.set_yticks([0, 25, 50, 75, 100])
+        ax.set_ylabel("pass rate (%)", fontsize=9, color=INK_2)
+        ax.set_xlabel("reasoning effort", fontsize=9, color=INK_2)
+        ax.set_title(label, loc="left", fontsize=11, fontweight="bold", color=INK, pad=6)
+    legend_cell(axes[5], [("Model", [Patch(color=MODEL_COLOR["beam"], label="Beam"), Patch(color=MODEL_COLOR["gpt"], label="GPT-OSS-120B"),
+                                      Line2D([], [], color=MODEL_COLOR["qwen"], lw=2, ls=(0, (5, 2)), label="Qwen3.5-397B-A17B\n(thinking on)")])])
+    return fig, {"title": title, "benchmarks": [BENCH_LABEL[s] for s in SUITES], "bars": data,
+                 "beam_ahead_cells": len(ahead), "matched_cells": n_cells}
+
+
+# ---- 9. every score: dot and whisker ---------------------------------------
+
+
+def fig_all_scores(rows: dict, doc: dict):
+    from matplotlib.lines import Line2D
+
+    setup()
+    title = "Every score: 7 settings on 5 benchmarks, with 95% intervals"
+    fig, top, bottom = frame(15, 6.6, title,
+                             "dot = mean pass rate, whisker = 95% CI over tasks; rows are grouped by model, marker shape = reasoning effort "
+                             f"(Qwen3.5 has one setting, thinking on); {n_text(rows)}", ci_note(doc), bottom_in=1.0)
+    gs = fig.add_gridspec(1, 5, left=0.175, right=0.985, top=top, bottom=bottom, wspace=0.12)
+    axes = [fig.add_subplot(gs[0, i]) for i in range(5)]
+    ypos, y = {}, 0.0
+    for m in MODELS:
+        for e in [e for mm, e in ROW_ORDER if mm == m]:
+            ypos[(m, e)] = y
+            y += 1.0
+        y += 0.6
+    ymax = max(ypos.values())
+    data = []
+    for k, (ax, (suite, label)) in enumerate(zip(axes, BENCHMARKS)):
+        style_axes(ax, "x")
+        for m in MODELS:
+            ys = [ypos[(m, e)] for mm, e in ROW_ORDER if mm == m]
+            ax.axhspan(min(ys) - 0.5, max(ys) + 0.5, color=MODEL_COLOR[m], alpha=0.07, lw=0, zorder=0)
+        for m, e in ROW_ORDER:
+            c = cell(rows, m, e, suite)
+            yy = ypos[(m, e)]
+            ax.plot([c["ci_low"], c["ci_high"]], [yy, yy], color=MODEL_COLOR[m], lw=1.8, zorder=3, solid_capstyle="butt")
+            for xe in (c["ci_low"], c["ci_high"]):
+                ax.plot([xe, xe], [yy - 0.12, yy + 0.12], color=MODEL_COLOR[m], lw=1.8, zorder=3)
+            ax.plot(c["pass_rate"], yy, marker=EFFORT_MARKER[e], ms=MS, color=MODEL_COLOR[m], mec=SURFACE, mew=1.0, ls="none", zorder=4)
+            ax.text(min(c["ci_high"] + 2.5, 112), yy, f"{c['pass_rate']:.1f}", ha="left", va="center", fontsize=8.8, fontweight="bold", color=INK,
+                    zorder=5, path_effects=halo())
+            data.append(c)
+        ax.set_xlim(0, 125)
+        ax.set_ylim(ymax + 0.6, -0.6)
+        ax.set_xticks([0, 25, 50, 75, 100])
+        ax.set_xlabel("pass rate (%)", fontsize=9, color=INK_2)
+        ax.set_title(label, loc="left", fontsize=10.5, fontweight="bold", color=INK, pad=6)
+        ax.tick_params(axis="y", length=0)
+        if k == 0:
+            ax.set_yticks([ypos[r] for r in ROW_ORDER],
+                          [f"{MODEL_SHORT[m]} {e}" if m != "qwen" else "Qwen3.5 thinking on" for m, e in ROW_ORDER], fontsize=9.5, color=INK)
+        else:
+            ax.set_yticks([])
+    fig.legend(handles=[Line2D([], [], color=MODEL_COLOR[m], lw=2, label={"beam": "Beam", "gpt": "GPT-OSS-120B", "qwen": "Qwen3.5-397B-A17B"}[m])
+                        for m in MODELS] + [Line2D([], [], color=INK_2, lw=0, marker=EFFORT_MARKER[e], ms=MS, label=e)
+                                            for e in (*EFFORTS, "thinking")],
+               loc="upper center", ncol=7, frameon=False, fontsize=9, labelcolor=INK, bbox_to_anchor=(0.58, bottom - 0.09))
+    return fig, {"title": title, "benchmarks": [BENCH_LABEL[s] for s in SUITES], "points": data}
+
+
+# ---- 10. Beam by effort: the three cases with and without the missing piece -
+
+
+def fig_beam_by_effort(rows: dict, doc: dict, effort_doc: dict):
+    from matplotlib.patches import Patch
+
+    setup()
+    title = "Beam at every effort level: the missing piece helps at low, medium and high"
+    fig, top, bottom = frame(12.5, 5.6, title,
+                             "Beam only; light bars withhold the missing piece (hidden header, no probes, no hint), solid bars supply it "
+                             "(header visible, up to 5 probes, hint)", "Case 1: 25 tasks per bar. Case 2: 50 tasks. Case 3: 64 tasks. "
+                             "High effort on Cases 1 and 3 is the mean of 3 runs; every other bar is 1 run. Case 1 header bars: "
+                             "results/analysis/tierb50_effort/summary.json. "
+                             + ci_note(doc).split(" Beam high")[0].split(". ", 1)[1],
+                             bottom_in=0.6)
+    gs = fig.add_gridspec(1, 3, left=0.06, right=0.985, top=top, bottom=bottom, wspace=0.18)
+    axes = [fig.add_subplot(gs[0, i]) for i in range(3)]
+
+    def header(level: str, e: str) -> dict:
+        sw = next(s for s in effort_doc["switches"] if s["switch"] == "hidden_header" and s["level"] == level)["by_effort"][e]
+        return {"pass_rate": sw["pass_rate"] * 100, "n": sw["n"]}
+
+    panels = (
+        ("Case 1: hidden header", ("header hidden", lambda e: header("on", e)), ("header visible", lambda e: header("off", e))),
+        ("Case 2: probing", ("no probes", lambda e: cell(rows, "beam", e, "probe0")), ("up to 5 probes", lambda e: cell(rows, "beam", e, "probe5"))),
+        ("Case 3: repair", ("no hint", lambda e: cell(rows, "beam", e, "v3base")), ("with hint", lambda e: cell(rows, "beam", e, "v3hint"))),
+    )
+    data = []
+    width = 0.38
+    col = MODEL_COLOR["beam"]
+    for ax, (label, without, with_) in zip(axes, panels):
+        style_axes(ax, "y")
+        for j, (name, getter) in enumerate((without, with_)):
+            for i, e in enumerate(EFFORTS):
+                c = getter(e)
+                x = i + (j - 0.5) * width
+                ax.bar(x, c["pass_rate"], width=width * 0.94, color=col if j else BLUE_RAMP[1], edgecolor=col, linewidth=1.3, zorder=3)
+                ax.text(x, c["pass_rate"] + 1.5, f"{c['pass_rate']:.1f}", ha="center", va="bottom", fontsize=8.5, fontweight="bold", color=INK, zorder=5)
+                data.append({"panel": label, "arm": name, "effort": e, "pass_rate": c["pass_rate"], "n": c["n"], "information_available": bool(j)})
+        ax.set_xlim(-0.55, 2.55)
+        ax.set_ylim(0, 112)
+        ax.set_xticks(range(3), list(EFFORTS), fontsize=9.5, color=INK)
+        ax.set_yticks([0, 25, 50, 75, 100])
+        ax.set_xlabel("reasoning effort", fontsize=9, color=INK_2)
+        ax.set_title(label, loc="left", fontsize=11, fontweight="bold", color=INK, pad=6)
+        ax.legend(handles=[Patch(facecolor=BLUE_RAMP[1], edgecolor=col, label=without[0]), Patch(facecolor=col, edgecolor=col, label=with_[0])],
+                  loc="upper left", frameon=True, facecolor=SURFACE, edgecolor=GRID, fontsize=8.5, labelcolor=INK, ncol=2, columnspacing=1.0,
+                  handlelength=1.2)
+    axes[0].set_ylabel("pass rate (%)", fontsize=9, color=INK_2)
+    return fig, {"title": title, "bars": data}
+
+
 # ---- entry point -----------------------------------------------------------
 
 FIGURES = ("final_scoreboard", "final_leaderboard", "final_effort_curves", "final_information_gain", "final_gap_vs_beam",
-           "final_beam_missing_info", "final_cost_vs_score")
+           "final_beam_missing_info", "final_cost_vs_score", "final_effort_matched", "final_all_scores", "final_beam_by_effort")
 
 
 def build_all(out_dir: Path = DEFAULT_OUT, summary: Path = SUMMARY, effort_summary: Path = EFFORT_SUMMARY,
@@ -608,6 +770,9 @@ def build_all(out_dir: Path = DEFAULT_OUT, summary: Path = SUMMARY, effort_summa
         "final_gap_vs_beam": lambda: fig_gap_vs_beam(rows, doc),
         "final_beam_missing_info": lambda: fig_beam_missing_info(rows, doc, effort_doc, controls_doc),
         "final_cost_vs_score": lambda: fig_cost_vs_score(rows, doc),
+        "final_effort_matched": lambda: fig_effort_matched(rows, doc),
+        "final_all_scores": lambda: fig_all_scores(rows, doc),
+        "final_beam_by_effort": lambda: fig_beam_by_effort(rows, doc, effort_doc),
     }
     for name in FIGURES:
         fig, data = makers[name]()

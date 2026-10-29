@@ -44,6 +44,9 @@ FINDINGS_FIGURES = (
     ("final_gap_vs_beam.png", "Difference from Beam (high) with 95% intervals over tasks: without extra information GPT-OSS-120B matches or beats Beam; with it, Beam pulls ahead."),
     ("final_beam_missing_info.png", "Tier B, 25 tasks each: Beam builds clients well when the recording shows everything, and recovers when it is given the missing piece (the hidden header)."),
     ("final_cost_vs_score.png", "Pass rate against mean output tokens per call: higher scores cost more tokens; Beam (high) uses fewer output tokens than GPT-OSS-120B (high) on 4 of the 5 benchmarks."),
+    ("final_effort_matched.png", "Pass rate at low, medium and high effort: Beam against GPT-OSS-120B on the five benchmarks, with Qwen3.5 (thinking on) as a reference line."),
+    ("final_all_scores.png", "Every score: all 7 settings on all 5 benchmarks, with 95% intervals over tasks."),
+    ("final_beam_by_effort.png", "Beam at low, medium and high effort: with and without the missing piece (hidden header, probes, hint)."),
     ("story_effort_curves.png", "Pass rate against output tokens at low, medium and high effort: Tier B, and case 3 with and without the hint (low and medium: 1 run per task; high: mean of 3 runs per task; 95% CI over tasks)."),
     ("story_hint_vs_effort.png", "Case 3: the hint at low effort beats the base prompt at high effort, with fewer output tokens (paired hint minus base gain per effort)."),
     ("story_cost_per_solve.png", "Output tokens per fully solved task: the cost of a solve rises with effort, and the hint lowers it in case 3."),
@@ -214,7 +217,8 @@ def comparison_markdown() -> tuple[str, str, str]:
     intro = (
         "### Beam against GPT-OSS-120B and Qwen3.5-397B-A17B\n"
         "The same five benchmarks, scored by the same hidden tests: case 1 (Tier B, 50 tasks), case 2 on the placebo and P5 arms (the same 50 tasks), "
-        "and case 3 base and with the hint (64 tasks each). Mean pass rate in %. Every cell for GPT-OSS-120B and Qwen is **one run per task**."
+        "and case 3 base and with the hint (64 tasks each). Mean pass rate in %. All seven settings are shown: Beam and GPT-OSS-120B at low, medium and high effort, and Qwen with thinking on (one setting, not an effort level). "
+        "Every cell for GPT-OSS-120B and Qwen is **one run per task**."
     )
     method = (
         "<div class='h2c-note'>**Method notes.** GPT-OSS-120B ran at low, medium and high `reasoning_effort`. Qwen3.5-397B-A17B ran with thinking on (`enable_thinking=true`); "
@@ -298,6 +302,9 @@ def build_app() -> gr.Blocks:
                 gr.Markdown(cmp_intro)
                 gr.Markdown("**Mean pass rate (%)**")
                 gr.Dataframe(T.comparison_table(BUNDLE), interactive=False, wrap=True)
+                gr.Markdown("**Beam by effort, with and without the missing piece** (mean pass rate %). Case 1 splits the 50 Tier B tasks by the hidden header; "
+                            "case 2 uses the placebo and P5 arms. Beam (high) on cases 1 and 3 is the mean of 3 runs; every other cell is 1 run.")
+                gr.Dataframe(T.beam_effort_table(BUNDLE), interactive=False, wrap=True)
                 gr.Markdown(cmp_gaps)
                 gr.Dataframe(T.comparison_gap_table(), interactive=False, wrap=True)
                 gr.Markdown("**Mean output tokens per call** (reasoning included).")

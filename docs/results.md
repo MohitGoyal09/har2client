@@ -2,6 +2,76 @@
 
 Numbers behind the tables in the [front page](../README.md). Every number comes from the files under [`har2client/results/`](../har2client/results/).
 
+## All settings, all effort levels
+
+Every score we have, low, medium and high. Pass rate = share of hidden tests passed. Beam and GPT-OSS-120B ran at low, medium and high reasoning effort. Qwen3.5-397B-A17B has one setting (thinking on); it has no effort levels. Beam (high) on case 1 and case 3 is the mean of 3 runs per task; every other cell is 1 run. Source: [har2client/results/analysis/model_comparison/summary.json](../har2client/results/analysis/model_comparison/summary.json) (intervals and paired differences are there and in [report.md](../har2client/results/analysis/model_comparison/report.md)).
+
+| Setting | Case 1, Tier B (50) | Case 2, no probes (50) | Case 2, 5 probes (50) | Case 3, base (64) | Case 3, with hint (64) |
+|---|---|---|---|---|---|
+| Beam (low) | 57.1% | 53.1% | 64.9% | 31.6% | 71.6% |
+| Beam (medium) | 63.7% | 46.3% | 87.7% | 37.0% | 76.9% |
+| Beam (high) | 74.5% | 49.7% | 95.7% | 46.0% | 87.7% |
+| GPT-OSS-120B (low) | 51.1% | 50.0% | 62.6% | 32.7% | 47.7% |
+| GPT-OSS-120B (medium) | 53.7% | 56.6% | 57.4% | 34.4% | 50.4% |
+| GPT-OSS-120B (high) | 69.7% | 69.4% | 82.3% | 58.5% | 57.8% |
+| Qwen3.5-397B-A17B (thinking on) | 36.0% | 40.0% | 48.0% | 29.6% | 52.3% |
+
+Mean output tokens per task (reasoning included). The effort names are API settings, not equal compute.
+
+| Setting | Case 1, Tier B (50) | Case 2, no probes (50) | Case 2, 5 probes (50) | Case 3, base (64) | Case 3, with hint (64) |
+|---|---|---|---|---|---|
+| Beam (low) | 1,154 | 1,046 | 1,046 | 1,758 | 1,800 |
+| Beam (medium) | 2,259 | 2,283 | 2,110 | 2,922 | 2,846 |
+| Beam (high) | 4,818 | 5,634 | 4,968 | 7,746 | 6,824 |
+| GPT-OSS-120B (low) | 2,133 | 2,201 | 2,297 | 2,497 | 2,508 |
+| GPT-OSS-120B (medium) | 2,183 | 2,120 | 2,229 | 2,445 | 2,490 |
+| GPT-OSS-120B (high) | 5,854 | 5,402 | 5,903 | 10,734 | 10,163 |
+| Qwen3.5-397B-A17B (thinking on) | 3,159 | 4,065 | 3,727 | 5,050 | 5,309 |
+
+![Pass rate at low, medium and high effort: Beam against GPT-OSS-120B, with Qwen3.5 as a reference line](../har2client/results/figures/final_effort_matched.png)
+
+![Every score: 7 settings on 5 benchmarks with 95% intervals](../har2client/results/figures/final_all_scores.png)
+
+## Beam by case and effort
+
+The same Beam numbers split by case. Sources: [tierb50_effort/summary.json](../har2client/results/analysis/tierb50_effort/summary.json) (Case 1 header split), [heal_v3_eval/summary.json](../har2client/results/analysis/heal_v3_eval/summary.json) (Case 3), [case2_probe/main_full/summary.json](../har2client/results/case2_probe/main_full/summary.json) (Case 2).
+
+### Case 1 (Tier B, 50 tasks), Beam by effort
+
+| Split | Tasks | low | medium | high (mean of 3 runs) |
+|---|---|---|---|---|
+| All Tier B tasks | 50 | 57.1% | 63.7% | 74.5% |
+| Hidden header off (header visible in the recording) | 25 | 94.3% | 96.0% | 99.8% |
+| Hidden header on (header hidden) | 25 | 20.0% | 31.4% | 49.1% |
+| Mean output tokens per task, all 50 | 50 | 1,154 | 2,259 | 4,818 |
+
+### Case 2 (50 tasks), Beam by effort: no probes and up to 5 probes (P5)
+
+1 run per cell. A response with no code counts as 0.
+
+| Arm | Measure | low | medium | high |
+|---|---|---|---|---|
+| No probes (placebo) | pass rate | 53.1% | 46.3% | 49.7% |
+| No probes (placebo) | mean output tokens per task | 1,046 | 2,283 | 5,634 |
+| Up to 5 probes (P5) | pass rate | 64.9% | 87.7% | 95.7% |
+| Up to 5 probes (P5) | mean output tokens per task | 1,046 | 2,110 | 4,968 |
+| Up to 5 probes (P5) | mean probes used per task | 1.30 | 2.58 | 3.76 |
+
+### Case 3 (64 tasks), Beam by effort
+
+Full repair share = share of tasks where all 17 hidden tests pass. At high effort it is the mean over the 3 runs of the per-run share, so it is higher than the stricter all-3-runs count in the text above.
+
+| Arm | Measure | low | medium | high (mean of 3 runs) |
+|---|---|---|---|---|
+| Base | pass rate | 31.6% | 37.0% | 46.0% |
+| Base | full repair share | 17.2% | 21.9% | 30.2% |
+| Base | mean output tokens per task | 1,758 | 2,922 | 7,746 |
+| With hint | pass rate | 71.6% | 76.9% | 87.7% |
+| With hint | full repair share | 57.8% | 62.5% | 80.7% |
+| With hint | mean output tokens per task | 1,800 | 2,846 | 6,824 |
+
+![Beam at low, medium and high effort, with and without the missing piece](../har2client/results/figures/final_beam_by_effort.png)
+
 ## Beam in detail
 
 Beam-1.0-501B-A23B at three effort levels: low, medium and high. At high effort, case 3 (base and hint arms) and Tier B are the mean of 3 runs per task. Case 3 at low effort (base and hint arms) has two runs. Every other result is one run per task. The pre-registered default was three runs; the change is recorded in [har2client/PREREG.md](../har2client/PREREG.md) (deviations). Mean pass rate (share of hidden tests passed). Source: [har2client/results/analysis/](../har2client/results/analysis/) and the CSV files in [har2client/results/](../har2client/results/).

@@ -1,0 +1,150 @@
+{
+  "figure": "final_beam_by_effort",
+  "title": "Beam at every effort level: the missing piece helps at low, medium and high",
+  "bars": [
+    {
+      "panel": "Case 1: hidden header",
+      "arm": "header hidden",
+      "effort": "low",
+      "pass_rate": 20.0,
+      "n": 25,
+      "information_available": false
+    },
+    {
+      "panel": "Case 1: hidden header",
+      "arm": "header hidden",
+      "effort": "medium",
+      "pass_rate": 31.428571428571427,
+      "n": 25,
+      "information_available": false
+    },
+    {
+      "panel": "Case 1: hidden header",
+      "arm": "header hidden",
+      "effort": "high",
+      "pass_rate": 49.14285714285714,
+      "n": 25,
+      "information_available": false
+    },
+    {
+      "panel": "Case 1: hidden header",
+      "arm": "header visible",
+      "effort": "low",
+      "pass_rate": 94.28571428571429,
+      "n": 25,
+      "information_available": true
+    },
+    {
+      "panel": "Case 1: hidden header",
+      "arm": "header visible",
+      "effort": "medium",
+      "pass_rate": 96.0,
+      "n": 25,
+      "information_available": true
+    },
+    {
+      "panel": "Case 1: hidden header",
+      "arm": "header visible",
+      "effort": "high",
+      "pass_rate": 99.80952380952381,
+      "n": 25,
+      "information_available": true
+    },
+    {
+      "panel": "Case 2: probing",
+      "arm": "no probes",
+      "effort": "low",
+      "pass_rate": 53.142857142857146,
+      "n": 50,
+      "information_available": false
+    },
+    {
+      "panel": "Case 2: probing",
+      "arm": "no probes",
+      "effort": "medium",
+      "pass_rate": 46.285714285714285,
+      "n": 50,
+      "information_available": false
+    },
+    {
+      "panel": "Case 2: probing",
+      "arm": "no probes",
+      "effort": "high",
+      "pass_rate": 49.714285714285715,
+      "n": 50,
+      "information_available": false
+    },
+    {
+      "panel": "Case 2: probing",
+      "arm": "up to 5 probes",
+      "effort": "low",
+      "pass_rate": 64.85714285714285,
+      "n": 50,
+      "information_available": true
+    },
+    {
+      "panel": "Case 2: probing",
+      "arm": "up to 5 probes",
+      "effort": "medium",
+      "pass_rate": 87.71428571428571,
+      "n": 50,
+      "information_available": true
+    },
+    {
+      "panel": "Case 2: probing",
+      "arm": "up to 5 probes",
+      "effort": "high",
+      "pass_rate": 95.71428571428571,
+      "n": 50,
+      "information_available": true
+    },
+    {
+      "panel": "Case 3: repair",
+      "arm": "no hint",
+      "effort": "low",
+      "pass_rate": 31.61764705882353,
+      "n": 64,
+      "information_available": false
+    },
+    {
+      "panel": "Case 3: repair",
+      "arm": "no hint",
+      "effort": "medium",
+      "pass_rate": 37.04044117647059,
+      "n": 64,
+      "information_available": false
+    },
+    {
+      "panel": "Case 3: repair",
+      "arm": "no hint",
+      "effort": "high",
+      "pass_rate": 45.986519607843135,
+      "n": 64,
+      "information_available": false
+    },
+    {
+      "panel": "Case 3: repair",
+      "arm": "with hint",
+      "effort": "low",
+      "pass_rate": 71.59926470588235,
+      "n": 64,
+      "information_available": true
+    },
+    {
+      "panel": "Case 3: repair",
+      "arm": "with hint",
+      "effort": "medium",
+      "pass_rate": 76.93014705882352,
+      "n": 64,
+      "information_available": true
+    },
+    {
+      "panel": "Case 3: repair",
+      "arm": "with hint",
+      "effort": "high",
+      "pass_rate": 87.71446078431373,
+      "n": 64,
+      "information_available": true
+    }
+  ]
+}

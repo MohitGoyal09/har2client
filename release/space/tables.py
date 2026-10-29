@@ -432,6 +432,23 @@ def comparison_tokens_table(b: Bundle) -> pd.DataFrame:
     return _comparison_frame(cells, lambda k, s: round(cells[(k, s)]["out_tokens"]))
 
 
+def beam_effort_table(b: Bundle) -> pd.DataFrame:
+    """Beam only: mean pass rate (%) at low, medium and high effort, with and without the missing piece.
+    Case 1: Tier B tasks with the hidden header off (visible) and on (hidden), 25 tasks each. Case 2: placebo and P5. Case 3: base and hint."""
+    efforts = ("low", "medium", "high")
+    header = header_result(b)
+    cells = comparison_cells(b)
+    rows = [
+        ("Case 1: header hidden (25 tasks)", lambda e: header[e]["on"]["mean_pct"]),
+        ("Case 1: header visible (25 tasks)", lambda e: header[e]["off"]["mean_pct"]),
+        ("Case 2: no probes (50 tasks)", lambda e: cells[(f"beam-{e}", "probe0")]["pass_pct"]),
+        ("Case 2: up to 5 probes (50 tasks)", lambda e: cells[(f"beam-{e}", "probe5")]["pass_pct"]),
+        ("Case 3: base, no hint (64 tasks)", lambda e: cells[(f"beam-{e}", "v3base")]["pass_pct"]),
+        ("Case 3: with hint (64 tasks)", lambda e: cells[(f"beam-{e}", "v3hint")]["pass_pct"]),
+    ]
+    return pd.DataFrame([{"Beam, arm": name, **{e: r1(get(e)) for e in efforts}} for name, get in rows])
+
+
 def comparison_gap_table() -> pd.DataFrame:
     """Difference from Beam (high) in points with the 95% bootstrap interval over tasks, from `analysis/model_comparison/summary.json`."""
     paired = {(r["key"], r["suite"]): r["paired_vs_beam_high"] for r in comparison_summary()["rows"]}

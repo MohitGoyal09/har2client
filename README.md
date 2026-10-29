@@ -32,9 +32,41 @@ Mean pass rate (share of hidden tests passed). Beam (high) on case 1 and case 3 
 | Case 3, base (64 tasks) | 46.0% | 58.5% | 29.6% |
 | Case 3, with hint (64 tasks) | 87.7% | 57.8% | 52.3% |
 
-Beam (high) is first on three of the five (on case 1 the gap to GPT-OSS-120B is inside the 95% interval). GPT-OSS-120B (high) is first on case 3 base and on the case 2 no-probe arm. Qwen3.5-397B-A17B is last of the three on all five. The low and medium effort rows, the intervals and the token counts are in [har2client/MODEL-COMPARISON.md](har2client/MODEL-COMPARISON.md). More detail on Beam (effort levels, header split, hint controls, repeat runs, case 2 tests): [docs/results.md](docs/results.md).
+Beam (high) is first on three of the five (on case 1 the gap to GPT-OSS-120B is inside the 95% interval). GPT-OSS-120B (high) is first on case 3 base and on the case 2 no-probe arm. Qwen3.5-397B-A17B is last of the three on all five. The low and medium effort rows are in the next table. The intervals and more token detail are in [har2client/MODEL-COMPARISON.md](har2client/MODEL-COMPARISON.md). More detail on Beam (effort levels, header split, hint controls, repeat runs, case 2 tests): [docs/results.md](docs/results.md).
 
 ![Leaderboard of all model settings on five benchmarks](har2client/results/figures/final_leaderboard.png)
+
+### All settings: low, medium and high
+
+Every score we have. Pass rate = share of hidden tests passed. Beam and GPT-OSS-120B ran at low, medium and high reasoning effort. Qwen3.5-397B-A17B has one setting (thinking on), so it is not low, medium or high. Beam (high) on case 1 and case 3 is the mean of 3 runs; every other cell is 1 run. Case 2 is shown for the no-probe arm and the 5-probe arm. Source: [har2client/results/analysis/model_comparison/summary.json](har2client/results/analysis/model_comparison/summary.json).
+
+| Setting | Case 1, Tier B (50) | Case 2, no probes (50) | Case 2, 5 probes (50) | Case 3, base (64) | Case 3, with hint (64) |
+|---|---|---|---|---|---|
+| Beam (low) | 57.1% | 53.1% | 64.9% | 31.6% | 71.6% |
+| Beam (medium) | 63.7% | 46.3% | 87.7% | 37.0% | 76.9% |
+| Beam (high) | 74.5% | 49.7% | 95.7% | 46.0% | 87.7% |
+| GPT-OSS-120B (low) | 51.1% | 50.0% | 62.6% | 32.7% | 47.7% |
+| GPT-OSS-120B (medium) | 53.7% | 56.6% | 57.4% | 34.4% | 50.4% |
+| GPT-OSS-120B (high) | 69.7% | 69.4% | 82.3% | 58.5% | 57.8% |
+| Qwen3.5-397B-A17B (thinking on) | 36.0% | 40.0% | 48.0% | 29.6% | 52.3% |
+
+Mean output tokens per task (reasoning included). The effort names are API settings, not equal compute, so read this table next to the one above.
+
+| Setting | Case 1, Tier B (50) | Case 2, no probes (50) | Case 2, 5 probes (50) | Case 3, base (64) | Case 3, with hint (64) |
+|---|---|---|---|---|---|
+| Beam (low) | 1,154 | 1,046 | 1,046 | 1,758 | 1,800 |
+| Beam (medium) | 2,259 | 2,283 | 2,110 | 2,922 | 2,846 |
+| Beam (high) | 4,818 | 5,634 | 4,968 | 7,746 | 6,824 |
+| GPT-OSS-120B (low) | 2,133 | 2,201 | 2,297 | 2,497 | 2,508 |
+| GPT-OSS-120B (medium) | 2,183 | 2,120 | 2,229 | 2,445 | 2,490 |
+| GPT-OSS-120B (high) | 5,854 | 5,402 | 5,903 | 10,734 | 10,163 |
+| Qwen3.5-397B-A17B (thinking on) | 3,159 | 4,065 | 3,727 | 5,050 | 5,309 |
+
+![Pass rate at low, medium and high effort: Beam against GPT-OSS-120B on five benchmarks, with Qwen3.5 as a reference line](har2client/results/figures/final_effort_matched.png)
+
+![Every score: 7 settings on 5 benchmarks with 95% intervals](har2client/results/figures/final_all_scores.png)
+
+![Beam at low, medium and high effort, with and without the missing piece](har2client/results/figures/final_beam_by_effort.png)
 
 ## Quickstart
 

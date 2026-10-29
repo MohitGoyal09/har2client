@@ -22,7 +22,8 @@ COMPARISON_MODELS = ("gpt-oss-120b-low", "gpt-oss-120b-medium", "gpt-oss-120b-hi
 COMPARISON_SUITES = ("tierb50", "v3base", "v3hint", "probe0", "probe5")
 # The final figures, in display order (the Space shows them first on the Findings tab).
 FINAL_FIGURES = tuple(f"final_{n}.png" for n in (
-    "scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score"))
+    "scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score",
+    "effort_matched", "all_scores", "beam_by_effort"))
 CASE2_CSV = "case2_probe/main_full/results.csv"
 COMPARISON_SUMMARY = "analysis/model_comparison/summary.json"
 

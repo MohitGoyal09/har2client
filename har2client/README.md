@@ -188,7 +188,7 @@ All scripts are in `scripts/`. Run them as `uv run python scripts/<name>.py`; us
 | `plot_frontier.py` | Pass rate against output tokens, one line per series across efforts. Also holds the shared chart style. |
 | `plot_heal_families.py` | Case 3 v3 pass rate by task family, base against hint. Called by `analyze_heal_v3.py`. |
 | `plot_story.py` | The story figure set (`results/figures/story_*`). Helpers in `scripts/story_figs/`. |
-| `plot_final.py` | The final figure set (`results/figures/final_{scoreboard,leaderboard,effort_curves,information_gain,gap_vs_beam,beam_missing_info,cost_vs_score}.{png,svg,json}`): Beam against GPT-OSS-120B and Qwen3.5-397B-A17B. Reads the saved results; no model calls. |
+| `plot_final.py` | The final figure set (`results/figures/final_{scoreboard,leaderboard,effort_curves,information_gain,gap_vs_beam,beam_missing_info,cost_vs_score,effort_matched,all_scores,beam_by_effort}.{png,svg,json}`): Beam against GPT-OSS-120B and Qwen3.5-397B-A17B. Reads the saved results; no model calls. |
 
 ### RL helpers
 

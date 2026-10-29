@@ -20,7 +20,7 @@ Decisions the scripts enforce:
 | `croissant.json` | Croissant 1.0 template with RAI fields. The export fills sha256, repo id and `datePublished`. |
 | `validate_croissant.py` | Offline Croissant check (`--strict` also fails on unfilled placeholders). Runs the official `mlcroissant` too if it is installed. |
 | `check_no_leak.py` | Fails if the dataset (rows, card, Croissant, `results/` files, Space data) holds hidden test values, test credentials, seeds, reference-client lines, hidden file names or secret-looking strings. Also checks columns and the canary. |
-| `sync_space_data.py` | Writes `space/data/` (generated, git-ignored): exact copies of the `har2client/results` CSVs, the v3 floor file, the Tier B regression, the v3 analysis summary, the grader audit, the model comparison CSVs (without `probe20`), Beam's case 2 CSV, the comparison summary, the Findings figures (the 7 `final_*` and the 6 `story_*`), and `tasks.json` (goal, request table, excerpt for Tier A, Tier B and both v3 arms). |
+| `sync_space_data.py` | Writes `space/data/` (generated, git-ignored): exact copies of the `har2client/results` CSVs, the v3 floor file, the Tier B regression, the v3 analysis summary, the grader audit, the model comparison CSVs (without `probe20`), Beam's case 2 CSV, the comparison summary, the Findings figures (the 10 `final_*` and the 6 `story_*`), and `tasks.json` (goal, request table, excerpt for Tier A, Tier B and both v3 arms). |
 | `space/` | Gradio app (Leaderboard, Explore a task, Case 3, Model comparison, Findings, About). `tables.py` and `stats.py` compute every number from the files in `space/data/`. `requirements.txt` pins `gradio==6.30.0` (tested on Python 3.12). |
 | `h2c_release.py` | Shared paths, the list of `results/` files and figures, the Space figure list. |
 | `CANARY.txt` | The canary GUID (in every row and in the card). |
@@ -37,7 +37,7 @@ Configs: `tier_a` (27 rows), `tier_b` (50), `heal_v3` (64), `heal_v3_hint` (64).
 - Analysis: `analysis/{heal_v3_eval,tierb50_effort,heal_controls}/{report.md,summary.json}` and `analysis/tierb50_v1/{summary.md,coefficients.csv}`.
 - Case 2 (Beam, the same 50 Tier B tasks): `case2_probe/main_full/{REPORT.md,summary.json,results.csv,SENSITIVITY.md}`.
 - Model comparison (Beam, GPT-OSS-120B low/medium/high, Qwen3.5-397B-A17B thinking on): `analysis/model_comparison/{report.md,summary.json}`, `model_comparison/README.md` and `model_comparison/<setting>/<suite>/results.csv` for suites `tierb50`, `v3base`, `v3hint`, `probe0` (placebo) and `probe5` (P5). The P20 arm (`probe20`) is not part of the comparison and is not exported.
-- Figures: `figures/final_{scoreboard,leaderboard,effort_curves,information_gain,gap_vs_beam,beam_missing_info,cost_vs_score}.png` (made by `har2client/scripts/plot_final.py`), `figures/story_*.png`, `heal_v3_eval_frontier.png`, `tierb50_frontier.png`, `heal_v3_eval_families.png`, `models_*.png`.
+- Figures: `figures/final_{scoreboard,leaderboard,effort_curves,information_gain,gap_vs_beam,beam_missing_info,cost_vs_score,effort_matched,all_scores,beam_by_effort}.png` (made by `har2client/scripts/plot_final.py`), `figures/story_*.png`, `heal_v3_eval_frontier.png`, `tierb50_frontier.png`, `heal_v3_eval_families.png`, `models_*.png`.
 
 The last four groups of "Source" names in the card point at these files. The reports were written while the repo was private and still mention script names and a pre-registration file (`har2client/PREREG.md`); the card tells readers so. `results/README.md` is not copied (it cites local script paths).
 

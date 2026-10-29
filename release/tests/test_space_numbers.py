@@ -30,6 +30,17 @@ class SpaceMatchesAnalysis(unittest.TestCase):
         cls.bundle = tables.load_bundle()
         cls.summary = tables.data_path("analysis", "tierb50_v1", "summary.md").read_text(encoding="utf-8")
 
+    def test_beam_effort_table_matches_the_effort_summary_and_the_comparison_summary(self) -> None:
+        table = tables.beam_effort_table(self.bundle).set_index("Beam, arm")
+        effort = json.loads(tables.data_path("analysis", "tierb50_effort", "summary.json").read_text(encoding="utf-8")) if tables.data_path("analysis", "tierb50_effort", "summary.json").is_file() else json.loads((h2c_release.RESULTS_DIR / "analysis" / "tierb50_effort" / "summary.json").read_text(encoding="utf-8"))
+        on = next(x for x in effort["switches"] if x["switch"] == "hidden_header" and x["level"] == "on")["by_effort"]
+        for e in ("low", "medium", "high"):
+            self.assertAlmostEqual(table.loc["Case 1: header hidden (25 tasks)", e], tables.r1(on[e]["pass_rate"] * 100), places=1)
+        rows = {(r["key"], r["suite"]): r for r in tables.comparison_summary()["rows"]}
+        for e in ("low", "medium", "high"):
+            self.assertAlmostEqual(table.loc["Case 2: up to 5 probes (50 tasks)", e], tables.r1(rows[(f"beam-{e}", "probe5")]["pass_rate"]), places=1)
+            self.assertAlmostEqual(table.loc["Case 3: with hint (64 tasks)", e], tables.r1(rows[(f"beam-{e}", "v3hint")]["pass_rate"]), places=1)
+
     def test_tier_b_effort_means_and_intervals_match_the_analysis(self) -> None:
         # low is one run: it equals the run-1 summary.md. High is the mean of 3 runs: it equals analysis/tierb50_effort/summary.json
         # (the Space bootstrap uses 5,000 resamples against 10,000 there, so the interval ends agree to about a point).

@@ -181,3 +181,43 @@ def test_classify_maps_summary_keys():
 def test_spread_keeps_order_and_minimum_gap():
     out = pfin.spread([50.0, 51.0, 80.0], 9.0, 0, 100)
     assert out[1] - out[0] >= 9.0 - 1e-9 and out[2] > out[1]
+
+
+def test_effort_matched_has_every_beam_and_gpt_cell_and_one_qwen_line_per_benchmark(out_dir):
+    data = load(out_dir, "final_effort_matched")
+    assert len(data["benchmarks"]) == 5
+    bars = data["bars"]
+    assert len(bars) == 5 * (3 + 3 + 1)
+    assert {b["effort"] for b in bars if b["model"] == "qwen"} == {"thinking"}
+    assert find(bars, "beam", "medium", "probe5")["pass_rate"] == pytest.approx(
+        raw_pass_rate(RESULTS / "case2_probe" / "main_full" / "results.csv", "medium", "P5"), abs=1e-6)
+    assert round(find(bars, "gpt", "low", "v3hint")["pass_rate"], 1) == 47.7
+    wins = sum(find(bars, "beam", e, s)["pass_rate"] > find(bars, "gpt", e, s)["pass_rate"] for e in pfin.EFFORTS for s in pfin.SUITES)
+    assert data["beam_ahead_cells"] == wins and data["matched_cells"] == 15
+    assert f"{wins} of 15" in data["title"]
+
+
+def test_all_scores_has_seven_settings_by_five_benchmarks_with_intervals(out_dir):
+    data = load(out_dir, "final_all_scores")
+    pts = data["points"]
+    assert len(pts) == 7 * 5
+    assert all(p["ci_low"] <= p["pass_rate"] <= p["ci_high"] for p in pts)
+    assert {(p["model"], p["effort"]) for p in pts} == set(pfin.ROW_ORDER)
+    assert find(pts, "beam", "low", "tierb50")["pass_rate"] == pytest.approx(
+        raw_pass_rate(RESULTS / "tierb50_v1.csv", "low"), abs=1e-6)
+    assert round(find(pts, "qwen", "thinking", "probe5")["pass_rate"], 1) == 48.0
+
+
+def test_beam_by_effort_matches_the_effort_and_comparison_summaries(out_dir):
+    bars = load(out_dir, "final_beam_by_effort")["bars"]
+    assert len(bars) == 3 * 2 * 3
+    effort_doc = json.loads((RESULTS / "analysis" / "tierb50_effort" / "summary.json").read_text(encoding="utf-8"))
+    for level, arm in (("on", "header hidden"), ("off", "header visible")):
+        sw = next(s for s in effort_doc["switches"] if s["switch"] == "hidden_header" and s["level"] == level)
+        for e in pfin.EFFORTS:
+            got = next(b for b in bars if b["arm"] == arm and b["effort"] == e)
+            assert got["pass_rate"] == pytest.approx(sw["by_effort"][e]["pass_rate"] * 100)
+    got = next(b for b in bars if b["arm"] == "up to 5 probes" and b["effort"] == "low")
+    assert got["pass_rate"] == pytest.approx(raw_pass_rate(RESULTS / "case2_probe" / "main_full" / "results.csv", "low", "P5"), abs=1e-6)
+    got = next(b for b in bars if b["arm"] == "with hint" and b["effort"] == "medium")
+    assert round(got["pass_rate"], 1) == 76.9

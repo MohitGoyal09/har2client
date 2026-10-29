@@ -1,0 +1,125 @@
+{
+  "api_id": "shop-pro.jp",
+  "names": {
+    "original": {
+      "create_script_tag": {
+        "body_description": "Request body containing snippet details.",
+        "description": "Create a snippet.",
+        "fallbacks": [],
+        "name": "create_snippet",
+        "summary": "スクリプトタグの作成"
+      },
+      "create_shop_script_tag": {
+        "body_description": "Request body containing snippet details.",
+        "description": "Create a shop snippet.",
+        "fallbacks": [],
+        "name": "create_shop_snippet",
+        "summary": "スクリプトタグの作成"
+      },
+      "get_inline_script_tag": {
+        "body_description": "",
+        "description": "Retrieve one embedded widget.",
+        "fallbacks": [],
+        "name": "fetch_embedded_widget",
+        "params": {
+          "path:inlineScriptTagId": {
+            "description": "Embedded widget identifier.",
+            "name": "widget_id"
+          }
+        },
+        "summary": "インラインスクリプトタグの取得"
+      },
+      "get_script_tag": {
+        "body_description": "",
+        "description": "Retrieve one snippet.",
+        "fallbacks": [],
+        "name": "fetch_snippet",
+        "params": {
+          "path:scriptTagId": {
+            "description": "Snippet identifier.",
+            "name": "snippet_id"
+          }
+        },
+        "summary": "スクリプトタグの取得"
+      },
+      "get_shop_script_tag": {
+        "body_description": "",
+        "description": "Retrieve one shop snippet.",
+        "fallbacks": [],
+        "name": "fetch_shop_snippet",
+        "params": {
+          "path:scriptTagId": {
+            "description": "Shop snippet identifier.",
+            "name": "snippet_id"
+          }
+        },
+        "summary": "スクリプトタグの取得"
+      },
+      "get_shop_script_tags": {
+        "body_description": "",
+        "description": "Retrieve shop snippets.",
+        "fallbacks": [],
+        "name": "fetch_shop_snippets",
+        "summary": "スクリプトタグの取得"
+      },
+      "update_inline_script_tag": {
+        "body_description": "Request body with widget details.",
+        "description": "Update one embedded widget.",
+        "fallbacks": [],
+        "name": "update_embedded_widget",
+        "params": {
+          "path:inlineScriptTagId": {
+            "description": "Embedded widget identifier.",
+            "name": "widget_id"
+          }
+        },
+        "summary": "インラインスクリプトタグの更新"
+      },
+      "update_script_tag": {
+        "body_description": "Request body with snippet details.",
+        "description": "Update one snippet.",
+        "fallbacks": [],
+        "name": "update_snippet",
+        "params": {
+          "path:scriptTagId": {
+            "description": "Snippet identifier.",
+            "name": "snippet_id"
+          }
+        },
+        "summary": "スクリプトタグの更新"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:make"
+    ],
+    "host": "gateway.vendora.io",
+    "title": "Merchant Extension Console",
+    "words": {
+      "account": "ledger",
+      "application": "addon",
+      "appstore": "marketplace",
+      "charge": "fee",
+      "closing": "termination",
+      "description": "summary",
+      "display": "render",
+      "event": "webhook",
+      "inline": "embedded",
+      "installation": "deployment",
+      "integrity": "checksum",
+      "make": "fjord",
+      "point": "credit",
+      "recurring": "periodic",
+      "scope": "permission",
+      "script": "snippet",
+      "source": "origin",
+      "src": "href",
+      "tag": "label",
+      "trigger": "hook",
+      "uninstalled": "removed",
+      "update": "revision",
+      "usage": "metering"
+    }
+  }
+}

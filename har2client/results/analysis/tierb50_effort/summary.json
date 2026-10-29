@@ -1,0 +1,520 @@
+{
+  "n_boot": 10000,
+  "seed": 20261024,
+  "metric": "steps: shares in 0-1 and mean output tokens; contrasts: percentage points of pass_rate / full-correct share",
+  "steps": {
+    "low": {
+      "state": "complete",
+      "usable_for_verdict": true,
+      "tasks_finished": 50,
+      "tasks_expected": 50,
+      "n_scored": 50,
+      "api_error_rows": 0,
+      "pass_rate": {
+        "n": 50,
+        "mean": 0.5714285714285715,
+        "ci_low": 0.43428571428571433,
+        "ci_high": 0.7085714285714286
+      },
+      "strict_pass_rate": {
+        "n": 50,
+        "mean": 0.5714285714285715,
+        "ci_low": 0.43142857142857144,
+        "ci_high": 0.7057142857142857
+      },
+      "full_correct_share": {
+        "n": 50,
+        "mean": 0.52,
+        "ci_low": 0.38,
+        "ci_high": 0.66
+      },
+      "mean_output_tokens": {
+        "n": 50,
+        "mean": 1154.3,
+        "ci_low": 1071.7785,
+        "ci_high": 1237.841
+      }
+    },
+    "medium": {
+      "state": "complete",
+      "usable_for_verdict": true,
+      "tasks_finished": 50,
+      "tasks_expected": 50,
+      "n_scored": 50,
+      "api_error_rows": 0,
+      "pass_rate": {
+        "n": 50,
+        "mean": 0.6371428571428571,
+        "ci_low": 0.5,
+        "ci_high": 0.76
+      },
+      "strict_pass_rate": {
+        "n": 50,
+        "mean": 0.6371428571428571,
+        "ci_low": 0.5,
+        "ci_high": 0.76
+      },
+      "full_correct_share": {
+        "n": 50,
+        "mean": 0.62,
+        "ci_low": 0.48,
+        "ci_high": 0.76
+      },
+      "mean_output_tokens": {
+        "n": 50,
+        "mean": 2259.36,
+        "ci_low": 2077.8160000000003,
+        "ci_high": 2444.0885
+      }
+    },
+    "high": {
+      "state": "complete",
+      "usable_for_verdict": true,
+      "tasks_finished": 50,
+      "tasks_expected": 50,
+      "n_scored": 50,
+      "api_error_rows": 0,
+      "pass_rate": {
+        "n": 50,
+        "mean": 0.7447619047619048,
+        "ci_low": 0.6304761904761905,
+        "ci_high": 0.8485952380952378
+      },
+      "strict_pass_rate": {
+        "n": 50,
+        "mean": 0.7447619047619048,
+        "ci_low": 0.6323809523809524,
+        "ci_high": 0.8466666666666667
+      },
+      "full_correct_share": {
+        "n": 50,
+        "mean": 0.7333333333333333,
+        "ci_low": 0.62,
+        "ci_high": 0.8333333333333333
+      },
+      "mean_output_tokens": {
+        "n": 50,
+        "mean": 4818.306666666667,
+        "ci_low": 4293.476166666666,
+        "ci_high": 5385.5779999999995
+      }
+    }
+  },
+  "contrasts": {
+    "medium-low": {
+      "pass_diff": {
+        "n": 50,
+        "mean": 6.571428571428571,
+        "ci_low": -1.4285714285714284,
+        "ci_high": 15.428571428571429
+      },
+      "full_diff": {
+        "n": 50,
+        "mean": 10.0,
+        "ci_low": 0.0,
+        "ci_high": 20.0
+      },
+      "output_token_ratio": 1.9573421121025731
+    },
+    "high-medium": {
+      "pass_diff": {
+        "n": 50,
+        "mean": 10.761904761904761,
+        "ci_low": 3.904761904761904,
+        "ci_high": 18.857142857142854
+      },
+      "full_diff": {
+        "n": 50,
+        "mean": 11.333333333333332,
+        "ci_low": 3.9999999999999987,
+        "ci_high": 19.333333333333332
+      },
+      "output_token_ratio": 2.1325980218586977
+    },
+    "high-low": {
+      "pass_diff": {
+        "n": 50,
+        "mean": 17.333333333333332,
+        "ci_low": 9.142857142857142,
+        "ci_high": 26.666666666666664
+      },
+      "full_diff": {
+        "n": 50,
+        "mean": 21.33333333333333,
+        "ci_low": 11.333333333333332,
+        "ci_high": 32.0
+      },
+      "output_token_ratio": 4.174223916370672
+    }
+  },
+  "switches": [
+    {
+      "switch": "auth",
+      "level": "apikey_header",
+      "n_tasks": 16,
+      "by_effort": {
+        "low": {
+          "n": 16,
+          "pass_rate": 0.6785714285714286
+        },
+        "medium": {
+          "n": 16,
+          "pass_rate": 0.8125
+        },
+        "high": {
+          "n": 16,
+          "pass_rate": 0.8333333333333334
+        }
+      }
+    },
+    {
+      "switch": "auth",
+      "level": "bearer_login",
+      "n_tasks": 17,
+      "by_effort": {
+        "low": {
+          "n": 17,
+          "pass_rate": 0.5210084033613446
+        },
+        "medium": {
+          "n": 17,
+          "pass_rate": 0.5294117647058824
+        },
+        "high": {
+          "n": 17,
+          "pass_rate": 0.6862745098039216
+        }
+      }
+    },
+    {
+      "switch": "auth",
+      "level": "cookie_csrf",
+      "n_tasks": 17,
+      "by_effort": {
+        "low": {
+          "n": 17,
+          "pass_rate": 0.5210084033613446
+        },
+        "medium": {
+          "n": 17,
+          "pass_rate": 0.5798319327731093
+        },
+        "high": {
+          "n": 17,
+          "pass_rate": 0.7198879551820728
+        }
+      }
+    },
+    {
+      "switch": "pagination",
+      "level": "cursor",
+      "n_tasks": 12,
+      "by_effort": {
+        "low": {
+          "n": 12,
+          "pass_rate": 0.5833333333333334
+        },
+        "medium": {
+          "n": 12,
+          "pass_rate": 0.75
+        },
+        "high": {
+          "n": 12,
+          "pass_rate": 0.8015873015873015
+        }
+      }
+    },
+    {
+      "switch": "pagination",
+      "level": "link_header",
+      "n_tasks": 12,
+      "by_effort": {
+        "low": {
+          "n": 12,
+          "pass_rate": 0.5
+        },
+        "medium": {
+          "n": 12,
+          "pass_rate": 0.4166666666666667
+        },
+        "high": {
+          "n": 12,
+          "pass_rate": 0.5833333333333334
+        }
+      }
+    },
+    {
+      "switch": "pagination",
+      "level": "none",
+      "n_tasks": 13,
+      "by_effort": {
+        "low": {
+          "n": 13,
+          "pass_rate": 0.5164835164835165
+        },
+        "medium": {
+          "n": 13,
+          "pass_rate": 0.6813186813186813
+        },
+        "high": {
+          "n": 13,
+          "pass_rate": 0.8424908424908425
+        }
+      }
+    },
+    {
+      "switch": "pagination",
+      "level": "offset",
+      "n_tasks": 13,
+      "by_effort": {
+        "low": {
+          "n": 13,
+          "pass_rate": 0.6813186813186813
+        },
+        "medium": {
+          "n": 13,
+          "pass_rate": 0.6923076923076923
+        },
+        "high": {
+          "n": 13,
+          "pass_rate": 0.7435897435897435
+        }
+      }
+    },
+    {
+      "switch": "token_expiry",
+      "level": "off",
+      "n_tasks": 33,
+      "by_effort": {
+        "low": {
+          "n": 33,
+          "pass_rate": 0.6233766233766235
+        },
+        "medium": {
+          "n": 33,
+          "pass_rate": 0.6666666666666666
+        },
+        "high": {
+          "n": 33,
+          "pass_rate": 0.8080808080808081
+        }
+      }
+    },
+    {
+      "switch": "token_expiry",
+      "level": "on",
+      "n_tasks": 17,
+      "by_effort": {
+        "low": {
+          "n": 17,
+          "pass_rate": 0.47058823529411764
+        },
+        "medium": {
+          "n": 17,
+          "pass_rate": 0.5798319327731093
+        },
+        "high": {
+          "n": 17,
+          "pass_rate": 0.6218487394957983
+        }
+      }
+    },
+    {
+      "switch": "etag_update",
+      "level": "off",
+      "n_tasks": 25,
+      "by_effort": {
+        "low": {
+          "n": 25,
+          "pass_rate": 0.6
+        },
+        "medium": {
+          "n": 25,
+          "pass_rate": 0.68
+        },
+        "high": {
+          "n": 25,
+          "pass_rate": 0.8133333333333332
+        }
+      }
+    },
+    {
+      "switch": "etag_update",
+      "level": "on",
+      "n_tasks": 25,
+      "by_effort": {
+        "low": {
+          "n": 25,
+          "pass_rate": 0.5428571428571428
+        },
+        "medium": {
+          "n": 25,
+          "pass_rate": 0.5942857142857143
+        },
+        "high": {
+          "n": 25,
+          "pass_rate": 0.6761904761904762
+        }
+      }
+    },
+    {
+      "switch": "hidden_header",
+      "level": "off",
+      "n_tasks": 25,
+      "by_effort": {
+        "low": {
+          "n": 25,
+          "pass_rate": 0.942857142857143
+        },
+        "medium": {
+          "n": 25,
+          "pass_rate": 0.96
+        },
+        "high": {
+          "n": 25,
+          "pass_rate": 0.9980952380952381
+        }
+      }
+    },
+    {
+      "switch": "hidden_header",
+      "level": "on",
+      "n_tasks": 25,
+      "by_effort": {
+        "low": {
+          "n": 25,
+          "pass_rate": 0.2
+        },
+        "medium": {
+          "n": 25,
+          "pass_rate": 0.3142857142857143
+        },
+        "high": {
+          "n": 25,
+          "pass_rate": 0.4914285714285714
+        }
+      }
+    },
+    {
+      "switch": "envelope",
+      "level": "off",
+      "n_tasks": 25,
+      "by_effort": {
+        "low": {
+          "n": 25,
+          "pass_rate": 0.68
+        },
+        "medium": {
+          "n": 25,
+          "pass_rate": 0.7942857142857143
+        },
+        "high": {
+          "n": 25,
+          "pass_rate": 0.822857142857143
+        }
+      }
+    },
+    {
+      "switch": "envelope",
+      "level": "on",
+      "n_tasks": 25,
+      "by_effort": {
+        "low": {
+          "n": 25,
+          "pass_rate": 0.46285714285714286
+        },
+        "medium": {
+          "n": 25,
+          "pass_rate": 0.48
+        },
+        "high": {
+          "n": 25,
+          "pass_rate": 0.6666666666666667
+        }
+      }
+    }
+  ],
+  "tier_a": {
+    "low": {
+      "tasks_finished": 30,
+      "tasks_expected": 30,
+      "n_scored": 30,
+      "api_error_rows": 0,
+      "pass_rate": {
+        "n": 30,
+        "mean": 0.9625,
+        "ci_low": 0.8916666666666667,
+        "ci_high": 1.0
+      },
+      "strict_pass_rate": {
+        "n": 30,
+        "mean": 0.9625,
+        "ci_low": 0.8916666666666667,
+        "ci_high": 1.0
+      },
+      "full_correct_share": {
+        "n": 30,
+        "mean": 0.9333333333333333,
+        "ci_low": 0.8333333333333334,
+        "ci_high": 1.0
+      },
+      "mean_output_tokens": {
+        "n": 30,
+        "mean": 1012.9,
+        "ci_low": 839.0325,
+        "ci_high": 1215.3358333333333
+      }
+    },
+    "high": {
+      "tasks_finished": 30,
+      "tasks_expected": 30,
+      "n_scored": 30,
+      "api_error_rows": 0,
+      "pass_rate": {
+        "n": 30,
+        "mean": 0.9958333333333333,
+        "ci_low": 0.9875,
+        "ci_high": 1.0
+      },
+      "strict_pass_rate": {
+        "n": 30,
+        "mean": 0.9958333333333333,
+        "ci_low": 0.9875,
+        "ci_high": 1.0
+      },
+      "full_correct_share": {
+        "n": 30,
+        "mean": 0.9666666666666667,
+        "ci_low": 0.9,
+        "ci_high": 1.0
+      },
+      "mean_output_tokens": {
+        "n": 30,
+        "mean": 2983.5,
+        "ci_low": 2362.6983333333333,
+        "ci_high": 3656.7466666666664
+      }
+    }
+  },
+  "verdict": {
+    "id": "Tier B effort curve (PREREG: test as H18)",
+    "test": "not tested: xhigh dropped 2026-10-27, see PREREG.md deviations",
+    "supported_if": "n/a",
+    "rejected_if": "n/a",
+    "status": "not tested",
+    "evidence": "not tested: xhigh dropped 2026-10-27, see PREREG.md deviations",
+    "missing": []
+  },
+  "reading_rules": [
+    "Unit = task. A task's score at an effort is the mean over its runs: high = 3 runs (\"mean of 3 runs\"; PREREG.md deviation 2026-10-27), low and medium = 1 run. Contrasts that involve high use these per-task means. Pass rate, strict pass rate and full-correct share are shares in 0-1; contrasts are in percentage points of `pass_rate` (the primary metric).",
+    "`api_error` rows (failed model calls) are left out of every number and counted per effort. Any other failed status (`no_code`, `grade_error`, ...) counts as pass rate 0.",
+    "Full-correct share = share of tasks with pass_rate = 1.0 (all runs). Strict pass rate comes from the CSV column when it has one, else from the saved strict regrade JSON (`strict_pass_rate` per cell); a task without a strict value is left out of that mean.",
+    "95% CIs are percentile intervals from a bootstrap over tasks (paired differences for contrasts), fixed seed; the resample count is printed in the header.",
+    "Output tokens = `completion_tokens` (includes reasoning). A token ratio is the mean output of the first effort over the mean output of the second, on the tasks both have.",
+    "The pre-registered verdict (test as H18, xhigh - high) is not tested: xhigh dropped 2026-10-27, see PREREG.md deviations.",
+    "A step is complete when every task in `runs/tierb50` has a row (`api_error` rows count as finished but give no score). A partial step is shown in the step table but is not used in contrasts, switch table or chart, so a result never rests on a few early tasks.",
+    "Medium is read from `<batch-root>/tierb50_<effort>/results.csv`; an effort that the --results files already hold (low, high) is not read again from the batch root.",
+    "H4 (simple vs hard tasks) and H9 (pass^3) are not tested here: H9 needs 3 runs per task and this curve has 1; H4 needs the \"simple\" task definition applied to Tier B switches, which PREREG does not map. The switch table is descriptive (no CIs; switches overlap across tasks).",
+    "Tier A (`set30_v1_tierA.csv`, low and high) is a table only: the saturated baseline, not part of the verdict or the chart."
+  ]
+}

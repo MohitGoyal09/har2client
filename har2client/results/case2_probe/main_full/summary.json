@@ -1,0 +1,335 @@
+{
+  "dry_run": false,
+  "source": "results/case2_probe/main_full/results.csv",
+  "observed_rows": 450,
+  "statuses": {
+    "ok": 449,
+    "no_code": 1
+  },
+  "observed_blocks": 50,
+  "complete_blocks_by_effort": {
+    "low": 50,
+    "medium": 50,
+    "high": 50
+  },
+  "frontier_efforts": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "complete_blocks_all_efforts": 50,
+  "complete_blocks": 50,
+  "paired_rows": 450,
+  "efforts": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "comparisons": [
+    {
+      "effort": "low",
+      "hidden_header": "all",
+      "arm": "P5",
+      "tasks": 50,
+      "delta_pp": 11.714285714285715,
+      "ci95_pp": [
+        -4.285714285714286,
+        27.42857142857143
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "all",
+      "arm": "P20",
+      "tasks": 50,
+      "delta_pp": 25.428571428571427,
+      "ci95_pp": [
+        11.428571428571429,
+        39.714285714285715
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "on",
+      "arm": "P5",
+      "tasks": 25,
+      "delta_pp": 26.285714285714285,
+      "ci95_pp": [
+        6.857142857142856,
+        46.285714285714285
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "on",
+      "arm": "P20",
+      "tasks": 25,
+      "delta_pp": 38.857142857142854,
+      "ci95_pp": [
+        16.0,
+        60.0
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "off",
+      "arm": "P5",
+      "tasks": 25,
+      "delta_pp": -2.857142857142857,
+      "ci95_pp": [
+        -27.42857142857143,
+        21.142857142857142
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "off",
+      "arm": "P20",
+      "tasks": 25,
+      "delta_pp": 12.0,
+      "ci95_pp": [
+        -4.571428571428571,
+        29.142857142857142
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "all",
+      "arm": "P5",
+      "tasks": 50,
+      "delta_pp": 41.42857142857142,
+      "ci95_pp": [
+        28.285714285714285,
+        55.14285714285714
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "all",
+      "arm": "P20",
+      "tasks": 50,
+      "delta_pp": 40.85714285714286,
+      "ci95_pp": [
+        24.0,
+        56.85714285714286
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "on",
+      "arm": "P5",
+      "tasks": 25,
+      "delta_pp": 62.28571428571429,
+      "ci95_pp": [
+        43.42857142857143,
+        80.0
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "on",
+      "arm": "P20",
+      "tasks": 25,
+      "delta_pp": 70.85714285714285,
+      "ci95_pp": [
+        52.0,
+        87.42857142857143
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "off",
+      "arm": "P5",
+      "tasks": 25,
+      "delta_pp": 20.57142857142857,
+      "ci95_pp": [
+        5.714285714285714,
+        36.57142857142857
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "off",
+      "arm": "P20",
+      "tasks": 25,
+      "delta_pp": 10.857142857142858,
+      "ci95_pp": [
+        -12.0,
+        33.14285714285714
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "all",
+      "arm": "P5",
+      "tasks": 50,
+      "delta_pp": 46.0,
+      "ci95_pp": [
+        29.714285714285715,
+        60.857142857142854
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "all",
+      "arm": "P20",
+      "tasks": 50,
+      "delta_pp": 48.285714285714285,
+      "ci95_pp": [
+        32.857142857142854,
+        62.57142857142857
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "on",
+      "arm": "P5",
+      "tasks": 25,
+      "delta_pp": 67.42857142857143,
+      "ci95_pp": [
+        47.42857142857143,
+        84.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "on",
+      "arm": "P20",
+      "tasks": 25,
+      "delta_pp": 64.0,
+      "ci95_pp": [
+        40.0,
+        84.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "off",
+      "arm": "P5",
+      "tasks": 25,
+      "delta_pp": 24.571428571428573,
+      "ci95_pp": [
+        0.5714285714285716,
+        48.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "off",
+      "arm": "P20",
+      "tasks": 25,
+      "delta_pp": 32.57142857142858,
+      "ci95_pp": [
+        16.0,
+        50.28571428571429
+      ]
+    }
+  ],
+  "method": "Complete task/run/effort blocks (all three arms); task-mean differences; percentile bootstrap over tasks. The frontier uses blocks complete at every plotted effort.",
+  "scores": [
+    {
+      "arm": "placebo",
+      "effort": "low",
+      "tasks": 50,
+      "pass_rate": 0.5314285714285715,
+      "strict_pass_rate": 0.5314285714285715,
+      "probes_used": 0.0,
+      "completion_tokens": 1045.6,
+      "prompt_tokens": 39970.08,
+      "wall_time_s": 7.33918
+    },
+    {
+      "arm": "P5",
+      "effort": "low",
+      "tasks": 50,
+      "pass_rate": 0.6485714285714286,
+      "strict_pass_rate": 0.6485714285714286,
+      "probes_used": 1.3,
+      "completion_tokens": 1045.64,
+      "prompt_tokens": 86706.36,
+      "wall_time_s": 7.77914
+    },
+    {
+      "arm": "P20",
+      "effort": "low",
+      "tasks": 50,
+      "pass_rate": 0.7857142857142857,
+      "strict_pass_rate": 0.7857142857142857,
+      "probes_used": 1.98,
+      "completion_tokens": 1053.88,
+      "prompt_tokens": 112664.84,
+      "wall_time_s": 8.78262
+    },
+    {
+      "arm": "placebo",
+      "effort": "medium",
+      "tasks": 50,
+      "pass_rate": 0.46285714285714286,
+      "strict_pass_rate": 0.46285714285714286,
+      "probes_used": 0.0,
+      "completion_tokens": 2282.66,
+      "prompt_tokens": 39971.08,
+      "wall_time_s": 12.60026
+    },
+    {
+      "arm": "P5",
+      "effort": "medium",
+      "tasks": 50,
+      "pass_rate": 0.8771428571428571,
+      "strict_pass_rate": 0.8771428571428571,
+      "probes_used": 2.58,
+      "completion_tokens": 2109.66,
+      "prompt_tokens": 144574.78,
+      "wall_time_s": 14.3933
+    },
+    {
+      "arm": "P20",
+      "effort": "medium",
+      "tasks": 50,
+      "pass_rate": 0.8714285714285714,
+      "strict_pass_rate": 0.8714285714285714,
+      "probes_used": 3.84,
+      "completion_tokens": 2214.02,
+      "prompt_tokens": 190695.86,
+      "wall_time_s": 16.2642
+    },
+    {
+      "arm": "placebo",
+      "effort": "high",
+      "tasks": 50,
+      "pass_rate": 0.49714285714285716,
+      "strict_pass_rate": 0.49714285714285716,
+      "probes_used": 0.0,
+      "completion_tokens": 5633.5,
+      "prompt_tokens": 39972.08,
+      "wall_time_s": 25.33016
+    },
+    {
+      "arm": "P5",
+      "effort": "high",
+      "tasks": 50,
+      "pass_rate": 0.9571428571428572,
+      "strict_pass_rate": 0.9571428571428572,
+      "probes_used": 3.76,
+      "completion_tokens": 4968.08,
+      "prompt_tokens": 209013.18,
+      "wall_time_s": 31.73796
+    },
+    {
+      "arm": "P20",
+      "effort": "high",
+      "tasks": 50,
+      "pass_rate": 0.98,
+      "strict_pass_rate": 0.98,
+      "probes_used": 7.78,
+      "completion_tokens": 5261.5,
+      "prompt_tokens": 378968.56,
+      "wall_time_s": 40.04556
+    }
+  ],
+  "total_tokens": {
+    "prompt_tokens": 62126841.0,
+    "completion_tokens": 1280727.0,
+    "reasoning_tokens": 815434.0
+  }
+}

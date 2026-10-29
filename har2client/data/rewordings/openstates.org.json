@@ -1,0 +1,348 @@
+{
+  "api_id": "openstates.org",
+  "names": {
+    "original": {
+      "bill_detail_bills_jurisdiction_session_bill_id_get": {
+        "body_description": "",
+        "description": "Fetch a measure by region, term, and id.",
+        "fallbacks": [],
+        "name": "get_measure_by_location",
+        "params": {
+          "path:bill_id": {
+            "description": "Unique id of the measure.",
+            "name": "measure_id"
+          },
+          "path:jurisdiction": {
+            "description": "Region containing the measure.",
+            "name": "region"
+          },
+          "path:session": {
+            "description": "Term containing the measure.",
+            "name": "term"
+          },
+          "query:apikey": {
+            "description": "Token for access.",
+            "name": "token"
+          },
+          "query:include": {
+            "description": "Extra fields to attach.",
+            "name": "extras"
+          }
+        },
+        "summary": "Measure Detail"
+      },
+      "bill_detail_by_id_bills_ocd_bill_openstates_bill_id_get": {
+        "body_description": "",
+        "description": "Fetch a measure using its id.",
+        "fallbacks": [],
+        "name": "fetch_measure_detail",
+        "params": {
+          "path:openstates_bill_id": {
+            "description": "Unique id of the measure to retrieve.",
+            "name": "measure_id"
+          },
+          "query:apikey": {
+            "description": "Token for access.",
+            "name": "token"
+          },
+          "query:include": {
+            "description": "Extra fields to attach.",
+            "name": "extras"
+          }
+        },
+        "summary": "Measure Detail By Id"
+      },
+      "bills_search_bills_get": {
+        "body_description": "",
+        "description": "Search legislation records with filters and pagination.",
+        "fallbacks": [],
+        "name": "find_legislation",
+        "params": {
+          "query:action_since": {
+            "description": "Return items with activity after this date.",
+            "name": "activity_after"
+          },
+          "query:apikey": {
+            "description": "Token for access.",
+            "name": "token"
+          },
+          "query:chamber": {
+            "description": "House or branch to filter by.",
+            "name": "house"
+          },
+          "query:classification": {
+            "description": "Category of legislation to filter by.",
+            "name": "category"
+          },
+          "query:created_since": {
+            "description": "Return items added after this date.",
+            "name": "added_after"
+          },
+          "query:identifier": {
+            "description": "Reference numbers to filter by.",
+            "name": "ref"
+          },
+          "query:include": {
+            "description": "Extra fields to attach.",
+            "name": "extras"
+          },
+          "query:jurisdiction": {
+            "description": "State or region to filter by.",
+            "name": "state_region"
+          },
+          "query:page": {
+            "description": "Result offset for paging.",
+            "name": "offset"
+          },
+          "query:per_page": {
+            "description": "Maximum results each request.",
+            "name": "limit"
+          },
+          "query:q": {
+            "description": "Full text keyword to search.",
+            "name": "keyword"
+          },
+          "query:session": {
+            "description": "Legislative term to filter by.",
+            "name": "term"
+          },
+          "query:sort": {
+            "description": "Ordering for results.",
+            "name": "ordering"
+          },
+          "query:sponsor": {
+            "description": "Backer name to filter by.",
+            "name": "backer"
+          },
+          "query:sponsor_classification": {
+            "description": "Backer role to filter by.",
+            "name": "backer_role"
+          },
+          "query:subject": {
+            "description": "Topic tags to filter by.",
+            "name": "topic"
+          },
+          "query:updated_since": {
+            "description": "Return items changed after this date.",
+            "name": "changed_after"
+          }
+        },
+        "summary": "Legislation Search"
+      },
+      "committee_detail_committees_committee_id_get": {
+        "body_description": "",
+        "description": "Fetch a panel by id.",
+        "fallbacks": [],
+        "name": "get_panel_detail",
+        "params": {
+          "path:committee_id": {
+            "description": "Unique id of the panel.",
+            "name": "panel_id"
+          },
+          "query:apikey": {
+            "description": "Token for access.",
+            "name": "token"
+          },
+          "query:include": {
+            "description": "Extra fields to attach.",
+            "name": "extras"
+          }
+        },
+        "summary": "Panel Detail"
+      },
+      "event_detail_events_event_id_get": {
+        "body_description": "",
+        "description": "Fetch an occurrence by id.",
+        "fallbacks": [],
+        "name": "get_occurrence_detail",
+        "params": {
+          "path:event_id": {
+            "description": "Unique id of the occurrence.",
+            "name": "occurrence_id"
+          },
+          "query:apikey": {
+            "description": "Token for access.",
+            "name": "token"
+          },
+          "query:include": {
+            "description": "Extra fields to attach.",
+            "name": "extras"
+          }
+        },
+        "summary": "Occurrence Detail"
+      },
+      "jurisdiction_detail_jurisdictions_jurisdiction_id_get": {
+        "body_description": "",
+        "description": "Fetch a region by id.",
+        "fallbacks": [],
+        "name": "get_region_detail",
+        "params": {
+          "path:jurisdiction_id": {
+            "description": "Unique id of the region.",
+            "name": "region_id"
+          },
+          "query:apikey": {
+            "description": "Token for access.",
+            "name": "token"
+          },
+          "query:include": {
+            "description": "Extra fields to attach.",
+            "name": "extras"
+          }
+        },
+        "summary": "Region Detail"
+      },
+      "metrics_metrics_get": {
+        "body_description": "",
+        "description": "Retrieve service statistics.",
+        "fallbacks": [],
+        "name": "get_statistics",
+        "summary": "Statistics"
+      },
+      "people_search_people_get": {
+        "body_description": "",
+        "description": "Search individuals with filters and pagination.",
+        "fallbacks": [],
+        "name": "find_individuals",
+        "params": {
+          "query:apikey": {
+            "description": "Token for access.",
+            "name": "token"
+          },
+          "query:district": {
+            "description": "Area to filter by.",
+            "name": "area"
+          },
+          "query:id": {
+            "description": "IDs to filter by.",
+            "name": "ids"
+          },
+          "query:include": {
+            "description": "Extra fields to attach.",
+            "name": "extras"
+          },
+          "query:jurisdiction": {
+            "description": "Region to filter by.",
+            "name": "region"
+          },
+          "query:name": {
+            "description": "Text to match individuals.",
+            "name": "search_text"
+          },
+          "query:org_classification": {
+            "description": "Group type to filter by.",
+            "name": "group_type"
+          },
+          "query:page": {
+            "description": "Result offset for paging.",
+            "name": "offset"
+          },
+          "query:per_page": {
+            "description": "Maximum results each request.",
+            "name": "limit"
+          }
+        },
+        "summary": "Individuals Search"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:action",
+      "word:description"
+    ],
+    "host": "api.civictrack.io",
+    "title": "CivicTrack Web Service 2",
+    "words": {
+      "abstract": "summary",
+      "action": "canyon",
+      "address": "street",
+      "after": "following",
+      "agenda": "schedule",
+      "apikey": "credential",
+      "before": "prior",
+      "bill": "measure",
+      "birth": "origin",
+      "chamber": "house",
+      "classification": "category",
+      "committee": "panel",
+      "created": "formed",
+      "current": "present",
+      "day": "occurrence",
+      "death": "demise",
+      "deleted": "removed",
+      "description": "cotton",
+      "district": "region",
+      "division": "split",
+      "document": "file",
+      "download": "fetch",
+      "email": "mail",
+      "end": "finish",
+      "entity": "object",
+      "event": "gathering",
+      "extra": "additional",
+      "family": "household",
+      "fax": "facsimile",
+      "first": "initial",
+      "from": "via",
+      "gender": "sex",
+      "geo": "spatial",
+      "given": "provided",
+      "identifier": "reference",
+      "image": "picture",
+      "include": "contain",
+      "jurisdiction": "territory",
+      "label": "tag",
+      "lat": "north",
+      "latest": "newest",
+      "legislative": "statutory",
+      "link": "connection",
+      "lng": "longitude",
+      "location": "place",
+      "max": "upper",
+      "maximum": "highest",
+      "media": "asset",
+      "membership": "affiliation",
+      "metric": "indicator",
+      "motion": "proposal",
+      "note": "remark",
+      "ocd": "standard",
+      "office": "bureau",
+      "open": "accessible",
+      "openstate": "record",
+      "option": "choice",
+      "organization": "body",
+      "pagination": "cursor",
+      "parent": "superior",
+      "participant": "attendee",
+      "party": "faction",
+      "passage": "enactment",
+      "people": "member",
+      "per": "every",
+      "person": "individual",
+      "primary": "main",
+      "related": "linked",
+      "relation": "association",
+      "require": "need",
+      "role": "function",
+      "run": "execute",
+      "scheme": "plan",
+      "session": "term",
+      "since": "onward",
+      "source": "provenance",
+      "sponsor": "backer",
+      "sponsorship": "backing",
+      "start": "begin",
+      "state": "province",
+      "subject": "topic",
+      "success": "outcome",
+      "title": "heading",
+      "update": "revise",
+      "updated": "modified",
+      "upstream": "external",
+      "voice": "speech",
+      "vote": "ballot",
+      "voter": "elector"
+    }
+  }
+}

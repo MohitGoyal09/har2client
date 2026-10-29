@@ -1,0 +1,184 @@
+{
+  "title": "Score against output tokens",
+  "panels": {
+    "tierb50": {
+      "points": [
+        {
+          "label": "Beam (high)",
+          "display_label": "Beam (high, mean of 3 runs)",
+          "kind": "beam",
+          "effort": "high",
+          "runs": 3,
+          "mean_output_tokens": 4818.306666666667,
+          "pass_rate": 74.47619047619048
+        },
+        {
+          "label": "Beam (low)",
+          "display_label": "Beam (low)",
+          "kind": "beam",
+          "effort": "low",
+          "runs": 1,
+          "mean_output_tokens": 1154.3,
+          "pass_rate": 57.142857142857146
+        },
+        {
+          "label": "Beam (medium)",
+          "display_label": "Beam (medium)",
+          "kind": "beam",
+          "effort": "medium",
+          "runs": 1,
+          "mean_output_tokens": 2259.36,
+          "pass_rate": 63.714285714285715
+        },
+        {
+          "label": "GPT-OSS-120B (high)",
+          "display_label": "GPT-OSS-120B (high)",
+          "kind": "model",
+          "effort": "high",
+          "runs": 1,
+          "mean_output_tokens": 5854.38,
+          "pass_rate": 69.71428571428572
+        },
+        {
+          "label": "GPT-OSS-120B (low)",
+          "display_label": "GPT-OSS-120B (low)",
+          "kind": "model",
+          "effort": "low",
+          "runs": 1,
+          "mean_output_tokens": 2133.12,
+          "pass_rate": 51.142857142857146
+        },
+        {
+          "label": "GPT-OSS-120B (medium)",
+          "display_label": "GPT-OSS-120B (medium)",
+          "kind": "model",
+          "effort": "medium",
+          "runs": 1,
+          "mean_output_tokens": 2182.94,
+          "pass_rate": 53.714285714285715
+        },
+        {
+          "label": "Qwen3.5-397B-A17B (thinking enabled)",
+          "display_label": "Qwen3.5-397B-A17B (thinking enabled)",
+          "kind": "model",
+          "effort": null,
+          "runs": 1,
+          "mean_output_tokens": 3159.2,
+          "pass_rate": 36.0
+        }
+      ],
+      "pareto": {
+        "distinct_models": 3,
+        "drawn": true,
+        "frontier": [
+          {
+            "tokens": 1154.3,
+            "pass_rate": 57.142857142857146
+          },
+          {
+            "tokens": 2259.36,
+            "pass_rate": 63.714285714285715
+          },
+          {
+            "tokens": 4818.306666666667,
+            "pass_rate": 74.47619047619048
+          }
+        ]
+      }
+    },
+    "v3base": {
+      "points": [
+        {
+          "label": "Beam (high)",
+          "display_label": "Beam (high, mean of 3 runs)",
+          "kind": "beam",
+          "effort": "high",
+          "runs": 3,
+          "mean_output_tokens": 7746.005208333333,
+          "pass_rate": 45.986519607843135
+        },
+        {
+          "label": "Beam (low)",
+          "display_label": "Beam (low)",
+          "kind": "beam",
+          "effort": "low",
+          "runs": 1,
+          "mean_output_tokens": 1757.640625,
+          "pass_rate": 31.61764705882353
+        },
+        {
+          "label": "Beam (medium)",
+          "display_label": "Beam (medium)",
+          "kind": "beam",
+          "effort": "medium",
+          "runs": 1,
+          "mean_output_tokens": 2921.734375,
+          "pass_rate": 37.04044117647059
+        },
+        {
+          "label": "GPT-OSS-120B (high)",
+          "display_label": "GPT-OSS-120B (high)",
+          "kind": "model",
+          "effort": "high",
+          "runs": 1,
+          "mean_output_tokens": 10733.9375,
+          "pass_rate": 58.54779411764706
+        },
+        {
+          "label": "GPT-OSS-120B (low)",
+          "display_label": "GPT-OSS-120B (low)",
+          "kind": "model",
+          "effort": "low",
+          "runs": 1,
+          "mean_output_tokens": 2496.578125,
+          "pass_rate": 32.720588235294116
+        },
+        {
+          "label": "GPT-OSS-120B (medium)",
+          "display_label": "GPT-OSS-120B (medium)",
+          "kind": "model",
+          "effort": "medium",
+          "runs": 1,
+          "mean_output_tokens": 2444.625,
+          "pass_rate": 34.375
+        },
+        {
+          "label": "Qwen3.5-397B-A17B (thinking enabled)",
+          "display_label": "Qwen3.5-397B-A17B (thinking enabled)",
+          "kind": "model",
+          "effort": null,
+          "runs": 1,
+          "mean_output_tokens": 5049.640625,
+          "pass_rate": 29.59558823529412
+        }
+      ],
+      "pareto": {
+        "distinct_models": 3,
+        "drawn": true,
+        "frontier": [
+          {
+            "tokens": 1757.640625,
+            "pass_rate": 31.61764705882353
+          },
+          {
+            "tokens": 2444.625,
+            "pass_rate": 34.375
+          },
+          {
+            "tokens": 2921.734375,
+            "pass_rate": 37.04044117647059
+          },
+          {
+            "tokens": 7746.005208333333,
+            "pass_rate": 45.986519607843135
+          },
+          {
+            "tokens": 10733.9375,
+            "pass_rate": 58.54779411764706
+          }
+        ]
+      }
+    }
+  },
+  "footer": "Beam-1.0-501B-A23B and open models via the HF router \u00b7 tierb50: n=50, v3base: n=64 \u00b7 Beam high: mean of 3 runs, other rows: 1 run per task \u00b7 95% CI over tasks \u00b7 HAR2Client 0e2d0cc"
+}

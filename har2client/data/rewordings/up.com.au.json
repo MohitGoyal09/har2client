@@ -1,0 +1,162 @@
+{
+  "api_id": "up.com.au",
+  "names": {
+    "original": {
+      "create_webhook": {
+        "body_description": "JSON payload describing the callback to register.",
+        "description": "Registers a new callback.",
+        "fallbacks": [],
+        "name": "create_callback",
+        "summary": "Create callback"
+      },
+      "list_accounts": {
+        "body_description": "",
+        "description": "Returns ledgers matching optional criteria.",
+        "fallbacks": [],
+        "name": "list_ledgers",
+        "params": {
+          "query:filter[accountType]": {
+            "description": "Ledger classification to include.",
+            "name": "classification"
+          },
+          "query:filter[ownershipType]": {
+            "description": "Custody style to include.",
+            "name": "custody_mode"
+          },
+          "query:page[size]": {
+            "description": "Maximum number of ledgers returned.",
+            "name": "limit"
+          }
+        },
+        "summary": "List ledgers"
+      },
+      "list_categories": {
+        "body_description": "",
+        "description": "Returns groups, optionally under a given ancestor.",
+        "fallbacks": [],
+        "name": "list_groups",
+        "params": {
+          "query:filter[parent]": {
+            "description": "Ancestor group identifier to narrow results.",
+            "name": "ancestor_id"
+          }
+        },
+        "summary": "List groups"
+      },
+      "ping": {
+        "body_description": "",
+        "description": "Checks service availability.",
+        "fallbacks": [],
+        "name": "health_check",
+        "summary": "Health check"
+      },
+      "ping_webhook": {
+        "body_description": "",
+        "description": "Sends a test event to a callback.",
+        "fallbacks": [],
+        "name": "test_callback",
+        "params": {
+          "path:webhookId": {
+            "description": "Identifier of the callback to test.",
+            "name": "callback_id"
+          }
+        },
+        "summary": "Test callback"
+      },
+      "retrieve_account": {
+        "body_description": "",
+        "description": "Fetches one ledger by identifier.",
+        "fallbacks": [],
+        "name": "retrieve_ledger",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the ledger.",
+            "name": "ledger_id"
+          }
+        },
+        "summary": "Retrieve ledger"
+      },
+      "retrieve_category": {
+        "body_description": "",
+        "description": "Fetches one group by identifier.",
+        "fallbacks": [],
+        "name": "retrieve_group",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the group.",
+            "name": "group_id"
+          }
+        },
+        "summary": "Retrieve group"
+      },
+      "retrieve_webhook": {
+        "body_description": "",
+        "description": "Fetches one callback by identifier.",
+        "fallbacks": [],
+        "name": "retrieve_callback",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the callback.",
+            "name": "callback_id"
+          }
+        },
+        "summary": "Retrieve callback"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:balance",
+      "word:secret"
+    ],
+    "host": "gateway.zebra.io",
+    "title": "Cobalt Ledger",
+    "words": {
+      "account": "ledger",
+      "amount": "sum",
+      "attribute": "property",
+      "balance": "ribbon",
+      "base": "root",
+      "body": "payload",
+      "boost": "uplift",
+      "cashback": "rebate",
+      "categorizable": "groupable",
+      "category": "group",
+      "children": "offspring",
+      "created": "issued",
+      "currency": "money",
+      "delivery": "dispatch",
+      "description": "summary",
+      "display": "showcase",
+      "emoji": "icon",
+      "event": "signal",
+      "foreign": "external",
+      "hold": "reserve",
+      "link": "anchor",
+      "log": "record",
+      "next": "following",
+      "ownership": "tenure",
+      "parent": "owner",
+      "ping": "probe",
+      "portion": "share",
+      "prev": "prior",
+      "raw": "unprocessed",
+      "related": "connected",
+      "relationship": "association",
+      "request": "inquiry",
+      "response": "reply",
+      "round": "cycle",
+      "secret": "spruce",
+      "self": "itself",
+      "settled": "cleared",
+      "since": "after",
+      "tag": "label",
+      "transaction": "payment",
+      "transfer": "remit",
+      "unit": "piece",
+      "until": "before",
+      "util": "helper",
+      "webhook": "callback"
+    }
+  }
+}

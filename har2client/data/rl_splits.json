@@ -1,0 +1,2092 @@
+{
+ "seed": 20261024,
+ "held_out_combos": [
+  {
+   "auth": "cookie_csrf",
+   "pagination": "link_header",
+   "etag_update": "on"
+  },
+  {
+   "auth": "bearer_login",
+   "pagination": "cursor",
+   "envelope": "on"
+  }
+ ],
+ "domains": {
+  "train": [
+   "shipments",
+   "tickets",
+   "invoices",
+   "bookings"
+  ],
+  "test_combo": [
+   "shipments",
+   "tickets",
+   "invoices",
+   "bookings"
+  ],
+  "test_domain": [
+   "samples"
+  ]
+ },
+ "sources": {
+  "train": [
+   "browser_har",
+   "mobile_har"
+  ],
+  "test_combo": [
+   "browser_har",
+   "mobile_har"
+  ],
+  "test_domain": [
+   "browser_har",
+   "mobile_har"
+  ]
+ },
+ "eval": {
+  "test_combo": [
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 59458372,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 627849528,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 271741685,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 548767214,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 694076208,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 258517893,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 116663251,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 806949221,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 998019509,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 779730130,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 657338151,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 656925865,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 481257925,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 265527546,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 867538557,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 752893956,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 392350882,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 593572611,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 291062538,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 817403977,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 167715373,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 974266439,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 234627607,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 746840676,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 965952859,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 651337258,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 499432644,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 666177846,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 920256908,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 272507011,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 270849444,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 865409625,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 692237424,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 793348251,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 525708026,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 184930402,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 496404232,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 968435352,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 600548494,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 98061459,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 813112513,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 749074339,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 960286433,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 22957387,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 410212908,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 258588793,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 445907750,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 335212949,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 149220339,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 479498383,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "invoices",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 223756139,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 38590351,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 332297240,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 67771534,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "shipments",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 906991021,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 22801298,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 975901415,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "bookings",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 671392849,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 726458432,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "tickets",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 522890266,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   }
+  ],
+  "test_domain": [
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 182619008,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 680792328,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 161340673,
+    "source": "browser_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 546903302,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 262010636,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 942667475,
+    "source": "browser_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 400461541,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "offset",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 345997990,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 2606448,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 636720691,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 133885249,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 634921568,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 261228880,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 212064174,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 982592642,
+    "source": "browser_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 120567006,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 276152008,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 701940123,
+    "source": "browser_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 362155575,
+    "source": "browser_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 866313957,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 86210280,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 315457678,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 559354569,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 16051153,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 483654285,
+    "source": "mobile_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 324282580,
+    "source": "browser_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 145237646,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "offset",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 426380213,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 922390573,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 825156862,
+    "source": "browser_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "on"
+    },
+    "seed": 635837724,
+    "source": "browser_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "cursor",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 493254795,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 147741253,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 86529774,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 762108468,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 522704992,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 651537172,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 461155678,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 550744437,
+    "source": "browser_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "link_header",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 838436118,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 897524511,
+    "source": "mobile_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 808787853,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 186976696,
+    "source": "browser_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 333527195,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 128668808,
+    "source": "mobile_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "link_header",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 634872160,
+    "source": "mobile_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "on",
+     "envelope": "off"
+    },
+    "seed": 599488215,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "none",
+     "token_expiry": "on",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 36513447,
+    "source": "mobile_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 285898991,
+    "source": "mobile_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 927792916,
+    "source": "browser_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 516255574,
+    "source": "browser_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "none",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 116283900,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 739727790,
+    "source": "browser_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "offset",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 421307517,
+    "source": "browser_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 863306879,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "on",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 58601963,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "none",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 371046358,
+    "source": "mobile_har",
+    "level": 0,
+    "noise": 0.0,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "apikey_header",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 382386380,
+    "source": "browser_har",
+    "level": 1,
+    "noise": 0.15,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "cookie_csrf",
+     "pagination": "cursor",
+     "token_expiry": "off",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "off"
+    },
+    "seed": 755775845,
+    "source": "mobile_har",
+    "level": 2,
+    "noise": 0.3,
+    "build_seed": 0,
+    "compact": false
+   },
+   {
+    "domain": "samples",
+    "config": {
+     "auth": "bearer_login",
+     "pagination": "offset",
+     "token_expiry": "on",
+     "etag_update": "off",
+     "hidden_header": "off",
+     "envelope": "on"
+    },
+    "seed": 337781463,
+    "source": "browser_har",
+    "level": 3,
+    "noise": 0.7,
+    "build_seed": 0,
+    "compact": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,247 @@
+{
+  "api_id": "nfusionsolutions.biz",
+  "names": {
+    "original": {
+      "currencies_history_get": {
+        "body_description": "",
+        "description": "Returns past pricing for selected foreign exchange combos.",
+        "fallbacks": [],
+        "name": "fx_past_rates",
+        "params": {
+          "query:end": {
+            "description": "Ending date for the price series.",
+            "name": "to_date"
+          },
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          },
+          "query:interval": {
+            "description": "Spacing between returned data points.",
+            "name": "step"
+          },
+          "query:pairs": {
+            "description": "Comma-separated foreign exchange combos to query.",
+            "name": "symbols"
+          },
+          "query:start": {
+            "description": "Beginning date for the price series.",
+            "name": "from_date"
+          }
+        },
+        "summary": "Retrieve past pricing for chosen foreign exchange combos"
+      },
+      "currencies_supported_currencies_history_get": {
+        "body_description": "",
+        "description": "Returns foreign exchange combos usable for past pricing.",
+        "fallbacks": [],
+        "name": "fx_available_pairs",
+        "params": {
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          }
+        },
+        "summary": "Retrieve foreign exchange combos usable for past pricing"
+      },
+      "currencies_supported_currencies_summary_get": {
+        "body_description": "",
+        "description": "Returns foreign exchange combos usable for latest pricing.",
+        "fallbacks": [],
+        "name": "fx_available_symbols",
+        "params": {
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          }
+        },
+        "summary": "Retrieve foreign exchange combos usable for latest pricing"
+      },
+      "metals_spot_historical_performance_get": {
+        "body_description": "",
+        "description": "Returns historical trend statistics for chosen ores.",
+        "fallbacks": [],
+        "name": "ore_trend_stats",
+        "params": {
+          "query:currency": {
+            "description": "Money unit used to quote values.",
+            "name": "quote"
+          },
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          },
+          "query:metals": {
+            "description": "Comma-separated ores to query.",
+            "name": "symbols"
+          },
+          "query:unitofmeasure": {
+            "description": "Measurement scale for quantities.",
+            "name": "scale"
+          }
+        },
+        "summary": "Retrieve historical trend statistics for chosen ores"
+      },
+      "metals_spot_history_get": {
+        "body_description": "",
+        "description": "Returns prior market pricing for chosen ores.",
+        "fallbacks": [],
+        "name": "ore_price_timeline",
+        "params": {
+          "query:currency": {
+            "description": "Money unit used to quote values.",
+            "name": "quote"
+          },
+          "query:end": {
+            "description": "Ending date for the price series.",
+            "name": "to_date"
+          },
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          },
+          "query:historicalfx": {
+            "description": "Whether to adjust values using exchange rates.",
+            "name": "fx_adjust"
+          },
+          "query:interval": {
+            "description": "Spacing between returned data points.",
+            "name": "step"
+          },
+          "query:metals": {
+            "description": "Comma-separated ores to query.",
+            "name": "symbols"
+          },
+          "query:start": {
+            "description": "Beginning date for the price series.",
+            "name": "from_date"
+          },
+          "query:unitofmeasure": {
+            "description": "Measurement scale for quantities.",
+            "name": "scale"
+          }
+        },
+        "summary": "Retrieve prior market pricing for chosen ores"
+      },
+      "metals_spot_ratio_history_get": {
+        "body_description": "",
+        "description": "Returns past relative pricing for chosen ore combos.",
+        "fallbacks": [],
+        "name": "commodity_series",
+        "params": {
+          "query:end": {
+            "description": "Ending date for the price series.",
+            "name": "to_date"
+          },
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          },
+          "query:interval": {
+            "description": "Spacing between returned data points.",
+            "name": "step"
+          },
+          "query:pairs": {
+            "description": "Comma-separated ore combos to query.",
+            "name": "symbols"
+          },
+          "query:start": {
+            "description": "Beginning date for the price series.",
+            "name": "from_date"
+          }
+        },
+        "summary": "Retrieve past relative pricing for chosen ore combos"
+      },
+      "metals_spot_summary_get": {
+        "body_description": "",
+        "description": "Returns latest market statistics for chosen ores.",
+        "fallbacks": [],
+        "name": "ore_latest_stats",
+        "params": {
+          "query:currency": {
+            "description": "Money unit used to quote values.",
+            "name": "quote"
+          },
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          },
+          "query:metals": {
+            "description": "Comma-separated ores to query.",
+            "name": "symbols"
+          },
+          "query:unitofmeasure": {
+            "description": "Measurement scale for quantities.",
+            "name": "scale"
+          }
+        },
+        "summary": "Retrieve latest market statistics for chosen ores"
+      },
+      "metals_spot_supported_metals_get": {
+        "body_description": "",
+        "description": "Returns symbols usable by market requests.",
+        "fallbacks": [],
+        "name": "ore_symbols_list",
+        "params": {
+          "query:format": {
+            "description": "Desired response serialization.",
+            "name": "output"
+          }
+        },
+        "summary": "Retrieve symbols usable by market requests"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "data.aurorafinance.io",
+    "title": "Aurora Commodities Pricing Service",
+    "words": {
+      "annual": "perennial",
+      "ask": "offer",
+      "base": "anchor",
+      "benchmark": "reference",
+      "bid": "quote",
+      "change": "delta",
+      "currency": "tender",
+      "day": "session",
+      "end": "finish",
+      "fifty": "halfcentury",
+      "format": "layout",
+      "four": "quartet",
+      "fusion": "merge",
+      "high": "peak",
+      "historicalfx": "archivedfx",
+      "history": "archive",
+      "interval": "window",
+      "last": "final",
+      "low": "trough",
+      "market": "exchange",
+      "measure": "metric",
+      "metal": "alloy",
+      "one": "first",
+      "open": "commence",
+      "pair": "couple",
+      "percent": "share",
+      "performance": "throughput",
+      "rate": "tariff",
+      "ratio": "proportion",
+      "requested": "asked",
+      "solution": "platform",
+      "spot": "cash",
+      "stamp": "seal",
+      "start": "begin",
+      "success": "outcome",
+      "summary": "digest",
+      "supported": "available",
+      "symbol": "ticker",
+      "timestamp": "epoch",
+      "twelve": "dozen",
+      "two": "second",
+      "unit": "quantity",
+      "unitofmeasure": "dimension",
+      "week": "period",
+      "year": "cycle"
+    }
+  }
+}

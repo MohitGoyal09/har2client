@@ -1,0 +1,157 @@
+{
+  "title": "At high effort the hint fully solves 67% of case 3 tasks, base 20%",
+  "bars": [
+    {
+      "series": "case1",
+      "effort": "low",
+      "n": 50,
+      "counts": {
+        "solved": 26,
+        "partial": 3,
+        "zero": 21
+      },
+      "shares": {
+        "solved": 0.52,
+        "partial": 0.06,
+        "zero": 0.42
+      }
+    },
+    {
+      "series": "case1",
+      "effort": "medium",
+      "n": 50,
+      "counts": {
+        "solved": 31,
+        "partial": 1,
+        "zero": 18
+      },
+      "shares": {
+        "solved": 0.62,
+        "partial": 0.02,
+        "zero": 0.36
+      }
+    },
+    {
+      "series": "case1",
+      "effort": "high",
+      "n": 50,
+      "counts": {
+        "solved": 31,
+        "partial": 10,
+        "zero": 9
+      },
+      "shares": {
+        "solved": 0.62,
+        "partial": 0.2,
+        "zero": 0.18
+      }
+    },
+    {
+      "series": "base",
+      "effort": "low",
+      "n": 64,
+      "counts": {
+        "solved": 11,
+        "partial_above_v1": 36,
+        "partial_at_or_below_v1": 7,
+        "zero": 10
+      },
+      "shares": {
+        "solved": 0.171875,
+        "partial_above_v1": 0.5625,
+        "partial_at_or_below_v1": 0.109375,
+        "zero": 0.15625
+      }
+    },
+    {
+      "series": "base",
+      "effort": "medium",
+      "n": 64,
+      "counts": {
+        "solved": 14,
+        "partial_above_v1": 38,
+        "partial_at_or_below_v1": 6,
+        "zero": 6
+      },
+      "shares": {
+        "solved": 0.21875,
+        "partial_above_v1": 0.59375,
+        "partial_at_or_below_v1": 0.09375,
+        "zero": 0.09375
+      }
+    },
+    {
+      "series": "base",
+      "effort": "high",
+      "n": 64,
+      "counts": {
+        "solved": 13,
+        "partial_above_v1": 49,
+        "partial_at_or_below_v1": 1,
+        "zero": 1
+      },
+      "shares": {
+        "solved": 0.203125,
+        "partial_above_v1": 0.765625,
+        "partial_at_or_below_v1": 0.015625,
+        "zero": 0.015625
+      }
+    },
+    {
+      "series": "hint",
+      "effort": "low",
+      "n": 64,
+      "counts": {
+        "solved": 37,
+        "partial_above_v1": 20,
+        "partial_at_or_below_v1": 0,
+        "zero": 7
+      },
+      "shares": {
+        "solved": 0.578125,
+        "partial_above_v1": 0.3125,
+        "partial_at_or_below_v1": 0.0,
+        "zero": 0.109375
+      }
+    },
+    {
+      "series": "hint",
+      "effort": "medium",
+      "n": 64,
+      "counts": {
+        "solved": 40,
+        "partial_above_v1": 20,
+        "partial_at_or_below_v1": 0,
+        "zero": 4
+      },
+      "shares": {
+        "solved": 0.625,
+        "partial_above_v1": 0.3125,
+        "partial_at_or_below_v1": 0.0,
+        "zero": 0.0625
+      }
+    },
+    {
+      "series": "hint",
+      "effort": "high",
+      "n": 64,
+      "counts": {
+        "solved": 43,
+        "partial_above_v1": 19,
+        "partial_at_or_below_v1": 0,
+        "zero": 2
+      },
+      "shares": {
+        "solved": 0.671875,
+        "partial_above_v1": 0.296875,
+        "partial_at_or_below_v1": 0.0,
+        "zero": 0.03125
+      }
+    }
+  ],
+  "partial_split_by_v1": true,
+  "note": "Partial split by the unchanged-v1 score from heal_v3_eval_v1_floor.json",
+  "footer_n": "50 case 1, 64 case 3",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=50 case 1, 64 case 3 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

@@ -1,0 +1,61 @@
+{
+  "title": "Case 1 is hard because of one hidden header",
+  "rows": [
+    {
+      "effort": "low",
+      "off": {
+        "n": 25,
+        "pass": 94.28571428571429,
+        "ci_low": 85.71428571428572,
+        "ci_high": 99.42857142857143
+      },
+      "on": {
+        "n": 25,
+        "pass": 20.0,
+        "ci_low": 4.0,
+        "ci_high": 36.0
+      },
+      "gap_points": -74.28571428571429
+    },
+    {
+      "effort": "medium",
+      "off": {
+        "n": 25,
+        "pass": 96.0,
+        "ci_low": 88.0,
+        "ci_high": 100.0
+      },
+      "on": {
+        "n": 25,
+        "pass": 31.428571428571427,
+        "ci_low": 15.428571428571429,
+        "ci_high": 50.28571428571429
+      },
+      "gap_points": -64.57142857142857
+    },
+    {
+      "effort": "high",
+      "off": {
+        "n": 25,
+        "pass": 99.80952380952381,
+        "ci_low": 99.42857142857143,
+        "ci_high": 100.0
+      },
+      "on": {
+        "n": 25,
+        "pass": 49.14285714285714,
+        "ci_low": 32.95238095238095,
+        "ci_high": 65.14285714285714
+      },
+      "gap_points": -50.66666666666667
+    }
+  ],
+  "gap_by_effort": {
+    "low": -74.28571428571429,
+    "medium": -64.57142857142857,
+    "high": -50.66666666666667
+  },
+  "footer_n": "50",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=50 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

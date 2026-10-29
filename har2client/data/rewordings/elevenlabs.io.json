@@ -1,0 +1,184 @@
+{
+  "api_id": "elevenlabs.io",
+  "names": {
+    "original": {
+      "delete_history_item_v1_history_history_item_id_delete": {
+        "body_description": "",
+        "description": "Removes one past record by identifier.",
+        "fallbacks": [],
+        "name": "remove_past_record",
+        "params": {
+          "path:history_item_id": {
+            "description": "Identifies the past record to remove.",
+            "name": "record_uid"
+          }
+        },
+        "summary": "Remove Past Record"
+      },
+      "delete_history_items_v1_history_delete_post": {
+        "body_description": "The request body lists records to remove.",
+        "description": "Removes multiple past records.",
+        "fallbacks": [],
+        "name": "purge_past_records",
+        "summary": "Remove Past Entries"
+      },
+      "delete_sample_v1_voices_voice_id_samples_sample_id_delete": {
+        "body_description": "",
+        "description": "Removes a clip from an audio profile.",
+        "fallbacks": [],
+        "name": "remove_clip",
+        "params": {
+          "path:sample_id": {
+            "description": "Identifies the clip to remove.",
+            "name": "clip_id"
+          },
+          "path:voice_id": {
+            "description": "Identifies the audio profile.",
+            "name": "speaker_id"
+          }
+        },
+        "summary": "Remove Clip"
+      },
+      "delete_voice_v1_voices_voice_id_delete": {
+        "body_description": "",
+        "description": "Removes an audio profile by identifier.",
+        "fallbacks": [],
+        "name": "remove_audio_profile",
+        "params": {
+          "path:voice_id": {
+            "description": "Identifies the audio profile to remove.",
+            "name": "speaker_id"
+          }
+        },
+        "summary": "Remove Audio Profile"
+      },
+      "get_default_voice_settings_v1_voices_settings_default_get": {
+        "body_description": "",
+        "description": "Returns standard audio configuration.",
+        "fallbacks": [],
+        "name": "get_standard_audio_config",
+        "summary": "Get Standard Audio Configuration"
+      },
+      "get_generated_items_v1_history_get": {
+        "body_description": "",
+        "description": "Returns items that were generated.",
+        "fallbacks": [],
+        "name": "get_generated_items",
+        "summary": "Get Generated Items"
+      },
+      "get_user_subscription_info_v1_user_subscription_get": {
+        "body_description": "",
+        "description": "Returns account plan details.",
+        "fallbacks": [],
+        "name": "get_account_plan_info",
+        "summary": "Get Account Plan Info"
+      },
+      "get_voice_v1_voices_voice_id_get": {
+        "body_description": "",
+        "description": "Returns an audio profile by identifier.",
+        "fallbacks": [],
+        "name": "get_audio_profile",
+        "params": {
+          "path:voice_id": {
+            "description": "Identifies the audio profile.",
+            "name": "speaker_id"
+          },
+          "query:with_settings": {
+            "description": "Whether to include configuration details.",
+            "name": "include_config"
+          }
+        },
+        "summary": "Get Audio Profile"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:iso"
+    ],
+    "host": "gateway.sonora.ai",
+    "title": "Sonora Speech Platform Manual",
+    "words": {
+      "accepted": "approved",
+      "allowed": "permitted",
+      "amount": "quantity",
+      "attempt": "trial",
+      "audio": "sound",
+      "available": "accessible",
+      "boost": "amplify",
+      "byte": "octet",
+      "category": "group",
+      "cent": "penny",
+      "change": "modify",
+      "character": "glyph",
+      "clone": "duplicate",
+      "cloning": "replication",
+      "content": "payload",
+      "currency": "money",
+      "default": "standard",
+      "delayed": "pending",
+      "delete": "remove",
+      "description": "summary",
+      "display": "render",
+      "distance": "gap",
+      "documentation": "manual",
+      "download": "fetch",
+      "due": "owed",
+      "edit": "revise",
+      "eleven": "dozen",
+      "emotion": "feeling",
+      "extend": "prolong",
+      "failure": "fault",
+      "feedback": "comment",
+      "file": "document",
+      "fine": "subtle",
+      "finetuning": "training",
+      "from": "origin",
+      "glitch": "bug",
+      "hash": "digest",
+      "history": "archive",
+      "inaccurate": "wrong",
+      "instant": "immediate",
+      "invoice": "bill",
+      "iso": "acorn",
+      "lab": "studio",
+      "label": "tag",
+      "language": "locale",
+      "levenshtein": "metric",
+      "method": "technique",
+      "mime": "format",
+      "model": "engine",
+      "next": "following",
+      "payment": "billing",
+      "preview": "glimpse",
+      "professional": "expert",
+      "quality": "fidelity",
+      "recording": "capture",
+      "request": "call",
+      "requested": "queried",
+      "reset": "clear",
+      "review": "inspect",
+      "sample": "specimen",
+      "setting": "option",
+      "similarity": "resemblance",
+      "slice": "segment",
+      "speech": "narration",
+      "stability": "steadiness",
+      "state": "phase",
+      "stream": "flow",
+      "subscription": "plan",
+      "supported": "enabled",
+      "thumb": "icon",
+      "tier": "level",
+      "transcription": "dictation",
+      "tune": "adjust",
+      "tuning": "adjustment",
+      "unix": "epoch",
+      "upload": "ingest",
+      "user": "account",
+      "verification": "validation",
+      "voice": "speaker",
+      "with": "along"
+    }
+  }
+}

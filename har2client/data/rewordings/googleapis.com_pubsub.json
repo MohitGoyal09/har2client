@@ -1,0 +1,316 @@
+{
+  "api_id": "googleapis.com:pubsub",
+  "names": {
+    "original": {
+      "pubsub_projects_subscriptions_list": {
+        "body_description": "",
+        "description": "Lists feeds matching supplied criteria.",
+        "fallbacks": [],
+        "name": "list_feeds",
+        "params": {
+          "path:project": {
+            "description": "Workspace containing feeds.",
+            "name": "workspace_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "OAuth bearer credential.",
+            "name": "bearer"
+          },
+          "query:alt": {
+            "description": "Response serialization format.",
+            "name": "output_format"
+          },
+          "query:callback": {
+            "description": "Reply address for async results.",
+            "name": "webhook_url"
+          },
+          "query:fields": {
+            "description": "Requested response attributes.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Application credential.",
+            "name": "app_identifier"
+          },
+          "query:oauth_token": {
+            "description": "OAuth session credential.",
+            "name": "session"
+          },
+          "query:pageSize": {
+            "description": "Maximum number of results.",
+            "name": "limit"
+          },
+          "query:pageToken": {
+            "description": "Pagination cursor.",
+            "name": "cursor"
+          },
+          "query:prettyPrint": {
+            "description": "Format output for readability.",
+            "name": "indent"
+          },
+          "query:quotaUser": {
+            "description": "Billing account label.",
+            "name": "billing_id"
+          },
+          "query:uploadType": {
+            "description": "Transfer style for large payloads.",
+            "name": "transfer_style"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mechanism for large payloads.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Lists matching feeds."
+      },
+      "pubsub_projects_topics_create": {
+        "body_description": "JSON payload describing the new stream.",
+        "description": "Creates a topic from the provided details.",
+        "fallbacks": [],
+        "name": "add_stream",
+        "params": {
+          "path:name": {
+            "description": "Identifier for the new topic.",
+            "name": "channel_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "OAuth bearer credential.",
+            "name": "bearer"
+          },
+          "query:alt": {
+            "description": "Response serialization format.",
+            "name": "output_format"
+          },
+          "query:callback": {
+            "description": "Reply address for async results.",
+            "name": "webhook_url"
+          },
+          "query:fields": {
+            "description": "Requested response attributes.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Application credential.",
+            "name": "app_identifier"
+          },
+          "query:oauth_token": {
+            "description": "OAuth session credential.",
+            "name": "session"
+          },
+          "query:prettyPrint": {
+            "description": "Format output for readability.",
+            "name": "indent"
+          },
+          "query:quotaUser": {
+            "description": "Billing account label.",
+            "name": "billing_id"
+          },
+          "query:uploadType": {
+            "description": "Transfer style for large payloads.",
+            "name": "transfer_style"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mechanism for large payloads.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Creates the requested topic using the supplied identifier."
+      },
+      "pubsub_projects_topics_list": {
+        "body_description": "",
+        "description": "Lists streams matching supplied criteria.",
+        "fallbacks": [],
+        "name": "fetch_channels",
+        "params": {
+          "path:project": {
+            "description": "Workspace containing streams.",
+            "name": "workspace_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "OAuth bearer credential.",
+            "name": "bearer"
+          },
+          "query:alt": {
+            "description": "Response serialization format.",
+            "name": "output_format"
+          },
+          "query:callback": {
+            "description": "Reply address for async results.",
+            "name": "webhook_url"
+          },
+          "query:fields": {
+            "description": "Requested response attributes.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Application credential.",
+            "name": "app_identifier"
+          },
+          "query:oauth_token": {
+            "description": "OAuth session credential.",
+            "name": "session"
+          },
+          "query:pageSize": {
+            "description": "Maximum number of results.",
+            "name": "limit"
+          },
+          "query:pageToken": {
+            "description": "Pagination cursor.",
+            "name": "cursor"
+          },
+          "query:prettyPrint": {
+            "description": "Format output for readability.",
+            "name": "indent"
+          },
+          "query:quotaUser": {
+            "description": "Billing account label.",
+            "name": "billing_id"
+          },
+          "query:uploadType": {
+            "description": "Transfer style for large payloads.",
+            "name": "transfer_style"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mechanism for large payloads.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Lists matching streams."
+      },
+      "pubsub_projects_topics_publish": {
+        "body_description": "JSON payload containing messages to send.",
+        "description": "Sends messages to specified channel.",
+        "fallbacks": [],
+        "name": "send_events",
+        "params": {
+          "path:topic": {
+            "description": "Destination channel identifier.",
+            "name": "channel_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "OAuth bearer credential.",
+            "name": "bearer"
+          },
+          "query:alt": {
+            "description": "Response serialization format.",
+            "name": "output_format"
+          },
+          "query:callback": {
+            "description": "Reply address for async results.",
+            "name": "webhook_url"
+          },
+          "query:fields": {
+            "description": "Requested response attributes.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Application credential.",
+            "name": "app_identifier"
+          },
+          "query:oauth_token": {
+            "description": "OAuth session credential.",
+            "name": "session"
+          },
+          "query:prettyPrint": {
+            "description": "Format output for readability.",
+            "name": "indent"
+          },
+          "query:quotaUser": {
+            "description": "Billing account label.",
+            "name": "billing_id"
+          },
+          "query:uploadType": {
+            "description": "Transfer style for large payloads.",
+            "name": "transfer_style"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mechanism for large payloads.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Adds messages to a channel."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:etag",
+      "word:iam",
+      "word:max"
+    ],
+    "host": "api.streamrelay.dev",
+    "title": "Message Broker Interface",
+    "words": {
+      "access": "reach",
+      "account": "ledger",
+      "ack": "receipt",
+      "acknowledge": "confirm",
+      "alt": "variant",
+      "attribute": "property",
+      "audience": "clientele",
+      "beta": "gamma",
+      "binding": "attachment",
+      "callback": "hook",
+      "cloud": "platform",
+      "condition": "clause",
+      "deadline": "cutoff",
+      "description": "summary",
+      "email": "address",
+      "endpoint": "gateway",
+      "etag": "meadow",
+      "expression": "formula",
+      "field": "column",
+      "iam": "dolphin",
+      "immediately": "instantly",
+      "location": "region",
+      "max": "pebble",
+      "member": "participant",
+      "modify": "adjust",
+      "next": "following",
+      "oidc": "identity",
+      "option": "setting",
+      "permission": "grant",
+      "policy": "rule",
+      "pretty": "formatted",
+      "print": "render",
+      "project": "workspace",
+      "protocol": "scheme",
+      "pub": "broadcast",
+      "publish": "emit",
+      "pull": "fetch",
+      "push": "dispatch",
+      "quota": "cap",
+      "received": "delivered",
+      "requested": "asked",
+      "resource": "entity",
+      "return": "response",
+      "role": "rank",
+      "second": "moment",
+      "service": "worker",
+      "sub": "child",
+      "subscription": "channel",
+      "test": "verify",
+      "title": "heading",
+      "topic": "stream",
+      "upload": "ingest",
+      "user": "client",
+      "xgafv": "format"
+    }
+  }
+}

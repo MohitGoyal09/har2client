@@ -1,0 +1,150 @@
+{
+  "title": "Pass rate by model",
+  "panels": {
+    "tierb50": [
+      {
+        "label": "Beam (high)",
+        "display_label": "Beam (high, mean of 3 runs)",
+        "kind": "beam",
+        "n": 50,
+        "runs": 3,
+        "pass_rate": 74.47619047619048,
+        "ci_low": 63.23809523809524,
+        "ci_high": 84.76190476190477
+      },
+      {
+        "label": "GPT-OSS-120B (high)",
+        "display_label": "GPT-OSS-120B (high)",
+        "kind": "model",
+        "n": 50,
+        "runs": 1,
+        "pass_rate": 69.71428571428572,
+        "ci_low": 56.0,
+        "ci_high": 81.71428571428572
+      },
+      {
+        "label": "Beam (medium)",
+        "display_label": "Beam (medium)",
+        "kind": "beam",
+        "n": 50,
+        "runs": 1,
+        "pass_rate": 63.714285714285715,
+        "ci_low": 50.0,
+        "ci_high": 76.0
+      },
+      {
+        "label": "Beam (low)",
+        "display_label": "Beam (low)",
+        "kind": "beam",
+        "n": 50,
+        "runs": 1,
+        "pass_rate": 57.142857142857146,
+        "ci_low": 43.42857142857143,
+        "ci_high": 70.57142857142857
+      },
+      {
+        "label": "GPT-OSS-120B (medium)",
+        "display_label": "GPT-OSS-120B (medium)",
+        "kind": "model",
+        "n": 50,
+        "runs": 1,
+        "pass_rate": 53.714285714285715,
+        "ci_low": 40.57142857142857,
+        "ci_high": 66.85714285714285
+      },
+      {
+        "label": "GPT-OSS-120B (low)",
+        "display_label": "GPT-OSS-120B (low)",
+        "kind": "model",
+        "n": 50,
+        "runs": 1,
+        "pass_rate": 51.142857142857146,
+        "ci_low": 37.714285714285715,
+        "ci_high": 65.14285714285715
+      },
+      {
+        "label": "Qwen3.5-397B-A17B (thinking enabled)",
+        "display_label": "Qwen3.5-397B-A17B (thinking enabled)",
+        "kind": "model",
+        "n": 50,
+        "runs": 1,
+        "pass_rate": 36.0,
+        "ci_low": 23.714285714285715,
+        "ci_high": 48.857142857142854
+      }
+    ],
+    "v3base": [
+      {
+        "label": "GPT-OSS-120B (high)",
+        "display_label": "GPT-OSS-120B (high)",
+        "kind": "model",
+        "n": 64,
+        "runs": 1,
+        "pass_rate": 58.54779411764706,
+        "ci_low": 49.4485294117647,
+        "ci_high": 67.83088235294117
+      },
+      {
+        "label": "Beam (high)",
+        "display_label": "Beam (high, mean of 3 runs)",
+        "kind": "beam",
+        "n": 64,
+        "runs": 3,
+        "pass_rate": 45.986519607843135,
+        "ci_low": 38.23529411764706,
+        "ci_high": 54.013480392156865
+      },
+      {
+        "label": "Beam (medium)",
+        "display_label": "Beam (medium)",
+        "kind": "beam",
+        "n": 64,
+        "runs": 1,
+        "pass_rate": 37.04044117647059,
+        "ci_low": 28.40073529411765,
+        "ci_high": 45.955882352941174
+      },
+      {
+        "label": "GPT-OSS-120B (medium)",
+        "display_label": "GPT-OSS-120B (medium)",
+        "kind": "model",
+        "n": 64,
+        "runs": 1,
+        "pass_rate": 34.375,
+        "ci_low": 26.011029411764707,
+        "ci_high": 43.1985294117647
+      },
+      {
+        "label": "GPT-OSS-120B (low)",
+        "display_label": "GPT-OSS-120B (low)",
+        "kind": "model",
+        "n": 64,
+        "runs": 1,
+        "pass_rate": 32.720588235294116,
+        "ci_low": 24.540441176470587,
+        "ci_high": 41.6360294117647
+      },
+      {
+        "label": "Beam (low)",
+        "display_label": "Beam (low)",
+        "kind": "beam",
+        "n": 64,
+        "runs": 1,
+        "pass_rate": 31.61764705882353,
+        "ci_low": 23.71323529411765,
+        "ci_high": 40.16544117647059
+      },
+      {
+        "label": "Qwen3.5-397B-A17B (thinking enabled)",
+        "display_label": "Qwen3.5-397B-A17B (thinking enabled)",
+        "kind": "model",
+        "n": 64,
+        "runs": 1,
+        "pass_rate": 29.59558823529412,
+        "ci_low": 21.875,
+        "ci_high": 37.775735294117645
+      }
+    ]
+  },
+  "footer": "Beam-1.0-501B-A23B and open models via the HF router \u00b7 tierb50: n=50, v3base: n=64 \u00b7 Beam high: mean of 3 runs, other rows: 1 run per task \u00b7 95% CI over tasks \u00b7 HAR2Client 0e2d0cc"
+}

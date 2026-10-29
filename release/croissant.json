@@ -1,0 +1,2010 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "samplingRate": "cr:samplingRate",
+    "equivalentProperty": "cr:equivalentProperty"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "har2client",
+  "alternateName": "har2client: from recorded API traffic to a working client",
+  "description": "A benchmark of tasks in which a model reads a goal and a recording of API traffic (HAR) and writes a Python client that must work on a fresh copy of the API. Hidden execution tests are kept outside the dataset; rebuilding them needs the benchmark code, which is public at https://github.com/MohitGoyal09/har2client. Configs: tier_a (27 public-API tasks; 30 were built and run, and 3 whose API spec has a restrictive licence are not published) and tier_b (50 invented stateful-API tasks), which are case 1 (build); and heal_v3 and heal_v3_hint, the case 3 (maintain) v3 evaluation suite: 64 repair tasks (single 14, release3 10, release4 8, partial 8, sdk 8, misleading 8, terse 8), each in two arms (as built, and with a contract hint paragraph in the goal). Case 2 (probe) and the earlier case 3 sets (v2) are not in this release.",
+  "url": "https://huggingface.co/datasets/ORG/har2client",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "version": "0.1.0",
+  "datePublished": "2026-10-26",
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Mohit Goyal"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Ananya Bhattacharya"
+    }
+  ],
+  "citeAs": "@misc{har2client2026, title={har2client: a benchmark and environment for turning recorded API traffic into working clients}, author={Mohit Goyal and Ananya Bhattacharya}, year={2026}, url={https://huggingface.co/datasets/ORG/har2client}}",
+  "keywords": [
+    "benchmark",
+    "code generation",
+    "API",
+    "HAR",
+    "agents",
+    "synthetic data",
+    "evaluation"
+  ],
+  "isLiveDataset": false,
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "tier_a-jsonl",
+      "name": "tier_a/data.jsonl",
+      "description": "One JSON object per task, config tier_a.",
+      "contentUrl": "https://huggingface.co/datasets/ORG/har2client/resolve/main/tier_a/data.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "FILLED_BY_EXPORT_DATASET"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "tier_b-jsonl",
+      "name": "tier_b/data.jsonl",
+      "description": "One JSON object per task, config tier_b.",
+      "contentUrl": "https://huggingface.co/datasets/ORG/har2client/resolve/main/tier_b/data.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "FILLED_BY_EXPORT_DATASET"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "heal_v3-jsonl",
+      "name": "heal_v3/data.jsonl",
+      "description": "One JSON object per task, config heal_v3 (case 3 v3 evaluation suite, base arm).",
+      "contentUrl": "https://huggingface.co/datasets/ORG/har2client/resolve/main/heal_v3/data.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "FILLED_BY_EXPORT_DATASET"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "heal_v3_hint-jsonl",
+      "name": "heal_v3_hint/data.jsonl",
+      "description": "One JSON object per task, config heal_v3_hint (the same 64 tasks, goal plus the contract hint paragraph).",
+      "contentUrl": "https://huggingface.co/datasets/ORG/har2client/resolve/main/heal_v3_hint/data.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "FILLED_BY_EXPORT_DATASET"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "tier_a",
+      "name": "tier_a",
+      "description": "Rows of config tier_a.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/task_id",
+          "name": "task_id",
+          "description": "Task identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.task_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/case",
+          "name": "case",
+          "description": "build, probe or heal.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.case"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/tier",
+          "name": "tier",
+          "description": "A (public APIs) or B (invented stateful APIs).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.tier"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/title",
+          "name": "title",
+          "description": "API title as shown in the goal.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/goal_md",
+          "name": "goal_md",
+          "description": "Visible goal file: constructor, method signatures, rules. This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.goal_md"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/observation",
+          "name": "observation",
+          "description": "Visible recording as text (HAR 1.2 JSON). This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/observation_format",
+          "name": "observation_format",
+          "description": "Format of the observation (har).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_format"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/observation_file",
+          "name": "observation_file",
+          "description": "File name of the observation in the task.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_file"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/features",
+          "name": "features",
+          "description": "Analysis labels (not for the model).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.features"
+            }
+          },
+          "repeated": true
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/canary",
+          "name": "canary",
+          "description": "Canary string: this data must not appear in training corpora.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.canary"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/config",
+          "name": "config",
+          "description": "Analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "tier_a/config/auth_type",
+              "name": "auth_type",
+              "description": "Auth type: none, apiKey, bearer or basic.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_a-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.auth_type"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_a/config/n_goal_ops",
+              "name": "n_goal_ops",
+              "description": "Operations in the goal.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_a-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.n_goal_ops"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_a/config/n_spec_ops",
+              "name": "n_spec_ops",
+              "description": "Operations in the full spec.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_a-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.n_spec_ops"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/metadata",
+          "name": "metadata",
+          "description": "More analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "tier_a/metadata/har_entries",
+              "name": "har_entries",
+              "description": "Entries in the recording.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_a-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.har_entries"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_a/metadata/noise_ratio",
+              "name": "noise_ratio",
+              "description": "Share of recording entries that are browser noise.",
+              "dataType": "sc:Float",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_a-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.noise_ratio"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_a/metadata/session_calls",
+              "name": "session_calls",
+              "description": "API calls in the scripted session.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_a-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.session_calls"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/api_id",
+          "name": "api_id",
+          "description": "APIs.guru API id.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.api_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/spec_license_name",
+          "name": "spec_license_name",
+          "description": "Licence declared in the API description, if any.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.spec_license_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/spec_license_url",
+          "name": "spec_license_url",
+          "description": "URL of that licence.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.spec_license_url"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/spec_origin_url",
+          "name": "spec_origin_url",
+          "description": "Where the API description was published.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.spec_origin_url"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_a/spec_license_class",
+          "name": "spec_license_class",
+          "description": "permissive, restricted, other or undeclared (our classification).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_a-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.spec_license_class"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "tier_b",
+      "name": "tier_b",
+      "description": "Rows of config tier_b.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/task_id",
+          "name": "task_id",
+          "description": "Task identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.task_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/case",
+          "name": "case",
+          "description": "build, probe or heal.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.case"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/tier",
+          "name": "tier",
+          "description": "A (public APIs) or B (invented stateful APIs).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.tier"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/title",
+          "name": "title",
+          "description": "API title as shown in the goal.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/goal_md",
+          "name": "goal_md",
+          "description": "Visible goal file: constructor, method signatures, rules. This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.goal_md"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/observation",
+          "name": "observation",
+          "description": "Visible recording as text (HAR 1.2 JSON). This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/observation_format",
+          "name": "observation_format",
+          "description": "Format of the observation (har).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_format"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/observation_file",
+          "name": "observation_file",
+          "description": "File name of the observation in the task.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_file"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/features",
+          "name": "features",
+          "description": "Analysis labels (not for the model).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.features"
+            }
+          },
+          "repeated": true
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/canary",
+          "name": "canary",
+          "description": "Canary string: this data must not appear in training corpora.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tier_b-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.canary"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/config",
+          "name": "config",
+          "description": "Analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/config/auth",
+              "name": "auth",
+              "description": "Feature switch auth.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.auth"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/config/pagination",
+              "name": "pagination",
+              "description": "Feature switch pagination.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.pagination"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/config/token_expiry",
+              "name": "token_expiry",
+              "description": "Feature switch token_expiry.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.token_expiry"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/config/etag_update",
+              "name": "etag_update",
+              "description": "Feature switch etag_update.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.etag_update"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/config/hidden_header",
+              "name": "hidden_header",
+              "description": "Feature switch hidden_header.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.hidden_header"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/config/envelope",
+              "name": "envelope",
+              "description": "Feature switch envelope.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.envelope"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tier_b/metadata",
+          "name": "metadata",
+          "description": "More analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/metadata/domain",
+              "name": "domain",
+              "description": "Domain of the invented API.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.domain"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/metadata/har_entries",
+              "name": "har_entries",
+              "description": "Entries in the recording.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.har_entries"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/metadata/noise_ratio",
+              "name": "noise_ratio",
+              "description": "Share of recording entries that are browser noise.",
+              "dataType": "sc:Float",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.noise_ratio"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "tier_b/metadata/session_calls",
+              "name": "session_calls",
+              "description": "API calls in the scripted session.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "tier_b-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.session_calls"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "heal_v3",
+      "name": "heal_v3",
+      "description": "Rows of config heal_v3: the case 3 v3 evaluation suite, 64 repair tasks, base arm (goal as built).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/task_id",
+          "name": "task_id",
+          "description": "Task identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.task_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/case",
+          "name": "case",
+          "description": "heal (case 3: maintain).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.case"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/tier",
+          "name": "tier",
+          "description": "A (public APIs) or B (invented stateful APIs).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.tier"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/title",
+          "name": "title",
+          "description": "API title as shown in the goal.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/goal_md",
+          "name": "goal_md",
+          "description": "Visible goal file: constructor, method signatures, rules. This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.goal_md"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/observation",
+          "name": "observation",
+          "description": "Visible recording as text (HAR 1.2 JSON). This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/observation_format",
+          "name": "observation_format",
+          "description": "Format of the observation (har).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_format"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/observation_file",
+          "name": "observation_file",
+          "description": "File name of the observation in the task.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_file"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/features",
+          "name": "features",
+          "description": "Analysis labels (not for the model).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.features"
+            }
+          },
+          "repeated": true
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/canary",
+          "name": "canary",
+          "description": "Canary string: this data must not appear in training corpora.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.canary"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/config",
+          "name": "config",
+          "description": "Analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/auth",
+              "name": "auth",
+              "description": "Login style of the new API version.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.auth"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/pagination",
+              "name": "pagination",
+              "description": "Paging style.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.pagination"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/token_expiry",
+              "name": "token_expiry",
+              "description": "Whether access tokens expire.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.token_expiry"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/etag_update",
+              "name": "etag_update",
+              "description": "Whether updates need an ETag.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.etag_update"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/hidden_header",
+              "name": "hidden_header",
+              "description": "Whether calls need a custom header.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.hidden_header"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/envelope",
+              "name": "envelope",
+              "description": "Whether list responses use an envelope.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.envelope"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/async_create",
+              "name": "async_create",
+              "description": "Create answers 202 and a job to poll (on, or empty when the change is not in this release).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.async_create"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/idempotency_key",
+              "name": "idempotency_key",
+              "description": "Writes need an Idempotency-Key header (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.idempotency_key"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/moved",
+              "name": "moved",
+              "description": "Item paths moved to a new prefix (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.moved"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/rate_limit",
+              "name": "rate_limit",
+              "description": "Requests are limited with 429 and Retry-After (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.rate_limit"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/config/refresh_rotation",
+              "name": "refresh_rotation",
+              "description": "Login returns a refresh token that rotates (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.refresh_rotation"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/metadata",
+          "name": "metadata",
+          "description": "More analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/domain",
+              "name": "domain",
+              "description": "Domain of the invented API.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.domain"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/har_entries",
+              "name": "har_entries",
+              "description": "Entries in the recording.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.har_entries"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/noise_ratio",
+              "name": "noise_ratio",
+              "description": "Share of recording entries that are browser noise.",
+              "dataType": "sc:Float",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.noise_ratio"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/session_calls",
+              "name": "session_calls",
+              "description": "API calls in the scripted session.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.session_calls"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/mutation",
+              "name": "mutation",
+              "description": "The API changes of this release, joined with +.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.mutation"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/arm",
+              "name": "arm",
+              "description": "base (goal as built) or hint (goal plus the contract hint paragraph).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.arm"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/set",
+              "name": "set",
+              "description": "Task family: single, release3, release4, partial, sdk, misleading or terse.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.set"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/changes",
+              "name": "changes",
+              "description": "Number of API changes in the release (1, 3 or 4).",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.changes"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/error_detail",
+              "name": "error_detail",
+              "description": "verbose or terse failure information.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.error_detail"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/evidence",
+              "name": "evidence",
+              "description": "Which evidence channels are visible (both: failure log and recording).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.evidence"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/evidence_scope",
+              "name": "evidence_scope",
+              "description": "full (every operation is in the recording) or partial.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.evidence_scope"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/changelog",
+              "name": "changelog",
+              "description": "Release notes: none or misleading.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.changelog"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/client_style",
+              "name": "client_style",
+              "description": "compact client or sdk (layered, 400 to 700 lines).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.client_style"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3/metadata/identifiable",
+              "name": "identifiable",
+              "description": "yes (the visible files show the fix), generalize (a general rule over them is needed) or no.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.identifiable"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/client_v1",
+          "name": "client_v1",
+          "description": "The old client (Python source). The agent repairs it.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.client_v1"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/failure_txt",
+          "name": "failure_txt",
+          "description": "What happened when the old client ran against a practice server of the new version.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.failure_txt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3/changelog_md",
+          "name": "changelog_md",
+          "description": "Release notes of the new version (only the 8 misleading-changelog tasks have them; empty otherwise).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.changelog_md"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "heal_v3_hint",
+      "name": "heal_v3_hint",
+      "description": "Rows of config heal_v3_hint: the same 64 repair tasks, goal plus the contract hint paragraph.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/task_id",
+          "name": "task_id",
+          "description": "Task identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.task_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/case",
+          "name": "case",
+          "description": "heal (case 3: maintain).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.case"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/tier",
+          "name": "tier",
+          "description": "A (public APIs) or B (invented stateful APIs).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.tier"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/title",
+          "name": "title",
+          "description": "API title as shown in the goal.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/goal_md",
+          "name": "goal_md",
+          "description": "Visible goal file: constructor, method signatures, rules. This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.goal_md"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/observation",
+          "name": "observation",
+          "description": "Visible recording as text (HAR 1.2 JSON). This is what the model reads.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/observation_format",
+          "name": "observation_format",
+          "description": "Format of the observation (har).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_format"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/observation_file",
+          "name": "observation_file",
+          "description": "File name of the observation in the task.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.observation_file"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/features",
+          "name": "features",
+          "description": "Analysis labels (not for the model).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.features"
+            }
+          },
+          "repeated": true
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/canary",
+          "name": "canary",
+          "description": "Canary string: this data must not appear in training corpora.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.canary"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/config",
+          "name": "config",
+          "description": "Analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/auth",
+              "name": "auth",
+              "description": "Login style of the new API version.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.auth"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/pagination",
+              "name": "pagination",
+              "description": "Paging style.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.pagination"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/token_expiry",
+              "name": "token_expiry",
+              "description": "Whether access tokens expire.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.token_expiry"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/etag_update",
+              "name": "etag_update",
+              "description": "Whether updates need an ETag.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.etag_update"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/hidden_header",
+              "name": "hidden_header",
+              "description": "Whether calls need a custom header.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.hidden_header"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/envelope",
+              "name": "envelope",
+              "description": "Whether list responses use an envelope.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.envelope"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/async_create",
+              "name": "async_create",
+              "description": "Create answers 202 and a job to poll (on, or empty when the change is not in this release).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.async_create"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/idempotency_key",
+              "name": "idempotency_key",
+              "description": "Writes need an Idempotency-Key header (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.idempotency_key"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/moved",
+              "name": "moved",
+              "description": "Item paths moved to a new prefix (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.moved"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/rate_limit",
+              "name": "rate_limit",
+              "description": "Requests are limited with 429 and Retry-After (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.rate_limit"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/config/refresh_rotation",
+              "name": "refresh_rotation",
+              "description": "Login returns a refresh token that rotates (on, or empty).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.config.refresh_rotation"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/metadata",
+          "name": "metadata",
+          "description": "More analysis labels of the task (not for the model).",
+          "subField": [
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/domain",
+              "name": "domain",
+              "description": "Domain of the invented API.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.domain"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/har_entries",
+              "name": "har_entries",
+              "description": "Entries in the recording.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.har_entries"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/noise_ratio",
+              "name": "noise_ratio",
+              "description": "Share of recording entries that are browser noise.",
+              "dataType": "sc:Float",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.noise_ratio"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/session_calls",
+              "name": "session_calls",
+              "description": "API calls in the scripted session.",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.session_calls"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/mutation",
+              "name": "mutation",
+              "description": "The API changes of this release, joined with +.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.mutation"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/arm",
+              "name": "arm",
+              "description": "base (goal as built) or hint (goal plus the contract hint paragraph).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.arm"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/set",
+              "name": "set",
+              "description": "Task family: single, release3, release4, partial, sdk, misleading or terse.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.set"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/changes",
+              "name": "changes",
+              "description": "Number of API changes in the release (1, 3 or 4).",
+              "dataType": "sc:Integer",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.changes"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/error_detail",
+              "name": "error_detail",
+              "description": "verbose or terse failure information.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.error_detail"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/evidence",
+              "name": "evidence",
+              "description": "Which evidence channels are visible (both: failure log and recording).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.evidence"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/evidence_scope",
+              "name": "evidence_scope",
+              "description": "full (every operation is in the recording) or partial.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.evidence_scope"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/changelog",
+              "name": "changelog",
+              "description": "Release notes: none or misleading.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.changelog"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/client_style",
+              "name": "client_style",
+              "description": "compact client or sdk (layered, 400 to 700 lines).",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.client_style"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "heal_v3_hint/metadata/identifiable",
+              "name": "identifiable",
+              "description": "yes (the visible files show the fix), generalize (a general rule over them is needed) or no.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "heal_v3_hint-jsonl"
+                },
+                "extract": {
+                  "jsonPath": "$.metadata.identifiable"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/client_v1",
+          "name": "client_v1",
+          "description": "The old client (Python source). The agent repairs it.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.client_v1"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/failure_txt",
+          "name": "failure_txt",
+          "description": "What happened when the old client ran against a practice server of the new version.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.failure_txt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "heal_v3_hint/changelog_md",
+          "name": "changelog_md",
+          "description": "Release notes of the new version (only the 8 misleading-changelog tasks have them; empty otherwise).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "heal_v3_hint-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.changelog_md"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataLimitations": "Controlled stateful APIs: Tier B comes from one engine with six feature switches, not from real services. All traffic is synthetic. Tier A covers OpenAPI 3.0 specs from APIs.guru only and 27 published tasks from the 165 selected APIs (30 were built and run; the 3 with a restrictive spec licence are not published, and the Tier A results include them). Case 3 v3 comes from the same invented engine with ten API changes (five silent wire changes and five protocol changes), so it tests those changes, not real service releases. Pass rates are one run per task so far. Tier A is nearly saturated and may be partly memorised. Hidden tests are not in this dataset; rebuilding them needs the benchmark code, which is public at https://github.com/MohitGoyal09/har2client.",
+  "rai:dataBiases": "Selection bias: Tier A keeps public APIs with OpenAPI 3.0 specs, 5 to 40 operations, JSON bodies and at most 2 per provider, so it over-represents well documented REST APIs. Tier B domains (invoices, samples, bookings, tickets, shipments) and feature switches are chosen by us. Goal argument names often equal wire names, which favours string matching. Text is English only.",
+  "rai:personalSensitiveInformation": "None. Recordings are synthetic; credentials, tokens and user names are generated fake strings; data values are random or invented. Tier A uses real API titles and operation names but no real user data.",
+  "rai:dataUseCases": "Evaluating models and agents on traffic-to-client generation with execution-based grading; studying which API behaviours cause failures; training and evaluating RL agents with the environment in the benchmark code (https://github.com/MohitGoyal09/har2client). Not for measuring general coding ability, real-world reverse-engineering success, or security capability.",
+  "rai:dataSocialImpact": "Lower risk: all servers and credentials are fake, and the task is to write a client for a known API. Possible benefit: better tooling for integrating undocumented APIs. Possible misuse: teaching systems to replicate client behaviour of real services; the data contains no real credentials or endpoints to attack. Benchmark scores can be over-read; the card lists caveats.",
+  "rai:hasSyntheticData": true,
+  "rai:dataCollection": "Generated by code. Tier A: an APIs.guru OpenAPI 3.0 spec drives a fake server; a scripted user plays 1 to 3 calls per operation (up to 8 operations); the session is recorded as a HAR and mixed with simulated browser noise (70% of entries). Tier B: one stateful engine with six switches builds invented APIs. Case 3 (v3): the same engine builds a v1 and a v2 version of an invented API; a release of 1, 3 or 4 changes turns v1 into v2; the task holds the v1 client, a failure log from a practice server, a short recording of v2 (with noise 0.3) and, for 8 tasks, release notes with one wrong statement. Seeds 2001 to 2064 (build seed 2); the list was frozen in the pre-registration before the first run.",
+  "rai:dataCollectionType": [
+    "Synthetic Data"
+  ],
+  "rai:dataPreprocessingProtocol": "HAR recordings are mixed with simulated noise (analytics, fonts, CDN assets, same-origin XHR) using one shared browser header profile. The export copies the visible goal and recording unchanged and drops all hidden files.",
+  "rai:dataAnnotationProtocol": "No human annotation. Hidden tests are generated by code from seeds; each task is valid only if the reference client scores 1.0.",
+  "rai:machineAnnotationTools": [
+    "har2client task builder, reference-client generator and grader (benchmark code, https://github.com/MohitGoyal09/har2client)"
+  ],
+  "rai:dataReleaseMaintenancePlan": "Case 2 will be added as a new config. The v3 case 3 results (more efforts, repeat runs) will be added as they finish. Task changes get a new version tag. Tier B can be regenerated with new seeds for a fresh private split. Feedback through Hub discussions.",
+  "prov:wasDerivedFrom": [
+    {
+      "@type": "sc:Dataset",
+      "name": "APIs.guru OpenAPI directory",
+      "url": "https://apis.guru/",
+      "description": "Source of the Tier A API descriptions. The index is CC0; each description keeps its own terms (see the spec_license_* fields). Of the 27 published Tier A tasks, 7 declare a permissive licence and 20 declare none (kept); 3 tasks whose spec declares a restrictive licence were dropped before publishing."
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "name": "har2client task generation",
+      "description": "Code of the har2client benchmark (task builder, tierb engine, grader; https://github.com/MohitGoyal09/har2client), run with fixed seeds (build seed 1, noise ratio 0.7) (Tier A and B). Case 3 v3: the v3 builder with suite eval and seed 2 (build seed 2, spec seeds 2001 to 2064, noise ratio 0.3).",
+      "prov:wasAttributedTo": {
+        "@type": "prov:Agent",
+        "name": "Mohit Goyal and Ananya Bhattacharya"
+      }
+    }
+  ]
+}

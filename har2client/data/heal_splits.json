@@ -1,0 +1,1318 @@
+{
+ "seed": 20261024,
+ "held_out_mutations": [
+  "rename_hidden_header",
+  "none_to_link_header"
+ ],
+ "held_out_pairs": [
+  [
+   "add_hidden_header",
+   "add_etag"
+  ],
+  [
+   "offset_to_cursor",
+   "add_token_expiry"
+  ],
+  [
+   "add_envelope",
+   "apikey_to_bearer_login"
+  ],
+  [
+   "add_etag",
+   "add_token_expiry"
+  ]
+ ],
+ "levels": {
+  "train": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "test_mutation": [
+   0,
+   1
+  ],
+  "test_pair": [
+   2,
+   3
+  ]
+ },
+ "domains": [
+  "shipments",
+  "tickets",
+  "invoices",
+  "bookings",
+  "samples"
+ ],
+ "mutations": {
+  "train": [
+   [
+    "add_hidden_header"
+   ],
+   [
+    "apikey_to_bearer_login"
+   ],
+   [
+    "offset_to_cursor"
+   ],
+   [
+    "add_envelope"
+   ],
+   [
+    "add_etag"
+   ],
+   [
+    "add_token_expiry"
+   ],
+   [
+    "add_hidden_header",
+    "apikey_to_bearer_login"
+   ],
+   [
+    "add_hidden_header",
+    "offset_to_cursor"
+   ],
+   [
+    "add_hidden_header",
+    "add_envelope"
+   ],
+   [
+    "add_hidden_header",
+    "add_token_expiry"
+   ],
+   [
+    "apikey_to_bearer_login",
+    "offset_to_cursor"
+   ],
+   [
+    "apikey_to_bearer_login",
+    "add_etag"
+   ],
+   [
+    "offset_to_cursor",
+    "add_envelope"
+   ],
+   [
+    "offset_to_cursor",
+    "add_etag"
+   ],
+   [
+    "add_envelope",
+    "add_etag"
+   ],
+   [
+    "add_envelope",
+    "add_token_expiry"
+   ]
+  ],
+  "test_mutation": [
+   [
+    "rename_hidden_header"
+   ],
+   [
+    "none_to_link_header"
+   ]
+  ],
+  "test_pair": [
+   [
+    "add_hidden_header",
+    "add_etag"
+   ],
+   [
+    "offset_to_cursor",
+    "add_token_expiry"
+   ],
+   [
+    "add_envelope",
+    "apikey_to_bearer_login"
+   ],
+   [
+    "add_etag",
+    "add_token_expiry"
+   ]
+  ]
+ },
+ "eval": {
+  "test_mutation": [
+   {
+    "row": {
+     "index": 0,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 292405509
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 1,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 278767370
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "recording_only",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 2,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 42123760
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 3,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "off"
+     },
+     "seed": 282086846
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "recording_only",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 4,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 504690792
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 5,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "cursor",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 561112283
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "both",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 6,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "samples",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 910851989
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 7,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 809688556
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "recording_only",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 8,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 878455241
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 9,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 741266565
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "failure_only",
+    "level": 1,
+    "identifiable": false
+   },
+   {
+    "row": {
+     "index": 10,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 700605520
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 11,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 946516728
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "failure_only",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 12,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "samples",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "cursor",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 663853872
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 13,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "offset",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 399116200
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "recording_only",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 14,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 645580843
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 15,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 328634692
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "failure_only",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 16,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "cursor",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 919450190
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 17,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "none",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 234344457
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "both",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 18,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 552774160
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 19,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 476427023
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "recording_only",
+    "level": 1,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 20,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 641478942
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 21,
+     "mutations": [
+      "rename_hidden_header"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 252394375
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "failure_only",
+    "level": 1,
+    "identifiable": false
+   },
+   {
+    "row": {
+     "index": 22,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 244759491
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 0,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 23,
+     "mutations": [
+      "none_to_link_header"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 968437407
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "failure_only",
+    "level": 1,
+    "identifiable": true
+   }
+  ],
+  "test_pair": [
+   {
+    "row": {
+     "index": 0,
+     "mutations": [
+      "add_hidden_header",
+      "add_etag"
+     ],
+     "domain": "samples",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "none",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 644040112
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 1,
+     "mutations": [
+      "add_hidden_header",
+      "add_etag"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "cursor",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 145416070
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "failure_only",
+    "level": 3,
+    "identifiable": false
+   },
+   {
+    "row": {
+     "index": 2,
+     "mutations": [
+      "offset_to_cursor",
+      "add_token_expiry"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "cursor",
+      "token_expiry": "on",
+      "etag_update": "off",
+      "hidden_header": "off",
+      "envelope": "off"
+     },
+     "seed": 626540991
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 3,
+     "mutations": [
+      "offset_to_cursor",
+      "add_token_expiry"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "cursor",
+      "token_expiry": "on",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 331582618
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "recording_only",
+    "level": 3,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 4,
+     "mutations": [
+      "add_envelope",
+      "apikey_to_bearer_login"
+     ],
+     "domain": "samples",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "offset",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 153254109
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 5,
+     "mutations": [
+      "add_envelope",
+      "apikey_to_bearer_login"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 2495790
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "failure_only",
+    "level": 3,
+    "identifiable": false
+   },
+   {
+    "row": {
+     "index": 6,
+     "mutations": [
+      "add_etag",
+      "add_token_expiry"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 504609071
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 7,
+     "mutations": [
+      "add_etag",
+      "add_token_expiry"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 818148219
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "failure_only",
+    "level": 3,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 8,
+     "mutations": [
+      "add_hidden_header",
+      "add_etag"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 43982578
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 9,
+     "mutations": [
+      "add_hidden_header",
+      "add_etag"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "none",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 859824148
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "failure_only",
+    "level": 3,
+    "identifiable": false
+   },
+   {
+    "row": {
+     "index": 10,
+     "mutations": [
+      "offset_to_cursor",
+      "add_token_expiry"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "cursor",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 609692569
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 11,
+     "mutations": [
+      "offset_to_cursor",
+      "add_token_expiry"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "cursor",
+      "token_expiry": "on",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 198182801
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "failure_only",
+    "level": 3,
+    "identifiable": false
+   },
+   {
+    "row": {
+     "index": 12,
+     "mutations": [
+      "add_envelope",
+      "apikey_to_bearer_login"
+     ],
+     "domain": "samples",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 785256551
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 13,
+     "mutations": [
+      "add_envelope",
+      "apikey_to_bearer_login"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 695142700
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "recording_only",
+    "level": 3,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 14,
+     "mutations": [
+      "add_etag",
+      "add_token_expiry"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "none",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 13344183
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 15,
+     "mutations": [
+      "add_etag",
+      "add_token_expiry"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "none",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "off"
+     },
+     "seed": 264401882
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "failure_only",
+    "level": 3,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 16,
+     "mutations": [
+      "add_hidden_header",
+      "add_etag"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "none",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "off"
+     },
+     "seed": 432607192
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 17,
+     "mutations": [
+      "add_hidden_header",
+      "add_etag"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "apikey_header",
+      "pagination": "cursor",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 679603299
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "recording_only",
+    "level": 3,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 18,
+     "mutations": [
+      "offset_to_cursor",
+      "add_token_expiry"
+     ],
+     "domain": "tickets",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "cursor",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "off"
+     },
+     "seed": 379743444
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 19,
+     "mutations": [
+      "offset_to_cursor",
+      "add_token_expiry"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "cursor",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 535874485
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "recording_only",
+    "level": 3,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 20,
+     "mutations": [
+      "add_envelope",
+      "apikey_to_bearer_login"
+     ],
+     "domain": "samples",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "cursor",
+      "token_expiry": "off",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 960734789
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 21,
+     "mutations": [
+      "add_envelope",
+      "apikey_to_bearer_login"
+     ],
+     "domain": "shipments",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "link_header",
+      "token_expiry": "off",
+      "etag_update": "off",
+      "hidden_header": "off",
+      "envelope": "on"
+     },
+     "seed": 991616138
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "failure_only",
+    "level": 3,
+    "identifiable": false
+   },
+   {
+    "row": {
+     "index": 22,
+     "mutations": [
+      "add_etag",
+      "add_token_expiry"
+     ],
+     "domain": "invoices",
+     "config": {
+      "auth": "bearer_login",
+      "pagination": "offset",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 427156838
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "verbose",
+    "evidence": "both",
+    "level": 2,
+    "identifiable": true
+   },
+   {
+    "row": {
+     "index": 23,
+     "mutations": [
+      "add_etag",
+      "add_token_expiry"
+     ],
+     "domain": "bookings",
+     "config": {
+      "auth": "cookie_csrf",
+      "pagination": "link_header",
+      "token_expiry": "on",
+      "etag_update": "on",
+      "hidden_header": "on",
+      "envelope": "on"
+     },
+     "seed": 794354537
+    },
+    "build_seed": 0,
+    "noise": 0.3,
+    "error_detail": "terse",
+    "evidence": "recording_only",
+    "level": 3,
+    "identifiable": true
+   }
+  ]
+ }
+}

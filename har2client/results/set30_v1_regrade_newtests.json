@@ -1,0 +1,362 @@
+[
+ {
+  "task": "apiz.ebay.com_sell-finances",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "apiz.ebay.com_sell-finances",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "bbci.co.uk",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "bbci.co.uk",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "conjur.local",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "conjur.local",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "digitallocker.gov.in_authpartner",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "digitallocker.gov.in_authpartner",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "elevenlabs.io",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "elevenlabs.io",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "elmah.io",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "elmah.io",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "formapi.io",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "formapi.io",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "goog.io",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "goog.io",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "google.com",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "google.com",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "googleapis.com_firebasedatabase",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "googleapis.com_firebasedatabase",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "googleapis.com_pubsub",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "googleapis.com_pubsub",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "hubapi.com_crm",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "hubapi.com_crm",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "impala.travel_hotels",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "impala.travel_hotels",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "letmc.com_customer",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "letmc.com_customer",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "microsoft.com_cognitiveservices-ComputerVision",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "microsoft.com_cognitiveservices-ComputerVision",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "netlicensing.io",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "netlicensing.io",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "nexmo.com_application.v2",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "nexmo.com_application.v2",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "nfusionsolutions.biz",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "nfusionsolutions.biz",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "openstates.org",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "openstates.org",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "ote-godaddy.com_certificates",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.875,
+  "strict_pass_rate": 0.875
+ },
+ {
+  "task": "ote-godaddy.com_certificates",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.875,
+  "strict_pass_rate": 0.875
+ },
+ {
+  "task": "pdfbroker.io",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "pdfbroker.io",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "pinecone.io",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "pinecone.io",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "redhat.com_catalog_inventory",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "redhat.com_catalog_inventory",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "rev.ai",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "rev.ai",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "shop-pro.jp",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "shop-pro.jp",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "surevoip.co.uk",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "surevoip.co.uk",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "telematicssdk.com",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "telematicssdk.com",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "twilio.com_twilio_wireless_v1",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "twilio.com_twilio_wireless_v1",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "up.com.au",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "up.com.au",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "vonage.com_vgis",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "vonage.com_vgis",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ }
+]

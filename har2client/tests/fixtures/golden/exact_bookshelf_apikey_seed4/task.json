@@ -1,0 +1,36 @@
+{
+  "task_id": "acme_bookshelf",
+  "api_id": "acme:bookshelf",
+  "title": "Bookshelf API",
+  "server_url": "https://api.bookshelf.example/v1",
+  "goal_ops": [
+    "list_books",
+    "create_book",
+    "get_book",
+    "books_by_one_author",
+    "category_tree",
+    "get_stats",
+    "health"
+  ],
+  "seeds": {
+    "recording": 453079948,
+    "test": 752592891
+  },
+  "build_seed": 4,
+  "recording_secret": "sk_e88f928e6f39dd834bfd6484",
+  "test_secret": "sk_c37b2bd985b5852e76899267",
+  "noise_ratio": 0.7,
+  "session_calls": 15,
+  "har_entries": 50,
+  "spec_ops": 8,
+  "features": [
+    "auth:apiKey",
+    "apikey_in:header",
+    "base_path",
+    "path_params",
+    "query_params",
+    "json_body",
+    "noise",
+    "partial_coverage"
+  ]
+}

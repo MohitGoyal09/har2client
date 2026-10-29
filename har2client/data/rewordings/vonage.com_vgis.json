@@ -1,0 +1,215 @@
+{
+  "api_id": "vonage.com:vgis",
+  "names": {
+    "original": {
+      "call_hold": {
+        "body_description": "",
+        "description": "Places the specified voice session on pause.",
+        "fallbacks": [],
+        "name": "pause_session",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the voice session.",
+            "name": "session_id"
+          }
+        },
+        "summary": "Pause a voice session"
+      },
+      "call_transfer": {
+        "body_description": "JSON payload describing the redirect target.",
+        "description": "Redirects the specified voice session to another target.",
+        "fallbacks": [],
+        "name": "redirect_session",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the voice session.",
+            "name": "session_id"
+          }
+        },
+        "summary": "Redirect a voice session"
+      },
+      "destroy_call": {
+        "body_description": "",
+        "description": "Terminates the specified voice session.",
+        "fallbacks": [],
+        "name": "terminate_session",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the voice session.",
+            "name": "session_id"
+          }
+        },
+        "summary": "End a voice session"
+      },
+      "get_calls_count": {
+        "body_description": "",
+        "description": "Returns aggregated total of voice sessions.",
+        "fallbacks": [],
+        "name": "fetch_session_total",
+        "params": {
+          "query:direction": {
+            "description": "Traffic orientation filter.",
+            "name": "flow"
+          },
+          "query:fromDate": {
+            "description": "Beginning timestamp filter.",
+            "name": "start_at"
+          },
+          "query:states": {
+            "description": "Lifecycle phase filter.",
+            "name": "phases"
+          },
+          "query:toDate": {
+            "description": "Ending timestamp filter.",
+            "name": "end_at"
+          }
+        },
+        "summary": "Retrieve tally of voice sessions"
+      },
+      "get_event": {
+        "body_description": "",
+        "description": "Returns one activity record by identifier.",
+        "fallbacks": [],
+        "name": "fetch_activity",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the activity record.",
+            "name": "activity_id"
+          }
+        },
+        "summary": "Get activity"
+      },
+      "get_roles": {
+        "body_description": "",
+        "description": "Returns one voice session by identifier.",
+        "fallbacks": [],
+        "name": "fetch_conversation",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the voice session.",
+            "name": "session_id"
+          }
+        },
+        "summary": "Retrieve one voice session"
+      },
+      "list_events": {
+        "body_description": "",
+        "description": "Returns activity records matching the supplied filters.",
+        "fallbacks": [],
+        "name": "list_activities",
+        "params": {
+          "query:direction": {
+            "description": "Traffic orientation filter.",
+            "name": "flow"
+          },
+          "query:fromDate": {
+            "description": "Beginning timestamp filter.",
+            "name": "start_at"
+          },
+          "query:offset": {
+            "description": "Number of records to skip.",
+            "name": "skip"
+          },
+          "query:order": {
+            "description": "Result sequence preference.",
+            "name": "sequence"
+          },
+          "query:size": {
+            "description": "Maximum number of records to return.",
+            "name": "limit"
+          },
+          "query:sort": {
+            "description": "Result ranking preference.",
+            "name": "ranking"
+          },
+          "query:states": {
+            "description": "Lifecycle phase filter.",
+            "name": "phases"
+          },
+          "query:toDate": {
+            "description": "Ending timestamp filter.",
+            "name": "end_at"
+          },
+          "query:types": {
+            "description": "Activity kind filter.",
+            "name": "kinds"
+          }
+        },
+        "summary": "List activity records"
+      },
+      "renew_webhook": {
+        "body_description": "",
+        "description": "Refreshes the specified callback subscription.",
+        "fallbacks": [],
+        "name": "refresh_subscription",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the callback subscription.",
+            "name": "subscription_id"
+          }
+        },
+        "summary": "Refresh a callback subscription"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "nexora.io",
+    "title": "Nexora Unified Platform",
+    "words": {
+      "account": "ledger",
+      "acount": "balance",
+      "address": "location",
+      "algo": "method",
+      "answer": "accept",
+      "attempt": "trial",
+      "call": "session",
+      "caller": "origin",
+      "contact": "recipient",
+      "created": "registered",
+      "direction": "orientation",
+      "duration": "length",
+      "email": "mailbox",
+      "end": "finish",
+      "event": "activity",
+      "expire": "lapse",
+      "external": "remote",
+      "failed": "declined",
+      "failure": "fault",
+      "first": "initial",
+      "from": "source",
+      "health": "wellness",
+      "hold": "pause",
+      "integration": "connection",
+      "label": "tag",
+      "last": "final",
+      "metadata": "attribute",
+      "number": "identifier",
+      "phone": "mobile",
+      "policy": "rule",
+      "prod": "live",
+      "purge": "clearance",
+      "renew": "refresh",
+      "renewed": "refreshed",
+      "role": "permission",
+      "self": "profile",
+      "signing": "seal",
+      "sms": "note",
+      "start": "begin",
+      "state": "phase",
+      "statistic": "metric",
+      "success": "achieved",
+      "suite": "platform",
+      "transfer": "route",
+      "uci": "gateway",
+      "ucis": "portal",
+      "ucp": "protocol",
+      "user": "member",
+      "vbc": "voice",
+      "vis": "overview",
+      "vmtransfer": "relay",
+      "vonage": "provider",
+      "webhook": "endpoint"
+    }
+  }
+}

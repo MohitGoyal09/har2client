@@ -1,0 +1,222 @@
+{
+  "api_id": "bbci.co.uk",
+  "names": {
+    "original": {
+      "get_channels": {
+        "body_description": "",
+        "description": "List all stations.",
+        "fallbacks": [],
+        "name": "list_stations",
+        "params": {
+          "query:lang": {
+            "description": "Language code for results.",
+            "name": "language_code"
+          },
+          "query:region": {
+            "description": "Optional area filter.",
+            "name": "area"
+          }
+        },
+        "summary": "List all stations."
+      },
+      "get_programme_by_pid": {
+        "body_description": "",
+        "description": "Fetch a show for a given identifier.",
+        "fallbacks": [],
+        "name": "fetch_item_by_id",
+        "params": {
+          "path:pid": {
+            "description": "Identifier of the show.",
+            "name": "item_id"
+          },
+          "query:availability": {
+            "description": "Time window filter.",
+            "name": "access_window"
+          },
+          "query:mixin": {
+            "description": "Optional extra fields.",
+            "name": "extras"
+          },
+          "query:rights": {
+            "description": "Permission filter.",
+            "name": "entitlements"
+          }
+        },
+        "summary": "Show for a given identifier."
+      },
+      "get_programmes_by_category": {
+        "body_description": "",
+        "description": "Fetch all shows under a topic.",
+        "fallbacks": [],
+        "name": "list_items_by_topic",
+        "params": {
+          "path:category": {
+            "description": "Identifier of the topic.",
+            "name": "topic_slug"
+          },
+          "query:availability": {
+            "description": "Time window filter.",
+            "name": "access_window"
+          },
+          "query:lang": {
+            "description": "Language code for results.",
+            "name": "language_code"
+          },
+          "query:page": {
+            "description": "Result offset.",
+            "name": "offset"
+          },
+          "query:per_page": {
+            "description": "Result limit.",
+            "name": "limit"
+          },
+          "query:rights": {
+            "description": "Permission filter.",
+            "name": "entitlements"
+          }
+        },
+        "summary": "Fetch all shows under a topic."
+      },
+      "get_programmes_by_parent_pid": {
+        "body_description": "",
+        "description": "Fetch a series for a given identifier.",
+        "fallbacks": [],
+        "name": "fetch_series_by_id",
+        "params": {
+          "path:pid": {
+            "description": "Identifier of the series.",
+            "name": "series_id"
+          },
+          "query:availability": {
+            "description": "Time window filter.",
+            "name": "access_window"
+          },
+          "query:initial_child_count": {
+            "description": "First batch size.",
+            "name": "first_batch_size"
+          },
+          "query:rights": {
+            "description": "Permission filter.",
+            "name": "entitlements"
+          }
+        },
+        "summary": "Series for a given identifier."
+      },
+      "get_regions": {
+        "body_description": "",
+        "description": "List all areas.",
+        "fallbacks": [],
+        "name": "list_areas",
+        "params": {
+          "query:lang": {
+            "description": "Language code for results.",
+            "name": "language_code"
+          }
+        },
+        "summary": "List all areas."
+      },
+      "get_sub_categories": {
+        "body_description": "",
+        "description": "Retrieve child topics for a parent topic.",
+        "fallbacks": [],
+        "name": "fetch_subtopics",
+        "params": {
+          "path:category": {
+            "description": "Identifier of the parent topic.",
+            "name": "topic_slug"
+          },
+          "query:lang": {
+            "description": "Language code for results.",
+            "name": "language_code"
+          }
+        },
+        "summary": "Retrieve child topics"
+      },
+      "get_user_store_recommendations": {
+        "body_description": "",
+        "description": "Get store suggestions.",
+        "fallbacks": [],
+        "name": "fetch_store_suggestions",
+        "params": {
+          "query:identity_cookie": {
+            "description": "Session token.",
+            "name": "session_token"
+          }
+        },
+        "summary": "Get store suggestions."
+      },
+      "search_suggest": {
+        "body_description": "",
+        "description": "Return query hints.",
+        "fallbacks": [],
+        "name": "query_hints",
+        "params": {
+          "query:availability": {
+            "description": "Time window filter.",
+            "name": "access_window"
+          },
+          "query:lang": {
+            "description": "Language code for results.",
+            "name": "language_code"
+          },
+          "query:q": {
+            "description": "Query text.",
+            "name": "query_text"
+          },
+          "query:rights": {
+            "description": "Permission filter.",
+            "name": "entitlements"
+          }
+        },
+        "summary": "Query hints."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "data.videoloft.com",
+    "title": "Streaming Catalogue Access Service",
+    "words": {
+      "atoz": "catalog",
+      "availability": "access",
+      "bbc": "station",
+      "broadcast": "transmission",
+      "business": "commercial",
+      "category": "genre",
+      "channel": "network",
+      "child": "offspring",
+      "clip": "excerpt",
+      "cookie": "biscuit",
+      "direction": "orientation",
+      "episode": "chapter",
+      "from": "source",
+      "group": "cohort",
+      "highlight": "spotlight",
+      "home": "landing",
+      "ibl": "engine",
+      "identity": "profile",
+      "initial": "primary",
+      "lang": "locale",
+      "layer": "tier",
+      "letter": "symbol",
+      "live": "current",
+      "mixin": "blend",
+      "next": "upcoming",
+      "per": "every",
+      "pid": "asset",
+      "player": "viewer",
+      "popular": "trending",
+      "postroll": "tail",
+      "preroll": "intro",
+      "programme": "production",
+      "recommendation": "advice",
+      "region": "territory",
+      "right": "permission",
+      "schedule": "timetable",
+      "schema": "blueprint",
+      "suggest": "propose",
+      "user": "member",
+      "watching": "viewing"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "api_id": "netlicensing.io",
+  "names": {
+    "original": {
+      "list_product_modules": {
+        "body_description": "",
+        "description": "List available modules.",
+        "fallbacks": [],
+        "name": "list_modules",
+        "summary": "List Product Modules"
+      },
+      "list_tokens": {
+        "body_description": "",
+        "description": "List available credentials.",
+        "fallbacks": [],
+        "name": "list_credentials",
+        "summary": "List Credentials"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "api.grantflow.com",
+    "title": "GrantFlow Entitlement Service Console",
+    "words": {
+      "cascade": "waterfall",
+      "center": "hub",
+      "core": "kernel",
+      "force": "thrust",
+      "lab": "workshop",
+      "license": "permit",
+      "licensee": "holder",
+      "licensetemplate": "blueprint",
+      "licensing": "authorization",
+      "method": "approach",
+      "model": "schema",
+      "module": "component",
+      "number": "serial",
+      "payment": "remittance",
+      "paymentmethod": "gateway",
+      "product": "article",
+      "productmodule": "package",
+      "res": "reply",
+      "template": "pattern",
+      "test": "trial",
+      "tful": "complete",
+      "transaction": "entry",
+      "utility": "helper"
+    }
+  }
+}

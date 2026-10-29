@@ -1,0 +1,101 @@
+{
+  "api_id": "pinecone.io",
+  "names": {
+    "original": {
+      "describe_collection": {
+        "body_description": "",
+        "description": "Returns details for one group.",
+        "fallbacks": [],
+        "name": "get_group_details",
+        "params": {
+          "path:collectionName": {
+            "description": "The group to inspect.",
+            "name": "group_id"
+          }
+        },
+        "summary": "Describe a group"
+      },
+      "describe_index_stats": {
+        "body_description": "The JSON payload for the request.",
+        "description": "Returns current service metrics.",
+        "fallbacks": [],
+        "name": "metrics_summary",
+        "summary": "Summarize metrics"
+      },
+      "fetch": {
+        "body_description": "The JSON payload for the request.",
+        "description": "Retrieves stored items by identifiers.",
+        "fallbacks": [],
+        "name": "retrieve_items",
+        "summary": "Retrieve"
+      },
+      "list_collections": {
+        "body_description": "",
+        "description": "Returns all available groups.",
+        "fallbacks": [],
+        "name": "list_groups",
+        "summary": "List groups"
+      },
+      "list_indexes": {
+        "body_description": "",
+        "description": "Returns all available catalogs.",
+        "fallbacks": [],
+        "name": "list_catalogs",
+        "summary": "List catalogs"
+      },
+      "query": {
+        "body_description": "The JSON payload for the request.",
+        "description": "Searches stored items by criteria.",
+        "fallbacks": [],
+        "name": "search_items",
+        "summary": "Search"
+      },
+      "upsert": {
+        "body_description": "The JSON payload for the request.",
+        "description": "Saves or replaces stored items.",
+        "fallbacks": [],
+        "name": "save_items",
+        "summary": "Save"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "api.cedarcloud.net",
+    "title": "Cedar Cloud Service",
+    "words": {
+      "collection": "archive",
+      "database": "repository",
+      "delete": "remove",
+      "describe": "summarize",
+      "dimension": "magnitude",
+      "fetch": "retrieve",
+      "fullness": "capacity",
+      "host": "endpoint",
+      "include": "attach",
+      "index": "catalog",
+      "indexed": "cataloged",
+      "indice": "entry",
+      "match": "similarity",
+      "metadata": "attribute",
+      "metric": "measure",
+      "namespace": "workspace",
+      "pinecone": "cedar",
+      "pod": "cluster",
+      "port": "gateway",
+      "ready": "available",
+      "replica": "mirror",
+      "score": "rank",
+      "shard": "partition",
+      "source": "origin",
+      "sparse": "partial",
+      "stat": "tally",
+      "state": "condition",
+      "top": "highest",
+      "update": "modify",
+      "upsert": "merge",
+      "upserted": "merged",
+      "vector": "embedding"
+    }
+  }
+}

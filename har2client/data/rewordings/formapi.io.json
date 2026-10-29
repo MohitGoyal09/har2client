@@ -1,0 +1,303 @@
+{
+  "api_id": "formapi.io",
+  "names": {
+    "original": {
+      "batch_generate_pdfs": {
+        "body_description": "The request body contains generation details.",
+        "description": "Generates multiple PDFs.",
+        "fallbacks": [],
+        "name": "generate_pdf_set",
+        "summary": "Generates multiple PDFs"
+      },
+      "create_folder": {
+        "body_description": "The request body contains directory details.",
+        "description": "Create a new directory.",
+        "fallbacks": [],
+        "name": "create_directory",
+        "summary": "Create a directory"
+      },
+      "delete_folder": {
+        "body_description": "",
+        "description": "Delete a directory.",
+        "fallbacks": [],
+        "name": "delete_directory",
+        "params": {
+          "path:folder_id": {
+            "description": "Identifier of the directory to delete.",
+            "name": "directory_id"
+          }
+        },
+        "summary": "Delete a directory"
+      },
+      "get_combined_submission": {
+        "body_description": "",
+        "description": "Check the status of a merged PDF record.",
+        "fallbacks": [],
+        "name": "check_status",
+        "params": {
+          "path:combined_submission_id": {
+            "description": "Identifier of the merged PDF record.",
+            "name": "record_id"
+          }
+        },
+        "summary": "Check status of merged PDFs"
+      },
+      "get_templates_template_id_submissions": {
+        "body_description": "",
+        "description": "List all records for a given form.",
+        "fallbacks": [],
+        "name": "list_records_by_form",
+        "params": {
+          "path:template_id": {
+            "description": "Identifier of the form.",
+            "name": "form_id"
+          },
+          "query:created_after": {
+            "description": "Lower time bound for filtering records.",
+            "name": "start_time"
+          },
+          "query:created_before": {
+            "description": "Upper time bound for filtering records.",
+            "name": "end_time"
+          },
+          "query:cursor": {
+            "description": "Token for the next page of records.",
+            "name": "page_token"
+          },
+          "query:include_data": {
+            "description": "Return complete record contents.",
+            "name": "with_payload"
+          },
+          "query:limit": {
+            "description": "Maximum number of records to return.",
+            "name": "page_size"
+          },
+          "query:type": {
+            "description": "Filter records by kind.",
+            "name": "kind"
+          }
+        },
+        "summary": "List all records for a given form"
+      },
+      "list_submissions": {
+        "body_description": "",
+        "description": "List all records.",
+        "fallbacks": [],
+        "name": "list_records",
+        "params": {
+          "query:created_after": {
+            "description": "Lower time bound for filtering records.",
+            "name": "start_time"
+          },
+          "query:created_before": {
+            "description": "Upper time bound for filtering records.",
+            "name": "end_time"
+          },
+          "query:cursor": {
+            "description": "Token for the next page of records.",
+            "name": "page_token"
+          },
+          "query:include_data": {
+            "description": "Return complete record contents.",
+            "name": "with_payload"
+          },
+          "query:limit": {
+            "description": "Maximum number of records to return.",
+            "name": "page_size"
+          },
+          "query:type": {
+            "description": "Filter records by kind.",
+            "name": "kind"
+          }
+        },
+        "summary": "List all records"
+      },
+      "move_folder_to_folder": {
+        "body_description": "The request body contains destination directory details.",
+        "description": "Relocate a directory to another location.",
+        "fallbacks": [],
+        "name": "relocate_directory",
+        "params": {
+          "path:folder_id": {
+            "description": "Identifier of the directory to relocate.",
+            "name": "directory_id"
+          }
+        },
+        "summary": "Relocate a directory"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:auto",
+      "word:background",
+      "word:category",
+      "word:combined",
+      "word:credential",
+      "word:dimension",
+      "word:download",
+      "word:expiration",
+      "word:font",
+      "word:metadata",
+      "word:number",
+      "word:password",
+      "word:per",
+      "word:referrer",
+      "word:state",
+      "word:strikethrough",
+      "word:string",
+      "word:typeface"
+    ],
+    "host": "core.paperverse.io",
+    "title": "Platform 2.0",
+    "words": {
+      "action": "operation",
+      "additional": "extra",
+      "address": "location",
+      "after": "subsequent",
+      "agent": "client",
+      "algorithm": "procedure",
+      "alignment": "orientation",
+      "allow": "permit",
+      "amz": "cloud",
+      "authentication": "login",
+      "auto": "walnut",
+      "background": "mirror",
+      "barcode": "label",
+      "batch": "group",
+      "before": "prior",
+      "bold": "strong",
+      "boolean": "flag",
+      "border": "edge",
+      "cache": "store",
+      "calculate": "compute",
+      "category": "lantern",
+      "cell": "box",
+      "character": "glyph",
+      "check": "verify",
+      "color": "hue",
+      "comb": "blend",
+      "combined": "zephyr",
+      "completed": "finished",
+      "completion": "progress",
+      "condition": "rule",
+      "copy": "duplicate",
+      "created": "formed",
+      "credential": "acorn",
+      "css": "style",
+      "currency": "money",
+      "cursor": "pointer",
+      "custom": "bespoke",
+      "decimal": "fraction",
+      "default": "standard",
+      "definition": "meaning",
+      "description": "summary",
+      "dimension": "canyon",
+      "display": "show",
+      "document": "record",
+      "download": "ribbon",
+      "draw": "render",
+      "editable": "mutable",
+      "email": "mail",
+      "exclusive": "restricted",
+      "expiration": "cedar",
+      "expire": "lapse",
+      "expired": "stale",
+      "factor": "multiplier",
+      "field": "attribute",
+      "file": "asset",
+      "fill": "populate",
+      "folder": "directory",
+      "font": "birch",
+      "footer": "bottom",
+      "form": "sheet",
+      "format": "structure",
+      "gravity": "anchor",
+      "hash": "digest",
+      "header": "banner",
+      "height": "altitude",
+      "hidden": "concealed",
+      "html": "markup",
+      "image": "picture",
+      "include": "append",
+      "integer": "whole",
+      "integration": "connector",
+      "interval": "period",
+      "invert": "reverse",
+      "length": "extent",
+      "line": "row",
+      "locked": "secured",
+      "max": "upper",
+      "maximum": "ceiling",
+      "metadata": "pepper",
+      "method": "approach",
+      "min": "lower",
+      "minimum": "floor",
+      "move": "relocate",
+      "multiline": "paragraph",
+      "next": "following",
+      "number": "otter",
+      "opacity": "transparency",
+      "option": "choice",
+      "overflow": "spill",
+      "override": "replace",
+      "parent": "ancestor",
+      "password": "glacier",
+      "path": "route",
+      "pdf": "report",
+      "pending": "awaiting",
+      "per": "island",
+      "percentage": "ratio",
+      "permanent": "lasting",
+      "phone": "mobile",
+      "place": "position",
+      "placeholder": "hint",
+      "policy": "guideline",
+      "presign": "authorize",
+      "processed": "handled",
+      "property": "trait",
+      "provider": "vendor",
+      "public": "open",
+      "qrcode": "matrix",
+      "range": "span",
+      "redirect": "forward",
+      "referrer": "paddle",
+      "rename": "relabel",
+      "request": "inquiry",
+      "required": "mandatory",
+      "rotation": "turn",
+      "scale": "resize",
+      "schema": "blueprint",
+      "scss": "stylesheet",
+      "second": "moment",
+      "secret": "private",
+      "separator": "divider",
+      "session": "visit",
+      "shape": "figure",
+      "signature": "seal",
+      "slack": "chat",
+      "source": "origin",
+      "spacing": "gap",
+      "started": "began",
+      "state": "lemon",
+      "static": "fixed",
+      "strikethrough": "nectar",
+      "string": "breeze",
+      "submission": "entry",
+      "symbology": "encoding",
+      "template": "layout",
+      "test": "trial",
+      "title": "heading",
+      "truncated": "clipped",
+      "typeface": "grove",
+      "upload": "send",
+      "uppercase": "capital",
+      "user": "account",
+      "username": "handle",
+      "viewed": "seen",
+      "web": "online",
+      "webhook": "callback",
+      "width": "breadth"
+    }
+  }
+}

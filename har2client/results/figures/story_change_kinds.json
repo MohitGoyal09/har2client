@@ -1,0 +1,79 @@
+{
+  "title": "At high effort the hint lifts every change kind; add drift cents gains most (+64 pts)",
+  "effort": "high",
+  "rows": [
+    {
+      "change": "add_rate_limit",
+      "n_base": 18,
+      "n_hint": 18,
+      "base": 46.514909382556446,
+      "hint": 79.80938814272149
+    },
+    {
+      "change": "add_idempotency_key",
+      "n_base": 18,
+      "n_hint": 18,
+      "base": 40.925925925925924,
+      "hint": 75.37037037037037
+    },
+    {
+      "change": "add_moved",
+      "n_base": 16,
+      "n_hint": 16,
+      "base": 38.82575757575758,
+      "hint": 92.23484848484848
+    },
+    {
+      "change": "add_refresh_rotation",
+      "n_base": 18,
+      "n_hint": 18,
+      "base": 38.23948382771912,
+      "hint": 81.41511946659006
+    },
+    {
+      "change": "add_async_create",
+      "n_base": 18,
+      "n_hint": 18,
+      "base": 33.33333333333333,
+      "hint": 94.44444444444444
+    },
+    {
+      "change": "add_drift_rename",
+      "n_base": 15,
+      "n_hint": 15,
+      "base": 30.476190476190474,
+      "hint": 90.7936507936508
+    },
+    {
+      "change": "add_drift_enum",
+      "n_base": 15,
+      "n_hint": 15,
+      "base": 30.317460317460316,
+      "hint": 89.20634920634922
+    },
+    {
+      "change": "add_drift_cents",
+      "n_base": 18,
+      "n_hint": 18,
+      "base": 28.571428571428577,
+      "hint": 92.59259259259261
+    },
+    {
+      "change": "add_drift_nest",
+      "n_base": 18,
+      "n_hint": 18,
+      "base": 27.910052910052908,
+      "hint": 80.68783068783068
+    },
+    {
+      "change": "add_drift_epoch",
+      "n_base": 18,
+      "n_hint": 18,
+      "base": 25.264550264550262,
+      "hint": 86.5079365079365
+    }
+  ],
+  "footer_n": "64",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=64 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

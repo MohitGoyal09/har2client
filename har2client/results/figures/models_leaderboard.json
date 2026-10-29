@@ -1,0 +1,58 @@
+{
+  "title": "Pass rate by model",
+  "panels": {
+    "tierb50": [
+      {
+        "label": "Beam (high)",
+        "kind": "beam",
+        "n": 50,
+        "pass_rate": 78.0,
+        "ci_low": 66.0,
+        "ci_high": 88.0
+      },
+      {
+        "label": "Beam (medium)",
+        "kind": "beam",
+        "n": 50,
+        "pass_rate": 63.714285714285715,
+        "ci_low": 50.0,
+        "ci_high": 76.0
+      },
+      {
+        "label": "Beam (low)",
+        "kind": "beam",
+        "n": 50,
+        "pass_rate": 57.142857142857146,
+        "ci_low": 43.42857142857143,
+        "ci_high": 70.57142857142857
+      }
+    ],
+    "v3base": [
+      {
+        "label": "Beam (high)",
+        "kind": "beam",
+        "n": 64,
+        "pass_rate": 42.7389705882353,
+        "ci_low": 33.63970588235294,
+        "ci_high": 52.1139705882353
+      },
+      {
+        "label": "Beam (medium)",
+        "kind": "beam",
+        "n": 64,
+        "pass_rate": 37.04044117647059,
+        "ci_low": 28.40073529411765,
+        "ci_high": 45.955882352941174
+      },
+      {
+        "label": "Beam (low)",
+        "kind": "beam",
+        "n": 64,
+        "pass_rate": 31.61764705882353,
+        "ci_low": 23.71323529411765,
+        "ci_high": 40.16544117647059
+      }
+    ]
+  },
+  "footer": "Beam-1.0-501B-A23B and open models via the HF router \u00b7 n=50 case 1, 64 case 3 \u00b7 1 run per task \u00b7 95% CI over tasks \u00b7 HAR2Client 715072a"
+}

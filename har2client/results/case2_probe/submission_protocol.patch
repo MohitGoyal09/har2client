@@ -1,0 +1,39 @@
+--- a/har2client/src/har2client/solve/beam_agent.py
++++ b/har2client/src/har2client/solve/beam_agent.py
+@@ -15,7 +15,7 @@
+ 
+ from har2client.env.probe import PracticeInstance, plan_practice
+ from har2client.solve import beam
+-from har2client.solve.agent_prompt import TOOLS, render_prompts
++from har2client.solve.agent_prompt import TOOLS, SUBMIT_CLIENT_TOOL, render_prompts
+ 
+ EXTRA_TURNS = 3
+ NUDGE = "Call `submit_client` with the complete `client.py`."
+@@ -84,6 +84,8 @@
+ 
+ def _log_turn(index: int, response: Any, message: Any, results: list[dict], calls: list[Any]) -> dict:
+     return {
++        "finish_reason": getattr(response.choices[0], "finish_reason", None),
++        "raw_message": message.model_dump() if hasattr(message, "model_dump") else None,
+         "turn": index,
+         "usage": _turn_usage(response),
+         "reasoning_content": beam._reasoning_content(message),
+@@ -130,6 +132,7 @@
+         practice = PracticeInstance(task_dir, budget, plan=plan)
+         practice.start()
+     log: dict[str, Any] = {
++        "protocol": "submission-tool-all-arms-v1",
+         "model": beam.MODEL, "effort": effort, "har_mode": har_mode, "probe_budget": budget, "max_turns": max_turns(budget),
+         "prompt_tokens_estimate": (len(system) + len(user)) // beam.CHARS_PER_TOKEN, "usage": {}, "rate_limit_headers": {},
+         "wall_time_s": None, "status": None, "turns": [], "submitted_via": None, "response_text": None,
+@@ -162,8 +165,8 @@
+             "model": beam.MODEL, "messages": list(messages), "reasoning_effort": effort,
+             "max_completion_tokens": beam.MAX_COMPLETION_TOKENS,
+         }
+-        if budget > 0:
+-            request["tools"] = TOOLS
++        # Same submission channel in all arms; budget 0 gets no HTTP tool.
++        request["tools"] = TOOLS if budget > 0 else [SUBMIT_CLIENT_TOOL]
+         response, limits = beam.call_with_retry(client, request, sleep=sleep)
+         log["rate_limit_headers"] = limits
+         message = response.choices[0].message

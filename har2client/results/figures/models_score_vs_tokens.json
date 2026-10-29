@@ -1,0 +1,66 @@
+{
+  "title": "Score against output tokens",
+  "panels": {
+    "tierb50": {
+      "points": [
+        {
+          "label": "Beam (high)",
+          "kind": "beam",
+          "effort": "high",
+          "mean_output_tokens": 4854.28,
+          "pass_rate": 78.0
+        },
+        {
+          "label": "Beam (low)",
+          "kind": "beam",
+          "effort": "low",
+          "mean_output_tokens": 1154.3,
+          "pass_rate": 57.142857142857146
+        },
+        {
+          "label": "Beam (medium)",
+          "kind": "beam",
+          "effort": "medium",
+          "mean_output_tokens": 2259.36,
+          "pass_rate": 63.714285714285715
+        }
+      ],
+      "pareto": {
+        "distinct_models": 1,
+        "drawn": false,
+        "frontier": []
+      }
+    },
+    "v3base": {
+      "points": [
+        {
+          "label": "Beam (high)",
+          "kind": "beam",
+          "effort": "high",
+          "mean_output_tokens": 7625.78125,
+          "pass_rate": 42.7389705882353
+        },
+        {
+          "label": "Beam (low)",
+          "kind": "beam",
+          "effort": "low",
+          "mean_output_tokens": 1757.640625,
+          "pass_rate": 31.61764705882353
+        },
+        {
+          "label": "Beam (medium)",
+          "kind": "beam",
+          "effort": "medium",
+          "mean_output_tokens": 2921.734375,
+          "pass_rate": 37.04044117647059
+        }
+      ],
+      "pareto": {
+        "distinct_models": 1,
+        "drawn": false,
+        "frontier": []
+      }
+    }
+  },
+  "footer": "Beam-1.0-501B-A23B and open models via the HF router \u00b7 n=50 case 1, 64 case 3 \u00b7 1 run per task \u00b7 95% CI over tasks \u00b7 HAR2Client 715072a"
+}

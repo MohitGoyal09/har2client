@@ -1,0 +1,53 @@
+[project]
+name = "har2client"
+version = "0.1.0"
+description = "Benchmark: turn recorded HTTP traffic (HAR) into a working API client"
+requires-python = ">=3.12"
+readme = "README.md"
+license = "Apache-2.0"  # SPDX id; the LICENSE file sits at the repo root, one level above this package
+authors = [{name = "Mohit Goyal"}]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "httpx>=0.27",
+  "starlette>=0.40",
+  "uvicorn>=0.30",
+  "openapi-spec-validator>=0.7",
+  "pyyaml>=6",
+  "openai>=1.50",
+  "requests>=2.32",  # runtime: the clients that models write (and the reference clients) call the API with requests
+]
+
+[project.scripts]
+har2client = "har2client.cli:main"
+
+[project.optional-dependencies]
+plots = [
+    "matplotlib>=3.11.2",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "matplotlib>=3.11.2"]  # matplotlib: the plot tests also importorskip it
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: takes more than about 6 s; CI skips it on push with -m 'not slow' and runs it nightly"]
+
+[tool.ruff]
+line-length = 130
+
+[tool.ruff.lint]
+select = ["E", "F"]
+ignore = ["E501", "E731", "E741"]

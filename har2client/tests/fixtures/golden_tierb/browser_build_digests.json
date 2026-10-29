@@ -1,0 +1,48 @@
+{
+ "tierb_03_shipments": {
+  "row": {
+   "index": 3,
+   "domain": "shipments",
+   "seed": 424242,
+   "config": {
+    "auth": "cookie_csrf",
+    "pagination": "link_header",
+    "token_expiry": "on",
+    "etag_update": "on",
+    "hidden_header": "on",
+    "envelope": "on"
+   }
+  },
+  "files": {
+   "engine.json": "a7963c988d011caf6f3c8353a9192be7d669a742f2e694128dc43f2e5f2698b3",
+   "goal.md": "89eb56df46bb16c56912abdf51856753252ed3ecdccb100ed5d3669b7642a1bd",
+   "ref_client.py": "957c46bad5bc54503ff36b54d3f6a5624110d80a41500daffdb8e63e470e25b0",
+   "session.har": "0b6d633a2a81db158c1a60373ed17dd9951fcc76e6948805b79c28f45a8a1758",
+   "task.json": "bc7bab6c57008cc205123e61f5dcc6951e0bc85651cd7f57daef2cc7d953d256",
+   "tests.json": "1f012c63db79bcddfa0d7bbc951db22a60169a6163107b91f37c7106cce0df3c"
+  }
+ },
+ "tierb_07_tickets": {
+  "row": {
+   "index": 7,
+   "domain": "tickets",
+   "seed": 1337,
+   "config": {
+    "auth": "apikey_header",
+    "pagination": "none",
+    "token_expiry": "off",
+    "etag_update": "off",
+    "hidden_header": "off",
+    "envelope": "off"
+   }
+  },
+  "files": {
+   "engine.json": "9c73875742f4b73730df237a71c463dc96974d2ad6c001c0cee14dc8745e8ca7",
+   "goal.md": "868fbdfa5386fbc2b44b65c25188e0e2ff15309646f947fe7e37d3d61454672f",
+   "ref_client.py": "acda975852a5362d9c11836f31c7d0fb55bf06225372a7f94d4ebc99fa1c3e72",
+   "session.har": "63f75c7a4407d1994309f1157cb0ebacb3c94b708250c3564cb443704e005034",
+   "task.json": "270678fdb2c966dfa70374d9fa7b136b63048e6d5689fc8085bfaac17d62eaa5",
+   "tests.json": "b65985cd2c7776e0e5706fa04e7590cafa07ecd53cc4251798f6b377a2a8883e"
+  }
+ }
+}

@@ -1,0 +1,405 @@
+{
+  "n_boot": 10000,
+  "seed": 20261026,
+  "steps": {
+    "base": {
+      "state": "complete",
+      "finished": "64/64",
+      "api_error_rows": 0,
+      "pass_rate": 0.3161764705882353,
+      "full_repair": 0.171875
+    },
+    "hint": {
+      "state": "complete",
+      "finished": "64/64",
+      "api_error_rows": 0,
+      "pass_rate": 0.7159926470588235,
+      "full_repair": 0.578125
+    },
+    "notice": {
+      "state": "complete",
+      "finished": "64/64",
+      "api_error_rows": 0,
+      "pass_rate": 0.5027573529411765,
+      "full_repair": 0.296875
+    },
+    "placebo": {
+      "state": "complete",
+      "finished": "64/64",
+      "api_error_rows": 0,
+      "pass_rate": 0.32077205882352944,
+      "full_repair": 0.171875
+    },
+    "base_r2": {
+      "state": "complete",
+      "finished": "64/64",
+      "api_error_rows": 0,
+      "pass_rate": 0.32077205882352944,
+      "full_repair": 0.171875
+    },
+    "hint_r2": {
+      "state": "complete",
+      "finished": "64/64",
+      "api_error_rows": 0,
+      "pass_rate": 0.7049632352941176,
+      "full_repair": 0.59375
+    }
+  },
+  "api_error_rows_total": 0,
+  "contrasts": [
+    {
+      "contrast": "placebo - base",
+      "pass": {
+        "n": 64,
+        "mean": 0.45955882352941163,
+        "ci_low": -6.709558823529411,
+        "ci_high": 7.444852941176471
+      },
+      "full": {
+        "n": 64,
+        "mean": 0.0,
+        "ci_low": -6.25,
+        "ci_high": 6.25
+      },
+      "pass_x": 0.32077205882352944,
+      "pass_y": 0.3161764705882353
+    },
+    {
+      "contrast": "notice - base",
+      "pass": {
+        "n": 64,
+        "mean": 18.658088235294116,
+        "ci_low": 10.018382352941176,
+        "ci_high": 27.573529411764703
+      },
+      "full": {
+        "n": 64,
+        "mean": 12.5,
+        "ci_low": 3.125,
+        "ci_high": 21.875
+      },
+      "pass_x": 0.5027573529411765,
+      "pass_y": 0.3161764705882353
+    },
+    {
+      "contrast": "hint - notice",
+      "pass": {
+        "n": 64,
+        "mean": 21.323529411764703,
+        "ci_low": 10.56985294117647,
+        "ci_high": 32.077205882352935
+      },
+      "full": {
+        "n": 64,
+        "mean": 28.125,
+        "ci_low": 14.0625,
+        "ci_high": 40.625
+      },
+      "pass_x": 0.7159926470588235,
+      "pass_y": 0.5027573529411765
+    },
+    {
+      "contrast": "hint - placebo",
+      "pass": {
+        "n": 64,
+        "mean": 39.522058823529406,
+        "ci_low": 29.963235294117645,
+        "ci_high": 49.17279411764705
+      },
+      "full": {
+        "n": 64,
+        "mean": 40.625,
+        "ci_low": 28.125,
+        "ci_high": 53.125
+      },
+      "pass_x": 0.7159926470588235,
+      "pass_y": 0.32077205882352944
+    }
+  ],
+  "verdicts": [
+    {
+      "id": "H22",
+      "status": "supported",
+      "evidence": "placebo - base +0.5 [-6.7, +7.4] pts (n=64); hint - placebo +39.5 [+30.0, +49.2] pts (n=64)",
+      "rule": "Supported if placebo - base < 5 points AND hint - placebo >= 20 points with a CI that excludes 0. Rejected if placebo - base >= 20 points. Otherwise inconclusive."
+    },
+    {
+      "id": "H23",
+      "status": "inconclusive",
+      "evidence": "notice - base +18.7 [+10.0, +27.6] pts (n=64)",
+      "rule": "Supported if notice - base >= 20 points with a CI that excludes 0. Rejected if notice - base < 5 points (and the CI upper end < 10). Otherwise inconclusive."
+    },
+    {
+      "id": "H10",
+      "status": "supported",
+      "evidence": "hint - as built +46.9 [+30.1, +63.0] pts; evidence - as built +49.7 [+33.3, +66.1] pts (n=25); larger: evidence; hint arm 96.0%; headline is a prompting effect",
+      "rule": "Supported if (c) evidence - (a) as built >= 20 points and (b) hint - (a) >= 20 points (report which is larger); add the note \"headline is a prompting effect\" if (b) reaches 90%. Otherwise not supported."
+    }
+  ],
+  "repeat_runs": {
+    "base": {
+      "n": 64,
+      "mean_r1": 0.3161764705882353,
+      "mean_r2": 0.32077205882352944,
+      "r2_minus_r1": {
+        "n": 64,
+        "mean": 0.4595588235294117,
+        "ci_low": -7.9963235294117645,
+        "ci_high": 8.731617647058822
+      },
+      "flip_rate": 0.09375,
+      "mean_abs_diff_points": 16.452205882352942,
+      "pass_at_2": 0.125,
+      "pass_at_1": 0.171875
+    },
+    "hint": {
+      "n": 64,
+      "mean_r1": 0.7159926470588235,
+      "mean_r2": 0.7049632352941176,
+      "r2_minus_r1": {
+        "n": 64,
+        "mean": -1.1029411764705876,
+        "ci_low": -10.661764705882351,
+        "ci_high": 8.088235294117647
+      },
+      "flip_rate": 0.265625,
+      "mean_abs_diff_points": 21.323529411764707,
+      "pass_at_2": 0.453125,
+      "pass_at_1": 0.5859375
+    },
+    "base_high": {
+      "n": 64,
+      "runs": 3,
+      "mean_of_runs": 0.45986519607843135,
+      "per_task_sd_points": 15.870443542732621,
+      "mean_abs_diff_points": 18.566176470588236,
+      "flip_rate": 0.14583333333333334,
+      "mean_r1": 0.4273897058823529,
+      "mean_r2": 0.47058823529411764,
+      "mean_r3": 0.48161764705882354,
+      "r2_minus_r1": {
+        "n": 64,
+        "mean": 4.31985294117647,
+        "ci_low": -5.147058823529411,
+        "ci_high": 14.15441176470588
+      },
+      "r3_minus_r1": {
+        "n": 64,
+        "mean": 5.422794117647059,
+        "ci_low": -3.9522058823529407,
+        "ci_high": 14.797794117647058
+      }
+    },
+    "hint_high": {
+      "n": 64,
+      "runs": 3,
+      "mean_of_runs": 0.8771446078431372,
+      "per_task_sd_points": 9.671667705016008,
+      "mean_abs_diff_points": 11.213235294117647,
+      "flip_rate": 0.14583333333333334,
+      "mean_r1": 0.90625,
+      "mean_r2": 0.8501838235294118,
+      "mean_r3": 0.875,
+      "r2_minus_r1": {
+        "n": 64,
+        "mean": -5.606617647058823,
+        "ci_low": -12.867647058823529,
+        "ci_high": 1.2867647058823528
+      },
+      "r3_minus_r1": {
+        "n": 64,
+        "mean": -3.125,
+        "ci_low": -9.650735294117647,
+        "ci_high": 3.1249999999999996
+      }
+    },
+    "tierb_high": {
+      "n": 50,
+      "runs": 3,
+      "mean_of_runs": 0.7447619047619048,
+      "per_task_sd_points": 9.56751874657094,
+      "mean_abs_diff_points": 11.047619047619046,
+      "flip_rate": 0.13333333333333333,
+      "mean_r1": 0.78,
+      "mean_r2": 0.7,
+      "mean_r3": 0.7542857142857143,
+      "r2_minus_r1": {
+        "n": 50,
+        "mean": -8.0,
+        "ci_low": -20.0,
+        "ci_high": 2.0
+      },
+      "r3_minus_r1": {
+        "n": 50,
+        "mean": -2.5714285714285716,
+        "ci_low": -11.142857142857142,
+        "ci_high": 5.714285714285714
+      }
+    }
+  },
+  "high_runs_per_task": {
+    "base": 3,
+    "hint": 3,
+    "tierb": 3
+  },
+  "per_operation": {
+    "arms": {
+      "base": {
+        "reads": {
+          "n_tasks": 64,
+          "pass_share": 0.2700892857142857
+        },
+        "writes": {
+          "n_tasks": 64,
+          "pass_share": 0.171875
+        },
+        "delete": {
+          "n_tasks": 64,
+          "pass_share": 0.7604166666666666
+        }
+      },
+      "placebo": {
+        "reads": {
+          "n_tasks": 64,
+          "pass_share": 0.28125
+        },
+        "writes": {
+          "n_tasks": 64,
+          "pass_share": 0.171875
+        },
+        "delete": {
+          "n_tasks": 64,
+          "pass_share": 0.7604166666666666
+        }
+      },
+      "notice": {
+        "reads": {
+          "n_tasks": 64,
+          "pass_share": 0.5959821428571429
+        },
+        "writes": {
+          "n_tasks": 64,
+          "pass_share": 0.3125
+        },
+        "delete": {
+          "n_tasks": 64,
+          "pass_share": 0.7291666666666666
+        }
+      },
+      "hint": {
+        "reads": {
+          "n_tasks": 64,
+          "pass_share": 0.8013392857142857
+        },
+        "writes": {
+          "n_tasks": 64,
+          "pass_share": 0.6383928571428571
+        },
+        "delete": {
+          "n_tasks": 64,
+          "pass_share": 0.6979166666666666
+        }
+      }
+    },
+    "reads_contrasts": {
+      "notice - base": {
+        "n": 64,
+        "mean": 32.589285714285715,
+        "ci_low": 18.526785714285715,
+        "ci_high": 46.20535714285714
+      },
+      "placebo - base": {
+        "n": 64,
+        "mean": 1.1160714285714288,
+        "ci_low": -8.482142857142858,
+        "ci_high": 10.714285714285715
+      }
+    }
+  },
+  "h10": {
+    "state": "complete",
+    "steps": {
+      "a": {
+        "finished": 25,
+        "expected": 25,
+        "api_error_rows": 0,
+        "pass_rate": 0.4914285714285714,
+        "runs_per_task": 3
+      },
+      "b": {
+        "finished": 25,
+        "expected": 25,
+        "api_error_rows": 0,
+        "pass_rate": 0.96,
+        "runs_per_task": 1
+      },
+      "c": {
+        "finished": 25,
+        "expected": 25,
+        "api_error_rows": 0,
+        "pass_rate": 0.9885714285714287,
+        "runs_per_task": 1
+      }
+    },
+    "b_minus_a": {
+      "n": 25,
+      "mean": 46.85714285714286,
+      "ci_low": 30.095238095238095,
+      "ci_high": 63.047619047619044
+    },
+    "c_minus_a": {
+      "n": 25,
+      "mean": 49.714285714285715,
+      "ci_low": 33.333333333333336,
+      "ci_high": 66.09523809523809
+    },
+    "larger": "evidence",
+    "verdict": {
+      "id": "H10",
+      "status": "supported",
+      "evidence": "hint - as built +46.9 [+30.1, +63.0] pts; evidence - as built +49.7 [+33.3, +66.1] pts (n=25); larger: evidence; hint arm 96.0%; headline is a prompting effect",
+      "rule": "Supported if (c) evidence - (a) as built >= 20 points and (b) hint - (a) >= 20 points (report which is larger); add the note \"headline is a prompting effect\" if (b) reaches 90%. Otherwise not supported."
+    }
+  },
+  "header_on_off": {
+    "low": {
+      "n_on": 25,
+      "n_off": 25,
+      "pass_on": 0.2,
+      "pass_off": 0.942857142857143,
+      "on_minus_off": {
+        "n": 50,
+        "mean": -74.28571428571429,
+        "ci_low": -90.28571428571429,
+        "ci_high": -54.85714285714286
+      },
+      "api_error_rows": 0
+    },
+    "medium": {
+      "n_on": 25,
+      "n_off": 25,
+      "pass_on": 0.3142857142857143,
+      "pass_off": 0.96,
+      "on_minus_off": {
+        "n": 50,
+        "mean": -64.57142857142857,
+        "ci_low": -84.0,
+        "ci_high": -44.0
+      },
+      "api_error_rows": 0
+    },
+    "high": {
+      "n_on": 25,
+      "n_off": 25,
+      "pass_on": 0.4914285714285714,
+      "pass_off": 0.9980952380952381,
+      "on_minus_off": {
+        "n": 50,
+        "mean": -50.66666666666667,
+        "ci_low": -67.61904761904762,
+        "ci_high": -34.47619047619048
+      },
+      "api_error_rows": 0
+    }
+  }
+}

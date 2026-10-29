@@ -1,0 +1,53 @@
+model,effort,term,estimate_pp,ci_low_pp,ci_high_pp,n_tasks
+per_effort,low,intercept,88.8567,55.9765,115.0169,50
+per_effort,low,auth=bearer_login,2.1413,-27.8544,31.5867,50
+per_effort,low,auth=cookie_csrf,-0.52,-28.2373,27.2015,50
+per_effort,low,pagination=offset,28.5088,2.6817,56.1845,50
+per_effort,low,pagination=cursor,18.2235,-2.4161,46.093,50
+per_effort,low,pagination=link_header,14.4928,-7.8102,44.0162,50
+per_effort,low,token_expiry=on,-14.3451,-35.6216,6.7352,50
+per_effort,low,etag_update=on,-6.1726,-26.4519,13.0068,50
+per_effort,low,hidden_header=on,-73.8187,-90.8596,-54.3122,50
+per_effort,low,envelope=on,-16.7578,-37.4136,2.7982,50
+per_effort,low,domain=invoices,18.1174,-8.6398,45.5076,50
+per_effort,low,domain=samples,16.7899,-11.73,49.0787,50
+per_effort,low,domain=shipments,-14.0508,-46.6639,9.459,50
+per_effort,low,domain=tickets,7.7568,-15.7843,31.2658,50
+per_effort,high,intercept,134.4489,101.3435,175.4761,50
+per_effort,high,auth=bearer_login,-14.4515,-47.0149,17.2804,50
+per_effort,high,auth=cookie_csrf,-0.5082,-28.3319,25.8186,50
+per_effort,high,pagination=offset,3.5056,-28.3429,39.1662,50
+per_effort,high,pagination=cursor,16.3621,-10.22,46.4565,50
+per_effort,high,pagination=link_header,-11.8514,-43.3206,23.0107,50
+per_effort,high,token_expiry=on,-8.1895,-36.6981,19.3884,50
+per_effort,high,etag_update=on,-11.7618,-35.3765,10.904,50
+per_effort,high,hidden_header=on,-39.6988,-62.1935,-17.4856,50
+per_effort,high,envelope=on,-17.4738,-40.1654,4.4747,50
+per_effort,high,domain=invoices,-7.2023,-44.5853,29.5614,50
+per_effort,high,domain=samples,-23.8056,-58.9133,14.4462,50
+per_effort,high,domain=shipments,-26.5786,-62.4711,11.3957,50
+per_effort,high,domain=tickets,-22.9383,-60.9349,13.2421,50
+pooled,all,intercept,100.8423,67.6209,132.3557,50
+pooled,all,effort=high,21.621,-4.1769,56.5743,50
+pooled,all,auth=bearer_login,-0.7101,-30.5585,28.1357,50
+pooled,all,auth=cookie_csrf,-3.4226,-31.8189,25.1624,50
+pooled,all,pagination=offset,29.9179,3.3121,58.5288,50
+pooled,all,pagination=cursor,19.2432,-2.0535,46.3479,50
+pooled,all,pagination=link_header,16.952,-5.9681,47.2352,50
+pooled,all,token_expiry=on,-12.4779,-33.5183,9.2896,50
+pooled,all,etag_update=on,-6.4875,-26.6509,12.257,50
+pooled,all,hidden_header=on,-73.6987,-91.1519,-53.7997,50
+pooled,all,envelope=on,-18.4661,-39.7141,1.6488,50
+pooled,all,domain=invoices,5.4576,-21.2309,29.6045,50
+pooled,all,domain=samples,-3.5079,-31.461,28.9573,50
+pooled,all,domain=shipments,-20.3147,-47.1049,4.1066,50
+pooled,all,domain=tickets,-7.5908,-33.8616,17.0271,50
+pooled,all,effort=high x auth=bearer_login,-10.89,-39.5646,17.7321,50
+pooled,all,effort=high x auth=cookie_csrf,5.817,-23.3065,32.7987,50
+pooled,all,effort=high x pagination=offset,-27.8214,-59.797,5.2696,50
+pooled,all,effort=high x pagination=cursor,-3.9008,-37.7158,29.8592,50
+pooled,all,effort=high x pagination=link_header,-31.2627,-63.6674,1.6611,50
+pooled,all,effort=high x token_expiry=on,2.4213,-22.9384,26.46,50
+pooled,all,effort=high x etag_update=on,-4.9595,-27.0269,15.9359,50
+pooled,all,effort=high x hidden_header=on,33.88,13.3485,55.5155,50
+pooled,all,effort=high x envelope=on,2.7005,-18.266,24.0801,50

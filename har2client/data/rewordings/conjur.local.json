@@ -1,0 +1,47 @@
+{
+  "api_id": "conjur.local",
+  "names": {
+    "original": {
+      "get_authenticators": {
+        "body_description": "",
+        "description": "Returns which login verifiers are available on the Conjur Server.",
+        "fallbacks": [],
+        "name": "list_login_methods",
+        "summary": "Details about which login verifiers are on the Conjur Server"
+      },
+      "info": {
+        "body_description": "",
+        "description": "Returns basic details about the Conjur Enterprise server.",
+        "fallbacks": [],
+        "name": "fetch_server_details",
+        "summary": "Basic information about the Conjur Enterprise server"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "api.keystone.io",
+    "title": "Keystone",
+    "words": {
+      "account": "tenant",
+      "authenticator": "verifier",
+      "authn": "identity",
+      "configuration": "parameter",
+      "configured": "activated",
+      "conjur": "vault",
+      "container": "instance",
+      "enabled": "active",
+      "health": "condition",
+      "identifier": "handle",
+      "installed": "deployed",
+      "kind": "category",
+      "ldap": "directory",
+      "login": "access",
+      "public": "shared",
+      "release": "edition",
+      "remote": "node",
+      "role": "permission",
+      "service": "provider"
+    }
+  }
+}

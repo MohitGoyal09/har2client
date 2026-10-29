@@ -1,0 +1,115 @@
+{
+  "api_id": "hubapi.com:crm",
+  "names": {
+    "original": {
+      "get_crm_v3_extensions_cards_app_id_card_id_get_by_id": {
+        "body_description": "",
+        "description": "This call returns one panel.",
+        "fallbacks": [],
+        "name": "get_panel",
+        "params": {
+          "path:appId": {
+            "description": "Identifier of the program owning panels.",
+            "name": "program_id"
+          },
+          "path:cardId": {
+            "description": "Identifier of the panel to retrieve.",
+            "name": "panel_id"
+          }
+        },
+        "summary": "Get a panel."
+      },
+      "get_crm_v3_extensions_cards_app_id_get_all": {
+        "body_description": "",
+        "description": "This call returns every configured panel.",
+        "fallbacks": [],
+        "name": "list_panels",
+        "params": {
+          "path:appId": {
+            "description": "Identifier of the program owning panels.",
+            "name": "program_id"
+          }
+        },
+        "summary": "List every panel"
+      },
+      "get_crm_v3_extensions_cards_sample_response_get_cards_sample_response": {
+        "body_description": "",
+        "description": "This call returns a demonstration panel payload.",
+        "fallbacks": [],
+        "name": "fetch_example_panel",
+        "summary": "Fetch illustrative panel specifics"
+      },
+      "patch_crm_v3_extensions_cards_app_id_card_id_update": {
+        "body_description": "The body contains updated panel settings.",
+        "description": "This call updates one panel.",
+        "fallbacks": [],
+        "name": "update_panel",
+        "params": {
+          "path:appId": {
+            "description": "Identifier of the program owning panels.",
+            "name": "program_id"
+          },
+          "path:cardId": {
+            "description": "Identifier of the panel to update.",
+            "name": "panel_id"
+          }
+        },
+        "summary": "Update a panel"
+      },
+      "post_crm_v3_extensions_cards_app_id_create": {
+        "body_description": "The body contains panel settings.",
+        "description": "This call creates a new panel.",
+        "fallbacks": [],
+        "name": "create_panel",
+        "params": {
+          "path:appId": {
+            "description": "Identifier of the program owning panels.",
+            "name": "program_id"
+          }
+        },
+        "summary": "Create a new panel"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "gateway.nexusdesk.io",
+    "title": "Deal Panels",
+    "words": {
+      "action": "command",
+      "base": "root",
+      "button": "control",
+      "cancel": "abort",
+      "card": "tile",
+      "confirm": "approve",
+      "confirmation": "approval",
+      "created": "generated",
+      "crm": "pipeline",
+      "display": "render",
+      "extension": "module",
+      "fetch": "retrieve",
+      "height": "depth",
+      "included": "bundled",
+      "label": "badge",
+      "level": "tier",
+      "link": "anchor",
+      "method": "handler",
+      "object": "record",
+      "option": "choice",
+      "primary": "main",
+      "prompt": "dialog",
+      "property": "field",
+      "response": "payload",
+      "sample": "example",
+      "secondary": "alternate",
+      "section": "block",
+      "send": "dispatch",
+      "setting": "preference",
+      "target": "destination",
+      "title": "heading",
+      "top": "upper",
+      "updated": "modified",
+      "width": "span"
+    }
+  }
+}

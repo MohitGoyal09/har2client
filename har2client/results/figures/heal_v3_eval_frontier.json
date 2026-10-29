@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "x_mode": "output",
+    "resamples": 5000,
+    "seed": 20261024,
+    "ci_level": 0.95,
+    "series": {
+      "base": {
+        "n_tasks": 64,
+        "dropped_unpaired_tasks": 0,
+        "tasks_by_effort": {
+          "low": 64,
+          "medium": 64,
+          "high": 64
+        },
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 3,
+        "runs_by_effort": {
+          "low": 1,
+          "medium": 1,
+          "high": 3
+        },
+        "api_error_rows_excluded": {}
+      },
+      "+ contract hint": {
+        "n_tasks": 64,
+        "dropped_unpaired_tasks": 0,
+        "tasks_by_effort": {
+          "low": 64,
+          "medium": 64,
+          "high": 64
+        },
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 3,
+        "runs_by_effort": {
+          "low": 1,
+          "medium": 1,
+          "high": 3
+        },
+        "api_error_rows_excluded": {}
+      }
+    },
+    "warnings": []
+  },
+  "points": [
+    {
+      "series": "base",
+      "effort": "low",
+      "x": 1757.640625,
+      "y": 31.61764705882353,
+      "ci_low": 23.805147058823515,
+      "ci_high": 40.25735294117646,
+      "n_tasks": 64,
+      "on_pareto": true
+    },
+    {
+      "series": "base",
+      "effort": "medium",
+      "x": 2921.734375,
+      "y": 37.04044117647059,
+      "ci_low": 28.400735294117617,
+      "ci_high": 46.139705882352914,
+      "n_tasks": 64,
+      "on_pareto": false
+    },
+    {
+      "series": "base",
+      "effort": "high",
+      "x": 7746.005208333333,
+      "y": 45.986519607843135,
+      "ci_low": 38.20465686274507,
+      "ci_high": 53.82965686274509,
+      "n_tasks": 64,
+      "on_pareto": false
+    },
+    {
+      "series": "+ contract hint",
+      "effort": "low",
+      "x": 1799.84375,
+      "y": 71.59926470588235,
+      "ci_low": 62.132352941176485,
+      "ci_high": 80.60661764705883,
+      "n_tasks": 64,
+      "on_pareto": true
+    },
+    {
+      "series": "+ contract hint",
+      "effort": "medium",
+      "x": 2846.03125,
+      "y": 76.93014705882352,
+      "ci_low": 68.10661764705883,
+      "ci_high": 85.20220588235293,
+      "n_tasks": 64,
+      "on_pareto": true
+    },
+    {
+      "series": "+ contract hint",
+      "effort": "high",
+      "x": 6823.765625,
+      "y": 87.71446078431372,
+      "ci_low": 81.52573529411762,
+      "ci_high": 93.13725490196076,
+      "n_tasks": 64,
+      "on_pareto": true
+    }
+  ]
+}

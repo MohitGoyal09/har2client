@@ -1,0 +1,671 @@
+{
+  "api_id": "google.com",
+  "names": {
+    "original": {
+      "travelpartner_accounts_brands_list": {
+        "body_description": "",
+        "description": "Returns labels for a partner account.",
+        "fallbacks": [],
+        "name": "list_partner_labels",
+        "params": {
+          "path:parent": {
+            "description": "Partner account identifier.",
+            "name": "account_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Returns labels for a partner account."
+      },
+      "travelpartner_accounts_hotel_views_list": {
+        "body_description": "",
+        "description": "Returns lodging entries.",
+        "fallbacks": [],
+        "name": "list_lodging_entries",
+        "params": {
+          "path:parent": {
+            "description": "Partner account identifier.",
+            "name": "account_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:filter": {
+            "description": "Search criteria.",
+            "name": "criteria"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:pageSize": {
+            "description": "Batch count cap.",
+            "name": "batch_count"
+          },
+          "query:pageToken": {
+            "description": "Pagination cursor.",
+            "name": "cursor"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Returns lodging entries."
+      },
+      "travelpartner_accounts_icons_list": {
+        "body_description": "",
+        "description": "Returns symbols for a partner account.",
+        "fallbacks": [],
+        "name": "list_partner_symbols",
+        "params": {
+          "path:parent": {
+            "description": "Partner account identifier.",
+            "name": "account_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Returns symbols for a partner account."
+      },
+      "travelpartner_accounts_price_accuracy_views_list": {
+        "body_description": "",
+        "description": "Lists available cost correctness entries.",
+        "fallbacks": [],
+        "name": "list_cost_correctness_entries",
+        "params": {
+          "path:parent": {
+            "description": "Partner account identifier.",
+            "name": "account_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Lists available cost correctness entries."
+      },
+      "travelpartner_accounts_price_accuracy_views_summarize": {
+        "body_description": "",
+        "description": "Returns cost correctness overview.",
+        "fallbacks": [],
+        "name": "outline_cost_correctness",
+        "params": {
+          "path:parent": {
+            "description": "Partner account identifier.",
+            "name": "account_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Returns cost correctness overview."
+      },
+      "travelpartner_accounts_price_coverage_views_get_latest": {
+        "body_description": "",
+        "description": "Returns newest cost span detail.",
+        "fallbacks": [],
+        "name": "fetch_newest_cost_span",
+        "params": {
+          "path:parent": {
+            "description": "Partner account identifier.",
+            "name": "account_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Returns newest cost span detail."
+      },
+      "travelpartner_accounts_reconciliation_reports_get": {
+        "body_description": "",
+        "description": "Returns a reconciliation report.",
+        "fallbacks": [],
+        "name": "fetch_reconciliation_report",
+        "params": {
+          "path:name": {
+            "description": "Identifier of the requested report.",
+            "name": "report_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:includeMatchedPrices": {
+            "description": "Add paired costs.",
+            "name": "paired_costs_flag"
+          },
+          "query:includeNonScoring": {
+            "description": "Add extra items.",
+            "name": "extra_items_flag"
+          },
+          "query:includePixels": {
+            "description": "Add images.",
+            "name": "images_flag"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Returns a reconciliation report."
+      },
+      "travelpartner_accounts_reconciliation_reports_validate": {
+        "body_description": "JSON body with ledger details.",
+        "description": "Checks a ledger entry.",
+        "fallbacks": [],
+        "name": "check_ledger_entry",
+        "params": {
+          "path:parent": {
+            "description": "Partner account identifier.",
+            "name": "account_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Caller credential.",
+            "name": "credential"
+          },
+          "query:alt": {
+            "description": "Response format choice.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "Optional hook URL.",
+            "name": "response_handler"
+          },
+          "query:fields": {
+            "description": "Selected projection columns.",
+            "name": "column_mask"
+          },
+          "query:key": {
+            "description": "API credential value.",
+            "name": "api_credential"
+          },
+          "query:oauth_token": {
+            "description": "OAuth credential.",
+            "name": "auth_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Format output toggle.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Throttle subject id.",
+            "name": "throttle_subject"
+          },
+          "query:uploadType": {
+            "description": "Transfer kind.",
+            "name": "transfer_kind"
+          },
+          "query:upload_protocol": {
+            "description": "Transfer mode.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Checks a ledger entry."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:num",
+      "word:overall",
+      "word:pricing",
+      "word:quota"
+    ],
+    "host": "api.voyagehub.net",
+    "title": "Journey Ally Service",
+    "words": {
+      "access": "permission",
+      "account": "ledger",
+      "accuracy": "precision",
+      "active": "enabled",
+      "ads": "banner",
+      "adult": "mature",
+      "advance": "early",
+      "affect": "impact",
+      "aggregate": "combined",
+      "allow": "permit",
+      "alt": "variant",
+      "attribute": "trait",
+      "author": "creator",
+      "availability": "supply",
+      "available": "ready",
+      "bandwidth": "throughput",
+      "base": "foundation",
+      "binary": "flag",
+      "blocked": "denied",
+      "body": "payload",
+      "book": "reserve",
+      "booking": "reservation",
+      "brand": "label",
+      "breakdown": "analysis",
+      "bucket": "container",
+      "cache": "store",
+      "cached": "stored",
+      "calculation": "computation",
+      "callback": "handler",
+      "category": "group",
+      "checkin": "arrival",
+      "child": "offspring",
+      "click": "tap",
+      "clickthrough": "conversion",
+      "cluster": "bunch",
+      "content": "material",
+      "correction": "fix",
+      "country": "nation",
+      "coverage": "span",
+      "currency": "money",
+      "current": "present",
+      "customer": "patron",
+      "day": "weekday",
+      "depleted": "exhausted",
+      "description": "overview",
+      "detail": "specification",
+      "device": "gadget",
+      "disapproval": "rejection",
+      "display": "showcase",
+      "domain": "realm",
+      "end": "finish",
+      "failed": "unsuccessful",
+      "fee": "levy",
+      "feed": "stream",
+      "fetched": "retrieved",
+      "field": "input",
+      "file": "document",
+      "final": "ultimate",
+      "free": "complimentary",
+      "gallery": "album",
+      "google": "engine",
+      "high": "elevated",
+      "hotel": "inn",
+      "icon": "symbol",
+      "image": "photo",
+      "imprecision": "vagueness",
+      "impression": "exposure",
+      "include": "contain",
+      "intent": "purpose",
+      "issue": "defect",
+      "itinerary": "route",
+      "landing": "destination",
+      "language": "tongue",
+      "last": "recent",
+      "latest": "newest",
+      "latitude": "north",
+      "length": "duration",
+      "likely": "probable",
+      "line": "row",
+      "link": "connection",
+      "listing": "entry",
+      "live": "broadcast",
+      "location": "place",
+      "longitude": "east",
+      "low": "reduced",
+      "manifest": "inventory",
+      "mask": "veil",
+      "match": "pair",
+      "matched": "aligned",
+      "meter": "gauge",
+      "mismatch": "discrepancy",
+      "missed": "skipped",
+      "missing": "absent",
+      "month": "quarter",
+      "next": "following",
+      "non": "empty",
+      "num": "yarrow",
+      "occupancy": "utilization",
+      "opportunity": "chance",
+      "overall": "mirror",
+      "overclustered": "grouped",
+      "parent": "guardian",
+      "parsed": "interpreted",
+      "participation": "involvement",
+      "partner": "ally",
+      "percent": "ratio",
+      "performance": "efficiency",
+      "pixel": "dot",
+      "predicted": "forecast",
+      "pretty": "formatted",
+      "price": "cost",
+      "pricing": "lantern",
+      "primary": "main",
+      "print": "output",
+      "problem": "trouble",
+      "property": "estate",
+      "protocol": "standard",
+      "quota": "lemon",
+      "radius": "distance",
+      "range": "interval",
+      "rate": "tariff",
+      "rating": "rank",
+      "reason": "cause",
+      "reconciliation": "balancing",
+      "record": "log",
+      "reference": "citation",
+      "region": "area",
+      "report": "brief",
+      "resolving": "solving",
+      "review": "feedback",
+      "rule": "policy",
+      "scale": "magnitude",
+      "score": "grade",
+      "scoring": "grading",
+      "self": "own",
+      "served": "delivered",
+      "setup": "configuration",
+      "severity": "seriousness",
+      "signal": "indicator",
+      "source": "origin",
+      "start": "begin",
+      "state": "condition",
+      "stay": "sojourn",
+      "submission": "filing",
+      "submitted": "sent",
+      "successful": "completed",
+      "summarize": "condense",
+      "suspended": "paused",
+      "target": "goal",
+      "tax": "duty",
+      "technical": "engineering",
+      "timeout": "expiry",
+      "title": "heading",
+      "travel": "journey",
+      "triggered": "activated",
+      "unavailable": "offline",
+      "unit": "measure",
+      "unmatched": "orphaned",
+      "unusually": "rarely",
+      "update": "refresh",
+      "updated": "revised",
+      "upload": "ingest",
+      "user": "client",
+      "validate": "confirm",
+      "verify": "check",
+      "view": "sight",
+      "visit": "tour",
+      "website": "site",
+      "window": "frame",
+      "with": "alongside",
+      "xgafv": "format",
+      "year": "annum"
+    }
+  }
+}

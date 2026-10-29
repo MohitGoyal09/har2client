@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "x_mode": "total",
+    "resamples": 5000,
+    "seed": 20261026,
+    "ci_level": 0.95,
+    "series": {
+      "placebo": {
+        "csv": "har2client\\results\\case2_probe\\pilot\\placebo.csv",
+        "n_tasks": 2,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      },
+      "P5": {
+        "csv": "har2client\\results\\case2_probe\\pilot\\P5.csv",
+        "n_tasks": 2,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      },
+      "P20": {
+        "csv": "har2client\\results\\case2_probe\\pilot\\P20.csv",
+        "n_tasks": 2,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      }
+    },
+    "warnings": []
+  },
+  "points": [
+    {
+      "series": "placebo",
+      "effort": "low",
+      "x": 48737.0,
+      "y": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_tasks": 2,
+      "on_pareto": true
+    },
+    {
+      "series": "placebo",
+      "effort": "medium",
+      "x": 49428.0,
+      "y": 50.0,
+      "ci_low": 0.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": false
+    },
+    {
+      "series": "placebo",
+      "effort": "high",
+      "x": 50770.0,
+      "y": 50.0,
+      "ci_low": 0.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": false
+    },
+    {
+      "series": "P5",
+      "effort": "low",
+      "x": 97679.0,
+      "y": 100.0,
+      "ci_low": 100.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": true
+    },
+    {
+      "series": "P5",
+      "effort": "medium",
+      "x": 159205.0,
+      "y": 100.0,
+      "ci_low": 100.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": false
+    },
+    {
+      "series": "P5",
+      "effort": "high",
+      "x": 233095.5,
+      "y": 100.0,
+      "ci_low": 100.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": false
+    },
+    {
+      "series": "P20",
+      "effort": "low",
+      "x": 48912.0,
+      "y": 50.0,
+      "ci_low": 0.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": true
+    },
+    {
+      "series": "P20",
+      "effort": "medium",
+      "x": 230571.0,
+      "y": 100.0,
+      "ci_low": 100.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": false
+    },
+    {
+      "series": "P20",
+      "effort": "high",
+      "x": 316962.0,
+      "y": 100.0,
+      "ci_low": 100.0,
+      "ci_high": 100.0,
+      "n_tasks": 2,
+      "on_pareto": false
+    }
+  ]
+}

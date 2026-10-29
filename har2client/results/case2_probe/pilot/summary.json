@@ -1,0 +1,334 @@
+{
+  "dry_run": false,
+  "source": "har2client\\runs\\probe\\case2_probe_pilot\\results.csv",
+  "observed_rows": 18,
+  "statuses": {
+    "ok": 18
+  },
+  "observed_blocks": 2,
+  "complete_blocks_by_effort": {
+    "low": 2,
+    "medium": 2,
+    "high": 2
+  },
+  "frontier_efforts": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "complete_blocks_all_efforts": 2,
+  "complete_blocks": 2,
+  "paired_rows": 18,
+  "efforts": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "comparisons": [
+    {
+      "effort": "low",
+      "hidden_header": "all",
+      "arm": "P5",
+      "tasks": 2,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "all",
+      "arm": "P20",
+      "tasks": 2,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+        0.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "on",
+      "arm": "P5",
+      "tasks": 1,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "on",
+      "arm": "P20",
+      "tasks": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "off",
+      "arm": "P5",
+      "tasks": 1,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "low",
+      "hidden_header": "off",
+      "arm": "P20",
+      "tasks": 1,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "all",
+      "arm": "P5",
+      "tasks": 2,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+        0.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "all",
+      "arm": "P20",
+      "tasks": 2,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+        0.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "on",
+      "arm": "P5",
+      "tasks": 1,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "on",
+      "arm": "P20",
+      "tasks": 1,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "off",
+      "arm": "P5",
+      "tasks": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "effort": "medium",
+      "hidden_header": "off",
+      "arm": "P20",
+      "tasks": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "all",
+      "arm": "P5",
+      "tasks": 2,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+        0.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "all",
+      "arm": "P20",
+      "tasks": 2,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+        0.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "on",
+      "arm": "P5",
+      "tasks": 1,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "on",
+      "arm": "P20",
+      "tasks": 1,
+      "delta_pp": 100.0,
+      "ci95_pp": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "off",
+      "arm": "P5",
+      "tasks": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "effort": "high",
+      "hidden_header": "off",
+      "arm": "P20",
+      "tasks": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "method": "Complete task/run/effort blocks (all three arms); task-mean differences; percentile bootstrap over tasks. The frontier uses blocks complete at every plotted effort.",
+  "scores": [
+    {
+      "arm": "placebo",
+      "effort": "low",
+      "tasks": 2,
+      "pass_rate": 0.0,
+      "strict_pass_rate": 0.0,
+      "probes_used": 0.0,
+      "completion_tokens": 1057.5,
+      "prompt_tokens": 47679.5,
+      "wall_time_s": 6.561999999999999
+    },
+    {
+      "arm": "P5",
+      "effort": "low",
+      "tasks": 2,
+      "pass_rate": 1.0,
+      "strict_pass_rate": 1.0,
+      "probes_used": 1.0,
+      "completion_tokens": 1329.5,
+      "prompt_tokens": 96349.5,
+      "wall_time_s": 7.852
+    },
+    {
+      "arm": "P20",
+      "effort": "low",
+      "tasks": 2,
+      "pass_rate": 0.5,
+      "strict_pass_rate": 0.5,
+      "probes_used": 0.0,
+      "completion_tokens": 1053.5,
+      "prompt_tokens": 47858.5,
+      "wall_time_s": 5.016
+    },
+    {
+      "arm": "placebo",
+      "effort": "medium",
+      "tasks": 2,
+      "pass_rate": 0.5,
+      "strict_pass_rate": 0.5,
+      "probes_used": 0.0,
+      "completion_tokens": 1747.5,
+      "prompt_tokens": 47680.5,
+      "wall_time_s": 9.9145
+    },
+    {
+      "arm": "P5",
+      "effort": "medium",
+      "tasks": 2,
+      "pass_rate": 1.0,
+      "strict_pass_rate": 1.0,
+      "probes_used": 2.0,
+      "completion_tokens": 2823.5,
+      "prompt_tokens": 156381.5,
+      "wall_time_s": 17.1565
+    },
+    {
+      "arm": "P20",
+      "effort": "medium",
+      "tasks": 2,
+      "pass_rate": 1.0,
+      "strict_pass_rate": 1.0,
+      "probes_used": 3.5,
+      "completion_tokens": 2567.0,
+      "prompt_tokens": 228004.0,
+      "wall_time_s": 18.6645
+    },
+    {
+      "arm": "placebo",
+      "effort": "high",
+      "tasks": 2,
+      "pass_rate": 0.5,
+      "strict_pass_rate": 0.5,
+      "probes_used": 0.0,
+      "completion_tokens": 3088.5,
+      "prompt_tokens": 47681.5,
+      "wall_time_s": 12.727
+    },
+    {
+      "arm": "P5",
+      "effort": "high",
+      "tasks": 2,
+      "pass_rate": 1.0,
+      "strict_pass_rate": 1.0,
+      "probes_used": 3.5,
+      "completion_tokens": 2955.0,
+      "prompt_tokens": 230140.5,
+      "wall_time_s": 18.953000000000003
+    },
+    {
+      "arm": "P20",
+      "effort": "high",
+      "tasks": 2,
+      "pass_rate": 1.0,
+      "strict_pass_rate": 1.0,
+      "probes_used": 5.5,
+      "completion_tokens": 4579.0,
+      "prompt_tokens": 312383.0,
+      "wall_time_s": 31.1485
+    }
+  ],
+  "total_tokens": {
+    "prompt_tokens": 2428317.0,
+    "completion_tokens": 42402.0,
+    "reasoning_tokens": 26665.0
+  }
+}

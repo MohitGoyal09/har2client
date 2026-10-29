@@ -1,0 +1,124 @@
+{
+ "heal48_medium": {
+  "note": "run stopped early on purpose (v2 set saturated); only finished cells",
+  "cells": [
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 12541,
+    "completion_tokens": 1745
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 12363,
+    "completion_tokens": 1010
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 14872,
+    "completion_tokens": 1431
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 12343,
+    "completion_tokens": 2033
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 12064,
+    "completion_tokens": 1327
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 14810,
+    "completion_tokens": 1269
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 11993,
+    "completion_tokens": 2308
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 11993,
+    "completion_tokens": 1597
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 12002,
+    "completion_tokens": 1282
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 12010,
+    "completion_tokens": 1205
+   },
+   {
+    "task": "heal48_medium",
+    "cell": "medium-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 12413,
+    "completion_tokens": 1026
+   }
+  ]
+ },
+ "hard96_low": {
+  "note": "run stopped early on purpose (v2 set saturated); only finished cells",
+  "cells": [
+   {
+    "task": "hard96_low",
+    "cell": "low-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 15741,
+    "completion_tokens": 991
+   },
+   {
+    "task": "hard96_low",
+    "cell": "low-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 15694,
+    "completion_tokens": 1100
+   },
+   {
+    "task": "hard96_low",
+    "cell": "low-raw-r1",
+    "pass_rate": 1.0,
+    "strict_pass_rate": 1.0,
+    "prompt_tokens": 14333,
+    "completion_tokens": 862
+   }
+  ]
+ }
+}

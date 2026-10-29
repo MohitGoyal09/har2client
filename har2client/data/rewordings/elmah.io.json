@@ -1,0 +1,167 @@
+{
+  "api_id": "elmah.io",
+  "names": {
+    "original": {
+      "deployments_create": {
+        "body_description": "JSON body with release details.",
+        "description": "Creates a new release record.",
+        "fallbacks": [],
+        "name": "create_release",
+        "summary": "Create a new release."
+      },
+      "deployments_get_all": {
+        "body_description": "",
+        "description": "Returns all recorded releases.",
+        "fallbacks": [],
+        "name": "list_releases",
+        "summary": "Fetch a list of releases."
+      },
+      "logs_create": {
+        "body_description": "JSON body with record details.",
+        "description": "Creates a new record entry.",
+        "fallbacks": [],
+        "name": "create_record",
+        "summary": "Create a new record."
+      },
+      "logs_diagnose": {
+        "body_description": "",
+        "description": "Helps inspect record issues.",
+        "fallbacks": [],
+        "name": "inspect_record",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the record to inspect.",
+            "name": "record_id"
+          }
+        },
+        "summary": "Help inspect logging problems."
+      },
+      "logs_get": {
+        "body_description": "",
+        "description": "Returns one record by identifier.",
+        "fallbacks": [],
+        "name": "get_record",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the requested record.",
+            "name": "record_id"
+          }
+        },
+        "summary": "Fetch a record by its ID."
+      },
+      "logs_get_all": {
+        "body_description": "",
+        "description": "Returns all recorded entries.",
+        "fallbacks": [],
+        "name": "list_records",
+        "summary": "Fetch a list of records."
+      },
+      "messages_get": {
+        "body_description": "",
+        "description": "Returns one entry by identifier.",
+        "fallbacks": [],
+        "name": "get_entry",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the requested entry.",
+            "name": "entry_id"
+          },
+          "path:logId": {
+            "description": "Identifier of the source record.",
+            "name": "source_id"
+          }
+        },
+        "summary": "Fetch an entry by its ID."
+      },
+      "messages_get_all": {
+        "body_description": "",
+        "description": "Returns entries for a given source.",
+        "fallbacks": [],
+        "name": "fetch_entries",
+        "params": {
+          "path:logId": {
+            "description": "Identifier of the source record.",
+            "name": "source_id"
+          },
+          "query:from": {
+            "description": "Earliest timestamp to retrieve.",
+            "name": "start_time"
+          },
+          "query:includeHeaders": {
+            "description": "Whether metadata is included.",
+            "name": "with_meta"
+          },
+          "query:pageIndex": {
+            "description": "Starting position for returned entries.",
+            "name": "result_offset"
+          },
+          "query:pageSize": {
+            "description": "Maximum number of entries returned.",
+            "name": "result_limit"
+          },
+          "query:query": {
+            "description": "Text used to filter entries.",
+            "name": "search_text"
+          },
+          "query:to": {
+            "description": "Latest timestamp to retrieve.",
+            "name": "end_time"
+          }
+        },
+        "summary": "Retrieve entries stored in a journal."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:string"
+    ],
+    "host": "api.pulsewatch.com",
+    "title": "Pulsewatch Service",
+    "words": {
+      "action": "event",
+      "application": "service",
+      "breadcrumb": "trail",
+      "category": "group",
+      "color": "hue",
+      "cooky": "session",
+      "correlation": "linkage",
+      "created": "provisioned",
+      "deployment": "release",
+      "description": "summary",
+      "detail": "note",
+      "diagnose": "inspect",
+      "disable": "deactivate",
+      "disabled": "inactive",
+      "elmah": "watchdog",
+      "email": "mailbox",
+      "enable": "activate",
+      "environment": "stage",
+      "fix": "resolve",
+      "fixed": "patched",
+      "form": "payload",
+      "from": "origin",
+      "header": "banner",
+      "heartbeat": "pulse",
+      "hide": "conceal",
+      "hostname": "node",
+      "include": "attach",
+      "index": "position",
+      "location": "venue",
+      "log": "journal",
+      "mark": "flag",
+      "method": "verb",
+      "reason": "cause",
+      "server": "host",
+      "severity": "level",
+      "source": "provenance",
+      "string": "acorn",
+      "template": "pattern",
+      "title": "label",
+      "took": "elapsed",
+      "uptimecheck": "availability",
+      "user": "account",
+      "variable": "parameter"
+    }
+  }
+}

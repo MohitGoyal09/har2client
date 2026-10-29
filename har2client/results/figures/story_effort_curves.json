@@ -1,0 +1,138 @@
+{
+  "title": "Effort helps both cases; the hint helps case 3 far more",
+  "case1": [
+    {
+      "effort": "low",
+      "n": 50,
+      "tokens": 1154.3,
+      "pass": 57.14285714285715,
+      "ci_low": 43.42857142857143,
+      "ci_high": 70.85714285714285
+    },
+    {
+      "effort": "medium",
+      "n": 50,
+      "tokens": 2259.36,
+      "pass": 63.714285714285715,
+      "ci_low": 50.85714285714286,
+      "ci_high": 77.42857142857143
+    },
+    {
+      "effort": "high",
+      "n": 50,
+      "tokens": 4818.306666666667,
+      "pass": 74.47619047619048,
+      "ci_low": 62.952380952380956,
+      "ci_high": 85.04761904761905
+    }
+  ],
+  "case3_base": [
+    {
+      "effort": "low",
+      "n": 64,
+      "tokens": 1757.640625,
+      "pass": 31.61764705882353,
+      "ci_low": 23.897058823529395,
+      "ci_high": 40.165441176470566
+    },
+    {
+      "effort": "medium",
+      "n": 64,
+      "tokens": 2921.734375,
+      "pass": 37.04044117647059,
+      "ci_low": 28.58455882352939,
+      "ci_high": 46.13970588235292
+    },
+    {
+      "effort": "high",
+      "n": 64,
+      "tokens": 7746.005208333333,
+      "pass": 45.986519607843135,
+      "ci_low": 38.38848039215683,
+      "ci_high": 54.16666666666665
+    }
+  ],
+  "case3_hint": [
+    {
+      "effort": "low",
+      "n": 64,
+      "tokens": 1799.84375,
+      "pass": 71.59926470588235,
+      "ci_low": 61.85661764705882,
+      "ci_high": 80.7904411764706
+    },
+    {
+      "effort": "medium",
+      "n": 64,
+      "tokens": 2846.03125,
+      "pass": 76.93014705882352,
+      "ci_low": 68.29044117647058,
+      "ci_high": 85.38602941176472
+    },
+    {
+      "effort": "high",
+      "n": 64,
+      "tokens": 6823.765625,
+      "pass": 87.71446078431372,
+      "ci_low": 81.77083333333333,
+      "ci_high": 92.8921568627451
+    }
+  ],
+  "header_subsets": {
+    "header_on": [
+      {
+        "effort": "low",
+        "n": 25,
+        "tokens": 1211.04,
+        "pass": 20.0,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "effort": "medium",
+        "n": 25,
+        "tokens": 2242.64,
+        "pass": 31.428571428571427,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "effort": "high",
+        "n": 25,
+        "tokens": 4605.133333333333,
+        "pass": 49.14285714285714,
+        "ci_low": null,
+        "ci_high": null
+      }
+    ],
+    "header_off": [
+      {
+        "effort": "low",
+        "n": 25,
+        "tokens": 1097.56,
+        "pass": 94.28571428571429,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "effort": "medium",
+        "n": 25,
+        "tokens": 2276.08,
+        "pass": 96.0,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "effort": "high",
+        "n": 25,
+        "tokens": 5031.48,
+        "pass": 99.80952380952381,
+        "ci_low": null,
+        "ci_high": null
+      }
+    ]
+  },
+  "footer_n": "50 case 1, 64 case 3",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=50 case 1, 64 case 3 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

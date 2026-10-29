@@ -1,0 +1,218 @@
+{
+  "api_id": "telematicssdk.com",
+  "names": {
+    "original": {
+      "trips_trip_details": {
+        "body_description": "",
+        "description": "Returns details for one trip.",
+        "fallbacks": [],
+        "name": "trip_record",
+        "params": {
+          "query:trackToken": {
+            "description": "Identifier for the requested trip.",
+            "name": "journey_ref"
+          }
+        },
+        "summary": "Trips - trip details"
+      },
+      "user_safe_scoring_accumulated_value_v1_scorings_individual": {
+        "body_description": "",
+        "description": "Returns accumulated secure rating value.",
+        "fallbacks": [],
+        "name": "secure_rating_total",
+        "params": {
+          "query:endDate": {
+            "description": "Upper bound of the requested range.",
+            "name": "to_time"
+          },
+          "query:startDate": {
+            "description": "Beginning of the requested period.",
+            "name": "from_time"
+          }
+        },
+        "summary": "Personal secure rating total"
+      },
+      "user_safe_scoring_daily_value_v1_scorings_individual_daily": {
+        "body_description": "",
+        "description": "Returns secure rating grouped by day.",
+        "fallbacks": [],
+        "name": "secure_rating_by_day",
+        "params": {
+          "query:EndDate": {
+            "description": "Upper bound of the requested range.",
+            "name": "to_time"
+          },
+          "query:StartDate": {
+            "description": "Beginning of the requested period.",
+            "name": "from_time"
+          },
+          "query:Tag": {
+            "description": "Optional label filter.",
+            "name": "label"
+          }
+        },
+        "summary": "Secure rating by day total"
+      },
+      "user_statistice_daily_value_v1_statistics_individual_daily": {
+        "body_description": "",
+        "description": "Returns user activity grouped by day.",
+        "fallbacks": [],
+        "name": "user_activity_by_day",
+        "params": {
+          "query:endDate": {
+            "description": "Upper bound of the requested range.",
+            "name": "to_time"
+          },
+          "query:startDate": {
+            "description": "Beginning of the requested period.",
+            "name": "from_time"
+          }
+        },
+        "summary": "Personal activity by day total"
+      },
+      "user_statistics_accumulated_value_v1_statistics_individual": {
+        "body_description": "",
+        "description": "Returns accumulated user activity totals.",
+        "fallbacks": [],
+        "name": "user_activity_totals",
+        "params": {
+          "query:endDate": {
+            "description": "Upper bound of the requested range.",
+            "name": "to_time"
+          },
+          "query:startDate": {
+            "description": "Beginning of the requested period.",
+            "name": "from_time"
+          }
+        },
+        "summary": "Personal activity totals"
+      },
+      "v1_scorings_consolidated_daily": {
+        "body_description": "",
+        "description": "Returns combined metrics for a selected period.",
+        "fallbacks": [],
+        "name": "combined_metrics",
+        "params": {
+          "query:AppId": {
+            "description": "Identifier for the product.",
+            "name": "product"
+          },
+          "query:CompanyId": {
+            "description": "Identifier for the organization.",
+            "name": "org"
+          },
+          "query:DeviceToken": {
+            "description": "Identifier for the requesting client.",
+            "name": "client_ref"
+          },
+          "query:EndDate": {
+            "description": "Upper bound of the requested range.",
+            "name": "to_time"
+          },
+          "query:InstanceId": {
+            "description": "Identifier for the workspace.",
+            "name": "workspace"
+          },
+          "query:StartDate": {
+            "description": "Beginning of the requested period.",
+            "name": "from_time"
+          },
+          "query:Tag": {
+            "description": "Optional label filter.",
+            "name": "label"
+          }
+        },
+        "summary": "Combined periodic metrics"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "platform.routemetrics.ai",
+    "title": "Onboarding guide - Fleet Intelligence API",
+    "words": {
+      "acceleration": "thrust",
+      "address": "location",
+      "alert": "warning",
+      "average": "mean",
+      "beacon": "sensor",
+      "brake": "stopper",
+      "braking": "stopping",
+      "breaking": "rupture",
+      "calc": "compute",
+      "changed": "altered",
+      "city": "town",
+      "company": "firm",
+      "consolidated": "combined",
+      "cornering": "turning",
+      "country": "nation",
+      "course": "path",
+      "daily": "perday",
+      "day": "weekday",
+      "deceleration": "slowdown",
+      "depreciation": "decline",
+      "device": "gadget",
+      "distance": "range",
+      "distracted": "inattentive",
+      "distraction": "diversion",
+      "district": "region",
+      "driver": "operator",
+      "driving": "motoring",
+      "duration": "timespan",
+      "eco": "green",
+      "end": "termination",
+      "finish": "complete",
+      "fuel": "gasoline",
+      "height": "altitude",
+      "high": "elevated",
+      "hour": "period",
+      "house": "residence",
+      "individual": "personal",
+      "instance": "case",
+      "kmh": "speedmeasure",
+      "lateral": "transverse",
+      "latitude": "northcoord",
+      "longitude": "eastcoord",
+      "max": "peak",
+      "meter": "gauge",
+      "mid": "center",
+      "mile": "kilometre",
+      "mileage": "odometer",
+      "mileh": "speedrate",
+      "min": "lowest",
+      "mobilesdk": "toolkit",
+      "night": "evening",
+      "number": "quantity",
+      "origin": "source",
+      "over": "beyond",
+      "overall": "aggregate",
+      "part": "segment",
+      "phone": "handset",
+      "point": "waypoint",
+      "postal": "zipcode",
+      "quick": "fast",
+      "rating": "evaluation",
+      "report": "summary",
+      "rush": "congestion",
+      "score": "grade",
+      "scoring": "grading",
+      "sdk": "library",
+      "share": "portion",
+      "speed": "velocity",
+      "speeding": "racing",
+      "stage": "phase",
+      "start": "begin",
+      "statistic": "metric",
+      "street": "road",
+      "tag": "label",
+      "telematic": "connected",
+      "tip": "hint",
+      "title": "heading",
+      "track": "route",
+      "trip": "journey",
+      "tyre": "rubber",
+      "usage": "activity",
+      "yaw": "rotation"
+    }
+  }
+}

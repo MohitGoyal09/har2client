@@ -1,0 +1,92 @@
+{
+  "api_id": "rev.ai",
+  "names": {
+    "original": {
+      "get_account": {
+        "body_description": "",
+        "description": "Returns the current ledger details for the caller.",
+        "fallbacks": [],
+        "name": "fetch_ledger",
+        "summary": "Retrieve Ledger"
+      },
+      "get_job_by_id": {
+        "body_description": "",
+        "description": "Returns the details of one task by its identifier.",
+        "fallbacks": [],
+        "name": "fetch_task",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the task to retrieve.",
+            "name": "task_id"
+          }
+        },
+        "summary": "Get Task By Id"
+      },
+      "get_list_of_jobs": {
+        "body_description": "",
+        "description": "Returns a page of available tasks.",
+        "fallbacks": [],
+        "name": "list_tasks",
+        "params": {
+          "query:limit": {
+            "description": "Maximum number of tasks to return in one page.",
+            "name": "page_size"
+          },
+          "query:starting_after": {
+            "description": "Cursor marking where the next page should begin.",
+            "name": "cursor"
+          }
+        },
+        "summary": "List Tasks"
+      },
+      "submit_transcription_job": {
+        "body_description": "JSON object describing the transcription request to submit.",
+        "description": "Creates a new transcription task from the provided payload.",
+        "fallbacks": [],
+        "name": "create_transcription",
+        "summary": "Submit Transcription Task"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "voice.transcribe.io",
+    "title": "Realtime Audio Transcription Reference Manual",
+    "words": {
+      "account": "ledger",
+      "after": "following",
+      "asynchronous": "deferred",
+      "balance": "amount",
+      "callback": "webhook",
+      "caption": "subtitle",
+      "channel": "stream",
+      "completed": "finished",
+      "created": "generated",
+      "custom": "tailored",
+      "delete": "erase",
+      "detail": "overview",
+      "diarization": "segmentation",
+      "disfluency": "hesitation",
+      "documentation": "guide",
+      "duration": "length",
+      "email": "mailbox",
+      "failure": "outage",
+      "job": "task",
+      "language": "locale",
+      "media": "asset",
+      "metadata": "descriptor",
+      "phrase": "expression",
+      "profanity": "obscenity",
+      "punctuation": "marker",
+      "remove": "purge",
+      "second": "moment",
+      "skip": "bypass",
+      "speaker": "narrator",
+      "speech": "voice",
+      "speechtotext": "dictation",
+      "starting": "beginning",
+      "transcript": "verbatim",
+      "vocabulary": "lexicon"
+    }
+  }
+}

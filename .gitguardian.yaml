@@ -1,0 +1,11 @@
+# GitGuardian / ggshield config.
+# The benchmark generates FAKE credentials (e.g. sk_<24 hex>, tok_<hex>, user_x:pw_y) for its mock APIs.
+# They appear in recorded traffic (HAR) used by tests. None of them is a real secret.
+# Real keys live only in har2client/.env, which is git-ignored and never committed.
+version: 2
+
+secret:
+  ignored_paths:
+    - 'har2client/tests/fixtures/**'
+    - 'release/space/data/**'
+    - 'release/build/**'

@@ -1,0 +1,182 @@
+{
+  "api_id": "redhat.com:catalog_inventory",
+  "names": {
+    "original": {
+      "applied_inventories_tags_for_service_offering": {
+        "body_description": "JSON body supplies computation options.",
+        "description": "Compute asset labels for one catalog item.",
+        "fallbacks": [],
+        "name": "compute_resource_labels",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the catalog item.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Invokes computing of asset labels for given catalog item."
+      },
+      "order_service_offering": {
+        "body_description": "JSON body supplies purchase details.",
+        "description": "Purchase one catalog item by its identifier.",
+        "fallbacks": [],
+        "name": "purchase_catalog_item",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the catalog item.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Purchase an existing catalog item."
+      },
+      "show_service_credential_type": {
+        "body_description": "",
+        "description": "Fetch one auth classification by its identifier.",
+        "fallbacks": [],
+        "name": "get_kind_profile",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the auth classification.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Show an existing auth classification."
+      },
+      "show_service_instance": {
+        "body_description": "",
+        "description": "Fetch one deployed workload by its identifier.",
+        "fallbacks": [],
+        "name": "get_deployment_detail",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the deployed workload.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Show an existing deployed workload."
+      },
+      "show_service_offering": {
+        "body_description": "",
+        "description": "Fetch one catalog item by its identifier.",
+        "fallbacks": [],
+        "name": "get_catalog_item",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the catalog item.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Show an existing catalog item."
+      },
+      "show_service_plan": {
+        "body_description": "",
+        "description": "Fetch one subscription tier by its identifier.",
+        "fallbacks": [],
+        "name": "get_subscription_tier",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the subscription tier.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Show an existing subscription tier."
+      },
+      "show_source": {
+        "body_description": "",
+        "description": "Fetch one origin by its identifier.",
+        "fallbacks": [],
+        "name": "get_origin_detail",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the origin.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Show an existing origin."
+      },
+      "show_task": {
+        "body_description": "",
+        "description": "Fetch one job by its identifier.",
+        "fallbacks": [],
+        "name": "get_job_detail",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the job.",
+            "name": "identifier"
+          }
+        },
+        "summary": "Show an existing job."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "api.stackforge.io",
+    "title": "Asset Registry",
+    "words": {
+      "applied": "attached",
+      "archived": "retired",
+      "availability": "readiness",
+      "available": "ready",
+      "catalog": "directory",
+      "checked": "verified",
+      "child": "descendant",
+      "cloud": "sky",
+      "completed": "done",
+      "connector": "adapter",
+      "control": "govern",
+      "controller": "handler",
+      "create": "provision",
+      "created": "added",
+      "credential": "passkey",
+      "deleted": "removed",
+      "description": "summary",
+      "display": "render",
+      "distributor": "supplier",
+      "documentation": "guide",
+      "enabled": "active",
+      "external": "remote",
+      "extra": "additional",
+      "finished": "ended",
+      "graphql": "endpoint",
+      "incremental": "partial",
+      "input": "payload",
+      "instance": "deployment",
+      "inventory": "stock",
+      "kind": "category",
+      "last": "final",
+      "long": "extended",
+      "namespace": "scope",
+      "node": "vertex",
+      "offering": "product",
+      "openapi": "spec",
+      "operation": "action",
+      "output": "response",
+      "owner": "maintainer",
+      "parameter": "argument",
+      "part": "segment",
+      "plan": "tier",
+      "previous": "prior",
+      "provider": "vendor",
+      "ref": "link",
+      "refresh": "renew",
+      "resource": "asset",
+      "root": "base",
+      "schema": "model",
+      "seen": "observed",
+      "service": "platform",
+      "sha": "digest",
+      "source": "origin",
+      "started": "begun",
+      "state": "condition",
+      "successful": "confirmed",
+      "support": "assist",
+      "tag": "label",
+      "target": "destination",
+      "task": "job",
+      "uid": "identifier",
+      "update": "modify",
+      "updated": "modified",
+      "variable": "field"
+    }
+  }
+}

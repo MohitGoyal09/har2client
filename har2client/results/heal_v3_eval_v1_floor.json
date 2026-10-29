@@ -1,0 +1,398 @@
+{
+  "tasks_dir": "runs/heal_v3_eval",
+  "summary": {
+    "n_tasks": 64,
+    "v1_mean": 0.06525735294117647,
+    "v1_max": 0.8235294117647058,
+    "v1_max_task": "v3_single_08_async_create_bookings",
+    "v1_tasks_above_zero": 14,
+    "empty_mean": 0.0,
+    "empty_max": 0.0
+  },
+  "per_task": [
+    {
+      "task": "v3_misleading_48_enum+refresh_rotation+idempotency_key_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_misleading_49_rename+enum+rate_limit_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_misleading_50_nest+idempotency_key+moved_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_misleading_51_cents+enum+moved_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_misleading_52_epoch+async_create+refresh_rotation_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_misleading_53_rename+cents+rate_limit_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_misleading_54_epoch+async_create+refresh_rotation_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_misleading_55_nest+enum+rate_limit_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_32_rename+async_create+moved_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_33_cents+enum+refresh_rotation_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_34_nest+async_create+idempotency_key_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_35_epoch+nest+refresh_rotation_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_36_enum+rate_limit+moved_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_37_rename+cents+idempotency_key_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_38_nest+refresh_rotation+idempotency_key_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_partial_39_epoch+enum+moved_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_14_cents+rate_limit+refresh_rotation_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_15_epoch+enum+idempotency_key_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_16_nest+async_create+moved_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_17_rename+nest+idempotency_key_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_18_epoch+async_create+moved_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_19_rename+enum+refresh_rotation_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_20_cents+rate_limit+moved_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_21_nest+enum+async_create_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_22_rename+rate_limit+idempotency_key_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release3_23_cents+epoch+refresh_rotation_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_24_epoch+nest+async_create+moved_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_25_cents+rate_limit+refresh_rotation+idempotency_key_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_26_rename+cents+enum+async_create_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_27_nest+enum+rate_limit+refresh_rotation_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_28_epoch+async_create+idempotency_key+moved_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_29_rename+epoch+enum+moved_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_30_rename+cents+rate_limit+idempotency_key_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_release4_31_nest+rate_limit+refresh_rotation+idempotency_key_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_40_epoch+rate_limit+async_create_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_41_rename+cents+rate_limit_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_42_cents+async_create+moved_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_43_epoch+nest+refresh_rotation_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_44_rename+refresh_rotation+moved_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_45_rename+enum+idempotency_key_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_46_epoch+rate_limit+async_create_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_sdk_47_cents+nest+async_create_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_00_cents_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_01_cents_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_02_epoch_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_03_epoch_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_04_nest_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_05_nest_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.17647058823529413,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_06_rate_limit_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_07_rate_limit_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.11764705882352941,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_08_async_create_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.8235294117647058,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_09_async_create_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.8235294117647058,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_10_refresh_rotation_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_11_refresh_rotation_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_12_idempotency_key_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.4117647058823529,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_single_13_idempotency_key_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.4117647058823529,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_56_cents+idempotency_key+moved_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_57_rename+epoch+idempotency_key_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_58_nest+async_create+moved_shipments",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_59_cents+epoch+rate_limit_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_60_enum+rate_limit+refresh_rotation_samples",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_61_rename+nest+moved_invoices",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_62_cents+async_create+refresh_rotation_tickets",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    },
+    {
+      "task": "v3_terse_63_epoch+nest+idempotency_key_bookings",
+      "n_tests": 17,
+      "v1_pass_rate": 0.0,
+      "empty_pass_rate": 0.0
+    }
+  ]
+}

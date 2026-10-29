@@ -1,0 +1,106 @@
+{
+  "figure": "final_gap_vs_beam",
+  "title": "Without extra information GPT-OSS-120B matches or beats Beam; with it, Beam pulls ahead",
+  "differences": [
+    {
+      "model": "gpt",
+      "setting": "high",
+      "suite": "tierb50",
+      "diff": -4.761904761904762,
+      "ci_low": -13.523809523809524,
+      "ci_high": 3.0476190476190483,
+      "n": 50,
+      "verdict": "no_clear_difference"
+    },
+    {
+      "model": "qwen",
+      "setting": "thinking",
+      "suite": "tierb50",
+      "diff": -38.476190476190474,
+      "ci_low": -50.285714285714285,
+      "ci_high": -27.047619047619047,
+      "n": 50,
+      "verdict": "beam_better"
+    },
+    {
+      "model": "gpt",
+      "setting": "high",
+      "suite": "probe0",
+      "diff": 19.71428571428571,
+      "ci_low": 5.7142857142857135,
+      "ci_high": 34.285714285714285,
+      "n": 50,
+      "verdict": "other_better"
+    },
+    {
+      "model": "qwen",
+      "setting": "thinking",
+      "suite": "probe0",
+      "diff": -9.714285714285715,
+      "ci_low": -25.42857142857143,
+      "ci_high": 6.285714285714286,
+      "n": 50,
+      "verdict": "no_clear_difference"
+    },
+    {
+      "model": "gpt",
+      "setting": "high",
+      "suite": "probe5",
+      "diff": -13.428571428571429,
+      "ci_low": -25.42857142857143,
+      "ci_high": -1.4285714285714288,
+      "n": 50,
+      "verdict": "beam_better"
+    },
+    {
+      "model": "qwen",
+      "setting": "thinking",
+      "suite": "probe5",
+      "diff": -47.714285714285715,
+      "ci_low": -61.42857142857143,
+      "ci_high": -33.714285714285715,
+      "n": 50,
+      "verdict": "beam_better"
+    },
+    {
+      "model": "gpt",
+      "setting": "high",
+      "suite": "v3base",
+      "diff": 12.561274509803921,
+      "ci_low": 3.0024509803921573,
+      "ci_high": 21.47671568627451,
+      "n": 64,
+      "verdict": "other_better"
+    },
+    {
+      "model": "qwen",
+      "setting": "thinking",
+      "suite": "v3base",
+      "diff": -16.39093137254902,
+      "ci_low": -24.417892156862745,
+      "ci_high": -8.670343137254902,
+      "n": 64,
+      "verdict": "beam_better"
+    },
+    {
+      "model": "gpt",
+      "setting": "high",
+      "suite": "v3hint",
+      "diff": -29.901960784313722,
+      "ci_low": -39.338235294117645,
+      "ci_high": -20.77205882352941,
+      "n": 64,
+      "verdict": "beam_better"
+    },
+    {
+      "model": "qwen",
+      "setting": "thinking",
+      "suite": "v3hint",
+      "diff": -35.416666666666664,
+      "ci_low": -45.588235294117645,
+      "ci_high": -24.846813725490193,
+      "n": 64,
+      "verdict": "beam_better"
+    }
+  ]
+}

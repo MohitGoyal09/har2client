@@ -1,0 +1,62 @@
+{
+  "figure": "final_beam_missing_info",
+  "title": "Beam builds clients well when the recording shows everything, and recovers when given the missing piece",
+  "bars": [
+    {
+      "label": "header visible",
+      "pass_rate": 99.80952380952381,
+      "n": 25,
+      "runs": 3,
+      "information_available": true
+    },
+    {
+      "label": "header hidden",
+      "pass_rate": 49.14285714285714,
+      "n": 25,
+      "runs": 3,
+      "information_available": false
+    },
+    {
+      "label": "header hidden + hint (H10)",
+      "pass_rate": 96.0,
+      "n": 25,
+      "runs": 1,
+      "information_available": true
+    },
+    {
+      "label": "header hidden + evidence (H10)",
+      "pass_rate": 98.85714285714286,
+      "n": 25,
+      "runs": 1,
+      "information_available": true
+    },
+    {
+      "label": "no probes",
+      "pass_rate": 49.714285714285715,
+      "n": 50,
+      "runs": 1,
+      "information_available": false
+    },
+    {
+      "label": "up to 5 probes (P5)",
+      "pass_rate": 95.71428571428571,
+      "n": 50,
+      "runs": 1,
+      "information_available": true
+    },
+    {
+      "label": "no hint",
+      "pass_rate": 45.986519607843135,
+      "n": 64,
+      "runs": 3,
+      "information_available": false
+    },
+    {
+      "label": "with hint",
+      "pass_rate": 87.71446078431373,
+      "n": 64,
+      "runs": 3,
+      "information_available": true
+    }
+  ]
+}

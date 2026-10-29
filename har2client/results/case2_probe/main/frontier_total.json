@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "x_mode": "total",
+    "resamples": 5000,
+    "seed": 20261026,
+    "ci_level": 0.95,
+    "series": {
+      "placebo": {
+        "csv": "C:\\Users\\HP\\beam-challenge\\har2client\\results\\case2_probe\\main\\placebo.csv",
+        "n_tasks": 20,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      },
+      "P5": {
+        "csv": "C:\\Users\\HP\\beam-challenge\\har2client\\results\\case2_probe\\main\\P5.csv",
+        "n_tasks": 20,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      },
+      "P20": {
+        "csv": "C:\\Users\\HP\\beam-challenge\\har2client\\results\\case2_probe\\main\\P20.csv",
+        "n_tasks": 20,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      }
+    },
+    "warnings": []
+  },
+  "points": [
+    {
+      "series": "placebo",
+      "effort": "low",
+      "x": 42069.75,
+      "y": 64.28571428571429,
+      "ci_low": 43.57142857142858,
+      "ci_high": 84.28571428571429,
+      "n_tasks": 20,
+      "on_pareto": true
+    },
+    {
+      "series": "placebo",
+      "effort": "medium",
+      "x": 43217.15,
+      "y": 60.0,
+      "ci_low": 40.0,
+      "ci_high": 80.0,
+      "n_tasks": 20,
+      "on_pareto": false
+    },
+    {
+      "series": "placebo",
+      "effort": "high",
+      "x": 44883.85,
+      "y": 55.00000000000001,
+      "ci_low": 35.0,
+      "ci_high": 75.0,
+      "n_tasks": 20,
+      "on_pareto": false
+    },
+    {
+      "series": "P5",
+      "effort": "low",
+      "x": 68116.05,
+      "y": 69.28571428571428,
+      "ci_low": 49.28571428571429,
+      "ci_high": 89.28571428571429,
+      "n_tasks": 20,
+      "on_pareto": true
+    },
+    {
+      "series": "P5",
+      "effort": "medium",
+      "x": 107660.3,
+      "y": 82.85714285714286,
+      "ci_low": 66.42857142857142,
+      "ci_high": 97.14285714285715,
+      "n_tasks": 20,
+      "on_pareto": false
+    },
+    {
+      "series": "P5",
+      "effort": "high",
+      "x": 201611.4,
+      "y": 95.0,
+      "ci_low": 85.0,
+      "ci_high": 100.0,
+      "n_tasks": 20,
+      "on_pareto": true
+    },
+    {
+      "series": "P20",
+      "effort": "low",
+      "x": 105164.9,
+      "y": 94.28571428571428,
+      "ci_low": 83.57142857142858,
+      "ci_high": 100.0,
+      "n_tasks": 20,
+      "on_pareto": true
+    },
+    {
+      "series": "P20",
+      "effort": "medium",
+      "x": 158876.45,
+      "y": 90.0,
+      "ci_low": 75.0,
+      "ci_high": 100.0,
+      "n_tasks": 20,
+      "on_pareto": false
+    },
+    {
+      "series": "P20",
+      "effort": "high",
+      "x": 308588.9,
+      "y": 100.0,
+      "ci_low": 100.0,
+      "ci_high": 100.0,
+      "n_tasks": 20,
+      "on_pareto": true
+    }
+  ]
+}

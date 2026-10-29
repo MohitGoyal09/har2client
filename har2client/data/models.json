@@ -1,0 +1,73 @@
+{
+  "source": "GET https://router.huggingface.co/v1/models (public, no key). Prices: USD per 1M tokens, cheapest live provider. Docs: https://huggingface.co/docs/inference-providers/index",
+  "fetched": "2026-10-26",
+  "fields": "id = router model id (a suffix such as :cheapest is allowed); slug = output directory name; reasoning_effort = low|medium|high or null (null: parameter not sent); enabled = run by default; prices are only used for the dry-run cost estimate.",
+  "models": [
+    {
+      "id": "openai/gpt-oss-120b",
+      "slug": "gpt-oss-120b",
+      "label": "gpt-oss-120b",
+      "reasoning_effort": "high",
+      "enabled": true,
+      "notes": "Listed live on the HF router (GET /v1/models, no auth, 2026-10-26) by groq, novita, cerebras, deepinfra and 5 more. Not yet called with a token: first smoke run confirms it answers. Takes reasoning_effort (low/medium/high); sent as high to match Beam (high).",
+      "price_in_per_mtok": 0.037,
+      "price_out_per_mtok": 0.17,
+      "context_length": 131072
+    },
+    {
+      "id": "openai/gpt-oss-20b",
+      "slug": "gpt-oss-20b",
+      "label": "gpt-oss-20b",
+      "reasoning_effort": "high",
+      "enabled": true,
+      "notes": "Listed live on the HF router (GET /v1/models, no auth, 2026-10-26) by groq, nscale, ovhcloud, deepinfra. Not yet called with a token: first smoke run confirms it answers. Takes reasoning_effort like the 120b; sent as high. Not in data/baseline_models.json, so run_models forces the parameter on.",
+      "price_in_per_mtok": 0.03,
+      "price_out_per_mtok": 0.14,
+      "context_length": 131072
+    },
+    {
+      "id": "Qwen/Qwen3.5-397B-A17B",
+      "slug": "qwen3.5-397b",
+      "label": "Qwen3.5-397B-A17B",
+      "reasoning_effort": null,
+      "enabled": true,
+      "notes": "Listed live on the HF router (GET /v1/models, no auth, 2026-10-26) by novita, scaleway, ovhcloud, deepinfra. Not yet called with a token: first smoke run confirms it answers. No reasoning_effort sent (not accepted per data/baseline_models.json); the model reasons in its default mode.",
+      "price_in_per_mtok": 0.45,
+      "price_out_per_mtok": 3.0,
+      "context_length": 262144
+    },
+    {
+      "id": "deepseek-ai/DeepSeek-V4-Flash",
+      "slug": "deepseek-v4-flash",
+      "label": "DeepSeek-V4-Flash",
+      "reasoning_effort": null,
+      "enabled": true,
+      "notes": "Listed live on the HF router (GET /v1/models, no auth, 2026-10-26) by deepinfra (single priced provider). Not yet called with a token: first smoke run confirms it answers. No reasoning_effort sent. Only one priced provider: a deepinfra outage shows up as api_error cells.",
+      "price_in_per_mtok": 0.09,
+      "price_out_per_mtok": 0.18,
+      "context_length": 1048576
+    },
+    {
+      "id": "moonshotai/Kimi-K2.6",
+      "slug": "kimi-k2.6",
+      "label": "Kimi-K2.6",
+      "reasoning_effort": null,
+      "enabled": true,
+      "notes": "Listed live on the HF router (GET /v1/models, no auth, 2026-10-26) by novita, deepinfra. Not yet called with a token: first smoke run confirms it answers. No reasoning_effort sent. Newer Kimi-K3 is also listed (baseten, deepinfra); K2.6 chosen for two priced providers.",
+      "price_in_per_mtok": 0.8,
+      "price_out_per_mtok": 3.4,
+      "context_length": 262144
+    },
+    {
+      "id": "zai-org/GLM-5.2",
+      "slug": "glm-5.2",
+      "label": "GLM-5.2",
+      "reasoning_effort": null,
+      "enabled": true,
+      "notes": "Listed live on the HF router (GET /v1/models, no auth, 2026-10-26) by novita, zai-org, scaleway, baseten, deepinfra. Not yet called with a token: first smoke run confirms it answers. No reasoning_effort sent.",
+      "price_in_per_mtok": 0.75,
+      "price_out_per_mtok": 2.4,
+      "context_length": 1048576
+    }
+  ]
+}

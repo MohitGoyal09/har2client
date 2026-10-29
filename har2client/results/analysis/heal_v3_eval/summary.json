@@ -1,0 +1,831 @@
+{
+  "n_boot": 10000,
+  "seed": 20261024,
+  "metric": "pass_rate (primary); points are percentage points",
+  "steps": {
+    "base-low": {
+      "tasks_finished": 64,
+      "tasks_expected": 64,
+      "complete": true,
+      "api_error_rows": 0,
+      "runs_per_task": 1,
+      "n_scored": 64,
+      "pass_rate": 0.3161764705882353,
+      "strict_pass_rate": 0.3161764705882353,
+      "full_repair_share": 0.171875,
+      "mean_output_tokens": 1757.640625,
+      "usable_for_verdicts": true
+    },
+    "base-medium": {
+      "tasks_finished": 64,
+      "tasks_expected": 64,
+      "complete": true,
+      "api_error_rows": 0,
+      "runs_per_task": 1,
+      "n_scored": 64,
+      "pass_rate": 0.3704044117647059,
+      "strict_pass_rate": 0.3704044117647059,
+      "full_repair_share": 0.21875,
+      "mean_output_tokens": 2921.734375,
+      "usable_for_verdicts": true
+    },
+    "base-high": {
+      "tasks_finished": 64,
+      "tasks_expected": 64,
+      "complete": true,
+      "api_error_rows": 0,
+      "runs_per_task": 3,
+      "n_scored": 64,
+      "pass_rate": 0.45986519607843135,
+      "strict_pass_rate": 0.45894607843137253,
+      "full_repair_share": 0.3020833333333333,
+      "mean_output_tokens": 7746.005208333333,
+      "usable_for_verdicts": true
+    },
+    "hint-low": {
+      "tasks_finished": 64,
+      "tasks_expected": 64,
+      "complete": true,
+      "api_error_rows": 0,
+      "runs_per_task": 1,
+      "n_scored": 64,
+      "pass_rate": 0.7159926470588235,
+      "strict_pass_rate": 0.7159926470588235,
+      "full_repair_share": 0.578125,
+      "mean_output_tokens": 1799.84375,
+      "usable_for_verdicts": true
+    },
+    "hint-medium": {
+      "tasks_finished": 64,
+      "tasks_expected": 64,
+      "complete": true,
+      "api_error_rows": 0,
+      "runs_per_task": 1,
+      "n_scored": 64,
+      "pass_rate": 0.7693014705882353,
+      "strict_pass_rate": 0.7693014705882353,
+      "full_repair_share": 0.625,
+      "mean_output_tokens": 2846.03125,
+      "usable_for_verdicts": true
+    },
+    "hint-high": {
+      "tasks_finished": 64,
+      "tasks_expected": 64,
+      "complete": true,
+      "api_error_rows": 0,
+      "runs_per_task": 3,
+      "n_scored": 64,
+      "pass_rate": 0.8771446078431372,
+      "strict_pass_rate": 0.8771446078431372,
+      "full_repair_share": 0.8072916666666666,
+      "mean_output_tokens": 6823.765625,
+      "usable_for_verdicts": true
+    }
+  },
+  "families": {
+    "base-low": {
+      "single": {
+        "n": 14,
+        "pass_rate": 0.6092436974789915,
+        "strict_pass_rate": 0.6092436974789915,
+        "full_repair_share": 0.5,
+        "mean_output_tokens": 1490.7857142857142
+      },
+      "release3": {
+        "n": 10,
+        "pass_rate": 0.13529411764705884,
+        "strict_pass_rate": 0.13529411764705884,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 1587.4
+      },
+      "release4": {
+        "n": 8,
+        "pass_rate": 0.1323529411764706,
+        "strict_pass_rate": 0.1323529411764706,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 1837.375
+      },
+      "partial": {
+        "n": 8,
+        "pass_rate": 0.2426470588235294,
+        "strict_pass_rate": 0.2426470588235294,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 1632.5
+      },
+      "sdk": {
+        "n": 8,
+        "pass_rate": 0.5514705882352942,
+        "strict_pass_rate": 0.5514705882352942,
+        "full_repair_share": 0.5,
+        "mean_output_tokens": 2708.5
+      },
+      "misleading": {
+        "n": 8,
+        "pass_rate": 0.18382352941176472,
+        "strict_pass_rate": 0.18382352941176472,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 1772.625
+      },
+      "terse": {
+        "n": 8,
+        "pass_rate": 0.18382352941176472,
+        "strict_pass_rate": 0.18382352941176472,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 1517.0
+      }
+    },
+    "base-medium": {
+      "single": {
+        "n": 14,
+        "pass_rate": 0.7352941176470589,
+        "strict_pass_rate": 0.7352941176470589,
+        "full_repair_share": 0.6428571428571429,
+        "mean_output_tokens": 2538.3571428571427
+      },
+      "release3": {
+        "n": 10,
+        "pass_rate": 0.2235294117647059,
+        "strict_pass_rate": 0.2235294117647059,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 2939.9
+      },
+      "release4": {
+        "n": 8,
+        "pass_rate": 0.1985294117647059,
+        "strict_pass_rate": 0.1985294117647059,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 3063.875
+      },
+      "partial": {
+        "n": 8,
+        "pass_rate": 0.18382352941176472,
+        "strict_pass_rate": 0.18382352941176472,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 2312.375
+      },
+      "sdk": {
+        "n": 8,
+        "pass_rate": 0.6029411764705882,
+        "strict_pass_rate": 0.6029411764705882,
+        "full_repair_share": 0.5,
+        "mean_output_tokens": 4474.25
+      },
+      "misleading": {
+        "n": 8,
+        "pass_rate": 0.23529411764705882,
+        "strict_pass_rate": 0.23529411764705882,
+        "full_repair_share": 0.125,
+        "mean_output_tokens": 2740.875
+      },
+      "terse": {
+        "n": 8,
+        "pass_rate": 0.17647058823529413,
+        "strict_pass_rate": 0.17647058823529413,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 2665.5
+      }
+    },
+    "base-high": {
+      "single": {
+        "n": 14,
+        "pass_rate": 0.7745098039215687,
+        "strict_pass_rate": 0.7745098039215687,
+        "full_repair_share": 0.7142857142857143,
+        "mean_output_tokens": 6965.952380952381
+      },
+      "release3": {
+        "n": 10,
+        "pass_rate": 0.22745098039215686,
+        "strict_pass_rate": 0.22745098039215686,
+        "full_repair_share": 0.06666666666666667,
+        "mean_output_tokens": 8063.366666666667
+      },
+      "release4": {
+        "n": 8,
+        "pass_rate": 0.3284313725490196,
+        "strict_pass_rate": 0.3284313725490196,
+        "full_repair_share": 0.125,
+        "mean_output_tokens": 8135.833333333334
+      },
+      "partial": {
+        "n": 8,
+        "pass_rate": 0.27941176470588236,
+        "strict_pass_rate": 0.27941176470588236,
+        "full_repair_share": 0.0,
+        "mean_output_tokens": 7912.333333333334
+      },
+      "sdk": {
+        "n": 8,
+        "pass_rate": 0.8137254901960784,
+        "strict_pass_rate": 0.8137254901960784,
+        "full_repair_share": 0.75,
+        "mean_output_tokens": 7798.833333333333
+      },
+      "misleading": {
+        "n": 8,
+        "pass_rate": 0.3235294117647059,
+        "strict_pass_rate": 0.3161764705882353,
+        "full_repair_share": 0.16666666666666666,
+        "mean_output_tokens": 8488.208333333334
+      },
+      "terse": {
+        "n": 8,
+        "pass_rate": 0.29411764705882354,
+        "strict_pass_rate": 0.29411764705882354,
+        "full_repair_share": 0.041666666666666664,
+        "mean_output_tokens": 7363.208333333334
+      }
+    },
+    "hint-low": {
+      "single": {
+        "n": 14,
+        "pass_rate": 1.0,
+        "strict_pass_rate": 1.0,
+        "full_repair_share": 1.0,
+        "mean_output_tokens": 1425.9285714285713
+      },
+      "release3": {
+        "n": 10,
+        "pass_rate": 0.5470588235294118,
+        "strict_pass_rate": 0.5470588235294118,
+        "full_repair_share": 0.4,
+        "mean_output_tokens": 1552.1
+      },
+      "release4": {
+        "n": 8,
+        "pass_rate": 0.7205882352941176,
+        "strict_pass_rate": 0.7205882352941176,
+        "full_repair_share": 0.5,
+        "mean_output_tokens": 1600.625
+      },
+      "partial": {
+        "n": 8,
+        "pass_rate": 0.5220588235294118,
+        "strict_pass_rate": 0.5220588235294118,
+        "full_repair_share": 0.25,
+        "mean_output_tokens": 1633.125
+      },
+      "sdk": {
+        "n": 8,
+        "pass_rate": 0.7794117647058824,
+        "strict_pass_rate": 0.7794117647058824,
+        "full_repair_share": 0.625,
+        "mean_output_tokens": 3110.25
+      },
+      "misleading": {
+        "n": 8,
+        "pass_rate": 0.7867647058823529,
+        "strict_pass_rate": 0.7867647058823529,
+        "full_repair_share": 0.625,
+        "mean_output_tokens": 1915.125
+      },
+      "terse": {
+        "n": 8,
+        "pass_rate": 0.4852941176470588,
+        "strict_pass_rate": 0.4852941176470588,
+        "full_repair_share": 0.375,
+        "mean_output_tokens": 1704.125
+      }
+    },
+    "hint-medium": {
+      "single": {
+        "n": 14,
+        "pass_rate": 1.0,
+        "strict_pass_rate": 1.0,
+        "full_repair_share": 1.0,
+        "mean_output_tokens": 2332.714285714286
+      },
+      "release3": {
+        "n": 10,
+        "pass_rate": 0.7352941176470588,
+        "strict_pass_rate": 0.7352941176470588,
+        "full_repair_share": 0.6,
+        "mean_output_tokens": 2412.1
+      },
+      "release4": {
+        "n": 8,
+        "pass_rate": 0.6176470588235294,
+        "strict_pass_rate": 0.6176470588235294,
+        "full_repair_share": 0.5,
+        "mean_output_tokens": 2983.5
+      },
+      "partial": {
+        "n": 8,
+        "pass_rate": 0.5147058823529411,
+        "strict_pass_rate": 0.5147058823529411,
+        "full_repair_share": 0.25,
+        "mean_output_tokens": 2474.0
+      },
+      "sdk": {
+        "n": 8,
+        "pass_rate": 0.6838235294117647,
+        "strict_pass_rate": 0.6838235294117647,
+        "full_repair_share": 0.625,
+        "mean_output_tokens": 4574.375
+      },
+      "misleading": {
+        "n": 8,
+        "pass_rate": 0.8235294117647058,
+        "strict_pass_rate": 0.8235294117647058,
+        "full_repair_share": 0.5,
+        "mean_output_tokens": 3087.125
+      },
+      "terse": {
+        "n": 8,
+        "pass_rate": 0.8455882352941176,
+        "strict_pass_rate": 0.8455882352941176,
+        "full_repair_share": 0.625,
+        "mean_output_tokens": 2551.875
+      }
+    },
+    "hint-high": {
+      "single": {
+        "n": 14,
+        "pass_rate": 0.9803921568627451,
+        "strict_pass_rate": 0.9803921568627451,
+        "full_repair_share": 0.9761904761904762,
+        "mean_output_tokens": 6238.714285714285
+      },
+      "release3": {
+        "n": 10,
+        "pass_rate": 0.8823529411764707,
+        "strict_pass_rate": 0.8823529411764707,
+        "full_repair_share": 0.7666666666666666,
+        "mean_output_tokens": 6595.6
+      },
+      "release4": {
+        "n": 8,
+        "pass_rate": 0.8308823529411764,
+        "strict_pass_rate": 0.8308823529411764,
+        "full_repair_share": 0.75,
+        "mean_output_tokens": 6972.125
+      },
+      "partial": {
+        "n": 8,
+        "pass_rate": 0.6053921568627451,
+        "strict_pass_rate": 0.6053921568627451,
+        "full_repair_share": 0.4583333333333333,
+        "mean_output_tokens": 6875.416666666667
+      },
+      "sdk": {
+        "n": 8,
+        "pass_rate": 0.8480392156862745,
+        "strict_pass_rate": 0.8480392156862745,
+        "full_repair_share": 0.8333333333333334,
+        "mean_output_tokens": 7369.041666666667
+      },
+      "misleading": {
+        "n": 8,
+        "pass_rate": 0.9509803921568627,
+        "strict_pass_rate": 0.9509803921568627,
+        "full_repair_share": 0.8333333333333334,
+        "mean_output_tokens": 7721.0
+      },
+      "terse": {
+        "n": 8,
+        "pass_rate": 0.9632352941176471,
+        "strict_pass_rate": 0.9632352941176471,
+        "full_repair_share": 0.9166666666666666,
+        "mean_output_tokens": 6490.291666666667
+      }
+    }
+  },
+  "hint_minus_base": {
+    "low": {
+      "pass": {
+        "n": 64,
+        "mean": 39.98161764705882,
+        "ci_low": 29.41176470588235,
+        "ci_high": 50.09191176470588
+      },
+      "strict": {
+        "n": 64,
+        "mean": 39.98161764705882,
+        "ci_low": 29.503676470588232,
+        "ci_high": 50.275735294117645
+      },
+      "full": {
+        "n": 64,
+        "mean": 40.625,
+        "ci_low": 26.5625,
+        "ci_high": 54.6875
+      }
+    },
+    "medium": {
+      "pass": {
+        "n": 64,
+        "mean": 39.889705882352935,
+        "ci_low": 29.687499999999996,
+        "ci_high": 50.09191176470588
+      },
+      "strict": {
+        "n": 64,
+        "mean": 39.889705882352935,
+        "ci_low": 29.77941176470588,
+        "ci_high": 49.81617647058823
+      },
+      "full": {
+        "n": 64,
+        "mean": 40.625,
+        "ci_low": 28.125,
+        "ci_high": 53.125
+      }
+    },
+    "high": {
+      "pass": {
+        "n": 64,
+        "mean": 41.72794117647059,
+        "ci_low": 33.455882352941174,
+        "ci_high": 49.78553921568627
+      },
+      "strict": {
+        "n": 64,
+        "mean": 41.81985294117647,
+        "ci_low": 33.36397058823529,
+        "ci_high": 50.245098039215684
+      },
+      "full": {
+        "n": 64,
+        "mean": 50.520833333333336,
+        "ci_low": 40.104166666666664,
+        "ci_high": 60.9375
+      }
+    }
+  },
+  "effort_contrasts": {
+    "base: high - low": {
+      "pass": {
+        "n": 64,
+        "mean": 14.368872549019608,
+        "ci_low": 8.302696078431373,
+        "ci_high": 20.833333333333332
+      },
+      "full": {
+        "n": 64,
+        "mean": 13.020833333333332,
+        "ci_low": 7.291666666666666,
+        "ci_high": 19.270833333333332
+      },
+      "output_token_ratio": 4.407047207578815
+    },
+    "hint: high - low": {
+      "pass": {
+        "n": 64,
+        "mean": 16.11519607843137,
+        "ci_low": 8.057598039215685,
+        "ci_high": 24.846813725490193
+      },
+      "full": {
+        "n": 64,
+        "mean": 22.916666666666664,
+        "ci_low": 12.5,
+        "ci_high": 33.854166666666664
+      },
+      "output_token_ratio": 3.79131000954944
+    }
+  },
+  "change_credit": {
+    "base-low": {
+      "add_async_create": {
+        "n_tasks": 18,
+        "credit": 0.2222222222222222
+      },
+      "add_drift_cents": {
+        "n_tasks": 18,
+        "credit": 0.2222222222222222
+      },
+      "add_drift_enum": {
+        "n_tasks": 15,
+        "credit": 0.1
+      },
+      "add_drift_epoch": {
+        "n_tasks": 18,
+        "credit": 0.031746031746031744
+      },
+      "add_drift_nest": {
+        "n_tasks": 18,
+        "credit": 0.1388888888888889
+      },
+      "add_drift_rename": {
+        "n_tasks": 15,
+        "credit": 0.16666666666666666
+      },
+      "add_idempotency_key": {
+        "n_tasks": 18,
+        "credit": 0.2833333333333333
+      },
+      "add_moved": {
+        "n_tasks": 16,
+        "credit": 0.26704545454545453
+      },
+      "add_rate_limit": {
+        "n_tasks": 18,
+        "credit": 0.2556929181929182
+      },
+      "add_refresh_rotation": {
+        "n_tasks": 18,
+        "credit": 0.2554585936938878
+      }
+    },
+    "base-medium": {
+      "add_async_create": {
+        "n_tasks": 18,
+        "credit": 0.2777777777777778
+      },
+      "add_drift_cents": {
+        "n_tasks": 18,
+        "credit": 0.16666666666666666
+      },
+      "add_drift_enum": {
+        "n_tasks": 15,
+        "credit": 0.13333333333333333
+      },
+      "add_drift_epoch": {
+        "n_tasks": 18,
+        "credit": 0.14285714285714288
+      },
+      "add_drift_nest": {
+        "n_tasks": 18,
+        "credit": 0.19444444444444445
+      },
+      "add_drift_rename": {
+        "n_tasks": 15,
+        "credit": 0.1857142857142857
+      },
+      "add_idempotency_key": {
+        "n_tasks": 18,
+        "credit": 0.35
+      },
+      "add_moved": {
+        "n_tasks": 16,
+        "credit": 0.28409090909090906
+      },
+      "add_rate_limit": {
+        "n_tasks": 18,
+        "credit": 0.36508983935454525
+      },
+      "add_refresh_rotation": {
+        "n_tasks": 18,
+        "credit": 0.3559173669467787
+      }
+    },
+    "base-high": {
+      "add_async_create": {
+        "n_tasks": 18,
+        "credit": 0.3333333333333333
+      },
+      "add_drift_cents": {
+        "n_tasks": 18,
+        "credit": 0.28571428571428575
+      },
+      "add_drift_enum": {
+        "n_tasks": 15,
+        "credit": 0.30317460317460315
+      },
+      "add_drift_epoch": {
+        "n_tasks": 18,
+        "credit": 0.2526455026455026
+      },
+      "add_drift_nest": {
+        "n_tasks": 18,
+        "credit": 0.27910052910052907
+      },
+      "add_drift_rename": {
+        "n_tasks": 15,
+        "credit": 0.30476190476190473
+      },
+      "add_idempotency_key": {
+        "n_tasks": 18,
+        "credit": 0.4092592592592592
+      },
+      "add_moved": {
+        "n_tasks": 16,
+        "credit": 0.38825757575757575
+      },
+      "add_rate_limit": {
+        "n_tasks": 18,
+        "credit": 0.46514909382556446
+      },
+      "add_refresh_rotation": {
+        "n_tasks": 18,
+        "credit": 0.3823948382771912
+      }
+    },
+    "hint-low": {
+      "add_async_create": {
+        "n_tasks": 18,
+        "credit": 0.7222222222222222
+      },
+      "add_drift_cents": {
+        "n_tasks": 18,
+        "credit": 0.6944444444444444
+      },
+      "add_drift_enum": {
+        "n_tasks": 15,
+        "credit": 0.6
+      },
+      "add_drift_epoch": {
+        "n_tasks": 18,
+        "credit": 0.7142857142857143
+      },
+      "add_drift_nest": {
+        "n_tasks": 18,
+        "credit": 0.746031746031746
+      },
+      "add_drift_rename": {
+        "n_tasks": 15,
+        "credit": 0.6190476190476191
+      },
+      "add_idempotency_key": {
+        "n_tasks": 18,
+        "credit": 0.2
+      },
+      "add_moved": {
+        "n_tasks": 16,
+        "credit": 0.8352272727272727
+      },
+      "add_rate_limit": {
+        "n_tasks": 18,
+        "credit": 0.5713955026455027
+      },
+      "add_refresh_rotation": {
+        "n_tasks": 18,
+        "credit": 0.620935233067586
+      }
+    },
+    "hint-medium": {
+      "add_async_create": {
+        "n_tasks": 18,
+        "credit": 0.6666666666666666
+      },
+      "add_drift_cents": {
+        "n_tasks": 18,
+        "credit": 0.8452380952380952
+      },
+      "add_drift_enum": {
+        "n_tasks": 15,
+        "credit": 0.7761904761904762
+      },
+      "add_drift_epoch": {
+        "n_tasks": 18,
+        "credit": 0.7103174603174603
+      },
+      "add_drift_nest": {
+        "n_tasks": 18,
+        "credit": 0.7103174603174603
+      },
+      "add_drift_rename": {
+        "n_tasks": 15,
+        "credit": 0.8190476190476191
+      },
+      "add_idempotency_key": {
+        "n_tasks": 18,
+        "credit": 0.3333333333333333
+      },
+      "add_moved": {
+        "n_tasks": 16,
+        "credit": 0.8977272727272727
+      },
+      "add_rate_limit": {
+        "n_tasks": 18,
+        "credit": 0.6269586894586895
+      },
+      "add_refresh_rotation": {
+        "n_tasks": 18,
+        "credit": 0.5692918192918194
+      }
+    },
+    "hint-high": {
+      "add_async_create": {
+        "n_tasks": 18,
+        "credit": 0.9444444444444444
+      },
+      "add_drift_cents": {
+        "n_tasks": 18,
+        "credit": 0.925925925925926
+      },
+      "add_drift_enum": {
+        "n_tasks": 15,
+        "credit": 0.8920634920634921
+      },
+      "add_drift_epoch": {
+        "n_tasks": 18,
+        "credit": 0.8650793650793651
+      },
+      "add_drift_nest": {
+        "n_tasks": 18,
+        "credit": 0.8068783068783069
+      },
+      "add_drift_rename": {
+        "n_tasks": 15,
+        "credit": 0.9079365079365079
+      },
+      "add_idempotency_key": {
+        "n_tasks": 18,
+        "credit": 0.7537037037037037
+      },
+      "add_moved": {
+        "n_tasks": 16,
+        "credit": 0.9223484848484849
+      },
+      "add_rate_limit": {
+        "n_tasks": 18,
+        "credit": 0.7980938814272148
+      },
+      "add_refresh_rotation": {
+        "n_tasks": 18,
+        "credit": 0.8141511946659006
+      }
+    }
+  },
+  "api_error_rows": {
+    "base-low": 0,
+    "base-medium": 0,
+    "base-high": 0,
+    "hint-low": 0,
+    "hint-medium": 0,
+    "hint-high": 0
+  },
+  "verdicts": [
+    {
+      "id": "H16",
+      "title": "Beam fails to notice a silent interface break more than it fails to fix it",
+      "test": "hint - base, paired by task, at each effort",
+      "supported_if": ">= 20 points at low and at high, CI excludes 0",
+      "rejected_if": "< 5 points at low and at high",
+      "status": "supported",
+      "evidence": "low: hint - base +40.0 pts [95% CI +29.4, +50.1] (n=64); high (mean of 3 runs): hint - base +41.7 pts [95% CI +33.5, +49.8] (n=64)",
+      "missing": []
+    },
+    {
+      "id": "H17",
+      "title": "Effort does not fix noticing",
+      "test": "(high - low) in the base arm",
+      "supported_if": "< 5 points, while high output >= 3x low",
+      "rejected_if": ">= 10 points",
+      "status": "rejected",
+      "evidence": "base, high (mean of 3 runs) - low +14.4 pts [95% CI +8.3, +20.8] (n=64); output high/low = 4.41x",
+      "missing": []
+    },
+    {
+      "id": "H18 (base)",
+      "title": "Effort has diminishing returns on repair (H14 on v3; per arm)",
+      "test": "not tested: xhigh dropped 2026-10-27, see PREREG.md deviations",
+      "supported_if": "n/a",
+      "rejected_if": "n/a",
+      "status": "not tested",
+      "evidence": "not tested: xhigh dropped 2026-10-27, see PREREG.md deviations",
+      "missing": []
+    },
+    {
+      "id": "H18 (hint)",
+      "title": "Effort has diminishing returns on repair (H14 on v3; per arm)",
+      "test": "not tested: xhigh dropped 2026-10-27, see PREREG.md deviations",
+      "supported_if": "n/a",
+      "rejected_if": "n/a",
+      "status": "not tested",
+      "evidence": "not tested: xhigh dropped 2026-10-27, see PREREG.md deviations",
+      "missing": []
+    },
+    {
+      "id": "H19",
+      "title": "More changes per release are harder (H15 on v3)",
+      "test": "full-repair share by changes: single (1) vs release3 (3) vs release4 (4), hint arm, high",
+      "supported_if": "strictly falls with the number of changes, release4 >= 15 points below single",
+      "rejected_if": "release4 >= single",
+      "status": "supported",
+      "evidence": "full-repair share, hint, high (mean of 3 runs): single 97.6% (n=14), release3 76.7% (n=10), release4 75.0% (n=8)",
+      "missing": []
+    },
+    {
+      "id": "H20",
+      "title": "Missing or wrong side information costs more than more code (k = 3 families, hint arm, high)",
+      "test": "partial, misleading, terse vs release3",
+      "supported_if": "each of partial and misleading >= 10 points below release3",
+      "rejected_if": "both within 3 points of release3",
+      "status": "inconclusive",
+      "evidence": "pass rate, hint, high (mean of 3 runs): partial - release3 -27.7 pts [95% CI -56.6, -1.1] (n=18) (n=8 vs 10); full-repair -30.8 pts; misleading - release3 +6.9 pts [95% CI -3.3, +16.6] (n=18) (n=8 vs 10); full-repair +6.7 pts; terse - release3 +8.1 pts [95% CI -2.8, +18.2] (n=18) (n=8 vs 10); full-repair +15.0 pts (terse is shown, not used)",
+      "missing": []
+    },
+    {
+      "id": "H21",
+      "title": "A layered SDK client is harder to repair than a compact one (k = 3)",
+      "test": "sdk vs release3, both arms, high",
+      "supported_if": "sdk >= 10 points below release3 in both arms",
+      "rejected_if": "sdk >= release3 in both arms",
+      "status": "inconclusive",
+      "evidence": "pass rate, high (mean of 3 runs): base: sdk - release3 +58.6 pts [95% CI +36.7, +76.6] (n=18) (n=8 vs 10); full-repair +68.3 pts; hint: sdk - release3 -3.4 pts [95% CI -28.0, +15.0] (n=18) (n=8 vs 10); full-repair +6.7 pts",
+      "missing": []
+    },
+    {
+      "id": "saturation",
+      "title": "Saturation rule (added 2026-10-24 after the low-effort steps)",
+      "test": "mean pass rate of the base arm at high (the xhigh clauses were dropped; xhigh dropped 2026-10-27, see PREREG.md deviations)",
+      "supported_if": "base arm >= 0.85 at high: the suite is reported as near saturation for Beam",
+      "rejected_if": "base arm < 0.85 at high",
+      "status": "not triggered",
+      "evidence": "base-high (mean of 3 runs) 0.460 (threshold 0.85, n=64) [xhigh dropped 2026-10-27, see PREREG.md deviations: the xhigh clauses are not evaluated]",
+      "missing": []
+    }
+  ]
+}

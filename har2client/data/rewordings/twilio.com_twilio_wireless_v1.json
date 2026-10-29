@@ -1,0 +1,293 @@
+{
+  "api_id": "twilio.com:twilio_wireless_v1",
+  "names": {
+    "original": {
+      "fetch_command": {
+        "body_description": "",
+        "description": "Fetch one directive instance from your account.",
+        "fallbacks": [],
+        "name": "fetch_directive",
+        "params": {
+          "path:Sid": {
+            "description": "Identifier of the directive to fetch.",
+            "name": "directive_id"
+          }
+        },
+        "summary": "Fetch a directive instance from your account."
+      },
+      "fetch_sim": {
+        "body_description": "",
+        "description": "Fetch one card resource on your account.",
+        "fallbacks": [],
+        "name": "fetch_card",
+        "params": {
+          "path:Sid": {
+            "description": "Identifier of the card to fetch.",
+            "name": "card_id"
+          }
+        },
+        "summary": "Fetch a card resource on your account."
+      },
+      "list_account_usage_record": {
+        "body_description": "",
+        "description": "List account metrics.",
+        "fallbacks": [],
+        "name": "list_account_metrics",
+        "params": {
+          "query:End": {
+            "description": "Final reporting moment.",
+            "name": "finish"
+          },
+          "query:Granularity": {
+            "description": "Aggregation interval.",
+            "name": "interval"
+          },
+          "query:Page": {
+            "description": "Which result slice to return.",
+            "name": "offset"
+          },
+          "query:PageSize": {
+            "description": "Maximum number of items returned.",
+            "name": "limit"
+          },
+          "query:PageToken": {
+            "description": "Cursor marker for the following batch.",
+            "name": "cursor"
+          },
+          "query:Start": {
+            "description": "Initial reporting moment.",
+            "name": "begin"
+          }
+        },
+        "summary": "List account metrics."
+      },
+      "list_command": {
+        "body_description": "",
+        "description": "Retrieve a list of device directives for your account.",
+        "fallbacks": [],
+        "name": "list_directives",
+        "params": {
+          "query:Direction": {
+            "description": "Filters results by message flow.",
+            "name": "flow"
+          },
+          "query:Page": {
+            "description": "Which result slice to return.",
+            "name": "offset"
+          },
+          "query:PageSize": {
+            "description": "Maximum number of items returned.",
+            "name": "limit"
+          },
+          "query:PageToken": {
+            "description": "Cursor marker for the following batch.",
+            "name": "cursor"
+          },
+          "query:Sim": {
+            "description": "Filters results by subscriber identifier.",
+            "name": "subscriber_id"
+          },
+          "query:Status": {
+            "description": "Filters results by current state.",
+            "name": "state"
+          },
+          "query:Transport": {
+            "description": "Filters results by delivery channel.",
+            "name": "channel"
+          }
+        },
+        "summary": "Retrieve a list of device directives from your account."
+      },
+      "list_data_session": {
+        "body_description": "",
+        "description": "List network connections for a card.",
+        "fallbacks": [],
+        "name": "list_connections",
+        "params": {
+          "path:SimSid": {
+            "description": "Identifier of the card.",
+            "name": "card_id"
+          },
+          "query:Page": {
+            "description": "Which result slice to return.",
+            "name": "offset"
+          },
+          "query:PageSize": {
+            "description": "Maximum number of items returned.",
+            "name": "limit"
+          },
+          "query:PageToken": {
+            "description": "Cursor marker for the following batch.",
+            "name": "cursor"
+          }
+        },
+        "summary": "List network connections for a card."
+      },
+      "list_rate_plan": {
+        "body_description": "",
+        "description": "List available pricing tiers.",
+        "fallbacks": [],
+        "name": "list_pricing_tiers",
+        "params": {
+          "query:Page": {
+            "description": "Which result slice to return.",
+            "name": "offset"
+          },
+          "query:PageSize": {
+            "description": "Maximum number of items returned.",
+            "name": "limit"
+          },
+          "query:PageToken": {
+            "description": "Cursor marker for the following batch.",
+            "name": "cursor"
+          }
+        },
+        "summary": "List available pricing tiers."
+      },
+      "list_sim": {
+        "body_description": "",
+        "description": "Retrieve a list of cards on your account.",
+        "fallbacks": [],
+        "name": "list_cards",
+        "params": {
+          "query:EId": {
+            "description": "Filters results by hardware identifier.",
+            "name": "hardware_id"
+          },
+          "query:Iccid": {
+            "description": "Filters results by chip serial number.",
+            "name": "chip_serial"
+          },
+          "query:Page": {
+            "description": "Which result slice to return.",
+            "name": "offset"
+          },
+          "query:PageSize": {
+            "description": "Maximum number of items returned.",
+            "name": "limit"
+          },
+          "query:PageToken": {
+            "description": "Cursor marker for the following batch.",
+            "name": "cursor"
+          },
+          "query:RatePlan": {
+            "description": "Filters results by pricing tier name.",
+            "name": "tier_name"
+          },
+          "query:SimRegistrationCode": {
+            "description": "Filters results by enrollment key.",
+            "name": "enrollment_key"
+          },
+          "query:Status": {
+            "description": "Filters results by current state.",
+            "name": "state"
+          }
+        },
+        "summary": "Retrieve a list of cards on your account."
+      },
+      "list_usage_record": {
+        "body_description": "",
+        "description": "List metrics for a card.",
+        "fallbacks": [],
+        "name": "list_metrics",
+        "params": {
+          "path:SimSid": {
+            "description": "Identifier of the card.",
+            "name": "card_id"
+          },
+          "query:End": {
+            "description": "Final reporting moment.",
+            "name": "finish"
+          },
+          "query:Granularity": {
+            "description": "Aggregation interval.",
+            "name": "interval"
+          },
+          "query:Page": {
+            "description": "Which result slice to return.",
+            "name": "offset"
+          },
+          "query:PageSize": {
+            "description": "Maximum number of items returned.",
+            "name": "limit"
+          },
+          "query:PageToken": {
+            "description": "Cursor marker for the following batch.",
+            "name": "cursor"
+          },
+          "query:Start": {
+            "description": "Initial reporting moment.",
+            "name": "begin"
+          }
+        },
+        "summary": "List metrics for a card."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:sid"
+    ],
+    "host": "api.nexgrid.io",
+    "title": "Aether - Mobile",
+    "words": {
+      "account": "ledger",
+      "address": "site",
+      "callback": "webhook",
+      "cell": "tower",
+      "command": "directive",
+      "country": "nation",
+      "created": "registered",
+      "delivery": "dispatch",
+      "direction": "orientation",
+      "downloaded": "fetched",
+      "enabled": "active",
+      "end": "finish",
+      "estimate": "projection",
+      "fallback": "backup",
+      "first": "initial",
+      "friendly": "label",
+      "granularity": "resolution",
+      "iccid": "serialcode",
+      "imei": "devicecode",
+      "international": "foreign",
+      "last": "final",
+      "link": "connection",
+      "location": "position",
+      "mcc": "countrycode",
+      "messaging": "texting",
+      "metering": "measuring",
+      "method": "approach",
+      "mnc": "networkcode",
+      "mode": "setting",
+      "national": "domestic",
+      "next": "subsequent",
+      "operator": "carrier",
+      "packet": "frame",
+      "period": "interval",
+      "plan": "tariff",
+      "previous": "prior",
+      "radio": "spectrum",
+      "rate": "pricing",
+      "receipt": "confirmation",
+      "record": "entry",
+      "registration": "enrollment",
+      "requested": "asked",
+      "reset": "restart",
+      "roaming": "traveling",
+      "session": "dialogue",
+      "sid": "glacier",
+      "sim": "chip",
+      "sms": "alert",
+      "start": "begin",
+      "transport": "channel",
+      "twilio": "provider",
+      "unique": "distinct",
+      "updated": "modified",
+      "uploaded": "transmitted",
+      "usage": "consumption",
+      "voice": "audio",
+      "wireless": "mobile"
+    }
+  }
+}

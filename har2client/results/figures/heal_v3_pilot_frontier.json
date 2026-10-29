@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "x_mode": "output",
+    "resamples": 5000,
+    "seed": 20261024,
+    "ci_level": 0.95,
+    "series": {
+      "Beam, v3 pilot": {
+        "csv": "results/heal_v3_pilot_base.csv",
+        "n_tasks": 38,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      },
+      "Beam, v3 pilot + contract hint": {
+        "csv": "results/heal_v3_pilot_hint.csv",
+        "n_tasks": 38,
+        "dropped_unpaired_tasks": 0,
+        "runs_per_task_min": 1,
+        "runs_per_task_max": 1
+      }
+    },
+    "warnings": []
+  },
+  "points": [
+    {
+      "series": "Beam, v3 pilot",
+      "effort": "low",
+      "x": 1489.8684210526317,
+      "y": 47.987616099071204,
+      "ci_low": 35.91331269349844,
+      "ci_high": 60.83591331269349,
+      "n_tasks": 38,
+      "on_pareto": true
+    },
+    {
+      "series": "Beam, v3 pilot",
+      "effort": "high",
+      "x": 7548.5,
+      "y": 49.84520123839009,
+      "ci_low": 37.3065015479876,
+      "ci_high": 62.84829721362229,
+      "n_tasks": 38,
+      "on_pareto": false
+    },
+    {
+      "series": "Beam, v3 pilot + contract hint",
+      "effort": "low",
+      "x": 1696.921052631579,
+      "y": 85.13931888544892,
+      "ci_low": 75.54179566563467,
+      "ci_high": 93.49845201238391,
+      "n_tasks": 38,
+      "on_pareto": true
+    },
+    {
+      "series": "Beam, v3 pilot + contract hint",
+      "effort": "high",
+      "x": 6600.8421052631575,
+      "y": 90.40247678018576,
+      "ci_low": 80.80495356037152,
+      "ci_high": 97.83281733746128,
+      "n_tasks": 38,
+      "on_pareto": true
+    }
+  ]
+}

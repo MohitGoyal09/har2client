@@ -1,0 +1,98 @@
+[
+  {
+    "method": "list_books",
+    "kwargs": {
+      "limit": 8,
+      "genre": "science",
+      "tags": [
+        "xklkd",
+        "dooflnynu",
+        "gtnr"
+      ]
+    }
+  },
+  {
+    "method": "list_books",
+    "kwargs": {
+      "limit": 16,
+      "genre": "science",
+      "tags": [
+        "itjtuqfwij",
+        "zbusaogue"
+      ]
+    }
+  },
+  {
+    "method": "create_book",
+    "kwargs": {
+      "body": {
+        "title": "dsrqiapsqk",
+        "pages": 664,
+        "isbn": "hunhlyuswwckm"
+      }
+    }
+  },
+  {
+    "method": "create_book",
+    "kwargs": {
+      "body": {
+        "title": "slpxl",
+        "published": "2025-05-10",
+        "pages": 833,
+        "isbn": "stdoqqkpfsn"
+      }
+    }
+  },
+  {
+    "method": "get_book",
+    "kwargs": {
+      "book_id": "hjbpxwawo"
+    }
+  },
+  {
+    "method": "get_book",
+    "kwargs": {
+      "book_id": "qhpjdbszyfl"
+    }
+  },
+  {
+    "method": "books_by_one_author",
+    "kwargs": {
+      "author_id": 1381,
+      "page": 14,
+      "include_draft": false
+    }
+  },
+  {
+    "method": "books_by_one_author",
+    "kwargs": {
+      "author_id": 6358,
+      "page": 8,
+      "include_draft": false
+    }
+  },
+  {
+    "method": "category_tree",
+    "kwargs": {}
+  },
+  {
+    "method": "category_tree",
+    "kwargs": {}
+  },
+  {
+    "method": "get_stats",
+    "kwargs": {}
+  },
+  {
+    "method": "get_stats",
+    "kwargs": {}
+  },
+  {
+    "method": "health",
+    "kwargs": {}
+  },
+  {
+    "method": "health",
+    "kwargs": {}
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "fetched": "2026-10-28",
+  "source": "https://router.huggingface.co/v1/models",
+  "prices": "USD per million tokens. Estimates exclude cache discounts; final charges come from HF billing.",
+  "models": [
+    {
+      "id": "openai/gpt-oss-120b:novita",
+      "slug": "gpt-oss-120b-low",
+      "label": "GPT-OSS-120B (low)",
+      "reasoning_effort": "low",
+      "enabled": true,
+      "price_in_per_mtok": 0.05,
+      "price_out_per_mtok": 0.25,
+      "pricing_source": "https://router.huggingface.co/v1/models",
+      "pricing_as_of": "2026-10-28",
+      "context_length": 131072,
+      "notes": "Pinned Novita; DeepInfra full-task smoke returned 504 before any score. Effort is explicit."
+    },
+    {
+      "id": "openai/gpt-oss-120b:novita",
+      "slug": "gpt-oss-120b-medium",
+      "label": "GPT-OSS-120B (medium)",
+      "reasoning_effort": "medium",
+      "enabled": true,
+      "price_in_per_mtok": 0.05,
+      "price_out_per_mtok": 0.25,
+      "pricing_source": "https://router.huggingface.co/v1/models",
+      "pricing_as_of": "2026-10-28",
+      "context_length": 131072,
+      "notes": "Pinned Novita; DeepInfra full-task smoke returned 504 before any score. Effort is explicit."
+    },
+    {
+      "id": "openai/gpt-oss-120b:novita",
+      "slug": "gpt-oss-120b-high",
+      "label": "GPT-OSS-120B (high)",
+      "reasoning_effort": "high",
+      "enabled": true,
+      "price_in_per_mtok": 0.05,
+      "price_out_per_mtok": 0.25,
+      "pricing_source": "https://router.huggingface.co/v1/models",
+      "pricing_as_of": "2026-10-28",
+      "context_length": 131072,
+      "notes": "Pinned Novita; DeepInfra full-task smoke returned 504 before any score. Effort is explicit."
+    },
+    {
+      "id": "Qwen/Qwen3.5-397B-A17B:novita",
+      "slug": "qwen3.5-397b-thinking",
+      "label": "Qwen3.5-397B-A17B (thinking enabled)",
+      "reasoning_effort": null,
+      "enabled": true,
+      "price_in_per_mtok": 0.6,
+      "price_out_per_mtok": 3.6,
+      "pricing_source": "https://router.huggingface.co/v1/models",
+      "pricing_as_of": "2026-10-28",
+      "context_length": 262144,
+      "notes": "Explicit enable_thinking=true on Novita. Separate from the earlier provider-default run; do not pool the two settings.",
+      "enable_thinking": true
+    }
+  ]
+}

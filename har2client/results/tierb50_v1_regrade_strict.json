@@ -1,0 +1,602 @@
+[
+ {
+  "task": "tierb_00_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_00_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_01_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_01_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_02_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_02_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_03_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_03_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_04_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_04_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_05_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_05_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_06_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_06_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_07_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_07_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_08_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_08_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_09_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_09_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_10_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_10_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_11_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_11_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_12_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_12_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_13_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_13_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_14_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_14_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_15_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_15_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_16_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_16_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_17_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_17_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_18_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_18_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_19_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_19_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_20_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_20_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_21_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_21_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.8571428571428571,
+  "strict_pass_rate": 0.8571428571428571
+ },
+ {
+  "task": "tierb_22_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_22_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_23_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_23_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.8571428571428571,
+  "strict_pass_rate": 0.8571428571428571
+ },
+ {
+  "task": "tierb_24_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_24_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_25_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_25_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_26_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_26_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_27_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_27_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_28_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_28_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_29_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_29_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_30_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_30_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_31_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_31_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_32_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_32_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_33_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_33_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_34_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_34_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_35_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_35_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_36_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_36_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.8571428571428571,
+  "strict_pass_rate": 0.8571428571428571
+ },
+ {
+  "task": "tierb_37_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_37_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_38_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_38_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_39_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_39_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_40_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_40_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_41_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_41_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_42_invoices",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_42_invoices",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_43_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_43_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_44_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_44_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_45_bookings",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_45_bookings",
+  "cell": "low-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_46_samples",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_46_samples",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_47_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 1.0,
+  "strict_pass_rate": 1.0
+ },
+ {
+  "task": "tierb_47_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_48_tickets",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_48_tickets",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_49_shipments",
+  "cell": "high-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ },
+ {
+  "task": "tierb_49_shipments",
+  "cell": "low-raw-r1",
+  "pass_rate": 0.0,
+  "strict_pass_rate": 0.0
+ }
+]

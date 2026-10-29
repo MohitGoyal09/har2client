@@ -1,0 +1,283 @@
+{
+  "figure": "final_leaderboard",
+  "title": "Beam leads once it gets the missing information; GPT-OSS-120B leads without it",
+  "benchmarks": [
+    "Case 1: build",
+    "Case 2: no probes",
+    "Case 2: 5 probes",
+    "Case 3: repair, no hint",
+    "Case 3: repair, with hint"
+  ],
+  "bars": [
+    {
+      "model": "beam",
+      "effort": "high",
+      "suite": "tierb50",
+      "n": 50,
+      "runs": 3,
+      "pass_rate": 74.47619047619048,
+      "ci_low": 63.23809523809524,
+      "ci_high": 84.76190476190477,
+      "mean_output_tokens": 4818.306666666667,
+      "vs_beam_high": null
+    },
+    {
+      "model": "gpt",
+      "effort": "high",
+      "suite": "tierb50",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 69.71428571428572,
+      "ci_low": 56.0,
+      "ci_high": 81.71428571428572,
+      "mean_output_tokens": 5854.38,
+      "vs_beam_high": {
+        "n": 50,
+        "n_model": 50,
+        "n_ref": 50,
+        "partial": false,
+        "diff": -4.761904761904762,
+        "ci_low": -13.523809523809524,
+        "ci_high": 3.0476190476190483,
+        "excludes_zero": false
+      }
+    },
+    {
+      "model": "qwen",
+      "effort": "thinking",
+      "suite": "tierb50",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 36.0,
+      "ci_low": 23.714285714285715,
+      "ci_high": 48.857142857142854,
+      "mean_output_tokens": 3159.2,
+      "vs_beam_high": {
+        "n": 50,
+        "n_model": 50,
+        "n_ref": 50,
+        "partial": false,
+        "diff": -38.476190476190474,
+        "ci_low": -50.285714285714285,
+        "ci_high": -27.047619047619047,
+        "excludes_zero": true
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "high",
+      "suite": "probe0",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 49.714285714285715,
+      "ci_low": 36.0,
+      "ci_high": 63.714285714285715,
+      "mean_output_tokens": 5633.5,
+      "vs_beam_high": null
+    },
+    {
+      "model": "gpt",
+      "effort": "high",
+      "suite": "probe0",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 69.42857142857143,
+      "ci_low": 56.857142857142854,
+      "ci_high": 81.42857142857143,
+      "mean_output_tokens": 5402.16,
+      "vs_beam_high": {
+        "n": 50,
+        "n_model": 50,
+        "n_ref": 50,
+        "partial": false,
+        "diff": 19.71428571428571,
+        "ci_low": 5.7142857142857135,
+        "ci_high": 34.285714285714285,
+        "excludes_zero": true
+      }
+    },
+    {
+      "model": "qwen",
+      "effort": "thinking",
+      "suite": "probe0",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 40.0,
+      "ci_low": 27.142857142857142,
+      "ci_high": 52.857142857142854,
+      "mean_output_tokens": 4065.16,
+      "vs_beam_high": {
+        "n": 50,
+        "n_model": 50,
+        "n_ref": 50,
+        "partial": false,
+        "diff": -9.714285714285715,
+        "ci_low": -25.42857142857143,
+        "ci_high": 6.285714285714286,
+        "excludes_zero": false
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "high",
+      "suite": "probe5",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 95.71428571428571,
+      "ci_low": 89.71428571428571,
+      "ci_high": 100.0,
+      "mean_output_tokens": 4968.08,
+      "vs_beam_high": null
+    },
+    {
+      "model": "gpt",
+      "effort": "high",
+      "suite": "probe5",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 82.28571428571429,
+      "ci_low": 71.71428571428572,
+      "ci_high": 91.71428571428571,
+      "mean_output_tokens": 5903.26,
+      "vs_beam_high": {
+        "n": 50,
+        "n_model": 50,
+        "n_ref": 50,
+        "partial": false,
+        "diff": -13.428571428571429,
+        "ci_low": -25.42857142857143,
+        "ci_high": -1.4285714285714288,
+        "excludes_zero": true
+      }
+    },
+    {
+      "model": "qwen",
+      "effort": "thinking",
+      "suite": "probe5",
+      "n": 50,
+      "runs": 1,
+      "pass_rate": 48.0,
+      "ci_low": 35.71428571428571,
+      "ci_high": 60.57142857142857,
+      "mean_output_tokens": 3727.28,
+      "vs_beam_high": {
+        "n": 50,
+        "n_model": 50,
+        "n_ref": 50,
+        "partial": false,
+        "diff": -47.714285714285715,
+        "ci_low": -61.42857142857143,
+        "ci_high": -33.714285714285715,
+        "excludes_zero": true
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "high",
+      "suite": "v3base",
+      "n": 64,
+      "runs": 3,
+      "pass_rate": 45.986519607843135,
+      "ci_low": 38.23529411764706,
+      "ci_high": 54.013480392156865,
+      "mean_output_tokens": 7746.005208333333,
+      "vs_beam_high": null
+    },
+    {
+      "model": "gpt",
+      "effort": "high",
+      "suite": "v3base",
+      "n": 64,
+      "runs": 1,
+      "pass_rate": 58.54779411764706,
+      "ci_low": 49.4485294117647,
+      "ci_high": 67.83088235294117,
+      "mean_output_tokens": 10733.9375,
+      "vs_beam_high": {
+        "n": 64,
+        "n_model": 64,
+        "n_ref": 64,
+        "partial": false,
+        "diff": 12.561274509803921,
+        "ci_low": 3.0024509803921573,
+        "ci_high": 21.47671568627451,
+        "excludes_zero": true
+      }
+    },
+    {
+      "model": "qwen",
+      "effort": "thinking",
+      "suite": "v3base",
+      "n": 64,
+      "runs": 1,
+      "pass_rate": 29.59558823529412,
+      "ci_low": 21.875,
+      "ci_high": 37.775735294117645,
+      "mean_output_tokens": 5049.640625,
+      "vs_beam_high": {
+        "n": 64,
+        "n_model": 64,
+        "n_ref": 64,
+        "partial": false,
+        "diff": -16.39093137254902,
+        "ci_low": -24.417892156862745,
+        "ci_high": -8.670343137254902,
+        "excludes_zero": true
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "high",
+      "suite": "v3hint",
+      "n": 64,
+      "runs": 3,
+      "pass_rate": 87.71446078431373,
+      "ci_low": 81.61764705882352,
+      "ci_high": 92.95343137254902,
+      "mean_output_tokens": 6823.765625,
+      "vs_beam_high": null
+    },
+    {
+      "model": "gpt",
+      "effort": "high",
+      "suite": "v3hint",
+      "n": 64,
+      "runs": 1,
+      "pass_rate": 57.8125,
+      "ci_low": 47.518382352941174,
+      "ci_high": 68.01470588235294,
+      "mean_output_tokens": 10162.90625,
+      "vs_beam_high": {
+        "n": 64,
+        "n_model": 64,
+        "n_ref": 64,
+        "partial": false,
+        "diff": -29.901960784313722,
+        "ci_low": -39.338235294117645,
+        "ci_high": -20.77205882352941,
+        "excludes_zero": true
+      }
+    },
+    {
+      "model": "qwen",
+      "effort": "thinking",
+      "suite": "v3hint",
+      "n": 64,
+      "runs": 1,
+      "pass_rate": 52.29779411764706,
+      "ci_low": 42.00367647058823,
+      "ci_high": 62.68382352941176,
+      "mean_output_tokens": 5308.671875,
+      "vs_beam_high": {
+        "n": 64,
+        "n_model": 64,
+        "n_ref": 64,
+        "partial": false,
+        "diff": -35.416666666666664,
+        "ci_low": -45.588235294117645,
+        "ci_high": -24.846813725490193,
+        "excludes_zero": true
+      }
+    }
+  ]
+}

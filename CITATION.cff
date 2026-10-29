@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use HAR2Client, please cite it as below."
+title: "HAR2Client: a benchmark for turning recorded HTTP traffic into working API clients"
+version: "0.1"
+date-released: "2026-10-31"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/MohitGoyal09/har2client"
+authors:
+  - family-names: "Goyal"
+    given-names: "Mohit"
+    email: "goel0632@gmail.com"
+  - family-names: "Bhattacharya"
+    given-names: "Ananya"
+    email: "bhattacharya.ananya004@gmail.com"
+abstract: >-
+  HAR2Client grades a model on one skill: given recorded HTTP traffic of an
+  API and a goal, write a client that works on a fresh copy of that API.
+  It runs the client against a fresh fake server with hidden tests and uses
+  no LLM judge. It also holds a code-repair case (update an old client after
+  the API changed) and a reinforcement learning environment.
+keywords:
+  - benchmark
+  - HAR
+  - API client
+  - code generation
+  - reinforcement learning environment

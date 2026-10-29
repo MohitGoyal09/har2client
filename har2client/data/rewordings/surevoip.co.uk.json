@@ -1,0 +1,133 @@
+{
+  "api_id": "surevoip.co.uk",
+  "names": {
+    "original": {
+      "get_customer": {
+        "body_description": "",
+        "description": "Fetch a client by identifier.",
+        "fallbacks": [],
+        "name": "fetch_client",
+        "params": {
+          "path:account": {
+            "description": "Client identifier.",
+            "name": "client_ref"
+          }
+        },
+        "summary": "Represents a client"
+      },
+      "list_of_announcement_audio_files": {
+        "body_description": "",
+        "description": "List greeting audio files for a client.",
+        "fallbacks": [],
+        "name": "list_greeting_audio",
+        "params": {
+          "path:account": {
+            "description": "Client identifier.",
+            "name": "client_ref"
+          }
+        },
+        "summary": "List of greeting audio files"
+      },
+      "post_calls": {
+        "body_description": "JSON body contains session settings.",
+        "description": "Create phone sessions with optional announcements and scheduled hangups.",
+        "fallbacks": [],
+        "name": "start_phone_sessions",
+        "summary": "Create phone sessions with optional announcements and scheduled hangups"
+      },
+      "represents_an_announcement_audio_file": {
+        "body_description": "",
+        "description": "Fetch one greeting audio file for a client.",
+        "fallbacks": [],
+        "name": "fetch_greeting_audio",
+        "params": {
+          "path:account": {
+            "description": "Client identifier.",
+            "name": "client_ref"
+          },
+          "path:announcement_id": {
+            "description": "Greeting audio identifier.",
+            "name": "audio_id"
+          }
+        },
+        "summary": "Represents a greeting audio file"
+      },
+      "search_available_numbers_by_areacode": {
+        "body_description": "",
+        "description": "Search available lines by region.",
+        "fallbacks": [],
+        "name": "find_available_lines_by_region",
+        "summary": "Search available lines by region"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:res"
+    ],
+    "host": "gateway.nexcall.com",
+    "title": "NexCall JSON Gateway",
+    "words": {
+      "account": "ledger",
+      "address": "residence",
+      "announcement": "bulletin",
+      "areacode": "prefix",
+      "audio": "sound",
+      "balance": "amount",
+      "billing": "invoicing",
+      "call": "session",
+      "caller": "dialer",
+      "cancel": "abort",
+      "charge": "fee",
+      "city": "town",
+      "company": "enterprise",
+      "connect": "link",
+      "contact": "person",
+      "content": "payload",
+      "country": "nation",
+      "creation": "origination",
+      "creditlimit": "threshold",
+      "customer": "client",
+      "description": "summary",
+      "download": "retrieval",
+      "echo": "reflection",
+      "email": "notice",
+      "fax": "facsimile",
+      "file": "document",
+      "filename": "forename",
+      "firstname": "givenname",
+      "from": "origin",
+      "hangup": "disconnect",
+      "hosted": "managed",
+      "href": "destination",
+      "hypermedia": "relation",
+      "internal": "private",
+      "lastname": "surname",
+      "leg": "segment",
+      "location": "site",
+      "mobile": "cellular",
+      "number": "identifier",
+      "only": "solely",
+      "option": "choice",
+      "partner": "affiliate",
+      "phone": "telephone",
+      "play": "render",
+      "porting": "transfer",
+      "postcode": "zipcode",
+      "res": "island",
+      "service": "platform",
+      "sip": "signaling",
+      "sms": "dispatch",
+      "src": "source",
+      "state": "province",
+      "support": "assistance",
+      "sure": "certain",
+      "tful": "complete",
+      "title": "heading",
+      "topup": "recharge",
+      "username": "login",
+      "validate": "verify",
+      "website": "portal"
+    }
+  }
+}

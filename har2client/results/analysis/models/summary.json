@@ -1,0 +1,192 @@
+{
+  "n_boot": 10000,
+  "seed": 20261024,
+  "reference": "Beam (high)",
+  "other_models": [],
+  "note": "no other models run yet",
+  "pareto": {
+    "tierb50": {
+      "distinct_models": 1,
+      "drawn": false,
+      "frontier": []
+    },
+    "v3base": {
+      "distinct_models": 1,
+      "drawn": false,
+      "frontier": []
+    }
+  },
+  "rows": [
+    {
+      "key": "beam-high",
+      "label": "Beam (high)",
+      "kind": "beam",
+      "suite": "tierb50",
+      "effort": "high",
+      "n": 50,
+      "pass_rate": 78.0,
+      "ci_low": 66.0,
+      "ci_high": 88.0,
+      "full_solve_pct": 78.0,
+      "mean_output_tokens": 4854.28,
+      "api_errors": 0,
+      "paired_vs_beam_high": null
+    },
+    {
+      "key": "beam-low",
+      "label": "Beam (low)",
+      "kind": "beam",
+      "suite": "tierb50",
+      "effort": "low",
+      "n": 50,
+      "pass_rate": 57.142857142857146,
+      "ci_low": 43.42857142857143,
+      "ci_high": 70.57142857142857,
+      "full_solve_pct": 52.0,
+      "mean_output_tokens": 1154.3,
+      "api_errors": 0,
+      "paired_vs_beam_high": {
+        "n": 50,
+        "diff": -20.857142857142858,
+        "ci_low": -32.57142857142858,
+        "ci_high": -10.571428571428571,
+        "excludes_zero": true
+      }
+    },
+    {
+      "key": "beam-medium",
+      "label": "Beam (medium)",
+      "kind": "beam",
+      "suite": "tierb50",
+      "effort": "medium",
+      "n": 50,
+      "pass_rate": 63.714285714285715,
+      "ci_low": 50.0,
+      "ci_high": 76.0,
+      "full_solve_pct": 62.0,
+      "mean_output_tokens": 2259.36,
+      "api_errors": 0,
+      "paired_vs_beam_high": {
+        "n": 50,
+        "diff": -14.285714285714286,
+        "ci_low": -24.571428571428573,
+        "ci_high": -6.0,
+        "excludes_zero": true
+      }
+    },
+    {
+      "key": "beam-high",
+      "label": "Beam (high)",
+      "kind": "beam",
+      "suite": "v3base",
+      "effort": "high",
+      "n": 64,
+      "pass_rate": 42.7389705882353,
+      "ci_low": 33.63970588235294,
+      "ci_high": 52.1139705882353,
+      "full_solve_pct": 28.125,
+      "mean_output_tokens": 7625.78125,
+      "api_errors": 0,
+      "paired_vs_beam_high": null
+    },
+    {
+      "key": "beam-low",
+      "label": "Beam (low)",
+      "kind": "beam",
+      "suite": "v3base",
+      "effort": "low",
+      "n": 64,
+      "pass_rate": 31.61764705882353,
+      "ci_low": 23.71323529411765,
+      "ci_high": 40.16544117647059,
+      "full_solve_pct": 17.1875,
+      "mean_output_tokens": 1757.640625,
+      "api_errors": 0,
+      "paired_vs_beam_high": {
+        "n": 64,
+        "diff": -11.121323529411764,
+        "ci_low": -18.933823529411764,
+        "ci_high": -3.860294117647059,
+        "excludes_zero": true
+      }
+    },
+    {
+      "key": "beam-medium",
+      "label": "Beam (medium)",
+      "kind": "beam",
+      "suite": "v3base",
+      "effort": "medium",
+      "n": 64,
+      "pass_rate": 37.04044117647059,
+      "ci_low": 28.40073529411765,
+      "ci_high": 45.955882352941174,
+      "full_solve_pct": 21.875,
+      "mean_output_tokens": 2921.734375,
+      "api_errors": 0,
+      "paired_vs_beam_high": {
+        "n": 64,
+        "diff": -5.698529411764706,
+        "ci_low": -12.959558823529411,
+        "ci_high": 1.654411764705882,
+        "excludes_zero": false
+      }
+    },
+    {
+      "key": "beam-high",
+      "label": "Beam (high)",
+      "kind": "beam",
+      "suite": "v3hint",
+      "effort": "high",
+      "n": 64,
+      "pass_rate": 90.625,
+      "ci_low": 84.09926470588235,
+      "ci_high": 96.13970588235294,
+      "full_solve_pct": 84.375,
+      "mean_output_tokens": 6855.1875,
+      "api_errors": 0,
+      "paired_vs_beam_high": null
+    },
+    {
+      "key": "beam-low",
+      "label": "Beam (low)",
+      "kind": "beam",
+      "suite": "v3hint",
+      "effort": "low",
+      "n": 64,
+      "pass_rate": 71.59926470588235,
+      "ci_low": 62.04044117647059,
+      "ci_high": 80.51470588235294,
+      "full_solve_pct": 57.8125,
+      "mean_output_tokens": 1799.84375,
+      "api_errors": 0,
+      "paired_vs_beam_high": {
+        "n": 64,
+        "diff": -19.02573529411765,
+        "ci_low": -28.125,
+        "ci_high": -10.294117647058824,
+        "excludes_zero": true
+      }
+    },
+    {
+      "key": "beam-medium",
+      "label": "Beam (medium)",
+      "kind": "beam",
+      "suite": "v3hint",
+      "effort": "medium",
+      "n": 64,
+      "pass_rate": 76.93014705882352,
+      "ci_low": 68.01470588235294,
+      "ci_high": 85.01838235294117,
+      "full_solve_pct": 62.5,
+      "mean_output_tokens": 2846.03125,
+      "api_errors": 0,
+      "paired_vs_beam_high": {
+        "n": 64,
+        "diff": -13.694852941176471,
+        "ci_low": -21.323529411764707,
+        "ci_high": -6.25,
+        "excludes_zero": true
+      }
+    }
+  ]
+}

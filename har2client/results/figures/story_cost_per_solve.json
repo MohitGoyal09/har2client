@@ -1,0 +1,109 @@
+{
+  "title": "Effort makes a solved task costlier; the hint cuts case 3 cost 2.9x to 3.8x",
+  "cells": {
+    "case1": {
+      "low": {
+        "n": 50,
+        "solved": 26,
+        "mean_tokens": 1154.3,
+        "total_tokens": 57715.0,
+        "value": 2219.8076923076924,
+        "ci_low": 1728.060606060606,
+        "ci_high": 3048.2631578947367,
+        "undefined_draws": 0
+      },
+      "medium": {
+        "n": 50,
+        "solved": 31,
+        "mean_tokens": 2259.36,
+        "total_tokens": 112968.0,
+        "value": 3644.1290322580644,
+        "ci_low": 2920.0833333333335,
+        "ci_high": 4805.64,
+        "undefined_draws": 0
+      },
+      "high": {
+        "n": 50,
+        "solved": 31,
+        "mean_tokens": 4818.306666666667,
+        "total_tokens": 240915.33333333334,
+        "value": 7771.462365591398,
+        "ci_low": 6210.358974358975,
+        "ci_high": 10228.166666666666,
+        "undefined_draws": 0
+      }
+    },
+    "base": {
+      "low": {
+        "n": 64,
+        "solved": 11,
+        "mean_tokens": 1757.640625,
+        "total_tokens": 112489.0,
+        "value": 10226.272727272728,
+        "ci_low": 6568.058823529412,
+        "ci_high": 21394.0,
+        "undefined_draws": 0
+      },
+      "medium": {
+        "n": 64,
+        "solved": 14,
+        "mean_tokens": 2921.734375,
+        "total_tokens": 186991.0,
+        "value": 13356.5,
+        "ci_low": 8912.42857142857,
+        "ci_high": 23901.75,
+        "undefined_draws": 0
+      },
+      "high": {
+        "n": 64,
+        "solved": 13,
+        "mean_tokens": 7746.005208333333,
+        "total_tokens": 495744.3333333333,
+        "value": 38134.179487179485,
+        "ci_low": 24510.566666666666,
+        "ci_high": 72075.09523809524,
+        "undefined_draws": 0
+      }
+    },
+    "hint": {
+      "low": {
+        "n": 64,
+        "solved": 37,
+        "mean_tokens": 1799.84375,
+        "total_tokens": 115190.0,
+        "value": 3113.2432432432433,
+        "ci_low": 2527.068181818182,
+        "ci_high": 4059.6129032258063,
+        "undefined_draws": 0
+      },
+      "medium": {
+        "n": 64,
+        "solved": 40,
+        "mean_tokens": 2846.03125,
+        "total_tokens": 182146.0,
+        "value": 4553.65,
+        "ci_low": 3749.877551020408,
+        "ci_high": 5741.424242424242,
+        "undefined_draws": 0
+      },
+      "high": {
+        "n": 64,
+        "solved": 43,
+        "mean_tokens": 6823.765625,
+        "total_tokens": 436721.0,
+        "value": 10156.302325581395,
+        "ci_low": 8556.897959183674,
+        "ci_high": 12522.638888888889,
+        "undefined_draws": 0
+      }
+    }
+  },
+  "hint_vs_base_cost_ratio": {
+    "low": 3.2847650916667326,
+    "medium": 2.9331415457929357,
+    "high": 3.754730635688959
+  },
+  "footer_n": "50 case 1, 64 case 3",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=50 case 1, 64 case 3 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

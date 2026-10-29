@@ -1,0 +1,180 @@
+{
+  "api_id": "impala.travel:hotels",
+  "names": {
+    "original": {
+      "cancel_booking": {
+        "body_description": "",
+        "description": "Cancel an existing reservation.",
+        "fallbacks": [],
+        "name": "cancel_reservation",
+        "params": {
+          "path:bookingId": {
+            "description": "Identifier of the reservation.",
+            "name": "reservation_id"
+          }
+        },
+        "summary": "Cancel a reservation"
+      },
+      "create_booking": {
+        "body_description": "Provide the reservation details in JSON.",
+        "description": "Create a new reservation.",
+        "fallbacks": [],
+        "name": "create_reservation",
+        "summary": "Create a reservation"
+      },
+      "retrieve_booking": {
+        "body_description": "",
+        "description": "Fetch an existing reservation.",
+        "fallbacks": [],
+        "name": "fetch_stay",
+        "params": {
+          "path:bookingId": {
+            "description": "Identifier of the reservation.",
+            "name": "reservation_id"
+          }
+        },
+        "summary": "Retrieve a reservation"
+      },
+      "retrieve_hotel": {
+        "body_description": "",
+        "description": "Fetch property details.",
+        "fallbacks": [],
+        "name": "fetch_property",
+        "params": {
+          "path:hotelId": {
+            "description": "Identifier of the property.",
+            "name": "property_id"
+          },
+          "query:end": {
+            "description": "Final date of the range.",
+            "name": "to_date"
+          },
+          "query:start": {
+            "description": "Beginning of the date range.",
+            "name": "from_date"
+          }
+        },
+        "summary": "Retrieve a property"
+      },
+      "update_booking": {
+        "body_description": "Provide updated reservation details in JSON.",
+        "description": "Update an existing reservation.",
+        "fallbacks": [],
+        "name": "modify_reservation",
+        "params": {
+          "path:bookingId": {
+            "description": "Identifier of the reservation.",
+            "name": "reservation_id"
+          }
+        },
+        "summary": "Change a reservation"
+      },
+      "update_booking_contact": {
+        "body_description": "Provide guest details in JSON.",
+        "description": "Update guest information for a reservation.",
+        "fallbacks": [],
+        "name": "update_guest_details",
+        "params": {
+          "path:bookingId": {
+            "description": "Identifier of the reservation.",
+            "name": "reservation_id"
+          }
+        },
+        "summary": "Update guest information"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:condition",
+      "word:max",
+      "word:number",
+      "word:secret"
+    ],
+    "host": "api.stayforge.com",
+    "title": "StayForge Lodging Reservation Service",
+    "words": {
+      "address": "domicile",
+      "adult": "grownup",
+      "agreement": "contract",
+      "alt": "variant",
+      "amenity": "facility",
+      "amount": "quantity",
+      "bearer": "carrier",
+      "booked": "reserved",
+      "booking": "reservation",
+      "cancellation": "termination",
+      "category": "group",
+      "charge": "levy",
+      "check": "inspection",
+      "city": "town",
+      "client": "customer",
+      "commission": "royalty",
+      "component": "element",
+      "condition": "raven",
+      "confirmation": "receipt",
+      "contact": "liaison",
+      "contractable": "leasable",
+      "country": "nation",
+      "created": "generated",
+      "currency": "denomination",
+      "deal": "offer",
+      "description": "summary",
+      "discount": "reduction",
+      "email": "mailbox",
+      "end": "finish",
+      "external": "outside",
+      "fee": "surcharge",
+      "first": "initial",
+      "formatted": "rendered",
+      "from": "origin",
+      "guest": "visitor",
+      "height": "altitude",
+      "hotel": "lodge",
+      "href": "link",
+      "image": "picture",
+      "impala": "gazelle",
+      "included": "contained",
+      "instruction": "directive",
+      "last": "final",
+      "latitude": "northing",
+      "line": "row",
+      "location": "site",
+      "longitude": "easting",
+      "max": "pebble",
+      "note": "remark",
+      "number": "otter",
+      "occupancy": "capacity",
+      "out": "exit",
+      "pay": "remit",
+      "payment": "remittance",
+      "percentage": "ratio",
+      "phone": "telephone",
+      "plan": "scheme",
+      "policy": "rule",
+      "postal": "zip",
+      "price": "cost",
+      "rate": "tariff",
+      "rating": "score",
+      "region": "area",
+      "remaining": "leftover",
+      "retail": "consumer",
+      "room": "suite",
+      "secret": "spruce",
+      "sellable": "marketable",
+      "seller": "vendor",
+      "short": "brief",
+      "special": "unique",
+      "star": "grade",
+      "start": "begin",
+      "tax": "duty",
+      "term": "clause",
+      "timestamp": "datetime",
+      "timezone": "zone",
+      "update": "modify",
+      "updated": "changed",
+      "website": "portal",
+      "width": "breadth"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "effort": "low",
+  "bars": {
+    "base": {
+      "n": 64,
+      "pass": 31.61764705882353,
+      "ci_low": 23.621323529411757,
+      "ci_high": 40.073529411764696
+    },
+    "placebo": {
+      "n": 64,
+      "pass": 32.07720588235294,
+      "ci_low": 23.897058823529395,
+      "ci_high": 40.44117647058821
+    },
+    "notice": {
+      "n": 64,
+      "pass": 50.27573529411765,
+      "ci_low": 41.26838235294116,
+      "ci_high": 59.00735294117647
+    },
+    "hint": {
+      "n": 64,
+      "pass": 71.59926470588235,
+      "ci_low": 62.224264705882334,
+      "ci_high": 80.60661764705884
+    }
+  },
+  "gains": [
+    {
+      "from": "base",
+      "to": "placebo",
+      "n": 64,
+      "gain_points": 0.45955882352941163,
+      "ci_low": -6.525735294117648,
+      "ci_high": 7.352941176470588
+    },
+    {
+      "from": "placebo",
+      "to": "notice",
+      "n": 64,
+      "gain_points": 18.198529411764703,
+      "ci_low": 11.213235294117647,
+      "ci_high": 25.919117647058822
+    },
+    {
+      "from": "notice",
+      "to": "hint",
+      "n": 64,
+      "gain_points": 21.323529411764703,
+      "ci_low": 10.20220588235294,
+      "ci_high": 31.985294117647054
+    }
+  ],
+  "title": "Where the hint's gain comes from, case 3 at low effort: full hint +40 pts over base",
+  "footer_n": "64",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=64 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

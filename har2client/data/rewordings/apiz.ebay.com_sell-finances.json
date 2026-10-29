@@ -1,0 +1,193 @@
+{
+  "api_id": "apiz.ebay.com:sell-finances",
+  "names": {
+    "original": {
+      "get_payout": {
+        "body_description": "",
+        "description": "Retrieve one disbursement by its identifier.",
+        "fallbacks": [],
+        "name": "get_disbursement",
+        "params": {
+          "path:payout_Id": {
+            "description": "Identifier of the requested disbursement.",
+            "name": "disbursement_id"
+          }
+        },
+        "summary": "<div class=\"msgbox_important\"><p class=\"msgbox_importantInDiv\" data-mc-autonum=\"&lt;b&gt;&lt;span style=&quot;color: #dd"
+      },
+      "get_payout_summary": {
+        "body_description": "",
+        "description": "Return an overview of disbursements matching optional criteria.",
+        "fallbacks": [],
+        "name": "disbursement_overview",
+        "params": {
+          "query:filter": {
+            "description": "Optional search criteria for the overview.",
+            "name": "criteria"
+          }
+        },
+        "summary": "<div class=\"msgbox_important\"><p class=\"msgbox_importantInDiv\" data-mc-autonum=\"&lt;b&gt;&lt;span style=&quot;color: #dd"
+      },
+      "get_payouts": {
+        "body_description": "",
+        "description": "List recorded disbursements with optional criteria, paging, and ordering.",
+        "fallbacks": [],
+        "name": "list_disbursements",
+        "params": {
+          "query:filter": {
+            "description": "Optional search criteria for the returned records.",
+            "name": "criteria"
+          },
+          "query:limit": {
+            "description": "Maximum number of records to return.",
+            "name": "max_items"
+          },
+          "query:offset": {
+            "description": "Number of records to skip before returning results.",
+            "name": "skip"
+          },
+          "query:sort": {
+            "description": "Requested ordering for the returned records.",
+            "name": "ordering"
+          }
+        },
+        "summary": "<div class=\"msgbox_important\"><p class=\"msgbox_importantInDiv\" data-mc-autonum=\"&lt;b&gt;&lt;span style=&quot;color: #dd"
+      },
+      "get_seller_funds_summary": {
+        "body_description": "",
+        "description": "Return an overview of merchant balances.",
+        "fallbacks": [],
+        "name": "merchant_balance_overview",
+        "summary": "<div class=\"msgbox_important\"><p class=\"msgbox_importantInDiv\" data-mc-autonum=\"&lt;b&gt;&lt;span style=&quot;color: #dd"
+      },
+      "get_transaction_summary": {
+        "body_description": "",
+        "description": "Return totals for entries matching optional criteria.",
+        "fallbacks": [],
+        "name": "entry_totals",
+        "params": {
+          "query:filter": {
+            "description": "Optional search criteria for the totals.",
+            "name": "criteria"
+          }
+        },
+        "summary": "<div class=\"msgbox_important\"><p class=\"msgbox_importantInDiv\" data-mc-autonum=\"&lt;b&gt;&lt;span style=&quot;color: #dd"
+      },
+      "get_transactions": {
+        "body_description": "",
+        "description": "List recorded entries with optional criteria, paging, and ordering.",
+        "fallbacks": [],
+        "name": "list_entries",
+        "params": {
+          "query:filter": {
+            "description": "Optional search criteria for the returned records.",
+            "name": "criteria"
+          },
+          "query:limit": {
+            "description": "Maximum number of records to return.",
+            "name": "max_items"
+          },
+          "query:offset": {
+            "description": "Number of records to skip before returning results.",
+            "name": "skip"
+          },
+          "query:sort": {
+            "description": "Requested ordering for the returned records.",
+            "name": "ordering"
+          }
+        },
+        "summary": "<div class=\"msgbox_important\"><p class=\"msgbox_importantInDiv\" data-mc-autonum=\"&lt;b&gt;&lt;span style=&quot;color: #dd"
+      },
+      "get_transfer": {
+        "body_description": "",
+        "description": "Retrieve one movement by its identifier.",
+        "fallbacks": [],
+        "name": "get_movement",
+        "params": {
+          "path:transfer_Id": {
+            "description": "Identifier of the requested movement.",
+            "name": "movement_id"
+          }
+        },
+        "summary": "<div class=\"msgbox_important\"><p class=\"msgbox_importantInDiv\" data-mc-autonum=\"&lt;b&gt;&lt;span style=&quot;color: #dd"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:nickname"
+    ],
+    "host": "api.ledgerpay.io",
+    "title": "Merchant Treasury Service",
+    "words": {
+      "account": "ledger",
+      "adjustment": "correction",
+      "amount": "quantity",
+      "attempted": "tried",
+      "available": "accessible",
+      "balance": "remainder",
+      "bank": "depository",
+      "basis": "foundation",
+      "bay": "inlet",
+      "booking": "reservation",
+      "brand": "trademark",
+      "buyer": "purchaser",
+      "cancellation": "voidance",
+      "case": "matter",
+      "charge": "cost",
+      "collected": "gathered",
+      "converted": "transformed",
+      "credit": "allowance",
+      "currency": "tender",
+      "description": "narrative",
+      "detail": "specification",
+      "digit": "number",
+      "dispute": "claim",
+      "entity": "party",
+      "entry": "posting",
+      "exchange": "swap",
+      "fee": "levy",
+      "finance": "treasury",
+      "four": "quartet",
+      "from": "origin",
+      "fund": "capital",
+      "funding": "capitalization",
+      "hold": "freeze",
+      "href": "link",
+      "inquiry": "request",
+      "instrument": "tool",
+      "jurisdiction": "territory",
+      "label": "tag",
+      "last": "final",
+      "line": "row",
+      "loan": "advance",
+      "marketplace": "bazaar",
+      "memo": "note",
+      "next": "subsequent",
+      "nickname": "willow",
+      "non": "void",
+      "payment": "receipt",
+      "payout": "disbursement",
+      "prev": "prior",
+      "processing": "handling",
+      "rate": "ratio",
+      "record": "log",
+      "reference": "identifier",
+      "refund": "reimbursement",
+      "region": "zone",
+      "repayment": "settlement",
+      "return": "restitution",
+      "sale": "deal",
+      "sell": "vend",
+      "seller": "vendor",
+      "shipping": "delivery",
+      "source": "provenance",
+      "summary": "overview",
+      "tax": "duty",
+      "transaction": "operation",
+      "transfer": "remittance",
+      "username": "handle",
+      "withdrawal": "extraction"
+    }
+  }
+}

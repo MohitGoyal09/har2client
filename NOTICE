@@ -1,0 +1,46 @@
+HAR2Client
+Copyright 2026 Mohit Goyal and Ananya Bhattacharya
+https://github.com/MohitGoyal09/har2client
+
+This product includes software and data developed for the Reflection x
+Hugging Face "Build with Beam" challenge.
+
+Licences
+--------
+- Code (har2client/, release/, scripts, tests): Apache License 2.0.
+  See the file LICENSE.
+- Generated benchmark data (tasks, HAR recordings, hidden tests, result
+  tables and figures): Creative Commons Attribution 4.0 International
+  (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+
+Third-party material
+--------------------
+Tier A tasks are derived from OpenAPI descriptions in the APIs.guru
+directory (https://apis.guru). The directory index is CC0. Each API
+description keeps the terms that its owner declared.
+- 3 specs carry restrictive licences: apiz.ebay.com:sell-finances,
+  nfusionsolutions.biz and surevoip.co.uk. They are excluded from the
+  public dataset.
+- 20 of the 27 kept specs declare no licence. They stay in the dataset,
+  with a note in the dataset card. Each task records its spec licence in
+  the spec_license_* fields.
+- The recordings and the server responses in Tier A tasks are synthetic.
+  They are not copied from the real services.
+
+Model outputs
+-------------
+- Beam-1.0-501B-A23B outputs (clients, transcripts, result tables) were
+  produced through Reflection's API and are subject to Reflection's terms.
+- GPT-OSS-120B and Qwen3.5-397B-A17B outputs were produced through the
+  Hugging Face Inference Providers router. Both models are Apache-2.0.
+  No model weights are redistributed.
+- Model calls used the authors' Reflection API access (Beam) and the
+  authors' own Hugging Face Inference Provider credits (GPT-OSS-120B,
+  Qwen3.5-397B-A17B). No other funding.
+
+Tier B (invented stateful APIs) and case 3 (API repair tasks) are fully
+synthetic. They contain no third-party material.
+
+Names of third-party tools and services (for example reverse-api-engineer,
+Integuru, Hugging Face, Beam) belong to their owners and are used only to
+identify them.

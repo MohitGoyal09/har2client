@@ -1,0 +1,133 @@
+{
+  "title": "Reasoning is 34-48% of output tokens at low effort and 79-83% at high",
+  "cells": {
+    "case1": {
+      "low": {
+        "n_tasks": 50,
+        "n_with_split": 50,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 1154.3,
+        "reasoning": 548.64,
+        "answer": 605.66,
+        "reasoning_share": 0.4753010482543533
+      },
+      "medium": {
+        "n_tasks": 50,
+        "n_with_split": 50,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 2259.36,
+        "reasoning": 1600.0,
+        "answer": 659.3600000000001,
+        "reasoning_share": 0.7081651441116068
+      },
+      "high": {
+        "n_tasks": 50,
+        "n_with_split": 50,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 4818.306666666667,
+        "reasoning": 4001.666666666667,
+        "answer": 816.6400000000003,
+        "reasoning_share": 0.8305130709820601
+      }
+    },
+    "base": {
+      "low": {
+        "n_tasks": 64,
+        "n_with_split": 64,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 1757.640625,
+        "reasoning": 717.296875,
+        "answer": 1040.34375,
+        "reasoning_share": 0.40810212554116404
+      },
+      "medium": {
+        "n_tasks": 64,
+        "n_with_split": 64,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 2921.734375,
+        "reasoning": 1728.046875,
+        "answer": 1193.6875,
+        "reasoning_share": 0.5914455775946436
+      },
+      "high": {
+        "n_tasks": 64,
+        "n_with_split": 64,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 7746.005208333333,
+        "reasoning": 6411.447916666667,
+        "answer": 1334.557291666666,
+        "reasoning_share": 0.8277102511845824
+      }
+    },
+    "hint": {
+      "low": {
+        "n_tasks": 64,
+        "n_with_split": 64,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 1799.84375,
+        "reasoning": 606.6875,
+        "answer": 1193.15625,
+        "reasoning_share": 0.33707787134299855
+      },
+      "medium": {
+        "n_tasks": 64,
+        "n_with_split": 64,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 2846.03125,
+        "reasoning": 1530.140625,
+        "answer": 1315.890625,
+        "reasoning_share": 0.5376401348368891
+      },
+      "high": {
+        "n_tasks": 64,
+        "n_with_split": 64,
+        "tasks_without_split": 0,
+        "rows_missing_reasoning": 0,
+        "rows_reasoning_over_completion": 0,
+        "completion": 6823.765625,
+        "reasoning": 5366.515625,
+        "answer": 1457.25,
+        "reasoning_share": 0.7864448927347208
+      }
+    }
+  },
+  "reasoning_share": {
+    "case1": {
+      "low": 0.4753010482543533,
+      "medium": 0.7081651441116068,
+      "high": 0.8305130709820601
+    },
+    "base": {
+      "low": 0.40810212554116404,
+      "medium": 0.5914455775946436,
+      "high": 0.8277102511845824
+    },
+    "hint": {
+      "low": 0.33707787134299855,
+      "medium": 0.5376401348368891,
+      "high": 0.7864448927347208
+    }
+  },
+  "data_check": "reasoning_tokens present on every row and never above completion_tokens",
+  "rows_missing_reasoning": 0,
+  "rows_reasoning_over_completion": 0,
+  "footer_n": "50 case 1, 64 case 3",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=50 case 1, 64 case 3 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

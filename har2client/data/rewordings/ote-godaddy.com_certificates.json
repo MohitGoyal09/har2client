@@ -1,0 +1,252 @@
+{
+  "api_id": "ote-godaddy.com:certificates",
+  "names": {
+    "original": {
+      "certificate_action_retrieve": {
+        "body_description": "",
+        "description": "Returns events for a credential.",
+        "fallbacks": [],
+        "name": "fetch_credential_events",
+        "params": {
+          "path:certificateId": {
+            "description": "Identifies the credential whose events are returned.",
+            "name": "credential_id"
+          }
+        },
+        "summary": "Retrieve all credential events"
+      },
+      "certificate_alternate_email_address": {
+        "body_description": "",
+        "description": "Registers an alternate recipient for a credential.",
+        "fallbacks": [],
+        "name": "register_backup_contact",
+        "params": {
+          "path:certificateId": {
+            "description": "Identifies the credential to update.",
+            "name": "credential_id"
+          },
+          "path:emailAddress": {
+            "description": "Specifies the recipient to add.",
+            "name": "recipient"
+          }
+        },
+        "summary": "Add alternate contact"
+      },
+      "certificate_callback_get": {
+        "body_description": "",
+        "description": "Returns webhook address for a credential.",
+        "fallbacks": [],
+        "name": "get_webhook_url",
+        "params": {
+          "path:certificateId": {
+            "description": "Identifies the credential whose webhook is returned.",
+            "name": "credential_id"
+          }
+        },
+        "summary": "Retrieve system stateful action webhook address"
+      },
+      "certificate_get": {
+        "body_description": "",
+        "description": "Retrieve details for the given credential.",
+        "fallbacks": [],
+        "name": "fetch_credential",
+        "params": {
+          "path:certificateId": {
+            "description": "Identifies the credential to retrieve.",
+            "name": "credential_id"
+          }
+        },
+        "summary": "Retrieve credential details"
+      },
+      "certificate_siteseal_get": {
+        "body_description": "",
+        "description": "Returns a trust badge for a credential.",
+        "fallbacks": [],
+        "name": "get_trust_badge",
+        "params": {
+          "path:certificateId": {
+            "description": "Identifies the credential for the badge.",
+            "name": "credential_id"
+          },
+          "query:locale": {
+            "description": "Controls badge language.",
+            "name": "language"
+          },
+          "query:theme": {
+            "description": "Controls badge style.",
+            "name": "style"
+          }
+        },
+        "summary": "Get trust badge"
+      },
+      "get_acme_external_account_binding": {
+        "body_description": "",
+        "description": "Retrieves associated identity for a client.",
+        "fallbacks": [],
+        "name": "get_client_identity",
+        "params": {
+          "path:customerId": {
+            "description": "Identifies the client whose identity is retrieved.",
+            "name": "client_id"
+          }
+        },
+        "summary": "Retrieves associated identity for specified client"
+      },
+      "get_customer_certificates_by_customer_id": {
+        "body_description": "",
+        "description": "Lists credentials for a client.",
+        "fallbacks": [],
+        "name": "list_client_credentials",
+        "params": {
+          "path:customerId": {
+            "description": "Identifies the client whose credentials are listed.",
+            "name": "client_id"
+          },
+          "query:limit": {
+            "description": "Maximum records to return.",
+            "name": "count"
+          },
+          "query:offset": {
+            "description": "Starting index for pagination.",
+            "name": "start"
+          }
+        },
+        "summary": "Retrieve client credentials"
+      },
+      "get_domain_details_by_domain": {
+        "body_description": "",
+        "description": "Retrieves detailed information for a host.",
+        "fallbacks": [],
+        "name": "get_host_details",
+        "params": {
+          "path:certificateId": {
+            "description": "Identifies the credential.",
+            "name": "credential_id"
+          },
+          "path:customerId": {
+            "description": "Identifies the client.",
+            "name": "client_id"
+          },
+          "path:domain": {
+            "description": "Specifies the host to inspect.",
+            "name": "host"
+          }
+        },
+        "summary": "Retrieve detailed information for supplied host"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:number",
+      "word:pagination",
+      "word:progress",
+      "word:reissue",
+      "word:valid",
+      "word:validate"
+    ],
+    "host": "gateway.securevault.io",
+    "title": "vaultguard.net:credentials",
+    "words": {
+      "account": "ledger",
+      "acme": "protocol",
+      "action": "operation",
+      "address": "location",
+      "agent": "representative",
+      "alternative": "option",
+      "assumed": "presumed",
+      "authority": "issuer",
+      "authorization": "permission",
+      "available": "ready",
+      "binding": "attachment",
+      "body": "payload",
+      "callback": "webhook",
+      "cancel": "abort",
+      "certificate": "credential",
+      "city": "municipality",
+      "common": "standard",
+      "completed": "finished",
+      "contact": "counterparty",
+      "control": "management",
+      "country": "nation",
+      "county": "district",
+      "created": "generated",
+      "cross": "intersect",
+      "csr": "request",
+      "customer": "client",
+      "dce": "nonce",
+      "delay": "latency",
+      "denied": "rejected",
+      "directory": "registry",
+      "domain": "hostname",
+      "download": "fetch",
+      "email": "mailbox",
+      "end": "finish",
+      "entered": "submitted",
+      "entitlement": "license",
+      "entity": "object",
+      "existing": "current",
+      "external": "remote",
+      "first": "initial",
+      "force": "compel",
+      "from": "source",
+      "godaddy": "registrar",
+      "hex": "checksum",
+      "history": "audit",
+      "hmac": "signature",
+      "html": "markup",
+      "incorporation": "formation",
+      "intel": "asset",
+      "intermediate": "relay",
+      "job": "task",
+      "jurisdiction": "region",
+      "last": "final",
+      "latest": "newest",
+      "locale": "language",
+      "middle": "central",
+      "modified": "updated",
+      "next": "subsequent",
+      "number": "otter",
+      "organization": "company",
+      "ote": "sandbox",
+      "pagination": "orchard",
+      "path": "route",
+      "pem": "encoding",
+      "period": "duration",
+      "phone": "telephone",
+      "postal": "mailing",
+      "previous": "prior",
+      "pro": "premium",
+      "product": "offering",
+      "progress": "lemon",
+      "reason": "cause",
+      "recipient": "beneficiary",
+      "recommendation": "suggestion",
+      "registration": "enrollment",
+      "reissue": "birch",
+      "renew": "extend",
+      "renewal": "extension",
+      "resend": "retransmit",
+      "revetting": "screening",
+      "revoke": "withdraw",
+      "revoked": "invalidated",
+      "root": "origin",
+      "seal": "stamp",
+      "serial": "sequence",
+      "site": "website",
+      "slot": "position",
+      "start": "begin",
+      "state": "province",
+      "subject": "topic",
+      "suffix": "ending",
+      "template": "layout",
+      "theme": "style",
+      "title": "heading",
+      "usage": "consumption",
+      "valid": "clover",
+      "validate": "lagoon",
+      "verification": "confirmation",
+      "verify": "confirm"
+    }
+  }
+}

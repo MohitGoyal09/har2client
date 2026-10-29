@@ -1,0 +1,252 @@
+[
+ {
+  "task": "tierb_00_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_01_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_02_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_03_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_04_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_05_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_06_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_07_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_08_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_09_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_10_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_11_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_12_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_13_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_14_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_15_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_16_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_17_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_18_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_19_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_20_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_21_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_22_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_23_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_24_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_25_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_26_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_27_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_28_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_29_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_30_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_31_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_32_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_33_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_34_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_35_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_36_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_37_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_38_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_39_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_40_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_41_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_42_invoices",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_43_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_44_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_45_bookings",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_46_samples",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_47_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_48_tickets",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ },
+ {
+  "task": "tierb_49_shipments",
+  "reference_pass": 1.0,
+  "empty_pass": 0.0
+ }
+]

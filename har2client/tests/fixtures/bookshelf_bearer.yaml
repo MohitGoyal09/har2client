@@ -1,0 +1,202 @@
+openapi: 3.0.3
+info:
+  title: Bookshelf API
+  version: "1.0"
+servers:
+  - url: https://api.bookshelf.example/v1
+security:
+  - BearerAuth: []
+paths:
+  /books:
+    get:
+      operationId: listBooks
+      summary: List books
+      parameters:
+        - name: limit
+          in: query
+          schema: {type: integer, minimum: 1, maximum: 50}
+        - name: genre
+          in: query
+          schema: {type: string, enum: [fiction, history, science]}
+        - name: tags
+          in: query
+          schema:
+            type: array
+            items: {type: string}
+        - name: X-Trace-Id
+          in: header
+          schema: {type: string}
+        - name: session
+          in: cookie
+          schema: {type: string}
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, total]
+                properties:
+                  items:
+                    type: array
+                    items: {$ref: "#/components/schemas/Book"}
+                  total: {type: integer, minimum: 0, maximum: 500}
+    post:
+      operationId: createBook
+      summary: Create a book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/NewBook"}
+      responses:
+        "201":
+          description: created
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Book"}
+  /books/{bookId}:
+    parameters:
+      - name: bookId
+        in: path
+        required: true
+        schema: {type: string, minLength: 4, maxLength: 12}
+    get:
+      operationId: getBook
+      summary: Fetch one book
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Book"}
+    delete:
+      operationId: deleteBook
+      summary: Delete a book
+      responses:
+        "204":
+          description: gone
+  /books/{bookId}/cover:
+    post:
+      operationId: uploadCover
+      summary: Upload a cover image
+      parameters:
+        - {name: bookId, in: path, required: true, schema: {type: string}}
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file: {type: string, format: binary}
+      responses:
+        "200": {description: ok}
+  /authors/{authorId}/books:
+    get:
+      summary: Books by one author
+      parameters:
+        - {name: authorId, in: path, required: true, schema: {type: integer, minimum: 1, maximum: 9999}}
+        - {name: page, in: query, required: true, schema: {type: integer, minimum: 1, maximum: 20}}
+        - {name: include_draft, in: query, schema: {type: boolean}}
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                minItems: 1
+                items: {$ref: "#/components/schemas/Book"}
+  /categories:
+    get:
+      summary: Category tree
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {$ref: "#/components/schemas/Category"}
+  /stats:
+    get:
+      operationId: Get-Stats
+      summary: Reading stats
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - {type: object, required: [pages_read], properties: {pages_read: {type: integer}}}
+                  - {type: object, required: [books_read], properties: {books_read: {type: integer}}}
+  /health:
+    get:
+      operationId: health
+      summary: Liveness probe
+      security: []
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, uptime]
+                properties:
+                  status: {type: string}
+                  uptime: {type: integer, minimum: 0}
+  /filters/{filter}:
+    get:
+      operationId: getFilter
+      summary: Object path param
+      parameters:
+        - name: filter
+          in: path
+          required: true
+          schema: {type: object, properties: {a: {type: string}}}
+      responses:
+        "200": {description: ok}
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    BookBase:
+      type: object
+      required: [title]
+      properties:
+        title: {type: string, minLength: 3, maxLength: 30}
+        published: {type: string, format: date}
+        pages: {type: integer, minimum: 10, maximum: 900}
+    NewBook:
+      allOf:
+        - $ref: "#/components/schemas/BookBase"
+        - type: object
+          required: [isbn]
+          properties:
+            isbn: {type: string, minLength: 10, maxLength: 13}
+    Book:
+      allOf:
+        - $ref: "#/components/schemas/BookBase"
+        - type: object
+          required: [id, created_at, author_email]
+          properties:
+            id: {type: string, format: uuid}
+            created_at: {type: string, format: date-time}
+            author_email: {type: string, format: email}
+            cover: {type: string, format: uri, nullable: true}
+            status: {type: string, enum: [available, lent]}
+            rating: {type: number, minimum: 0, maximum: 5}
+    Category:
+      type: object
+      required: [id, name]
+      properties:
+        id: {type: integer}
+        name: {type: string}
+        children:
+          type: array
+          items: {$ref: "#/components/schemas/Category"}

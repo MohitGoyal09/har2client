@@ -1,0 +1,118 @@
+{
+  "api_id": "microsoft.com:cognitiveservices-ComputerVision",
+  "names": {
+    "original": {
+      "analyze_image_by_domain": {
+        "body_description": "The request body holds the image to inspect.",
+        "description": "Recognizes image content with a selected domain family.",
+        "fallbacks": [],
+        "name": "recognize_domain_content",
+        "params": {
+          "path:model": {
+            "description": "Selected domain family identifier.",
+            "name": "domain_name"
+          },
+          "query:language": {
+            "description": "Optional locale for results.",
+            "name": "locale"
+          }
+        },
+        "summary": "Recognizes image content using a chosen domain family."
+      },
+      "detect_objects": {
+        "body_description": "The request body supplies the image.",
+        "description": "Finds objects in an image.",
+        "fallbacks": [],
+        "name": "find_items",
+        "summary": "Performs object detection on the specified image."
+      },
+      "get_area_of_interest": {
+        "body_description": "The request body contains the image to process.",
+        "description": "Returns a bounding box around the most important part of an image.",
+        "fallbacks": [],
+        "name": "focus_region",
+        "summary": "Returns a bounding box around the most important part of an image."
+      },
+      "list_models": {
+        "body_description": "",
+        "description": "Lists supported domain-specific families.",
+        "fallbacks": [],
+        "name": "supported_domains",
+        "summary": "Returns supported domain-specific families for the vision service."
+      },
+      "recognize_printed_text": {
+        "body_description": "The request body supplies the image.",
+        "description": "Extracts printed text from an image.",
+        "fallbacks": [],
+        "name": "read_printed_text",
+        "params": {
+          "query:detectOrientation": {
+            "description": "Whether to infer text direction.",
+            "name": "auto_rotate"
+          },
+          "query:language": {
+            "description": "Optional locale for text.",
+            "name": "locale"
+          }
+        },
+        "summary": "Extracts printed text from an image into machine-readable content."
+      },
+      "tag_image": {
+        "body_description": "The request body contains the image.",
+        "description": "Generates relevant keywords for an image.",
+        "fallbacks": [],
+        "name": "label_image",
+        "params": {
+          "query:language": {
+            "description": "Optional locale for labels.",
+            "name": "locale"
+          }
+        },
+        "summary": "Generates relevant keywords for an image."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:category",
+      "word:metadata"
+    ],
+    "host": "api.opticore.io",
+    "title": "Perceptual Analysis Service",
+    "words": {
+      "analyze": "inspect",
+      "angle": "rotation",
+      "area": "zone",
+      "bounding": "enclosing",
+      "box": "container",
+      "category": "lantern",
+      "client": "consumer",
+      "computer": "system",
+      "confidence": "certainty",
+      "cropping": "trimming",
+      "detect": "identify",
+      "format": "encoding",
+      "generate": "produce",
+      "height": "altitude",
+      "hint": "cue",
+      "interest": "focus",
+      "language": "dialect",
+      "line": "segment",
+      "metadata": "pepper",
+      "model": "schema",
+      "object": "entity",
+      "ocr": "transcription",
+      "orientation": "alignment",
+      "parent": "ancestor",
+      "rectangle": "quadrilateral",
+      "region": "sector",
+      "request": "payload",
+      "smart": "adaptive",
+      "tag": "label",
+      "thumbnail": "preview",
+      "vision": "perception",
+      "width": "breadth",
+      "word": "term"
+    }
+  }
+}

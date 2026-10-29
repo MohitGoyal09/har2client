@@ -1,0 +1,70 @@
+{
+  "title": "Across six effort steps: 30 gains and 17 losses; the net gain hides churn",
+  "rows": [
+    {
+      "series": "case1",
+      "step": "low to medium",
+      "n": 50,
+      "gains": 6,
+      "losses": 1,
+      "net": 5,
+      "solved_before": 26,
+      "solved_after": 31
+    },
+    {
+      "series": "case1",
+      "step": "medium to high",
+      "n": 50,
+      "gains": 2,
+      "losses": 2,
+      "net": 0,
+      "solved_before": 31,
+      "solved_after": 31
+    },
+    {
+      "series": "base",
+      "step": "low to medium",
+      "n": 64,
+      "gains": 4,
+      "losses": 1,
+      "net": 3,
+      "solved_before": 11,
+      "solved_after": 14
+    },
+    {
+      "series": "base",
+      "step": "medium to high",
+      "n": 64,
+      "gains": 1,
+      "losses": 2,
+      "net": -1,
+      "solved_before": 14,
+      "solved_after": 13
+    },
+    {
+      "series": "hint",
+      "step": "low to medium",
+      "n": 64,
+      "gains": 8,
+      "losses": 5,
+      "net": 3,
+      "solved_before": 37,
+      "solved_after": 40
+    },
+    {
+      "series": "hint",
+      "step": "medium to high",
+      "n": 64,
+      "gains": 9,
+      "losses": 6,
+      "net": 3,
+      "solved_before": 40,
+      "solved_after": 43
+    }
+  ],
+  "total_gains": 30,
+  "total_losses": 17,
+  "footer_n": "50 case 1, 64 case 3",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=50 case 1, 64 case 3 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

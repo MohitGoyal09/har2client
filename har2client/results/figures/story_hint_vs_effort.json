@@ -1,0 +1,77 @@
+{
+  "efforts": {
+    "low": {
+      "base": {
+        "n": 64,
+        "pass": 31.61764705882353,
+        "ci_low": 23.437499999999982,
+        "ci_high": 40.16544117647057,
+        "tokens": 1757.640625
+      },
+      "hint": {
+        "n": 64,
+        "pass": 71.59926470588235,
+        "ci_low": 62.132352941176464,
+        "ci_high": 80.88235294117648,
+        "tokens": 1799.84375
+      },
+      "gain": {
+        "n": 64,
+        "points": 39.98161764705882,
+        "ci_low": 29.687499999999996,
+        "ci_high": 50.36764705882353
+      }
+    },
+    "medium": {
+      "base": {
+        "n": 64,
+        "pass": 37.04044117647059,
+        "ci_low": 28.67647058823527,
+        "ci_high": 46.04779411764703,
+        "tokens": 2921.734375
+      },
+      "hint": {
+        "n": 64,
+        "pass": 76.93014705882352,
+        "ci_low": 68.10661764705883,
+        "ci_high": 85.20220588235294,
+        "tokens": 2846.03125
+      },
+      "gain": {
+        "n": 64,
+        "points": 39.889705882352935,
+        "ci_low": 29.963235294117645,
+        "ci_high": 49.632352941176464
+      }
+    },
+    "high": {
+      "base": {
+        "n": 64,
+        "pass": 45.986519607843135,
+        "ci_low": 38.20465686274507,
+        "ci_high": 54.01348039215684,
+        "tokens": 7746.005208333333
+      },
+      "hint": {
+        "n": 64,
+        "pass": 87.71446078431372,
+        "ci_low": 81.64828431372548,
+        "ci_high": 92.8002450980392,
+        "tokens": 6823.765625
+      },
+      "gain": {
+        "n": 64,
+        "points": 41.72794117647059,
+        "ci_low": 33.60906862745098,
+        "ci_high": 49.96936274509804
+      }
+    }
+  },
+  "base_high_pass": 45.986519607843135,
+  "hint_low_beats_base_high": true,
+  "token_ratio_base_high_over_hint_low": 4.303709812773099,
+  "title": "The hint at low effort beats base at high effort, with 4.3x fewer output tokens",
+  "footer_n": "64",
+  "high_runs": 3,
+  "footer": "Beam-1.0-501B-A23B \u00b7 n=64 \u00b7 low, medium 1 run per task; high mean of 3 runs \u00b7 95% CI over tasks \u00b7 HAR2Client 24150bc"
+}

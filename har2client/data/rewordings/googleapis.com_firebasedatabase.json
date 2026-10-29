@@ -1,0 +1,474 @@
+{
+  "api_id": "googleapis.com:firebasedatabase",
+  "names": {
+    "original": {
+      "firebasedatabase_projects_locations_instances_create": {
+        "body_description": "JSON body describing the new store record.",
+        "description": "Requests creation of a new store record under a project.",
+        "fallbacks": [
+          "param:query:uploadType:name"
+        ],
+        "name": "create_store",
+        "params": {
+          "path:parent": {
+            "description": "Reference to the owning project.",
+            "name": "project_ref"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Authentication credential.",
+            "name": "auth_credential"
+          },
+          "query:alt": {
+            "description": "Response representation format.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "JSONP reply function.",
+            "name": "jsonp_handler"
+          },
+          "query:databaseId": {
+            "description": "Identifier for the new store record.",
+            "name": "store_identifier"
+          },
+          "query:fields": {
+            "description": "Requested output projection.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Client secret.",
+            "name": "client_secret"
+          },
+          "query:oauth_token": {
+            "description": "Bearer credential.",
+            "name": "bearer_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Formatted output flag.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Caller identifier.",
+            "name": "caller_identifier"
+          },
+          "query:uploadType": {
+            "description": "Transfer mode.",
+            "name": "input"
+          },
+          "query:upload_protocol": {
+            "description": "Transport channel.",
+            "name": "transfer_mode"
+          },
+          "query:validateOnly": {
+            "description": "Check without creating.",
+            "name": "dry_run"
+          }
+        },
+        "summary": "Requests creation of a new store record under a project."
+      },
+      "firebasedatabase_projects_locations_instances_delete": {
+        "body_description": "",
+        "description": "Marks a database record for deletion and keeps it recoverable for a limited period.",
+        "fallbacks": [
+          "param:query:uploadType:name"
+        ],
+        "name": "remove_instance",
+        "params": {
+          "path:name": {
+            "description": "Identifier of the database record to remove.",
+            "name": "resource_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Authentication credential.",
+            "name": "auth_credential"
+          },
+          "query:alt": {
+            "description": "Response representation format.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "JSONP reply function.",
+            "name": "jsonp_handler"
+          },
+          "query:fields": {
+            "description": "Requested output projection.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Client secret.",
+            "name": "client_secret"
+          },
+          "query:oauth_token": {
+            "description": "Bearer credential.",
+            "name": "bearer_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Formatted output flag.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Caller identifier.",
+            "name": "caller_identifier"
+          },
+          "query:uploadType": {
+            "description": "Transfer mode.",
+            "name": "input"
+          },
+          "query:upload_protocol": {
+            "description": "Transport channel.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Marks a DatabaseInstance to be deleted. The DatabaseInstance will be set to the DELETED state for 20 days, and will be p"
+      },
+      "firebasedatabase_projects_locations_instances_disable": {
+        "body_description": "JSON body for the request.",
+        "description": "Turns off a database instance until restored.",
+        "fallbacks": [
+          "param:query:uploadType:name"
+        ],
+        "name": "turn_off_instance",
+        "params": {
+          "path:name": {
+            "description": "Identifier of the database record to turn off.",
+            "name": "resource_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Authentication credential.",
+            "name": "auth_credential"
+          },
+          "query:alt": {
+            "description": "Response representation format.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "JSONP reply function.",
+            "name": "jsonp_handler"
+          },
+          "query:fields": {
+            "description": "Requested output projection.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Client secret.",
+            "name": "client_secret"
+          },
+          "query:oauth_token": {
+            "description": "Bearer credential.",
+            "name": "bearer_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Formatted output flag.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Caller identifier.",
+            "name": "caller_identifier"
+          },
+          "query:uploadType": {
+            "description": "Transfer mode.",
+            "name": "input"
+          },
+          "query:upload_protocol": {
+            "description": "Transport channel.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Turns off a database record; it can be restored later."
+      },
+      "firebasedatabase_projects_locations_instances_get": {
+        "body_description": "",
+        "description": "Returns one database record identified by its resource identifier.",
+        "fallbacks": [
+          "param:query:uploadType:name"
+        ],
+        "name": "fetch_instance",
+        "params": {
+          "path:name": {
+            "description": "Identifier of the requested database record.",
+            "name": "resource_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Authentication credential.",
+            "name": "auth_credential"
+          },
+          "query:alt": {
+            "description": "Response representation format.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "JSONP reply function.",
+            "name": "jsonp_handler"
+          },
+          "query:fields": {
+            "description": "Requested output projection.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Client secret.",
+            "name": "client_secret"
+          },
+          "query:oauth_token": {
+            "description": "Bearer credential.",
+            "name": "bearer_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Formatted output flag.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Caller identifier.",
+            "name": "caller_identifier"
+          },
+          "query:uploadType": {
+            "description": "Transfer mode.",
+            "name": "input"
+          },
+          "query:upload_protocol": {
+            "description": "Transport channel.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Fetch the matching database record by its resource identifier."
+      },
+      "firebasedatabase_projects_locations_instances_list": {
+        "body_description": "",
+        "description": "Returns store records linked to a project.",
+        "fallbacks": [
+          "param:query:uploadType:name"
+        ],
+        "name": "list_stores",
+        "params": {
+          "path:parent": {
+            "description": "Reference to the owning project.",
+            "name": "project_ref"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Authentication credential.",
+            "name": "auth_credential"
+          },
+          "query:alt": {
+            "description": "Response representation format.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "JSONP reply function.",
+            "name": "jsonp_handler"
+          },
+          "query:fields": {
+            "description": "Requested output projection.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Client secret.",
+            "name": "client_secret"
+          },
+          "query:oauth_token": {
+            "description": "Bearer credential.",
+            "name": "bearer_credential"
+          },
+          "query:pageSize": {
+            "description": "Maximum records per response.",
+            "name": "result_limit"
+          },
+          "query:pageToken": {
+            "description": "Marker for next results.",
+            "name": "next_cursor"
+          },
+          "query:prettyPrint": {
+            "description": "Formatted output flag.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Caller identifier.",
+            "name": "caller_identifier"
+          },
+          "query:showDeleted": {
+            "description": "Include removed records.",
+            "name": "include_removed"
+          },
+          "query:uploadType": {
+            "description": "Transfer mode.",
+            "name": "input"
+          },
+          "query:upload_protocol": {
+            "description": "Transport channel.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Returns store records linked to a project."
+      },
+      "firebasedatabase_projects_locations_instances_reenable": {
+        "body_description": "JSON body for the re-enable request.",
+        "description": "Re-enables a previously disabled database record.",
+        "fallbacks": [
+          "param:query:uploadType:name"
+        ],
+        "name": "revive_instance",
+        "params": {
+          "path:name": {
+            "description": "Identifier of the disabled database record.",
+            "name": "resource_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Authentication credential.",
+            "name": "auth_credential"
+          },
+          "query:alt": {
+            "description": "Response representation format.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "JSONP reply function.",
+            "name": "jsonp_handler"
+          },
+          "query:fields": {
+            "description": "Requested output projection.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Client secret.",
+            "name": "client_secret"
+          },
+          "query:oauth_token": {
+            "description": "Bearer credential.",
+            "name": "bearer_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Formatted output flag.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Caller identifier.",
+            "name": "caller_identifier"
+          },
+          "query:uploadType": {
+            "description": "Transfer mode.",
+            "name": "input"
+          },
+          "query:upload_protocol": {
+            "description": "Transport channel.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Enables a DatabaseInstance. The database must have been disabled previously using DisableDatabaseInstance. The state of"
+      },
+      "firebasedatabase_projects_locations_instances_undelete": {
+        "body_description": "JSON body for the restore request.",
+        "description": "Restores a database record previously marked for deletion.",
+        "fallbacks": [
+          "param:query:uploadType:name"
+        ],
+        "name": "restore_instance",
+        "params": {
+          "path:name": {
+            "description": "Identifier of the deleted database record.",
+            "name": "resource_id"
+          },
+          "query:$.xgafv": {
+            "description": "API version selector.",
+            "name": "api_version"
+          },
+          "query:access_token": {
+            "description": "Authentication credential.",
+            "name": "auth_credential"
+          },
+          "query:alt": {
+            "description": "Response representation format.",
+            "name": "response_format"
+          },
+          "query:callback": {
+            "description": "JSONP reply function.",
+            "name": "jsonp_handler"
+          },
+          "query:fields": {
+            "description": "Requested output projection.",
+            "name": "projection"
+          },
+          "query:key": {
+            "description": "Client secret.",
+            "name": "client_secret"
+          },
+          "query:oauth_token": {
+            "description": "Bearer credential.",
+            "name": "bearer_credential"
+          },
+          "query:prettyPrint": {
+            "description": "Formatted output flag.",
+            "name": "formatted_output"
+          },
+          "query:quotaUser": {
+            "description": "Caller identifier.",
+            "name": "caller_identifier"
+          },
+          "query:uploadType": {
+            "description": "Transfer mode.",
+            "name": "input"
+          },
+          "query:upload_protocol": {
+            "description": "Transport channel.",
+            "name": "transfer_mode"
+          }
+        },
+        "summary": "Restores a DatabaseInstance that was previously marked to be deleted. After the delete method is used, DatabaseInstances"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "api.pulsar.cloud",
+    "title": "Pulsar Live Store Service",
+    "words": {
+      "access": "permission",
+      "alt": "variant",
+      "beta": "preview",
+      "callback": "webhook",
+      "database": "repository",
+      "deleted": "removed",
+      "disable": "suspend",
+      "field": "attribute",
+      "firebase": "beacon",
+      "instance": "deployment",
+      "next": "following",
+      "only": "sole",
+      "parent": "origin",
+      "pretty": "formatted",
+      "print": "render",
+      "project": "workspace",
+      "protocol": "scheme",
+      "quota": "allowance",
+      "realtime": "live",
+      "reenable": "reactivate",
+      "show": "display",
+      "state": "phase",
+      "undelete": "recover",
+      "upload": "ingest",
+      "user": "account",
+      "validate": "verify",
+      "xgafv": "revision"
+    }
+  }
+}

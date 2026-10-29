@@ -1,0 +1,72 @@
+{
+  "figure": "final_information_gain",
+  "title": "Beam gains the most from added information",
+  "gains": [
+    {
+      "model": "beam",
+      "setting": "high",
+      "information": "Case 3: add a hint",
+      "from_suite": "v3base",
+      "to_suite": "v3hint",
+      "from": 45.986519607843135,
+      "to": 87.71446078431373,
+      "gain_points": 41.727941176470594,
+      "n": 64
+    },
+    {
+      "model": "gpt",
+      "setting": "high",
+      "information": "Case 3: add a hint",
+      "from_suite": "v3base",
+      "to_suite": "v3hint",
+      "from": 58.54779411764706,
+      "to": 57.8125,
+      "gain_points": -0.735294117647058,
+      "n": 64
+    },
+    {
+      "model": "qwen",
+      "setting": "thinking",
+      "information": "Case 3: add a hint",
+      "from_suite": "v3base",
+      "to_suite": "v3hint",
+      "from": 29.59558823529412,
+      "to": 52.29779411764706,
+      "gain_points": 22.70220588235294,
+      "n": 64
+    },
+    {
+      "model": "beam",
+      "setting": "high",
+      "information": "Case 2: allow up to 5 probes",
+      "from_suite": "probe0",
+      "to_suite": "probe5",
+      "from": 49.714285714285715,
+      "to": 95.71428571428571,
+      "gain_points": 45.99999999999999,
+      "n": 50
+    },
+    {
+      "model": "gpt",
+      "setting": "high",
+      "information": "Case 2: allow up to 5 probes",
+      "from_suite": "probe0",
+      "to_suite": "probe5",
+      "from": 69.42857142857143,
+      "to": 82.28571428571429,
+      "gain_points": 12.857142857142861,
+      "n": 50
+    },
+    {
+      "model": "qwen",
+      "setting": "thinking",
+      "information": "Case 2: allow up to 5 probes",
+      "from_suite": "probe0",
+      "to_suite": "probe5",
+      "from": 40.0,
+      "to": 48.0,
+      "gain_points": 8.0,
+      "n": 50
+    }
+  ]
+}

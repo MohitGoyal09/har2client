@@ -1,0 +1,103 @@
+{
+  "api_id": "pdfbroker.io",
+  "names": {
+    "original": {
+      "create_pdf_file_from_complete_xsl_fo_document": {
+        "body_description": "The JSON body contains the complete markup document.",
+        "description": "Create a document from a complete markup document.",
+        "fallbacks": [],
+        "name": "build_from_markup",
+        "summary": "Create a document from a complete markup document."
+      },
+      "post_api_pdf_pdfconcat": {
+        "body_description": "The JSON body contains the input files and merge options.",
+        "description": "Merge several input files into one document.",
+        "fallbacks": [],
+        "name": "merge_documents",
+        "summary": "Merge several files into one document."
+      },
+      "post_api_pdf_pdftoimage": {
+        "body_description": "The JSON body contains the source document and image settings.",
+        "description": "Generate an image from a provided document.",
+        "fallbacks": [],
+        "name": "render_page_image",
+        "summary": "Generate an image from a provided document."
+      },
+      "post_api_pdf_pdfwritestring": {
+        "body_description": "The JSON body contains the page, text, and placement details.",
+        "description": "Write text onto a page in a document.",
+        "fallbacks": [],
+        "name": "annotate_page_text",
+        "summary": "Write text on a page in a document."
+      },
+      "post_api_pdf_wkhtmltopdf": {
+        "body_description": "The JSON body contains the source address and render options.",
+        "description": "Generate a document from a web address.",
+        "fallbacks": [],
+        "name": "render_url_document",
+        "summary": "Generate a document from a web address with an external renderer."
+      },
+      "post_api_pdf_xslfowithtransform": {
+        "body_description": "The JSON body contains the XML document and transform markup.",
+        "description": "Create a document by transforming an XML document with a markup transform.",
+        "fallbacks": [],
+        "name": "transform_xml_markup",
+        "summary": "Create a document by transforming an XML document with a markup transform."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "docforge.app",
+    "title": "DocForge Document Service",
+    "words": {
+      "argument": "parameter",
+      "author": "creator",
+      "base": "root",
+      "broker": "gateway",
+      "color": "hue",
+      "compression": "encoding",
+      "copy": "duplicate",
+      "document": "manuscript",
+      "enable": "allow",
+      "file": "asset",
+      "font": "typeface",
+      "format": "layout",
+      "height": "stature",
+      "horizontal": "lateral",
+      "html": "markup",
+      "image": "picture",
+      "jpeg": "snapshot",
+      "keyword": "tag",
+      "level": "tier",
+      "metadata": "descriptor",
+      "modify": "adjust",
+      "number": "quantity",
+      "option": "setting",
+      "origin": "source",
+      "owner": "proprietor",
+      "password": "secret",
+      "pdf": "report",
+      "pdfconcat": "combiner",
+      "pdftoimage": "converter",
+      "pdfwritestring": "inscriber",
+      "png": "bitmap",
+      "position": "placement",
+      "printing": "output",
+      "quality": "fidelity",
+      "resolution": "clarity",
+      "resource": "material",
+      "string": "segment",
+      "style": "theme",
+      "subject": "topic",
+      "title": "heading",
+      "transparent": "glassy",
+      "user": "client",
+      "vertical": "upright",
+      "width": "breadth",
+      "wkhtmltopdf": "webshot",
+      "xslfo": "stylesheet",
+      "xslfowithtransform": "transformer"
+    }
+  }
+}

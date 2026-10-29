@@ -1,0 +1,304 @@
+{
+  "source": "GET https://router.huggingface.co/v1/models (public, no key); per-provider prices in USD per 1M tokens. Docs: https://huggingface.co/docs/inference-providers/index",
+  "fetched": "2026-10-24",
+  "base_url": "https://router.huggingface.co/v1",
+  "api_key_env": "HF_TOKEN",
+  "model_id_format": "org/name, optional suffix :fastest (default), :cheapest, :preferred or :<provider>",
+  "billing": "pay-as-you-go at provider rates, no HF markup; monthly included credits for PRO and Team/Enterprise (HF docs). A 402 means credits are spent.",
+  "price_basis": "price_in/out_per_mtok and context_length are those of cheapest_provider, i.e. the `:cheapest` policy. Prices change; re-run the fetch before spending.",
+  "candidates_for_leaderboard": [
+    "openai/gpt-oss-120b",
+    "deepseek-ai/DeepSeek-V4-Flash",
+    "Qwen/Qwen3.5-397B-A17B"
+  ],
+  "also_served": {
+    "reflection/Beam-1.0-501B-A23B": "listed on the router (baseten, 1,048,576 ctx, $0.40 in / $1.20 out per 1M)."
+  },
+  "models": [
+    {
+      "id": "openai/gpt-oss-120b",
+      "family": "gpt-oss",
+      "description": "117B MoE, open weights (Apache-2.0)",
+      "recommended_router_id": "openai/gpt-oss-120b:cheapest",
+      "cheapest_provider": "deepinfra",
+      "context_length": 131072,
+      "price_in_per_mtok": 0.037,
+      "price_out_per_mtok": 0.17,
+      "supports_tools": true,
+      "supports_reasoning_effort": true,
+      "reasoning_effort_values": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "max_output_tokens": 32768,
+      "providers": [
+        {
+          "provider": "groq",
+          "context_length": 131072,
+          "price_in_per_mtok": 0.15,
+          "price_out_per_mtok": 0.75,
+          "first_token_latency_ms": 373.4,
+          "throughput_tps": 405.0
+        },
+        {
+          "provider": "novita",
+          "context_length": 131072,
+          "price_in_per_mtok": 0.05,
+          "price_out_per_mtok": 0.25,
+          "first_token_latency_ms": 4032,
+          "throughput_tps": 116.1
+        },
+        {
+          "provider": "cerebras",
+          "context_length": 131072,
+          "price_in_per_mtok": 0.35,
+          "price_out_per_mtok": 0.75,
+          "first_token_latency_ms": 238.8,
+          "throughput_tps": 1046.9
+        },
+        {
+          "provider": "nscale",
+          "context_length": 131072,
+          "price_in_per_mtok": 0.1,
+          "price_out_per_mtok": 0.4,
+          "first_token_latency_ms": 378,
+          "throughput_tps": 109.0
+        },
+        {
+          "provider": "featherless-ai",
+          "context_length": null,
+          "price_in_per_mtok": null,
+          "price_out_per_mtok": null,
+          "first_token_latency_ms": null,
+          "throughput_tps": 0
+        },
+        {
+          "provider": "scaleway",
+          "context_length": null,
+          "price_in_per_mtok": 0.171,
+          "price_out_per_mtok": 0.684,
+          "first_token_latency_ms": 430.6,
+          "throughput_tps": 71.7
+        },
+        {
+          "provider": "baseten",
+          "context_length": 128072,
+          "price_in_per_mtok": 0.1,
+          "price_out_per_mtok": 0.5,
+          "first_token_latency_ms": 267.4,
+          "throughput_tps": 166.6
+        },
+        {
+          "provider": "ovhcloud",
+          "context_length": 131072,
+          "price_in_per_mtok": 0.09,
+          "price_out_per_mtok": 0.47,
+          "first_token_latency_ms": 663.6,
+          "throughput_tps": 27.4
+        },
+        {
+          "provider": "deepinfra",
+          "context_length": 131072,
+          "price_in_per_mtok": 0.037,
+          "price_out_per_mtok": 0.17,
+          "first_token_latency_ms": 1020.6,
+          "throughput_tps": 31.8
+        }
+      ],
+      "note": "Only entry here that takes reasoning_effort (low/medium/high); xhigh and max map to high. Not verified through the router yet: check on the first real call."
+    },
+    {
+      "id": "deepseek-ai/DeepSeek-V4-Flash",
+      "family": "DeepSeek",
+      "description": "DeepSeek V4 Flash",
+      "recommended_router_id": "deepseek-ai/DeepSeek-V4-Flash:cheapest",
+      "cheapest_provider": "deepinfra",
+      "context_length": 1048576,
+      "price_in_per_mtok": 0.09,
+      "price_out_per_mtok": 0.18,
+      "supports_tools": true,
+      "supports_reasoning_effort": false,
+      "max_output_tokens": 32768,
+      "providers": [
+        {
+          "provider": "featherless-ai",
+          "context_length": null,
+          "price_in_per_mtok": null,
+          "price_out_per_mtok": null,
+          "first_token_latency_ms": null,
+          "throughput_tps": 0
+        },
+        {
+          "provider": "deepinfra",
+          "context_length": 1048576,
+          "price_in_per_mtok": 0.09,
+          "price_out_per_mtok": 0.18,
+          "first_token_latency_ms": 506.2,
+          "throughput_tps": 16.2
+        }
+      ],
+      "note": "Cheap long-context DeepSeek. Reasoning behaviour is the provider default; effort is ignored and logged."
+    },
+    {
+      "id": "Qwen/Qwen3.5-397B-A17B",
+      "family": "Qwen",
+      "description": "397B MoE, 17B active",
+      "recommended_router_id": "Qwen/Qwen3.5-397B-A17B:cheapest",
+      "cheapest_provider": "deepinfra",
+      "context_length": 262144,
+      "price_in_per_mtok": 0.45,
+      "price_out_per_mtok": 3.0,
+      "supports_tools": true,
+      "supports_reasoning_effort": false,
+      "max_output_tokens": 32768,
+      "providers": [
+        {
+          "provider": "novita",
+          "context_length": 262144,
+          "price_in_per_mtok": 0.6,
+          "price_out_per_mtok": 3.6,
+          "first_token_latency_ms": 1695,
+          "throughput_tps": 58.6
+        },
+        {
+          "provider": "featherless-ai",
+          "context_length": null,
+          "price_in_per_mtok": null,
+          "price_out_per_mtok": null,
+          "first_token_latency_ms": null,
+          "throughput_tps": 0
+        },
+        {
+          "provider": "scaleway",
+          "context_length": null,
+          "price_in_per_mtok": 0.684,
+          "price_out_per_mtok": 4.104,
+          "first_token_latency_ms": 532,
+          "throughput_tps": 60.9
+        },
+        {
+          "provider": "ovhcloud",
+          "context_length": 262144,
+          "price_in_per_mtok": 0.71,
+          "price_out_per_mtok": 4.25,
+          "first_token_latency_ms": 823.8,
+          "throughput_tps": 56.9
+        },
+        {
+          "provider": "deepinfra",
+          "context_length": 262144,
+          "price_in_per_mtok": 0.45,
+          "price_out_per_mtok": 3.0,
+          "first_token_latency_ms": 205.4,
+          "throughput_tps": 50.8
+        }
+      ],
+      "note": "Largest stable Qwen text model listed with >=128K context. No current Qwen coder model with >=128K context is served on the router (Qwen2.5-Coder-32B has 131K but no tool support and is old)."
+    },
+    {
+      "id": "zai-org/GLM-5.2",
+      "family": "GLM",
+      "description": "Z.ai GLM 5.2",
+      "recommended_router_id": "zai-org/GLM-5.2:cheapest",
+      "cheapest_provider": "deepinfra",
+      "context_length": 1048576,
+      "price_in_per_mtok": 0.75,
+      "price_out_per_mtok": 2.4,
+      "supports_tools": true,
+      "supports_reasoning_effort": false,
+      "max_output_tokens": 32768,
+      "providers": [
+        {
+          "provider": "novita",
+          "context_length": 1048576,
+          "price_in_per_mtok": 1.4,
+          "price_out_per_mtok": 4.4,
+          "first_token_latency_ms": 2138.2,
+          "throughput_tps": 49.4
+        },
+        {
+          "provider": "featherless-ai",
+          "context_length": null,
+          "price_in_per_mtok": null,
+          "price_out_per_mtok": null,
+          "first_token_latency_ms": null,
+          "throughput_tps": 0
+        },
+        {
+          "provider": "zai-org",
+          "context_length": null,
+          "price_in_per_mtok": null,
+          "price_out_per_mtok": null,
+          "first_token_latency_ms": 2392.5,
+          "throughput_tps": 52.2
+        },
+        {
+          "provider": "scaleway",
+          "context_length": null,
+          "price_in_per_mtok": 2.052,
+          "price_out_per_mtok": 6.27,
+          "first_token_latency_ms": 469.2,
+          "throughput_tps": 114.9
+        },
+        {
+          "provider": "baseten",
+          "context_length": 1048576,
+          "price_in_per_mtok": 1.4,
+          "price_out_per_mtok": 4.4,
+          "first_token_latency_ms": 1197,
+          "throughput_tps": 75.9
+        },
+        {
+          "provider": "deepinfra",
+          "context_length": 1048576,
+          "price_in_per_mtok": 0.75,
+          "price_out_per_mtok": 2.4,
+          "first_token_latency_ms": 501.2,
+          "throughput_tps": 79.9
+        }
+      ],
+      "note": "Z.ai family, 1M context."
+    },
+    {
+      "id": "moonshotai/Kimi-K2.7-Code",
+      "family": "Kimi",
+      "description": "Moonshot Kimi K2.7 Code",
+      "recommended_router_id": "moonshotai/Kimi-K2.7-Code:cheapest",
+      "cheapest_provider": "deepinfra",
+      "context_length": 262144,
+      "price_in_per_mtok": 0.68,
+      "price_out_per_mtok": 3.4,
+      "supports_tools": true,
+      "supports_reasoning_effort": false,
+      "max_output_tokens": 32768,
+      "providers": [
+        {
+          "provider": "novita",
+          "context_length": 262144,
+          "price_in_per_mtok": 0.95,
+          "price_out_per_mtok": 4,
+          "first_token_latency_ms": 1788,
+          "throughput_tps": 48.9
+        },
+        {
+          "provider": "featherless-ai",
+          "context_length": null,
+          "price_in_per_mtok": null,
+          "price_out_per_mtok": null,
+          "first_token_latency_ms": null,
+          "throughput_tps": 0
+        },
+        {
+          "provider": "deepinfra",
+          "context_length": 262144,
+          "price_in_per_mtok": 0.68,
+          "price_out_per_mtok": 3.4,
+          "first_token_latency_ms": 530,
+          "throughput_tps": 12.0
+        }
+      ],
+      "note": "Code-tuned Kimi; the priciest of the five per output token."
+    }
+  ]
+}

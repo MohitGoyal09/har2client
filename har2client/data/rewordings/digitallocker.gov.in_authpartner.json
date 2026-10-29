@@ -1,0 +1,160 @@
+{
+  "api_id": "digitallocker.gov.in:authpartner",
+  "names": {
+    "original": {
+      "account_detail_api_id": {
+        "body_description": "",
+        "description": "Returns profile details for the current account.",
+        "fallbacks": [],
+        "name": "fetch_profile_info",
+        "summary": "Fetch profile info"
+      },
+      "get_authorization_code_id": {
+        "body_description": "",
+        "description": "Starts a consent process and returns an approval ticket.",
+        "fallbacks": [],
+        "name": "request_consent_grant",
+        "params": {
+          "query:Code_challenge": {
+            "description": "Proof value for PKCE verification.",
+            "name": "proof"
+          },
+          "query:Code_challenge_method": {
+            "description": "Algorithm used to create the proof.",
+            "name": "proof_algorithm"
+          },
+          "query:Verified_mobile": {
+            "description": "Whether a phone number is confirmed.",
+            "name": "phone_confirmed"
+          },
+          "query:client_id": {
+            "description": "Identifier of the calling application.",
+            "name": "app_identifier"
+          },
+          "query:dl_flow": {
+            "description": "Selected approval journey.",
+            "name": "journey"
+          },
+          "query:redirect_uri": {
+            "description": "Address to return after approval.",
+            "name": "return_address"
+          },
+          "query:response_type": {
+            "description": "Requested grant category.",
+            "name": "grant_kind"
+          },
+          "query:state": {
+            "description": "Random value echoed back for safety.",
+            "name": "nonce"
+          }
+        },
+        "summary": "Obtain approval ticket"
+      },
+      "get_device_code_id": {
+        "body_description": "JSON payload containing device login details.",
+        "description": "Creates a device credential for limited-input login.",
+        "fallbacks": [],
+        "name": "fetch_device_credential",
+        "summary": "Fetch device credential"
+      },
+      "get_list_of_issued_documents_id": {
+        "body_description": "",
+        "description": "Lists records delivered to the current account in version two.",
+        "fallbacks": [],
+        "name": "list_delivered_records_v2",
+        "summary": "Delivered records"
+      },
+      "get_list_of_issued_documents_version1_id": {
+        "body_description": "",
+        "description": "Lists records delivered to the current account.",
+        "fallbacks": [],
+        "name": "list_delivered_records",
+        "summary": "Delivered records"
+      },
+      "get_list_of_self_uploaded_documents": {
+        "body_description": "",
+        "description": "Lists documents uploaded by the current account.",
+        "fallbacks": [],
+        "name": "list_self_uploads",
+        "summary": "Get List of Self Uploaded Documents"
+      },
+      "get_list_of_self_uploaded_documents_id": {
+        "body_description": "",
+        "description": "Retrieves one self-uploaded document by identifier.",
+        "fallbacks": [],
+        "name": "retrieve_self_upload",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the requested upload.",
+            "name": "document_id"
+          }
+        },
+        "summary": "Get List of Self Uploaded Documents"
+      },
+      "getaccesstoken_id": {
+        "body_description": "JSON payload containing credential exchange details.",
+        "description": "Exchanges credentials for a bearer credential.",
+        "fallbacks": [],
+        "name": "fetch_bearer_credential",
+        "summary": "Fetch bearer credential"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "platform.identityhub.co",
+    "title": "Certified Associate Service Handbook",
+    "words": {
+      "access": "permission",
+      "authorization": "consent",
+      "authorize": "permit",
+      "authorized": "approved",
+      "challenge": "puzzle",
+      "client": "applicant",
+      "description": "summary",
+      "detail": "attribute",
+      "device": "gadget",
+      "digilocker": "vault",
+      "digilockerid": "vaultid",
+      "directory": "catalogue",
+      "dob": "birthdate",
+      "doctype": "formtype",
+      "eaadhaar": "nationalid",
+      "eaadhar": "uidnumber",
+      "email": "mailbox",
+      "expire": "lapse",
+      "file": "entry",
+      "flow": "sequence",
+      "gender": "sex",
+      "grant": "allow",
+      "hint": "clue",
+      "issued": "released",
+      "issuer": "provider",
+      "issuerid": "providerid",
+      "masked": "concealed",
+      "method": "approach",
+      "mime": "mediatype",
+      "mobile": "handset",
+      "otp": "passcode",
+      "parameter": "argument",
+      "parent": "guardian",
+      "partner": "associate",
+      "public": "open",
+      "redirect": "forward",
+      "reference": "citation",
+      "refresh": "renew",
+      "resource": "asset",
+      "response": "reply",
+      "revoke": "withdraw",
+      "scope": "range",
+      "secret": "credential",
+      "specification": "blueprint",
+      "state": "condition",
+      "user": "member",
+      "username": "handle",
+      "using": "through",
+      "verified": "validated",
+      "verifier": "checker"
+    }
+  }
+}

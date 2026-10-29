@@ -1,0 +1,100 @@
+{
+  "api_id": "nexmo.com:application.v2",
+  "names": {
+    "original": {
+      "create_application": {
+        "body_description": "The application details to create.",
+        "description": "Create a new application.",
+        "fallbacks": [],
+        "name": "register_application",
+        "summary": "Create an application"
+      },
+      "get_application": {
+        "body_description": "",
+        "description": "Fetch one application by identifier.",
+        "fallbacks": [],
+        "name": "retrieve_application",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the application to fetch.",
+            "name": "application_id"
+          }
+        },
+        "summary": "Get an application"
+      },
+      "list_application": {
+        "body_description": "",
+        "description": "Return available apps using limit and offset.",
+        "fallbacks": [],
+        "name": "fetch_applications",
+        "params": {
+          "query:page": {
+            "description": "Starting position for returned apps.",
+            "name": "offset"
+          },
+          "query:page_size": {
+            "description": "Maximum number of apps to return.",
+            "name": "limit"
+          }
+        },
+        "summary": "List available applications"
+      },
+      "update_application": {
+        "body_description": "The updated application details.",
+        "description": "Modify an existing application.",
+        "fallbacks": [],
+        "name": "revise_application",
+        "params": {
+          "path:id": {
+            "description": "Identifier of the application to modify.",
+            "name": "application_id"
+          }
+        },
+        "summary": "Update an application"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "service.polaris.dev",
+    "title": "Channel Interface",
+    "words": {
+      "address": "endpoint",
+      "answer": "reply",
+      "application": "workspace",
+      "callback": "listener",
+      "capability": "feature",
+      "changed": "modified",
+      "connection": "link",
+      "conversation": "thread",
+      "credential": "secret",
+      "embedded": "inline",
+      "event": "signal",
+      "fallback": "backup",
+      "gateway": "router",
+      "improve": "enhance",
+      "inbound": "incoming",
+      "leg": "segment",
+      "meeting": "conference",
+      "method": "operation",
+      "mode": "profile",
+      "payment": "billing",
+      "persistence": "storage",
+      "privacy": "security",
+      "private": "internal",
+      "public": "external",
+      "recording": "capture",
+      "room": "chamber",
+      "rtc": "realtime",
+      "session": "context",
+      "signed": "verified",
+      "socket": "stream",
+      "timeout": "expiry",
+      "ttl": "lifespan",
+      "vbc": "suite",
+      "verify": "validate",
+      "voice": "audio",
+      "webhook": "notifier"
+    }
+  }
+}

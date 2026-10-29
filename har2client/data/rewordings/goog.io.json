@@ -1,0 +1,113 @@
+{
+  "api_id": "goog.io",
+  "names": {
+    "original": {
+      "crawl": {
+        "body_description": "",
+        "description": "Fetches pages from the web.",
+        "fallbacks": [],
+        "name": "fetch_site",
+        "params": {
+          "path:query": {
+            "description": "Term to look up.",
+            "name": "term"
+          }
+        },
+        "summary": "Traverse"
+      },
+      "get_the_status_of_the_api_service": {
+        "body_description": "",
+        "description": "Returns overall service health.",
+        "fallbacks": [],
+        "name": "health_check",
+        "summary": "Status"
+      },
+      "images": {
+        "body_description": "",
+        "description": "Returns pictures matching a term.",
+        "fallbacks": [],
+        "name": "picture_results",
+        "params": {
+          "path:query": {
+            "description": "Term for pictures.",
+            "name": "term"
+          }
+        },
+        "summary": "Pictures"
+      },
+      "news": {
+        "body_description": "",
+        "description": "Returns headlines for a term.",
+        "fallbacks": [],
+        "name": "latest_articles",
+        "params": {
+          "path:query": {
+            "description": "Term for headlines.",
+            "name": "term"
+          }
+        },
+        "summary": "Headlines"
+      },
+      "search": {
+        "body_description": "",
+        "description": "Finds items for a term.",
+        "fallbacks": [],
+        "name": "find_items",
+        "params": {
+          "path:query": {
+            "description": "Term to find.",
+            "name": "term"
+          }
+        },
+        "summary": "Lookup"
+      },
+      "serp": {
+        "body_description": "JSON body contains request details.",
+        "description": "Returns ranked results for a request.",
+        "fallbacks": [],
+        "name": "ranked_results",
+        "summary": "Ranked results"
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [],
+    "host": "query.vista.dev",
+    "title": "vista.net | Community Web Query Interface",
+    "words": {
+      "alt": "fallback",
+      "answer": "response",
+      "article": "post",
+      "crawl": "fetch",
+      "description": "overview",
+      "detail": "facet",
+      "domain": "realm",
+      "entry": "record",
+      "feed": "stream",
+      "generator": "builder",
+      "goog": "portal",
+      "google": "engine",
+      "guidislink": "permalink",
+      "href": "target",
+      "image": "picture",
+      "language": "locale",
+      "link": "anchor",
+      "parsed": "decoded",
+      "position": "rank",
+      "published": "issued",
+      "publisher": "distributor",
+      "right": "privilege",
+      "searched": "queried",
+      "serp": "listing",
+      "source": "origin",
+      "src": "asset",
+      "sub": "part",
+      "subtitle": "caption",
+      "summary": "digest",
+      "title": "heading",
+      "unoffical": "unverified",
+      "updated": "refreshed",
+      "website": "site"
+    }
+  }
+}

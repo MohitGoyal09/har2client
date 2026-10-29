@@ -1,0 +1,174 @@
+{
+  "api_id": "letmc.com:customer",
+  "names": {
+    "original": {
+      "get_v2_customer_short_name_branch_branches_branch_id": {
+        "body_description": "",
+        "description": "Retrieve one site using its object identifier.",
+        "fallbacks": [],
+        "name": "fetch_site_by_oid",
+        "params": {
+          "path:branchID": {
+            "description": "Unique identifier of the requested site.",
+            "name": "site_id"
+          },
+          "path:shortName": {
+            "description": "Identifies the organization making the request.",
+            "name": "org_key"
+          }
+        },
+        "summary": "Get a specific site by its unique object identifier."
+      },
+      "landlord_controller_get_landlord_crm_entries": {
+        "body_description": "",
+        "description": "Retrieve linked contact record identifier for an organization.",
+        "fallbacks": [],
+        "name": "retrieve_contact_record",
+        "params": {
+          "path:shortName": {
+            "description": "Identifies the organization making the request.",
+            "name": "org_key"
+          },
+          "query:token": {
+            "description": "Authentication credential for the request.",
+            "name": "access_key"
+          }
+        },
+        "summary": "Retrieve the linked contact record identifier."
+      },
+      "landlord_controller_get_settings": {
+        "body_description": "",
+        "description": "Retrieve contact details for all linked property owners.",
+        "fallbacks": [],
+        "name": "fetch_linked_owner_contacts",
+        "params": {
+          "path:shortName": {
+            "description": "Identifies the organization making the request.",
+            "name": "org_key"
+          },
+          "query:token": {
+            "description": "Authentication credential for the request.",
+            "name": "access_key"
+          }
+        },
+        "summary": "Get contact details of all linked property owners."
+      }
+    }
+  },
+  "twin": {
+    "fallbacks": [
+      "word:detail",
+      "word:number",
+      "word:reference",
+      "word:setting",
+      "word:statement"
+    ],
+    "host": "portal.leasesync.net",
+    "title": "LeaseSync Service V3, Owner Portal Access Suite",
+    "words": {
+      "account": "ledger",
+      "accounting": "bookkeeping",
+      "actual": "real",
+      "address": "location",
+      "agent": "broker",
+      "amount": "quantity",
+      "arrear": "overdue",
+      "assigned": "allocated",
+      "balance": "credit",
+      "bed": "suite",
+      "bond": "deposit",
+      "branch": "office",
+      "call": "ring",
+      "certificate": "license",
+      "chase": "pursuit",
+      "closed": "inactive",
+      "collected": "gathered",
+      "company": "firm",
+      "contact": "liaison",
+      "content": "payload",
+      "cost": "expense",
+      "county": "district",
+      "created": "generated",
+      "createlandlordlogin": "owneraccess",
+      "customer": "client",
+      "day": "weekday",
+      "debt": "liability",
+      "description": "narrative",
+      "detail": "basket",
+      "direct": "immediate",
+      "document": "record",
+      "download": "export",
+      "due": "payable",
+      "email": "mailbox",
+      "end": "finish",
+      "fax": "telefax",
+      "file": "attachment",
+      "fixed": "constant",
+      "forename": "firstname",
+      "global": "universal",
+      "gross": "sum",
+      "group": "cluster",
+      "height": "altitude",
+      "history": "log",
+      "income": "revenue",
+      "inspection": "survey",
+      "inventory": "stock",
+      "invoice": "bill",
+      "job": "task",
+      "land": "plot",
+      "landlord": "proprietor",
+      "landlordcrmentry": "ownercrmrecord",
+      "last": "recent",
+      "linked": "connected",
+      "login": "signin",
+      "loss": "deficit",
+      "mail": "correspondence",
+      "maintenance": "upkeep",
+      "managed": "administered",
+      "mime": "mediatype",
+      "mobile": "cellphone",
+      "month": "period",
+      "nominal": "standard",
+      "note": "remark",
+      "number": "otter",
+      "oid": "identifier",
+      "old": "prior",
+      "outstanding": "pending",
+      "password": "credential",
+      "payment": "remittance",
+      "phone": "telephone",
+      "photo": "image",
+      "postcode": "zipcode",
+      "preference": "option",
+      "previous": "earlier",
+      "profit": "gain",
+      "profitloss": "gainloss",
+      "property": "estate",
+      "reference": "river",
+      "rent": "lease",
+      "rentarrear": "leaseoverdue",
+      "reported": "recorded",
+      "resetpassword": "recovery",
+      "row": "line",
+      "sas": "metric",
+      "session": "visit",
+      "setting": "quartz",
+      "short": "brief",
+      "start": "begin",
+      "state": "phase",
+      "statement": "forest",
+      "summary": "overview",
+      "surname": "lastname",
+      "tag": "label",
+      "tenancy": "occupancy",
+      "tenancyagreement": "leasecontract",
+      "tenant": "resident",
+      "title": "heading",
+      "transaction": "movement",
+      "username": "accountname",
+      "web": "online",
+      "width": "breadth",
+      "year": "annum"
+    }
+  }
+}

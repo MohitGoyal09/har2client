@@ -154,6 +154,28 @@ if __name__ == "__main__":  # the grader uses spawned worker processes: keep thi
 
 Save it as `demo_env.py` in `har2client/` and run `uv run python demo_env.py`. It uses no model and no network. TRL GRPO reward functions are in `har2client.env.trl` and `har2client.env.repair_env`. The environments are built and tested; no training run is reported. Run RL training with the grader in a container: see [Limitations](#limitations).
 
+### Train with TRL (GRPO)
+
+```python
+from trl import GRPOConfig, GRPOTrainer
+from har2client.rl.trl_reward import build_dataset, har2client_reward
+
+
+def main() -> None:
+    dataset = build_dataset(case="build", split="train", n=64, seed=0)  # or case="repair"
+    trainer = GRPOTrainer(
+        model="Qwen/Qwen2.5-0.5B-Instruct", reward_funcs=har2client_reward, train_dataset=dataset,
+        args=GRPOConfig(output_dir="grpo-har2client", remove_unused_columns=False, max_prompt_length=8192),
+    )
+    trainer.train()
+
+
+if __name__ == "__main__":  # the grader uses spawned worker processes: keep this guard
+    main()
+```
+
+The reward is execution-graded: each completion's code block runs against the hidden tests on a fresh server, and the reward is the share passed (0 if there is no code block or it does not parse). A runnable version is in `har2client/examples/grpo_train.py`.
+
 ## How grading works
 
 - **Fresh server.** The grader starts a new fake server with new data, a new key and a new host. A client that copies the recording fails.

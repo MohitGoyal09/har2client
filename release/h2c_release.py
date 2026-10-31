@@ -23,7 +23,7 @@ COMPARISON_SUITES = ("tierb50", "v3base", "v3hint", "probe0", "probe5")
 # The final figures, in display order (the Space shows them first on the Findings tab).
 FINAL_FIGURES = tuple(f"final_{n}.png" for n in (
     "scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score",
-    "effort_matched", "all_scores", "beam_by_effort"))
+    "effort_matched", "all_scores", "beam_by_effort", "probing", "failure_kinds"))
 CASE2_CSV = "case2_probe/main_full/results.csv"
 COMPARISON_SUMMARY = "analysis/model_comparison/summary.json"
 
@@ -46,6 +46,8 @@ RESULTS_FILES = (
     *(f"case2_probe/main_full/{n}" for n in ("REPORT.md", "summary.json", "results.csv", "SENSITIVITY.md")),
     # model comparison: Beam, GPT-OSS-120B and Qwen3.5-397B-A17B (the P20 arm is not part of the comparison and is not listed)
     "analysis/model_comparison/report.md", "analysis/model_comparison/summary.json", "model_comparison/README.md",
+    # case 2 probing behaviour and Beam failure kinds (scripts/analyze_probing.py)
+    "analysis/probing/report.md", "analysis/probing/summary.json",
     *(f"model_comparison/{m}/{s}/results.csv" for m in COMPARISON_MODELS for s in COMPARISON_SUITES),
     # the final figures (the card and the Space show them; built by scripts/plot_final.py)
     *(f"figures/{n}" for n in FINAL_FIGURES),

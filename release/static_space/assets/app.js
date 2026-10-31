@@ -576,6 +576,36 @@
           return (t.id + ' ' + t.title + ' ' + t.features.join(' ')).toLowerCase().indexOf(st.q) !== -1;
         });
       }
+      /* "How each model did on this task": 7 settings x the benchmarks this task belongs to. Tint scales 0 to 100; the number is always shown. */
+      function resultsPanel(t) {
+        var head = h('h4', { text: 'How each model did on this task' });
+        if (t.suite === 'tier_a') return h('div', { class: 'ex-result' }, head, h('p', { class: 'ex-empty', text: 'Tier A tasks are not part of the model comparison.' }));
+        var cols = (t.suite === 'tier_b' ? ['c1', 'c2a', 'c2b'] : ['c3a', 'c3b']).map(function (id) { return BYID[id]; });
+        var res = t.results || {}, fl = t.fails || {};
+        var rows = data.result_settings.map(settingByKey);
+        var prev = null;
+        var thead = h('tr', null, h('th', { scope: 'col', text: 'Setting' }), cols.map(function (b) { return h('th', { scope: 'col', text: b.label }); }));
+        var tbody = h('tbody', null, rows.map(function (s, i) {
+          var dot = h('i'); dot.style.background = color(s);
+          var tr = h('tr', { class: prev && prev !== s.model ? 'grp-start' : null }, h('th', { scope: 'row' }, h('span', { class: 'who' }, dot, settingLabel(s))));
+          prev = s.model;
+          cols.forEach(function (b) {
+            var v = res[b.id] ? res[b.id][i] : null;
+            if (v === null || v === undefined) { tr.append(h('td', { class: 'miss', title: settingLabel(s) + ', ' + b.label + ': no result', text: '\u2013' })); return; }
+            var beamHigh = s.model === 'beam' && s.effort === 'high' && CELLS[s.key][b.id].runs > 1;
+            var fi = fl[b.id] ? fl[b.id][i] : -1;
+            var kind = v < 100 && fi >= 0 ? data.fail_kinds[fi] : null;
+            var td = h('td', { title: settingLabel(s) + ', ' + b.label + ': ' + pct(v) + '% of hidden tests passed' + (kind ? '. Most common failure: ' + kind : '') }, pct(v) + (beamHigh ? '\u2020' : ''));
+            td.style.background = 'rgba(42, 120, 214, ' + (0.45 * v / 100).toFixed(3) + ')'; /* Beam blue, up to 45% so ink text keeps its contrast */
+            if (beamHigh && kind) td.append(h('small', { text: kind }));
+            tr.append(td);
+          });
+          return tr;
+        }));
+        return h('div', { class: 'ex-result' }, head,
+          h('div', { class: 'table-scroll', tabindex: '0' }, h('table', { class: 'pt' }, h('caption', { class: 'sr', text: 'Pass rate on this task, % of hidden tests passed, by setting' }), h('thead', null, thead), tbody)),
+          h('p', { class: 'ex-foot', text: 'Pass rate, % of hidden tests passed. \u2020 Beam high is the mean of 3 runs on Case 1 and Case 3 (its small label is the most common failure); every other cell is one run. Hover a cell for its most common failure. Darker is higher.' }));
+      }
       function show(t) {
         current = t;
         var reqRows = t.requests.map(function (r) {
@@ -585,6 +615,7 @@
           h('h3', { text: t.title }),
           h('p', { class: 'ex-meta', text: SUITE_NAME[t.suite] + ' · ' + t.id + ' · ' + t.n_requests + ' requests in the recording' }),
           h('p', { class: 'ex-meta', text: t.features.filter(function (f) { return f.indexOf('tier:') !== 0 && f.indexOf('case:') !== 0; }).join(' · ') }),
+          resultsPanel(t),
           h('h4', { text: 'Goal the model reads' }),
           h('pre', { class: 'goal', tabindex: '0', text: t.goal }),
           h('h4', { text: 'Requests in the recording' + (t.n_requests > t.requests.length ? ' (first ' + t.requests.length + ' of ' + t.n_requests + ')' : '') }),

@@ -34,6 +34,7 @@
       <a href="#effort">Effort</a>
       <a href="#information">Extra information</a>
       <a href="#beam">Beam</a>
+      <a href="#findings">Findings</a>
       <a href="#explore">Tasks</a>
       <a href="#method">Method</a>
       <a href="#use">Use it</a>
@@ -157,10 +158,23 @@
   <div id="beam-detail"></div>
 </section>
 
+<!-- SECTION 6b: findings -->
+<section class="sec" id="findings" aria-labelledby="fi-h">
+  <div class="sec-head">
+    <p class="eyebrow">06 What we found</p>
+    <h2 id="fi-h">Six findings, each tested before we looked.</h2>
+    <p class="lede">Each card is a pre-registered hypothesis (see <a href="{{PREREG_URL}}">PREREG.md</a>) or a headline result. Numbers are pass rates on hidden tests; brackets are 95% bootstrap intervals over tasks.</p>
+  </div>
+  <div class="finds">
+{{FINDINGS}}
+  </div>
+  <p class="finds-note">{{NOT_SETTLED}}</p>
+</section>
+
 <!-- SECTION 7: explore -->
 <section class="sec" id="explore" aria-labelledby="ex-h">
   <div class="sec-head">
-    <p class="eyebrow">06 Explore a task</p>
+    <p class="eyebrow">07 Explore a task</p>
     <h2 id="ex-h">What the model sees.</h2>
     <p class="lede">Only the visible files are shown: the goal, the requests in the recording and one short excerpt. Hidden tests, credentials for grading and reference clients are not published.</p>
   </div>
@@ -170,7 +184,7 @@
 <!-- SECTION 8: method -->
 <section class="sec sec-method" id="method" aria-labelledby="me-h">
   <div class="sec-head">
-    <p class="eyebrow">07 Method</p>
+    <p class="eyebrow">08 Method</p>
     <h2 id="me-h">Hidden tests, no judge, hypotheses written first.</h2>
   </div>
   <div class="method-grid">
@@ -210,7 +224,7 @@
 <!-- SECTION 9: use it -->
 <section class="sec" id="use" aria-labelledby="us-h">
   <div class="sec-head">
-    <p class="eyebrow">08 Use it</p>
+    <p class="eyebrow">09 Use it</p>
     <h2 id="us-h">Grade a client in three commands. Train against it as an environment.</h2>
   </div>
   <div class="use-grid">

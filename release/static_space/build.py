@@ -9,6 +9,7 @@ Reads (never hard-codes a result):
   har2client/results/case2_probe/main_full/summary.json        case 2 sanity check (counts)
   release/build/dataset/*/data.jsonl                            visible task files only, through release/sync_space_data.py
   README.md, CITATION.cff                                       install / RL snippets and the BibTeX entry
+  (per-task scores for the explorer come from analyze_models.load_beam / load_models, through static_space/per_task.py)
 Writes release/build/static_space/: index.html, README.md (Space frontmatter), assets/{style.css,app.js,og.png}, data/{site.json,tasks.json}.
 Run release/export_dataset.py first (the task explorer reads its output).
 """
@@ -28,6 +29,7 @@ HERE = Path(__file__).resolve().parent
 RELEASE = HERE.parent
 sys.path.insert(0, str(RELEASE))
 
+import per_task  # noqa: E402  (per-task scores for the task explorer; reuses har2client/scripts/analyze_models.py)
 import sync_space_data  # noqa: E402  (reused: task_record builds the visible-only task view)
 from h2c_release import DATASET_DIR, H2C_DIR, REPO_ROOT  # noqa: E402
 
@@ -188,6 +190,131 @@ def build_tasks() -> dict:
     return {"suites": {s: sum(1 for t in tasks if t["suite"] == s) for s in ("tier_a", "tier_b", "heal_v3", "heal_v3_hint")}, "tasks": tasks}
 
 
+NUMBER_WORDS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six"}
+CASE3_CONTROL_EFFORT = "low"  # the heal_controls runs (base, placebo, hint) are Beam low; checked against the leaderboard below
+
+
+def f1(x: float) -> str:
+    return f"{x:.1f}".replace("-", "−")
+
+
+def sgn(x: float) -> str:
+    return ("+" if x >= 0 else "−") + f"{abs(x):.1f}"
+
+
+def interval(m: dict) -> str:
+    return f"[{sgn(m['ci_low'])}, {sgn(m['ci_high'])}]"
+
+
+def join_and(items: list[str]) -> str:
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def build_findings(cells: dict, v3: dict, controls: dict, facts: dict, verdicts: list[dict]) -> list[dict]:
+    """The six finding cards. Prose is written here; every number is read from the analysis files (cells, effort_facts, controls, v3)."""
+    hi, lo = cells["beam-high"], cells["beam-low"]
+    verdict = {v["id"].replace(" (base)", ""): v for v in verdicts}
+    steps = controls["steps"]
+    contrast = {c["contrast"]: c for c in controls["contrasts"]}
+    if abs(steps["base"]["pass_rate"] * 100 - lo["c3a"]["pass"]) > 0.05:
+        raise SystemExit("error: heal_controls base arm no longer matches Beam low / Case 3 no hint; the H22 card says low effort")
+    h22_base, h22_hint = contrast["placebo - base"]["pass"], contrast["hint - placebo"]["pass"]
+    h10 = controls["h10"]
+    h10_hint, h10_ev = h10["b_minus_a"], h10["c_minus_a"]
+    fam = v3["families"]["hint-high"]
+    fam_pct = {k: fam[k]["full_repair_share"] * 100 for k in ("single", "release3", "release4")}
+    ratio = round(facts["hint_gain_high"] / facts["case3_gain"])
+    ratio_word = NUMBER_WORDS.get(ratio, str(ratio))
+    p0, p5 = hi["c2a"]["pass"], hi["c2b"]["pass"]
+    n3, n_h10 = hi["c3a"]["n"], h10["steps"]["a"]["finished"]
+    n2 = hi["c2a"]["n"]
+
+    def pill(vid: str) -> tuple[str, str]:
+        return verdict[vid]["status"].capitalize(), verdict[vid]["status"].replace(" ", "-")
+
+    cards = [
+        {"id": "H16", "pill": pill("H16"), "claim": "Beam fails to notice a silent API change more than it fails to fix it.",
+         "bars": [("No hint", None, hi["c3a"]["pass"], 0), ("With hint", None, hi["c3b"]["pass"], 2)],
+         "caption": f"Pass rate, %. Beam, high effort, mean of 3 runs, {n3} tasks.",
+         "big": sgn(facts["hint_gain_high"]) + " pts", "big_cap": "with the hint, high effort",
+         "tested": "Case 3: the same 64 broken clients, with and without a one-line hint that names what changed.",
+         "result": f"{sgn(facts['hint_gain_high'])} pts [{f1(facts['hint_gain_high_lo'])}, {f1(facts['hint_gain_high_hi'])}] at high effort",
+         "why": "Told what changed, Beam repairs most clients. Not told, it keeps trusting the old client and does not check it against the new traffic."},
+        {"id": "H22", "pill": pill("H22"), "claim": "The hint works because of what it says, not because it is extra text.",
+         "bars": [("No hint", None, steps["base"]["pass_rate"] * 100, 0), ("Placebo hint", None, steps["placebo"]["pass_rate"] * 100, 0),
+                  ("Real hint", None, steps["hint"]["pass_rate"] * 100, 2)],
+         "caption": f"Pass rate, %. Beam, {CASE3_CONTROL_EFFORT} effort, 1 run, {n3} tasks.",
+         "big": sgn(h22_hint["mean"]) + " pts", "big_cap": f"real hint over placebo, {CASE3_CONTROL_EFFORT} effort",
+         "tested": "A placebo hint of the same length that says nothing about the change.",
+         "result": f"Placebo: {sgn(h22_base['mean'])} pts {interval(h22_base)}. Real hint over placebo: {sgn(h22_hint['mean'])} pts {interval(h22_hint)}.",
+         "why": "The gain comes from the information about the change. Extra words alone do nothing."},
+        {"id": "H17", "pill": pill("H17"), "prereg": verdict["H17"]["title"] + ".", "claim": "Thinking longer helps Beam notice, but slowly.",
+         "bars": [("Low effort", None, lo["c3a"]["pass"], 0), ("High effort", None, hi["c3a"]["pass"], 1)],
+         "caption": f"Pass rate, %. Beam, no hint, {n3} tasks. Low is 1 run, high is the mean of 3.",
+         "big": sgn(facts["case3_gain"]) + " pts", "big_cap": "high over low effort, no hint",
+         "tested": "Case 3 with no hint, low effort against high effort.",
+         "result": f"{sgn(facts['case3_gain'])} pts [{f1(facts['case3_lo'])}, {f1(facts['case3_hi'])}] for {facts['case3_tokens']:.1f}× the output tokens",
+         "why": f"At high effort Beam checks more of the recording against the client and catches some changes. A one-line hint gives about {ratio_word} times the gain at no extra cost."},
+        {"id": "H10", "pill": pill("H10"), "claim": "When the recording hides a header, the model lacks evidence, not instructions.",
+         "bars": [("As built", None, h10["steps"]["a"]["pass_rate"] * 100, 0), ("With hint", None, h10["steps"]["b"]["pass_rate"] * 100, 2),
+                  ("With evidence", None, h10["steps"]["c"]["pass_rate"] * 100, 2)],
+         "caption": f"Pass rate, %. Beam, high effort, {n_h10} tasks. As built is the mean of 3 runs, the others 1 run.",
+         "big": sgn(h10_ev["mean"]) + " pts", "big_cap": "evidence over as built, high effort",
+         "tested": f"Case 1 tasks where the recording hides a required header (n = {n_h10}): add a hint, or add the missing evidence.",
+         "result": f"Hint {sgn(h10_hint['mean'])} pts, evidence {sgn(h10_ev['mean'])} pts.",
+         "why": "Beam cannot guess a header it never saw. Give it the evidence and the gap closes."},
+        {"id": "Case 2", "pill": ("Result", "result"), "claim": "Five probe requests nearly solve the hidden-header problem.",
+         "bars": [("No probes", None, p0, 0), ("Up to 5 probes", None, p5, 2)],
+         "caption": f"Pass rate, %. Beam, high effort, {n2} tasks, 1 run.",
+         "big": sgn(p5 - p0) + " pts", "big_cap": "five probes over none, high effort",
+         "tested": "Case 2: Beam runs as a tool-calling agent and may send requests to a practice server before it writes the client.",
+         "result": f"{f1(p0)}% with no probes to {f1(p5)}% with five, at high effort.",
+         "why": "Beam uses the server's replies to find what the recording does not show."},
+        {"id": "H19", "pill": pill("H19"), "claim": "More changes per release are harder to repair.",
+         "bars": [("Single change", f"n = {fam['single']['n']}", fam_pct["single"], 2), ("3 changes", f"n = {fam['release3']['n']}", fam_pct["release3"], 1),
+                  ("4 changes", f"n = {fam['release4']['n']}", fam_pct["release4"], 0)],
+         "caption": "Full-repair share, %. Beam, hint arm, high effort, mean of 3 runs.",
+         "big": sgn(fam_pct["release4"] - fam_pct["single"]) + " pts", "big_cap": "full repair, four changes against one",
+         "tested": "Case 3 with the hint, high effort, grouped by how many changes a release has.",
+         "result": f"Full repair falls from {f1(fam_pct['single'])}% with one change to {f1(fam_pct['release3'])}% with three and {f1(fam_pct['release4'])}% with four.",
+         "why": "Each change is one more thing to find. One miss fails the client."},
+    ]
+    return cards
+
+
+def finding_html(c: dict) -> str:
+    bars = "".join(
+        f'<li><span class="fb-l">{esc(label)}' + (f'<small>{esc(sub)}</small>' if sub else "") + '</span>'
+        f'<svg class="fb-t" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+        f'<rect class="fb-track" width="100" height="10"/><rect class="fb-bar fb-s{shade}" width="{value:.2f}" height="10"/></svg>'
+        f'<b class="fb-v">{value:.1f}%</b></li>'
+        for label, sub, value, shade in c["bars"])
+    rows = "".join(f"<div><dt>{k}</dt><dd>{esc(c[key])}</dd></div>" for k, key in (("We tested", "tested"), ("Result", "result"), ("Why", "why")))
+    slug = "f-" + re.sub(r"[^a-z0-9]+", "-", c["id"].lower())
+    prereg = f'<p class="find-prereg"><span>Pre-registered</span> <s>{esc(c["prereg"])}</s></p>' if c.get("prereg") else ""
+    return (
+        f'<article class="find" aria-labelledby="{slug}">\n'
+        f'  <p class="find-meta"><span class="verdict verdict-{esc(c["pill"][1])}">{esc(c["pill"][0])}</span><span class="find-id">{esc(c["id"])}</span></p>\n'
+        f'  {prereg}<h3 id="{slug}">{esc(c["claim"])}</h3>\n'
+        f'  <figure class="find-bars"><ul>{bars}</ul><figcaption>{esc(c["caption"])}</figcaption></figure>\n'
+        f'  <p class="find-big"><b>{esc(c["big"])}</b><span>{esc(c["big_cap"])}</span></p>\n'
+        f'  <dl class="find-rows">{rows}</dl>\n'
+        f'</article>')
+
+
+def not_settled(verdicts: list[dict]) -> str:
+    """The muted line under the findings, built from verdict statuses (no hard-coded hypothesis ids)."""
+    def ids(status: str) -> list[str]:
+        return [v["id"].replace(" (base)", "") for v in verdicts if v["status"] == status]
+    open_, untested = ids("inconclusive"), ids("not tested")
+    parts = []
+    if open_:
+        parts.append(f"{join_and(open_)} {'is' if len(open_) == 1 else 'are'} inconclusive at this sample size")
+    if untested:
+        parts.append(f"{join_and(untested)} {'was' if len(untested) == 1 else 'were'} not tested")
+    return esc("Not settled: " + "; ".join(parts) + ". Full table in ") + '<a href="#method">Method</a>.' if parts else ""
+
+
 def readme_blocks() -> dict:
     """The install, grade and RL snippets, copied from the repo README (so they cannot drift from it)."""
     text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
@@ -295,6 +422,11 @@ def build(out: Path) -> None:
     verdicts = build_verdicts(controls, v3)
     facts = build_effort_facts(effort_summary, v3)
     tasks = build_tasks()
+    scores = per_task.build_per_task([k for k, _m, _e in SETTINGS], BENCHMARKS)
+    per_task.attach(tasks["tasks"], scores)
+    n_checked = per_task.check_means(tasks["tasks"], scores, comparison, BENCHMARKS)  # raises unless every cell matches the leaderboard
+    tasks["result_settings"], tasks["fail_kinds"] = scores["settings"], scores["fail_kinds"]
+    findings = build_findings(cells, v3, controls, facts, verdicts)
     snippets = readme_blocks()
     cite = bibtex()
 
@@ -329,6 +461,8 @@ def build(out: Path) -> None:
         "N_TIER_B": str(tasks["suites"]["tier_b"]),
         "N_CASE3": str(tasks["suites"]["heal_v3"]),
         "VERDICT_ROWS": verdict_rows(verdicts),
+        "FINDINGS": "\n".join(finding_html(c) for c in findings),
+        "NOT_SETTLED": not_settled(verdicts),
         "CODE_INSTALL": esc(snippets["install"]),
         "CODE_GRADE": esc(snippets["grade"]),
         "CODE_RL": esc(snippets["rl"]),
@@ -354,7 +488,9 @@ def build(out: Path) -> None:
     (out / "data" / "tasks.json").write_text(tasks_json, encoding="utf-8")
     (out / "README.md").write_text(space_readme(), encoding="utf-8")
     js_kb = (out / "assets" / "app.js").stat().st_size / 1024
-    print(f"built {out} ({len(tasks['tasks'])} tasks, app.js {js_kb:.1f} KB)")
+    tasks_kb = (out / "data" / "tasks.json").stat().st_size / 1024
+    print(f"built {out} ({len(tasks['tasks'])} tasks, app.js {js_kb:.1f} KB, tasks.json {tasks_kb:.0f} KB)")
+    print(f"per-task check: {n_checked} of {len(SETTINGS) * len(BENCHMARKS)} (setting, benchmark) means match the leaderboard within {per_task.MEAN_TOLERANCE}")
 
 
 def main() -> int:

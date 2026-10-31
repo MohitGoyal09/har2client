@@ -10,9 +10,10 @@
   recorded separately.
 - Qwen3.5-397B-A17B: explicit `enable_thinking=true`, with no
   `reasoning_effort` sent. This is not equivalent to Beam high.
-- Beam: reuse saved results. Beam high on Cases 1 and 3 is the per-task mean
-  of 3 runs; low, medium and Case 2 (`results/case2_probe/main_full`, complete)
-  are 1 run. Every other model is 1 run per cell. Paired differences use the
+- Beam: reuse saved results. Beam high on Cases 1 and 3 and on Case 2 with 5 probes is the per-task mean
+  of 3 runs (the two extra Case 2 runs are exploratory, protocol `case2-ext-v1`,
+  `results/case2_probe/ext/`); low, medium and the other Case 2 cells
+  (`results/case2_probe/main_full`, complete) are 1 run. Every other model is 1 run per cell. Paired differences use the
   tasks both sides have.
 - Output cap: other models are capped at 32,768 output tokens per call; Beam
   used 65,536.

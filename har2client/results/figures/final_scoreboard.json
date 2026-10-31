@@ -69,8 +69,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -30.857142857142858,
-        "ci_low": -44.857142857142854,
-        "ci_high": -17.142857142857142,
+        "ci_low": -43.80952380952381,
+        "ci_high": -18.38095238095238,
         "excludes_zero": true
       },
       "best_in_column": false
@@ -179,8 +179,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -8.0,
-        "ci_low": -18.0,
-        "ci_high": 1.9999999999999998,
+        "ci_low": -17.142857142857142,
+        "ci_high": 0.2857142857142854,
         "excludes_zero": false
       },
       "best_in_column": false
@@ -260,11 +260,11 @@
       "effort": "high",
       "suite": "probe5",
       "n": 50,
-      "runs": 1,
+      "runs": 3,
       "pass_rate": 95.71428571428571,
-      "ci_low": 89.71428571428571,
-      "ci_high": 100.0,
-      "mean_output_tokens": 4968.08,
+      "ci_low": 91.90476190476191,
+      "ci_high": 98.85714285714286,
+      "mean_output_tokens": 4834.96,
       "vs_beam_high": null,
       "best_in_column": true
     },
@@ -354,8 +354,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -33.14285714285714,
-        "ci_low": -48.285714285714285,
-        "ci_high": -18.0,
+        "ci_low": -47.33333333333333,
+        "ci_high": -19.42857142857143,
         "excludes_zero": true
       },
       "best_in_column": false
@@ -464,8 +464,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -38.285714285714285,
-        "ci_low": -52.285714285714285,
-        "ci_high": -24.285714285714285,
+        "ci_low": -51.523809523809526,
+        "ci_high": -25.42857142857143,
         "excludes_zero": true
       },
       "best_in_column": false
@@ -574,8 +574,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -13.428571428571429,
-        "ci_low": -25.42857142857143,
-        "ci_high": -1.4285714285714288,
+        "ci_low": -24.38095238095238,
+        "ci_high": -3.4285714285714284,
         "excludes_zero": true
       },
       "best_in_column": false
@@ -684,8 +684,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -47.714285714285715,
-        "ci_low": -61.42857142857143,
-        "ci_high": -33.714285714285715,
+        "ci_low": -60.952380952380956,
+        "ci_high": -34.095238095238095,
         "excludes_zero": true
       },
       "best_in_column": false

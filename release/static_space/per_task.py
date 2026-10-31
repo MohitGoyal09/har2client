@@ -38,7 +38,7 @@ def entry_rows(entry: am.Entry) -> list[dict]:
         rows = am._read_rows(path, entry.effort, arm)
         repeats = am.beam_repeats(RESULTS_DIR, entry.suite, entry.effort)
         if repeats:
-            rows = high_runs.merge_runs([rows, *(am._read_rows(p, entry.effort, arm) for p in repeats)])
+            rows = high_runs.merge_runs([rows, *(r for p in repeats for r in am.read_repeat_runs(p, entry.effort, arm))])
     else:
         rows = am._read_rows(MODELS_ROOT / entry.key / entry.suite / "results.csv", None, None)
     return [r for r in rows if r.get("status") != am.API_ERROR]

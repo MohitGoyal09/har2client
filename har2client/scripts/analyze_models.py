@@ -11,7 +11,8 @@ Reads (read-only): the scored Beam CSVs in results/ (tierb50_v1.csv low and high
 heal_v3_eval_{base,hint}_{low,medium,high}.csv; each Beam effort is its own row, "Beam (low)" and so on). Beam high on
 tierb50, v3base and v3hint is the per-task mean of 3 runs (run 1 plus `*_high_r2.csv`, `_r3.csv`, joined by scripts/high_runs.py);
 Beam low and medium are 1 run. Beam Case 2 (probe0, probe5, probe20 = placebo, P5, P20) is 1 run, read from
-results/case2_probe/main_full/results.csv. It also reads every
+results/case2_probe/main_full/results.csv; Beam high on probe5 is the mean of 3 runs (run 1 plus the two runs of
+results/case2_probe/ext/R1_P5_high_r2r3/results.csv, exploratory protocol case2-ext-v1). It also reads every
 `<models-root>/<slug>/<suite>/results.csv` (suites: tierb50 = case 1 Tier B, v3base = case 3 base, v3hint = case 3 + hint).
 Labels and the reasoning effort of a model come from data/models.json. With no model results the script still runs and writes
 Beam-only outputs that say "no other models run yet".
@@ -52,6 +53,8 @@ SUITES = {"tierb50": "Case 1 Tier B", "v3base": "Case 3 base", "v3hint": "Case 3
           "probe0": "Case 2 no probes", "probe5": "Case 2 up to 5 probes", "probe20": "Case 2 up to 20 probes"}
 CASE2_ARMS = {"probe0": "placebo", "probe5": "P5", "probe20": "P20"}  # suite -> `arm` column of the Case 2 CSV
 CASE2_CSV = Path("case2_probe") / "main_full" / "results.csv"  # complete Beam Case 2 run: 3 arms x 3 efforts x 50 tasks, 1 run
+CASE2_EXT_R1 = Path("case2_probe") / "ext" / "R1_P5_high_r2r3" / "results.csv"  # exploratory (case2-ext-v1): P5 high, protocol runs 2 and 3
+CASE2_RUNS_NOTE = {"probe5": "1 run per task, except Beam (high): mean of 3 runs"}
 HIGH = "high"
 FIGURE_SUITES = ("tierb50", "v3base")  # the figures show case 1 and case 3 base
 EFFORTS = ("low", "medium", "high")
@@ -96,13 +99,20 @@ def _mean(xs: list[float]) -> float:
     return sum(xs) / len(xs)
 
 
-def _read_rows(path: Path, effort: str | None, arm: str | None) -> list[dict]:
-    """Run-1 rows of one results CSV, limited to `effort` and `arm` when given."""
+def _read_rows(path: Path, effort: str | None, arm: str | None, run: str = "1") -> list[dict]:
+    """Rows of run `run` (default 1) of one results CSV, limited to `effort` and `arm` when given."""
     with open(path, newline="", encoding="utf-8") as fh:
         return [row for row in csv.DictReader(fh)
                 if (effort is None or row.get("effort", effort) == effort)
                 and (arm is None or row.get("arm") == arm)
-                and (row.get("run") or "1") == "1"]
+                and (row.get("run") or "1") == run]
+
+
+def read_repeat_runs(path: Path, effort: str | None, arm: str | None) -> list[list[dict]]:
+    """One row list per run held by a repeat CSV. The `_r2/_r3` files hold run 1 only; the Case 2 extension file holds two runs."""
+    with open(path, newline="", encoding="utf-8") as fh:
+        runs = sorted({row.get("run") or "1" for row in csv.DictReader(fh)}, key=int)
+    return [_read_rows(path, effort, arm, run) for run in runs]
 
 
 def read_cells(path: Path, effort: str | None = None, arm: str | None = None, repeats: tuple[Path, ...] = (),
@@ -115,7 +125,7 @@ def read_cells(path: Path, effort: str | None = None, arm: str | None = None, re
     """
     rows = _read_rows(path, effort, arm)
     if repeats:
-        rows = high_runs.merge_runs([rows, *(_read_rows(p, effort, arm) for p in repeats)])
+        rows = high_runs.merge_runs([rows, *(r for p in repeats for r in read_repeat_runs(p, effort, arm))])
     passes: dict[str, list[float]] = {}
     tokens: dict[str, list[float]] = {}
     errors = 0
@@ -147,8 +157,13 @@ def beam_sources(results_dir: Path) -> dict[tuple[str, str], Path]:
 
 
 def beam_repeats(results_dir: Path, suite: str, effort: str) -> list[Path]:
-    """Run 2 and 3 CSVs (`*_high_r2.csv`, `_r3.csv`) of a Beam high step that has them; low, medium and Case 2 have none."""
+    """Run 2 and 3 CSVs (`*_high_r2.csv`, `_r3.csv`) of a Beam high step that has them; low, medium and the other Case 2 arms have none.
+
+    Case 2 P5 high (`probe5`) has the one extension file holding runs 2 and 3 (`CASE2_EXT_R1`).
+    """
     stems = {"tierb50": "tierb50_high", "v3base": "heal_v3_eval_base_high", "v3hint": "heal_v3_eval_hint_high"}
+    if effort == HIGH and suite == "probe5":
+        return [p] if (p := Path(results_dir) / CASE2_EXT_R1).is_file() else []
     return high_runs.extra_run_paths(Path(results_dir), stems[suite]) if effort == HIGH and suite in stems else []
 
 
@@ -156,10 +171,11 @@ def load_beam(results_dir: Path) -> list[Entry]:
     entries = []
     for (suite, effort), path in sorted(beam_sources(results_dir).items()):
         repeats = tuple(beam_repeats(results_dir, suite, effort))
-        scores, tokens, errors = read_cells(path, effort, CASE2_ARMS.get(suite), repeats)
+        arm = CASE2_ARMS.get(suite)
+        scores, tokens, errors = read_cells(path, effort, arm, repeats)
         if scores or errors:
-            entries.append(Entry(f"beam-{effort}", f"Beam ({effort})", "beam", suite, effort, scores, tokens, errors,
-                                 runs=1 + len(repeats)))
+            runs = 1 + sum(len(read_repeat_runs(p, effort, arm)) for p in repeats)
+            entries.append(Entry(f"beam-{effort}", f"Beam ({effort})", "beam", suite, effort, scores, tokens, errors, runs=runs))
     return entries
 
 
@@ -302,8 +318,9 @@ def render_report(stats: list[dict], pareto: dict[str, dict], n_boot: int, seed:
         lines.append(f"{len(identities)} other model(s), {len(others)} setting(s) scored: {', '.join(others)}.")
     else:
         lines.append("No other models run yet. Only the Beam rows are scored; run `scripts/run_models.py` and this script again.")
-    lines += ["", "Pass rate = mean over tasks of the share of hidden tests passed. Runs per task: Beam (high) on Case 1 and Case 3 is the "
-              "mean of 3 runs (PREREG.md deviation 2026-10-27); Beam low and medium, Beam Case 2 and every other model are 1 run. "
+    lines += ["", "Pass rate = mean over tasks of the share of hidden tests passed. Runs per task: Beam (high) on Case 1, Case 3 and Case 2 "
+              "with 5 probes is the mean of 3 runs (PREREG.md deviations 2026-10-27 and 2026-10-31); Beam low and medium, the other Case 2 arms "
+              "and every other model are 1 run. "
               "Full solve = share of tasks at "
               f"pass rate 1.0. CI = 95% percentile bootstrap over tasks ({n_boot:,} resamples, seed {seed}). Output tokens include "
               "reasoning tokens. `api_error` cells are not model results: they are left out and counted. "
@@ -315,7 +332,7 @@ def render_report(stats: list[dict], pareto: dict[str, dict], n_boot: int, seed:
             continue
         has_ref = any(r["label"] == REFERENCE for r in rows)
         lines += [f"## {title} (`{suite}`)", "",
-                  *([f"Beam: 1 run per task (`results/{CASE2_CSV.as_posix()}`, arm {CASE2_ARMS[suite]}).", ""] if suite in CASE2_ARMS else []),
+                  *([f"Beam: {CASE2_RUNS_NOTE.get(suite, '1 run per task')} (`results/{CASE2_CSV.as_posix()}`, arm {CASE2_ARMS[suite]}).", ""] if suite in CASE2_ARMS else []),
                   "| model | n | pass rate [95% CI] | full solve | mean output tokens | api_error | vs " + REFERENCE + " [95% CI] |",
                   "|---|---:|---:|---:|---:|---:|---:|"]
         for r in rows:
@@ -337,7 +354,8 @@ def render_report(stats: list[dict], pareto: dict[str, dict], n_boot: int, seed:
     lines += ["## Sources", "",
               "- Beam rows: `results/tierb50_v1.csv` (low, high), `results/tierb50_medium.csv`, `results/heal_v3_eval_{base,hint}_{low,medium,high}.csv`; "
               "Beam high also `results/tierb50_high_r{2,3}.csv`, `results/heal_v3_eval_{base,hint}_high_r{2,3}.csv` (mean of 3 runs).",
-              f"- Beam Case 2: `results/{CASE2_CSV.as_posix()}` (1 run).",
+              f"- Beam Case 2: `results/{CASE2_CSV.as_posix()}` (1 run); Beam high on probe5 also `results/{CASE2_EXT_R1.as_posix()}` "
+              "(runs 2 and 3, exploratory protocol case2-ext-v1; mean of 3 runs).",
               "- Other models: `runs/batch/models/<slug>/<suite>/results.csv`, written by `scripts/run_models.py`.", ""]
     return "\n".join(lines)
 

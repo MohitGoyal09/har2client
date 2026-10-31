@@ -2,7 +2,7 @@
 
 2 other model(s), 4 setting(s) scored: gpt-oss-120b-high, gpt-oss-120b-low, gpt-oss-120b-medium, qwen3.5-397b-thinking.
 
-Pass rate = mean over tasks of the share of hidden tests passed. Runs per task: Beam (high) on Case 1 and Case 3 is the mean of 3 runs (PREREG.md deviation 2026-10-27); Beam low and medium, Beam Case 2 and every other model are 1 run. Full solve = share of tasks at pass rate 1.0. CI = 95% percentile bootstrap over tasks (10,000 resamples, seed 20261024). Output tokens include reasoning tokens. `api_error` cells are not model results: they are left out and counted. Difference = model minus Beam (high), in points, paired over the tasks both have; a partial suite is paired on its shared tasks only and marked partial. A missing code submission (`no_code`, `no_submit`) scores 0.
+Pass rate = mean over tasks of the share of hidden tests passed. Runs per task: Beam (high) on Case 1, Case 3 and Case 2 with 5 probes is the mean of 3 runs (PREREG.md deviations 2026-10-27 and 2026-10-31); Beam low and medium, the other Case 2 arms and every other model are 1 run. Full solve = share of tasks at pass rate 1.0. CI = 95% percentile bootstrap over tasks (10,000 resamples, seed 20261024). Output tokens include reasoning tokens. `api_error` cells are not model results: they are left out and counted. Difference = model minus Beam (high), in points, paired over the tasks both have; a partial suite is paired on its shared tasks only and marked partial. A missing code submission (`no_code`, `no_submit`) scores 0.
 
 ## Case 1 Tier B (`tierb50`)
 
@@ -84,26 +84,26 @@ Matched-effort comparisons (model minus Beam at the same setting):
 
 ## Case 2 up to 5 probes (`probe5`)
 
-Beam: 1 run per task (`results/case2_probe/main_full/results.csv`, arm P5).
+Beam: 1 run per task, except Beam (high): mean of 3 runs (`results/case2_probe/main_full/results.csv`, arm P5).
 
 | model | n | pass rate [95% CI] | full solve | mean output tokens | api_error | vs Beam (high) [95% CI] |
 |---|---:|---:|---:|---:|---:|---:|
-| Beam (high) | 50 | 95.7% [89.7, 100.0] | 94.0% | 4,968 | 0 | - |
-| Beam (medium) | 50 | 87.7% [78.6, 95.4] | 78.0% | 2,110 | 0 | -8.0 [-18.0, +2.0] |
-| GPT-OSS-120B (high) | 50 | 82.3% [71.7, 91.7] | 74.0% | 5,903 | 0 | -13.4 [-25.4, -1.4] |
-| Beam (low) | 50 | 64.9% [51.4, 77.4] | 58.0% | 1,046 | 0 | -30.9 [-44.9, -17.1] |
-| GPT-OSS-120B (low) | 50 | 62.6% [49.1, 75.1] | 54.0% | 2,297 | 0 | -33.1 [-48.3, -18.0] |
-| GPT-OSS-120B (medium) | 50 | 57.4% [44.3, 70.3] | 44.0% | 2,229 | 0 | -38.3 [-52.3, -24.3] |
-| Qwen3.5-397B-A17B (thinking enabled) | 50 | 48.0% [35.7, 60.6] | 30.0% | 3,727 | 0 | -47.7 [-61.4, -33.7] |
+| Beam (high, mean of 3 runs) | 50 | 95.7% [91.9, 98.9] | 86.0% | 4,835 | 0 | - |
+| Beam (medium) | 50 | 87.7% [78.6, 95.4] | 78.0% | 2,110 | 0 | -8.0 [-17.1, +0.3] |
+| GPT-OSS-120B (high) | 50 | 82.3% [71.7, 91.7] | 74.0% | 5,903 | 0 | -13.4 [-24.4, -3.4] |
+| Beam (low) | 50 | 64.9% [51.4, 77.4] | 58.0% | 1,046 | 0 | -30.9 [-43.8, -18.4] |
+| GPT-OSS-120B (low) | 50 | 62.6% [49.1, 75.1] | 54.0% | 2,297 | 0 | -33.1 [-47.3, -19.4] |
+| GPT-OSS-120B (medium) | 50 | 57.4% [44.3, 70.3] | 44.0% | 2,229 | 0 | -38.3 [-51.5, -25.4] |
+| Qwen3.5-397B-A17B (thinking enabled) | 50 | 48.0% [35.7, 60.6] | 30.0% | 3,727 | 0 | -47.7 [-61.0, -34.1] |
 
 Matched-effort comparisons (model minus Beam at the same setting):
 
-- GPT-OSS-120B (high): -13.4 [-25.4, -1.4] points.
+- GPT-OSS-120B (high): -13.4 [-24.4, -3.4] points.
 - GPT-OSS-120B (low): -2.3 [-18.0, +13.1] points.
 - GPT-OSS-120B (medium): -30.3 [-42.9, -18.3] points.
 
 ## Sources
 
 - Beam rows: `results/tierb50_v1.csv` (low, high), `results/tierb50_medium.csv`, `results/heal_v3_eval_{base,hint}_{low,medium,high}.csv`; Beam high also `results/tierb50_high_r{2,3}.csv`, `results/heal_v3_eval_{base,hint}_high_r{2,3}.csv` (mean of 3 runs).
-- Beam Case 2: `results/case2_probe/main_full/results.csv` (1 run).
+- Beam Case 2: `results/case2_probe/main_full/results.csv` (1 run); Beam high on probe5 also `results/case2_probe/ext/R1_P5_high_r2r3/results.csv` (runs 2 and 3, exploratory protocol case2-ext-v1; mean of 3 runs).
 - Other models: `runs/batch/models/<slug>/<suite>/results.csv`, written by `scripts/run_models.py`.

@@ -127,7 +127,7 @@ def build_signature(controls: dict, cells: dict) -> list[dict]:
          "withheld": b2["c2a"]["pass"], "supplied": [{"label": "up to 5 test requests to a practice server", "value": b2["c2b"]["pass"]}],
          "withheld_text": "The model cannot test the API before it writes",
          "supplied_text": "The model may send up to 5 probes first",
-         "scope": f"{b2['c2a']['n']} Tier B tasks, 1 run each"},
+         "scope": f"{b2['c2a']['n']} Tier B tasks; no probes is {b2['c2a']['runs']} run, 5 probes is the mean of {b2['c2b']['runs']} runs"},
         {"id": "case3", "case": "Case 3 · repair", "n": b2["c3a"]["n"],
          "withheld": b2["c3a"]["pass"], "supplied": [{"label": "a contract hint in the goal text", "value": b2["c3b"]["pass"]}],
          "withheld_text": "The API changed silently and nothing says so",
@@ -273,7 +273,7 @@ def build_findings(cells: dict, v3: dict, controls: dict, facts: dict, verdicts:
          "result": (f"Tested the header in {t['low']['tested_header_n']}/{t['low']['n']}, {t['medium']['tested_header_n']}/{t['medium']['n']}, "
                     f"{t['high']['tested_header_n']}/{t['high']['n']} tasks; pass rate on these tasks {f1(t['low']['pass_rate'])}% → "
                     f"{f1(t['medium']['pass_rate'])}% → {f1(t['high']['pass_rate'])}%. "
-                    f"On all {n2} Case 2 tasks at high effort: {f1(p0)}% with no probes, {f1(p5)}% with five."),
+                    f"On all {n2} Case 2 tasks at high effort: {f1(p0)}% with no probes, {f1(p5)}% with five (mean of {hi['c2b']['runs']} runs)."),
          "why": "With more effort Beam forms a guess, designs a request to test it, and writes the client from the answer."},
         {"id": "H19", "pill": pill("H19"), "claim": "More changes per release are harder to repair.",
          "bars": [("Single change", f"n = {fam['single']['n']}", fam_pct["single"], 2), ("3 changes", f"n = {fam['release3']['n']}", fam_pct["release3"], 1),

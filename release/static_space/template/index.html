@@ -153,7 +153,7 @@
   <div class="sec-head">
     <p class="eyebrow">05 Beam in detail</p>
     <h2 id="be-h">Where the extra information lands, by effort.</h2>
-    <p class="lede">Light bars are the score with the piece missing. Dark bars are the score with it supplied. Low and medium are one run per task; high is the mean of three runs in cases 1 and 3.</p>
+    <p class="lede">Light bars are the score with the piece missing. Dark bars are the score with it supplied. Low and medium are one run per task; high is the mean of three runs in cases 1 and 3 and in case 2 with 5 probes.</p>
   </div>
   <div id="beam-detail"></div>
 </section>
@@ -195,7 +195,7 @@
       <ul>
         <li>Model <code>Beam-1.0-501B-A23B</code> through Reflection's OpenAI-compatible API, with <code>reasoning_effort</code> set to low, medium or high on every call.</li>
         <li>Cases 1 and 3 are one call with no tools. Case 2 is multi-turn tool calling: <code>http_request</code> to the practice server and <code>submit_client</code> to end. The <code>reasoning_content</code> of each assistant turn is sent back in the next request.</li>
-        <li>Beam at high effort in cases 1 and 3 is the mean of 3 runs per task. Everything else is one run.</li>
+        <li>Beam at high effort in cases 1 and 3, and in case 2 with 5 probes, is the mean of 3 runs per task. Everything else is one run.</li>
       </ul>
       <h3>Comparing models</h3>
       <ul>

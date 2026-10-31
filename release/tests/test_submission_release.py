@@ -38,6 +38,10 @@ class ExportList(unittest.TestCase):
         for name in ("REPORT.md", "summary.json", "results.csv", "SENSITIVITY.md"):
             self.assertIn(f"case2_probe/main_full/{name}", RESULTS_FILES)
 
+    def test_case2_extension_files_are_exported(self) -> None:
+        for name in ("PROTOCOL.md", "R1_P5_high_r2r3/results.csv", "R2_P1P2_high/results.csv"):
+            self.assertIn(f"case2_probe/ext/{name}", RESULTS_FILES)
+
     def test_comparison_files_are_exported_and_probe20_is_not(self) -> None:
         for model in COMPARISON_MODELS:
             for suite in COMPARISON_SUITES:
@@ -48,7 +52,7 @@ class ExportList(unittest.TestCase):
         self.assertIn("analysis/model_comparison/report.md", RESULTS_FILES)
 
     def test_the_final_figures_are_exported_and_shown_in_the_space(self) -> None:
-        names = [f"final_{n}.png" for n in ("scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score", "effort_matched", "all_scores", "beam_by_effort", "probing", "failure_kinds")]
+        names = [f"final_{n}.png" for n in ("scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score", "effort_matched", "all_scores", "beam_by_effort", "probing", "probe_curve", "failure_kinds")]
         self.assertEqual(list(h2c_release.FINAL_FIGURES), names)
         for name in names:
             self.assertIn(f"figures/{name}", RESULTS_FILES)

@@ -1,0 +1,82 @@
+{
+  "figure": "final_probe_curve",
+  "title": "Each extra probe helps Beam; from two probes on it tests the header",
+  "protocol": "case2-ext-v1",
+  "left": [
+    {
+      "budget": 0,
+      "runs": 1,
+      "pass_rate": 49.714285714285715,
+      "ci_low": 36.0,
+      "ci_high": 63.714285714285715
+    },
+    {
+      "budget": 1,
+      "runs": 1,
+      "pass_rate": 62.0,
+      "ci_low": 48.0,
+      "ci_high": 74.0
+    },
+    {
+      "budget": 2,
+      "runs": 1,
+      "pass_rate": 78.0,
+      "ci_low": 66.0,
+      "ci_high": 88.0
+    },
+    {
+      "budget": 5,
+      "runs": 3,
+      "pass_rate": 95.71428571428571,
+      "ci_low": 91.90476190476191,
+      "ci_high": 98.85714285714286
+    }
+  ],
+  "right": [
+    {
+      "budget": 0,
+      "runs": 1,
+      "tested_header_n": 0.0,
+      "per_run": [
+        0
+      ],
+      "hidden_header_tasks": 25
+    },
+    {
+      "budget": 1,
+      "runs": 1,
+      "tested_header_n": 1.0,
+      "per_run": [
+        1
+      ],
+      "hidden_header_tasks": 25
+    },
+    {
+      "budget": 2,
+      "runs": 1,
+      "tested_header_n": 12.0,
+      "per_run": [
+        12
+      ],
+      "hidden_header_tasks": 25
+    },
+    {
+      "budget": 5,
+      "runs": 3,
+      "tested_header_n": 17.333333333333332,
+      "per_run": [
+        17,
+        17,
+        18
+      ],
+      "hidden_header_tasks": 25
+    }
+  ],
+  "max_effort": {
+    "pass_rate": 94.0,
+    "ci_low": 86.0,
+    "ci_high": 100.0,
+    "runs": 1,
+    "tested_header_n": 19.0
+  }
+}

@@ -122,11 +122,11 @@
       "effort": "high",
       "suite": "probe5",
       "n": 50,
-      "runs": 1,
+      "runs": 3,
       "pass_rate": 95.71428571428571,
-      "ci_low": 89.71428571428571,
-      "ci_high": 100.0,
-      "mean_output_tokens": 4968.08,
+      "ci_low": 91.90476190476191,
+      "ci_high": 98.85714285714286,
+      "mean_output_tokens": 4834.96,
       "vs_beam_high": null
     },
     {
@@ -145,8 +145,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -13.428571428571429,
-        "ci_low": -25.42857142857143,
-        "ci_high": -1.4285714285714288,
+        "ci_low": -24.38095238095238,
+        "ci_high": -3.4285714285714284,
         "excludes_zero": true
       }
     },
@@ -166,8 +166,8 @@
         "n_ref": 50,
         "partial": false,
         "diff": -47.714285714285715,
-        "ci_low": -61.42857142857143,
-        "ci_high": -33.714285714285715,
+        "ci_low": -60.952380952380956,
+        "ci_high": -34.095238095238095,
         "excludes_zero": true
       }
     },

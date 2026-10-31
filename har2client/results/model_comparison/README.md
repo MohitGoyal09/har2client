@@ -9,7 +9,7 @@ are in `data/comparison_models.json`.
   level, so it is not equivalent to any Beam effort. The earlier Qwen
   provider-default experiment is excluded.
 - 1 run per cell for these models. Beam (high) is the per-task mean of 3 runs on
-  Cases 1 and 3; Beam Case 2 is 1 run from `results/case2_probe/main_full`.
+  Cases 1 and 3 and on Case 2 with 5 probes (the two extra runs are in `results/case2_probe/ext/`, exploratory); the other Beam Case 2 cells are 1 run from `results/case2_probe/main_full`.
 - Outputs are capped at 32,768 tokens per call; the Beam runs used 65,536.
 
 Case 2 is compared on the placebo and P5 arms. These CSVs contain no API keys,

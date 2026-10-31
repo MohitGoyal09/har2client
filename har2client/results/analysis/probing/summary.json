@@ -1119,5 +1119,227 @@
         }
       }
     }
+  },
+  "p5_high_3runs": {
+    "protocol": "case2-ext-v1",
+    "exploratory": true,
+    "effort": "high",
+    "arm": "P5",
+    "source": "run 1: results/case2_probe/main_full/results.csv; runs 2 and 3: results/case2_probe/ext/R1_P5_high_r2r3/results.csv (its `run` column says 1 and 2)",
+    "ci_method": "percentile bootstrap over tasks of per-task means over the 3 runs, 10000 resamples, key models:probe5:beam-high",
+    "runs": 3,
+    "n": 50,
+    "n_rows": 150,
+    "pass_rate": 95.71428571428571,
+    "ci_low": 91.90476190476191,
+    "ci_high": 98.85714285714286,
+    "pass_rate_per_run": [
+      95.71428571428571,
+      92.0,
+      99.42857142857143
+    ],
+    "mean_probes_used": 3.76,
+    "mean_completion_tokens": 4834.96,
+    "hidden_header_tasks": 25,
+    "tested_header_n_per_run": [
+      17,
+      17,
+      18
+    ],
+    "tested_header_n": 17.333333333333332,
+    "hidden_pass_rate": 98.09523809523809,
+    "hidden_ci_low": 95.04761904761905,
+    "hidden_ci_high": 100.0,
+    "hidden_pass_rate_per_run": [
+      99.42857142857143,
+      96.0,
+      98.85714285714286
+    ]
+  },
+  "probe_curve_high": [
+    {
+      "budget": 0,
+      "arm": "placebo",
+      "runs_label": "1 run",
+      "source": "results/case2_probe/main_full/results.csv",
+      "runs": 1,
+      "n": 50,
+      "n_rows": 50,
+      "pass_rate": 49.714285714285715,
+      "ci_low": 36.0,
+      "ci_high": 63.714285714285715,
+      "pass_rate_per_run": [
+        49.714285714285715
+      ],
+      "mean_probes_used": 0.0,
+      "mean_completion_tokens": 5633.5,
+      "hidden_header_tasks": 25,
+      "tested_header_n_per_run": [
+        0
+      ],
+      "tested_header_n": 0.0,
+      "hidden_pass_rate": 32.0,
+      "hidden_ci_low": 16.0,
+      "hidden_ci_high": 52.0,
+      "hidden_pass_rate_per_run": [
+        32.0
+      ]
+    },
+    {
+      "budget": 1,
+      "arm": "P1",
+      "runs_label": "1 run",
+      "source": "results/case2_probe/ext/R2_P1P2_high/results.csv",
+      "runs": 1,
+      "n": 50,
+      "n_rows": 50,
+      "pass_rate": 62.0,
+      "ci_low": 48.0,
+      "ci_high": 74.0,
+      "pass_rate_per_run": [
+        62.0
+      ],
+      "mean_probes_used": 0.28,
+      "mean_completion_tokens": 4828.46,
+      "hidden_header_tasks": 25,
+      "tested_header_n_per_run": [
+        1
+      ],
+      "tested_header_n": 1.0,
+      "hidden_pass_rate": 40.0,
+      "hidden_ci_low": 20.0,
+      "hidden_ci_high": 60.0,
+      "hidden_pass_rate_per_run": [
+        40.0
+      ]
+    },
+    {
+      "budget": 2,
+      "arm": "P2",
+      "runs_label": "1 run",
+      "source": "results/case2_probe/ext/R2_P1P2_high/results.csv",
+      "runs": 1,
+      "n": 50,
+      "n_rows": 50,
+      "pass_rate": 78.0,
+      "ci_low": 66.0,
+      "ci_high": 88.0,
+      "pass_rate_per_run": [
+        78.0
+      ],
+      "mean_probes_used": 1.28,
+      "mean_completion_tokens": 4905.86,
+      "hidden_header_tasks": 25,
+      "tested_header_n_per_run": [
+        12
+      ],
+      "tested_header_n": 12.0,
+      "hidden_pass_rate": 80.0,
+      "hidden_ci_low": 64.0,
+      "hidden_ci_high": 96.0,
+      "hidden_pass_rate_per_run": [
+        80.0
+      ]
+    },
+    {
+      "budget": 5,
+      "arm": "P5",
+      "runs_label": "mean of 3 runs",
+      "source": "results/case2_probe/main_full/results.csv (run 1) and results/case2_probe/ext/R1_P5_high_r2r3/results.csv (runs 2 and 3)",
+      "runs": 3,
+      "n": 50,
+      "n_rows": 150,
+      "pass_rate": 95.71428571428571,
+      "ci_low": 91.90476190476191,
+      "ci_high": 98.85714285714286,
+      "pass_rate_per_run": [
+        95.71428571428571,
+        92.0,
+        99.42857142857143
+      ],
+      "mean_probes_used": 3.76,
+      "mean_completion_tokens": 4834.96,
+      "hidden_header_tasks": 25,
+      "tested_header_n_per_run": [
+        17,
+        17,
+        18
+      ],
+      "tested_header_n": 17.333333333333332,
+      "hidden_pass_rate": 98.09523809523809,
+      "hidden_ci_low": 95.04761904761905,
+      "hidden_ci_high": 100.0,
+      "hidden_pass_rate_per_run": [
+        99.42857142857143,
+        96.0,
+        98.85714285714286
+      ]
+    }
+  ],
+  "extension": {
+    "protocol": "case2-ext-v1",
+    "exploratory": true,
+    "r3_included": true,
+    "r3_note": null
+  },
+  "max_effort": {
+    "protocol": "case2-ext-v1",
+    "exploratory": true,
+    "arm": "P5",
+    "source": "results/case2_probe/ext/R3_P5_max/results.csv",
+    "max": {
+      "runs": 1,
+      "n": 50,
+      "n_rows": 50,
+      "pass_rate": 94.0,
+      "ci_low": 86.0,
+      "ci_high": 100.0,
+      "pass_rate_per_run": [
+        94.0
+      ],
+      "mean_probes_used": 4.34,
+      "mean_completion_tokens": 7803.36,
+      "hidden_header_tasks": 25,
+      "tested_header_n_per_run": [
+        19
+      ],
+      "tested_header_n": 19.0,
+      "hidden_pass_rate": 92.0,
+      "hidden_ci_low": 80.0,
+      "hidden_ci_high": 100.0,
+      "hidden_pass_rate_per_run": [
+        92.0
+      ]
+    },
+    "high_mean_of_3": {
+      "runs": 3,
+      "n": 50,
+      "n_rows": 150,
+      "pass_rate": 95.71428571428571,
+      "ci_low": 91.90476190476191,
+      "ci_high": 98.85714285714286,
+      "pass_rate_per_run": [
+        95.71428571428571,
+        92.0,
+        99.42857142857143
+      ],
+      "mean_probes_used": 3.76,
+      "mean_completion_tokens": 4834.96,
+      "hidden_header_tasks": 25,
+      "tested_header_n_per_run": [
+        17,
+        17,
+        18
+      ],
+      "tested_header_n": 17.333333333333332,
+      "hidden_pass_rate": 98.09523809523809,
+      "hidden_ci_low": 95.04761904761905,
+      "hidden_ci_high": 100.0,
+      "hidden_pass_rate_per_run": [
+        99.42857142857143,
+        96.0,
+        98.85714285714286
+      ]
+    }
   }
 }

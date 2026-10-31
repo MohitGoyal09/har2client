@@ -23,7 +23,7 @@ COMPARISON_SUITES = ("tierb50", "v3base", "v3hint", "probe0", "probe5")
 # The final figures, in display order (the Space shows them first on the Findings tab).
 FINAL_FIGURES = tuple(f"final_{n}.png" for n in (
     "scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score",
-    "effort_matched", "all_scores", "beam_by_effort", "probing", "failure_kinds"))
+    "effort_matched", "all_scores", "beam_by_effort", "probing", "probe_curve", "failure_kinds"))
 CASE2_CSV = "case2_probe/main_full/results.csv"
 COMPARISON_SUMMARY = "analysis/model_comparison/summary.json"
 
@@ -44,6 +44,9 @@ RESULTS_FILES = (
     "analysis/heal_controls/report.md", "analysis/heal_controls/summary.json",
     # case 2 (probe): the full run, the same 50 Tier B tasks (P20 and the header-off control are described in the card)
     *(f"case2_probe/main_full/{n}" for n in ("REPORT.md", "summary.json", "results.csv", "SENSITIVITY.md")),
+    # case 2 exploratory extension (protocol case2-ext-v1): P5 high runs 2 and 3, 1 and 2 probes at high, and P5 at max effort (only when finished)
+    "case2_probe/ext/PROTOCOL.md", "case2_probe/ext/R1_P5_high_r2r3/results.csv", "case2_probe/ext/R2_P1P2_high/results.csv",
+    *(("case2_probe/ext/R3_P5_max/results.csv",) if (RESULTS_DIR / "case2_probe/ext/R3_P5_max/results.csv").is_file() else ()),
     # model comparison: Beam, GPT-OSS-120B and Qwen3.5-397B-A17B (the P20 arm is not part of the comparison and is not listed)
     "analysis/model_comparison/report.md", "analysis/model_comparison/summary.json", "model_comparison/README.md",
     # case 2 probing behaviour and Beam failure kinds (scripts/analyze_probing.py)

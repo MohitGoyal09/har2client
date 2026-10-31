@@ -41,7 +41,7 @@
       "label": "up to 5 probes (P5)",
       "pass_rate": 95.71428571428571,
       "n": 50,
-      "runs": 1,
+      "runs": 3,
       "information_available": true
     },
     {

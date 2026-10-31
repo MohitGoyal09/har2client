@@ -93,3 +93,37 @@ Share of failing hidden tests by kind: the `fail_*` columns summed over tasks (o
 | low | 1 | 309 | 42.4% | 25.2% | 22.3% | 5.8% | 1.3% | 0.0% | 1.6% | 1.3% |
 | medium | 1 | 251 | 41.0% | 40.6% | 6.8% | 9.2% | 1.6% | 0.4% | 0.4% | - |
 | high | 3 | 350 | 28.0% | 31.4% | 30.3% | 0.9% | 3.4% | 4.9% | 0.6% | 0.6% |
+
+## Exploratory extension (protocol case2-ext-v1)
+
+Added after the main results, not pre-registered, and testing no pre-registered hypothesis (see `PREREG.md`, deviation of 2026-10-31). Same tasks, prompts and grader as the main run; only new probe budgets were added (`results/case2_probe/ext/PROTOCOL.md`). High effort, 50 tasks. `api_error` rows are left out; each (task, arm, run) has exactly one scored row.
+
+### P5 at high effort, 3 runs
+
+Run 1 is the main run; runs 2 and 3 are `case2_probe/ext/R1_P5_high_r2r3/results.csv`. Mean of 3 = per-task mean over the runs, then the mean over tasks; CI = percentile bootstrap over tasks (10,000 resamples).
+
+| | run 1 | run 2 | run 3 | mean of 3 runs [95% CI] |
+|---|---:|---:|---:|---:|
+| pass rate, all 50 tasks | 95.7% | 92.0% | 99.4% | 95.7% [91.9, 98.9] |
+| pass rate, 25 hidden-header tasks | 99.4% | 96.0% | 98.9% | 98.1% [95.0, 100.0] |
+| tested the header (of 25) | 17 | 17 | 18 | 17.3 |
+
+### Probe budget curve (high effort)
+
+Budget 0 is the placebo arm of the main run. Budgets 1 and 2 are 1 run (`case2_probe/ext/R2_P1P2_high/results.csv`). Budget 5 is the mean of 3 runs; its tested-header count is the mean of the three runs.
+
+| probe budget | runs | pass rate [95% CI] | mean probes used | tested header (of 25) | pass on hidden-header tasks [95% CI] |
+|---:|---|---:|---:|---:|---:|
+| 0 | 1 run | 49.7% [36.0, 63.7] | 0.00 | 0 | 32.0% [16.0, 52.0] |
+| 1 | 1 run | 62.0% [48.0, 74.0] | 0.28 | 1 | 40.0% [20.0, 60.0] |
+| 2 | 1 run | 78.0% [66.0, 88.0] | 1.28 | 12 | 80.0% [64.0, 96.0] |
+| 5 | mean of 3 runs | 95.7% [91.9, 98.9] | 3.76 | 17.3 (17/17/18) | 98.1% [95.0, 100.0] |
+
+### P5 at max effort
+
+`case2_probe/ext/R3_P5_max/results.csv`, 1 run. High is the mean of 3 runs from above. Tokens are mean completion tokens per task.
+
+| effort | runs | pass rate [95% CI] | mean probes used | tested header (of 25) | mean completion tokens |
+|---|---|---:|---:|---:|---:|
+| max | 1 | 94.0% [86.0, 100.0] | 4.34 | 19 | 7,803 |
+| high | mean of 3 | 95.7% [91.9, 98.9] | 3.76 | 17.3 (17/17/18) | 4,835 |

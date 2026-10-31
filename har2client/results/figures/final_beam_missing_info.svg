@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-29T18:35:57.535501</dc:date>
+    <dc:date>2026-11-01T01:16:13.637089</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -42,16 +42,16 @@ z
      <g id="line2d_1">
       <path d="M 194.4 398.88 
 L 194.4 108 
-" clip-path="url(#p0bc96a7f61)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
+" clip-path="url(#p5235b338f3)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
      </g>
      <g id="line2d_2">
       <defs>
-       <path id="m83bbf45817" d="M 0 0 
+       <path id="me2779653e5" d="M 0 0 
 L 0 3.5 
 " style="stroke: #52514e; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m83bbf45817" x="194.4" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+       <use xlink:href="#me2779653e5" x="194.4" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
@@ -62,11 +62,11 @@ L 0 3.5
      <g id="line2d_3">
       <path d="M 306.9 398.88 
 L 306.9 108 
-" clip-path="url(#p0bc96a7f61)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
+" clip-path="url(#p5235b338f3)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
      </g>
      <g id="line2d_4">
       <g>
-       <use xlink:href="#m83bbf45817" x="306.9" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+       <use xlink:href="#me2779653e5" x="306.9" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
@@ -77,11 +77,11 @@ L 306.9 108
      <g id="line2d_5">
       <path d="M 419.4 398.88 
 L 419.4 108 
-" clip-path="url(#p0bc96a7f61)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
+" clip-path="url(#p5235b338f3)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
      </g>
      <g id="line2d_6">
       <g>
-       <use xlink:href="#m83bbf45817" x="419.4" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+       <use xlink:href="#me2779653e5" x="419.4" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
@@ -92,11 +92,11 @@ L 419.4 108
      <g id="line2d_7">
       <path d="M 531.9 398.88 
 L 531.9 108 
-" clip-path="url(#p0bc96a7f61)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
+" clip-path="url(#p5235b338f3)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
      </g>
      <g id="line2d_8">
       <g>
-       <use xlink:href="#m83bbf45817" x="531.9" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+       <use xlink:href="#me2779653e5" x="531.9" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
@@ -107,11 +107,11 @@ L 531.9 108
      <g id="line2d_9">
       <path d="M 644.4 398.88 
 L 644.4 108 
-" clip-path="url(#p0bc96a7f61)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
+" clip-path="url(#p5235b338f3)" style="fill: none; stroke: #e6e5e1; stroke-linecap: square"/>
      </g>
      <g id="line2d_10">
       <g>
-       <use xlink:href="#m83bbf45817" x="644.4" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+       <use xlink:href="#me2779653e5" x="644.4" y="398.88" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
@@ -191,7 +191,7 @@ L 643.542857 142.329081
 L 643.542857 157.528216 
 L 194.4 157.528216 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 194.4 168.534486 
@@ -199,7 +199,7 @@ L 415.542857 168.534486
 L 415.542857 183.733622 
 L 194.4 183.733622 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #a9c8ef; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #a9c8ef; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 194.4 194.739892 
@@ -207,7 +207,7 @@ L 626.4 194.739892
 L 626.4 209.939027 
 L 194.4 209.939027 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 194.4 220.945297 
@@ -215,7 +215,7 @@ L 639.257143 220.945297
 L 639.257143 236.144432 
 L 194.4 236.144432 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="text_16">
     <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #0b0b0b" x="55.8" y="257.478219" transform="rotate(-0 55.8 257.478219)">Case 2: Beam may probe the live server</text>
@@ -226,7 +226,7 @@ L 418.114286 273.356108
 L 418.114286 288.555243 
 L 194.4 288.555243 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #a9c8ef; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #a9c8ef; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
     <path d="M 194.4 299.561514 
@@ -234,7 +234,7 @@ L 625.114286 299.561514
 L 625.114286 314.760649 
 L 194.4 314.760649 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="text_17">
     <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #0b0b0b" x="55.8" y="336.094436" transform="rotate(-0 55.8 336.094436)">Case 3: repair a broken client</text>
@@ -245,7 +245,7 @@ L 401.339338 351.972324
 L 401.339338 367.171459 
 L 194.4 367.171459 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #a9c8ef; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #a9c8ef; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
     <path d="M 194.4 378.17773 
@@ -253,7 +253,7 @@ L 589.115074 378.17773
 L 589.115074 393.376865 
 L 194.4 393.376865 
 z
-" clip-path="url(#p0bc96a7f61)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p5235b338f3)" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="text_18">
     <path d="M 651.444654 152.730875 
@@ -2271,8 +2271,8 @@ z
    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #52514e" transform="translate(21.6 79.859375)">the recording or supplied</text>
   </g>
   <g id="text_28">
-   <text style="font-size: 7.8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #52514e" transform="translate(21.6 475.460016)">Case 1 header bars: 25 tasks each, mean of 3 runs; H10 hint and evidence: same 25 tasks, 1 run; Case 2: 50 tasks, 1 run; Case 3: 64 tasks, mean of 3 runs.</text>
-   <text style="font-size: 7.8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #52514e" transform="translate(21.6 485.133844)">Whiskers are omitted where the analysis files hold no per-bar CI. Data: results/analysis/model_comparison/summary.json.</text>
+   <text style="font-size: 7.8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #52514e" transform="translate(21.6 475.102313)">Case 1 header bars: 25 tasks each, mean of 3 runs; H10 hint and evidence: same 25 tasks, 1 run; Case 2: 50 tasks, no probes 1 run, 5 probes mean of 3 runs; Case</text>
+   <text style="font-size: 7.8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #52514e" transform="translate(21.6 485.133844)">3: 64 tasks, mean of 3 runs. Whiskers are omitted where the analysis files hold no per-bar CI. Data: results/analysis/model_comparison/summary.json.</text>
   </g>
   <g id="legend_1">
    <g id="patch_13">
@@ -2300,7 +2300,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p0bc96a7f61">
+  <clipPath id="p5235b338f3">
    <rect x="194.4" y="108" width="504" height="290.88"/>
   </clipPath>
  </defs>

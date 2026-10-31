@@ -14,11 +14,15 @@ Reads (read-only, no API call):
                                                   from the Beam file (same 50 Tier B tasks), the probe columns are reported as missing.
   results/tierb50_v1.csv, tierb50_medium.csv, heal_v3_eval_{base,hint}_{low,medium,high}.csv and the `_high_r2/_r3` repeats
                                                   Beam Case 1 and Case 3 per-task rows, for the failure kinds (`fail_*` columns).
+  results/case2_probe/ext/R1_P5_high_r2r3/results.csv   Exploratory extension (protocol case2-ext-v1, results/case2_probe/ext/PROTOCOL.md):
+  results/case2_probe/ext/R2_P1P2_high/results.csv      P5 high runs 2 and 3 (its `run` column says 1 and 2), arms P1 and P2 at high, and
+  results/case2_probe/ext/R3_P5_max/results.csv         P5 at effort max. R3 is optional: it is used only when the file holds at least
+                                                  50 scored rows; otherwise it is skipped and the report says so. R1 and R2 are required.
 Pass rate in the CSVs is 0..1; every number here is in percent. CI = 95% percentile bootstrap over tasks (same method and
 seed as analyze_models.py, through heal_v3_verdicts.bootstrap_mean).
 
 Writes results/analysis/probing/{summary.json,report.md} and results/figures/final_probing.{png,svg,json} and
-final_failure_kinds.{png,svg,json}.
+final_probe_curve.{png,svg,json} (exploratory extension) and final_failure_kinds.{png,svg,json}.
 """
 
 from __future__ import annotations
@@ -39,6 +43,12 @@ DEFAULT_RESULTS = ROOT / "results"
 DEFAULT_OUT = ROOT / "results" / "analysis" / "probing"
 DEFAULT_FIG_DIR = ROOT / "results" / "figures"
 SOURCE_NOTE = "Data: results/analysis/probing/summary.json."
+EXT_DIR = Path("case2_probe") / "ext"
+EXT_R1, EXT_R2, EXT_R3 = (EXT_DIR / n / "results.csv" for n in ("R1_P5_high_r2r3", "R2_P1P2_high", "R3_P5_max"))
+EXT_PROTOCOL = "case2-ext-v1"
+MIN_R3_ROWS = 50  # R3 is used only when every task has a scored row
+HIGH = "high"
+HEADLINE_KEY = "models:probe5:beam-high"  # the bootstrap key analyze_models.py uses for this cell, so both reports give the same CI
 EFFORTS = am.EFFORTS
 ARMS = ("placebo", "P5")  # the only Case 2 arms read; any other arm of the file is dropped
 SUITE_ARM = {"probe0": "placebo", "probe5": "P5"}
@@ -67,6 +77,29 @@ MIN_LABEL_SHARE = 6.0  # a stacked segment smaller than this (percent) gets no i
 def _read(path: Path) -> list[dict]:
     with open(path, newline="", encoding="utf-8") as fh:
         return [r for r in csv.DictReader(fh) if (r.get("run") or "1") == "1" and r.get("status") != am.API_ERROR]
+
+
+def read_all_runs(path: Path) -> list[dict]:
+    """Every scored row (any run) of a results CSV; `api_error` rows are left out."""
+    with open(path, newline="", encoding="utf-8") as fh:
+        return [r for r in csv.DictReader(fh) if r.get("status") != am.API_ERROR]
+
+
+def check_once(rows: list[dict], tasks: set[str], what: str) -> None:
+    """Every (task, arm, effort, run) of `rows` appears exactly once, and each (arm, effort, run) covers exactly `tasks`."""
+    seen: dict[tuple, int] = {}
+    for r in rows:
+        k = (r["task"], r["arm"], r["effort"], r["run"])
+        seen[k] = seen.get(k, 0) + 1
+    twice = [k for k, n in seen.items() if n > 1]
+    if twice:
+        raise SystemExit(f"error: {what}: (task, arm, effort, run) appears more than once after dropping api_error: {twice[:3]}")
+    groups: dict[tuple, set[str]] = {}
+    for t, a, e, ru in seen:
+        groups.setdefault((a, e, ru), set()).add(t)
+    for g, got in groups.items():
+        if got != tasks:
+            raise SystemExit(f"error: {what}: {g} holds {len(got)} tasks, expected {len(tasks)} (missing {sorted(tasks - got)[:3]})")
 
 
 def _num(row: dict, col: str) -> float:
@@ -187,6 +220,83 @@ def failure_block(results: Path) -> dict:
     return out
 
 
+def by_run(rows: list[dict], arm: str, effort: str) -> list[list[dict]]:
+    """Rows of one arm and effort, one list per run value, in run order."""
+    sel = [r for r in rows if r["arm"] == arm and r["effort"] == effort]
+    return [[r for r in sel if r["run"] == n] for n in sorted({r["run"] for r in sel}, key=int)]
+
+
+def multi_run_cell(runs: list[list[dict]], hidden: dict[str, str], n_boot: int, seed: int, key: str) -> dict:
+    """Stats of one arm over several runs: per-task means over the runs, CI by bootstrap over tasks (one run: the plain run)."""
+    def per_task(rs: list[list[dict]], only_hidden: bool) -> list[float]:
+        tasks = sorted(t for t in {r["task"] for r in rs[0]} if not only_hidden or hidden[t] == "on")
+        score = [{r["task"]: _num(r, "pass_rate") * PCT for r in run} for run in rs]
+        return [_mean([sc[t] for sc in score]) for t in tasks]
+
+    on = [[r for r in run if hidden[r["task"]] == "on"] for run in runs]
+    all_est = hv.bootstrap_mean(per_task(runs, False), n_boot, seed, key)
+    on_est = hv.bootstrap_mean(per_task(runs, True), n_boot, seed, f"{key}:hidden_on")
+    flat = [r for run in runs for r in run]
+    tested = [sum(r.get(TESTED_FLAG) == "True" for r in run) for run in on]
+    return {
+        "runs": len(runs), "n": len(runs[0]), "n_rows": len(flat),
+        "pass_rate": all_est.mean, "ci_low": all_est.lo, "ci_high": all_est.hi,
+        "pass_rate_per_run": [_mean([_num(r, "pass_rate") * PCT for r in run]) for run in runs],
+        "mean_probes_used": _mean([_num(r, "probes_used") for r in flat]),
+        "mean_completion_tokens": _mean([_num(r, "completion_tokens") for r in flat]),
+        "hidden_header_tasks": len(on[0]),
+        "tested_header_n_per_run": tested, "tested_header_n": _mean([float(t) for t in tested]),
+        "hidden_pass_rate": on_est.mean, "hidden_ci_low": on_est.lo, "hidden_ci_high": on_est.hi,
+        "hidden_pass_rate_per_run": [_mean([_num(r, "pass_rate") * PCT for r in run]) for run in on]}
+
+
+def load_extension(results: Path, tasks: set[str]) -> dict:
+    """Rows of the exploratory runs (R1, R2, and R3 when complete), each checked for one scored row per (task, arm, run)."""
+    ext = {"r3_note": None}
+    for name, rel in (("r1", EXT_R1), ("r2", EXT_R2)):
+        if not (results / rel).is_file():
+            raise SystemExit(f"error: missing {results / rel}")
+        ext[name] = read_all_runs(results / rel)
+        check_once(ext[name], tasks, rel.as_posix())
+    r3_path = results / EXT_R3
+    r3 = read_all_runs(r3_path) if r3_path.is_file() else []
+    if len(r3) >= MIN_R3_ROWS:
+        check_once(r3, tasks, EXT_R3.as_posix())
+        ext["r3"] = r3
+    else:
+        ext["r3_note"] = (f"{EXT_R3.as_posix()} is missing" if not r3_path.is_file()
+                          else f"{EXT_R3.as_posix()} holds {len(r3)} scored rows (fewer than {MIN_R3_ROWS})") + ": the max-effort result is skipped"
+    return ext
+
+
+def extension_blocks(beam: list[dict], ext: dict, hidden: dict[str, str], n_boot: int, seed: int) -> dict:
+    """`p5_high_3runs`, `probe_curve_high` and (when R3 is complete) `max_effort`."""
+    check_once(beam, set(hidden), am.CASE2_CSV.as_posix())
+    main_p5 = by_run(beam, "P5", HIGH)  # protocol run 1
+    p5_runs = [*main_p5, *by_run(ext["r1"], "P5", HIGH)]  # runs 2 and 3 are the R1 file's runs 1 and 2
+    if len(p5_runs) != 3:
+        raise SystemExit(f"error: expected 3 runs of P5 high, found {len(p5_runs)}")
+    p5 = multi_run_cell(p5_runs, hidden, n_boot, seed, HEADLINE_KEY)
+    placebo = multi_run_cell(by_run(beam, "placebo", HIGH), hidden, n_boot, seed, "probing:curve:placebo")
+    curve = [("placebo", 0, placebo, "results/" + am.CASE2_CSV.as_posix(), "1 run"),
+             ("P1", 1, multi_run_cell(by_run(ext["r2"], "P1", HIGH), hidden, n_boot, seed, "probing:curve:P1"), "results/" + EXT_R2.as_posix(), "1 run"),
+             ("P2", 2, multi_run_cell(by_run(ext["r2"], "P2", HIGH), hidden, n_boot, seed, "probing:curve:P2"), "results/" + EXT_R2.as_posix(), "1 run"),
+             ("P5", 5, p5, f"results/{am.CASE2_CSV.as_posix()} (run 1) and results/{EXT_R1.as_posix()} (runs 2 and 3)", "mean of 3 runs")]
+    out = {
+        "p5_high_3runs": {
+            "protocol": EXT_PROTOCOL, "exploratory": True, "effort": HIGH, "arm": "P5",
+            "source": f"run 1: results/{am.CASE2_CSV.as_posix()}; runs 2 and 3: results/{EXT_R1.as_posix()} (its `run` column says 1 and 2)",
+            "ci_method": f"percentile bootstrap over tasks of per-task means over the 3 runs, {n_boot} resamples, key {HEADLINE_KEY}",
+            **p5},
+        "probe_curve_high": [{"budget": b, "arm": a, "runs_label": label, "source": src, **c} for a, b, c, src, label in curve],
+        "extension": {"protocol": EXT_PROTOCOL, "exploratory": True, "r3_included": "r3" in ext, "r3_note": ext["r3_note"]}}
+    if "r3" in ext:
+        mx = multi_run_cell(by_run(ext["r3"], "P5", "max"), hidden, n_boot, seed, "probing:max:P5")
+        out["max_effort"] = {"protocol": EXT_PROTOCOL, "exploratory": True, "arm": "P5", "source": "results/" + EXT_R3.as_posix(),
+                             "max": mx, "high_mean_of_3": p5}
+    return out
+
+
 def build_summary(results: Path, n_boot: int, seed: int) -> dict:
     beam = load_beam(results)
     hidden = {r["task"]: r["hidden_header"] for r in beam if r["arm"] == "P5" and r["effort"] == "low"}
@@ -205,6 +315,7 @@ def build_summary(results: Path, n_boot: int, seed: int) -> dict:
         "other_models": other_block(others, hidden, n_boot, seed),
         "conditional_on_testing": conditional_block(beam, hidden, n_boot, seed),
         "failure_kinds": failure_block(results),
+        **extension_blocks(beam, load_extension(results, set(hidden)), hidden, n_boot, seed),
     }
 
 
@@ -274,6 +385,52 @@ def failure_table(s: dict) -> list[str]:
     return lines
 
 
+def _runs(xs: list[float], d: int = 1) -> str:
+    return " / ".join(f"{x:.{d}f}" for x in xs)
+
+
+def extension_report(s: dict) -> list[str]:
+    """Sections for the exploratory extension (protocol case2-ext-v1): P5 high in 3 runs, the probe budget curve, max effort."""
+    p5, curve = s["p5_high_3runs"], s["probe_curve_high"]
+    n_hid = p5["hidden_header_tasks"]
+    lines = [
+        "## Exploratory extension (protocol case2-ext-v1)", "",
+        "Added after the main results, not pre-registered, and testing no pre-registered hypothesis (see `PREREG.md`, deviation of 2026-10-31). "
+        "Same tasks, prompts and grader as the main run; only new probe budgets were added (`results/case2_probe/ext/PROTOCOL.md`). "
+        "High effort, 50 tasks. `api_error` rows are left out; each (task, arm, run) has exactly one scored row.", "",
+        "### P5 at high effort, 3 runs", "",
+        f"Run 1 is the main run; runs 2 and 3 are `{EXT_R1.as_posix()}`. Mean of 3 = per-task mean over the runs, then the mean over tasks; "
+        f"CI = percentile bootstrap over tasks ({s['n_boot']:,} resamples).", "",
+        "| | run 1 | run 2 | run 3 | mean of 3 runs [95% CI] |", "|---|---:|---:|---:|---:|",
+        f"| pass rate, all 50 tasks | " + " | ".join(f"{x:.1f}%" for x in p5["pass_rate_per_run"]) + f" | {_ci(p5)} |",
+        f"| pass rate, {n_hid} hidden-header tasks | " + " | ".join(f"{x:.1f}%" for x in p5["hidden_pass_rate_per_run"])
+        + f" | {p5['hidden_pass_rate']:.1f}% [{p5['hidden_ci_low']:.1f}, {p5['hidden_ci_high']:.1f}] |",
+        f"| tested the header (of {n_hid}) | " + " | ".join(str(x) for x in p5["tested_header_n_per_run"]) + f" | {p5['tested_header_n']:.1f} |", "",
+        "### Probe budget curve (high effort)", "",
+        "Budget 0 is the placebo arm of the main run. Budgets 1 and 2 are 1 run (`" + EXT_R2.as_posix() + "`). Budget 5 is the mean of 3 runs; "
+        "its tested-header count is the mean of the three runs.", "",
+        f"| probe budget | runs | pass rate [95% CI] | mean probes used | tested header (of {n_hid}) | pass on hidden-header tasks [95% CI] |",
+        "|---:|---|---:|---:|---:|---:|"]
+    for c in curve:
+        t = c["tested_header_n"]
+        tested = f"{t:.0f}" if c["runs"] == 1 else f"{t:.1f} ({'/'.join(str(x) for x in c['tested_header_n_per_run'])})"
+        lines.append(f"| {c['budget']} | {c['runs_label']} | {_ci(c)} | {_f(c['mean_probes_used'])} | {tested} "
+                     f"| {c['hidden_pass_rate']:.1f}% [{c['hidden_ci_low']:.1f}, {c['hidden_ci_high']:.1f}] |")
+    lines.append("")
+    if "max_effort" in s:
+        mx, hi = s["max_effort"]["max"], s["max_effort"]["high_mean_of_3"]
+        lines += ["### P5 at max effort", "",
+                  f"`{EXT_R3.as_posix()}`, 1 run. High is the mean of 3 runs from above. Tokens are mean completion tokens per task.", "",
+                  f"| effort | runs | pass rate [95% CI] | mean probes used | tested header (of {n_hid}) | mean completion tokens |",
+                  "|---|---|---:|---:|---:|---:|",
+                  f"| max | 1 | {_ci(mx)} | {_f(mx['mean_probes_used'])} | {mx['tested_header_n']:.0f} | {mx['mean_completion_tokens']:,.0f} |",
+                  f"| high | mean of 3 | {_ci(hi)} | {_f(hi['mean_probes_used'])} | {hi['tested_header_n']:.1f} "
+                  f"({'/'.join(str(x) for x in hi['tested_header_n_per_run'])}) | {hi['mean_completion_tokens']:,.0f} |", ""]
+    else:
+        lines += ["### P5 at max effort", "", f"Not included: {s['extension']['r3_note']}.", ""]
+    return lines
+
+
 def render_report(s: dict) -> str:
     miss = s["other_models_missing_columns"]
     lines = [
@@ -297,7 +454,8 @@ def render_report(s: dict) -> str:
         "## Failure kinds (Beam, Case 1 and Case 3)", "",
         "Share of failing hidden tests by kind: the `fail_*` columns summed over tasks (over the 3 runs at high effort on these cases), "
         "divided by the total.", "",
-        *failure_table(s)]
+        *failure_table(s),
+        *extension_report(s)]
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -353,6 +511,75 @@ def fig_probing(s: dict):
     ax_l.set_title("Beam tests the header more often", loc="left", fontsize=11, fontweight="bold", color=pff.INK, pad=6)
     ax_r.set_title("and passes more of these tasks", loc="left", fontsize=11, fontweight="bold", color=pff.INK, pad=6)
     return fig, {"title": title, **data}
+
+
+CURVE_TITLE = "Each extra probe helps Beam; from two probes on it tests the header"
+
+
+def fig_probe_curve(s: dict):
+    import plot_final as pff
+    from matplotlib.lines import Line2D
+
+    pff.SOURCE_NOTE = SOURCE_NOTE
+    beam, dark = pff.MODEL_COLOR["beam"], pff.BLUE_RAMP[4]
+    curve, p5 = s["probe_curve_high"], s["p5_high_3runs"]
+    n_hid = p5["hidden_header_tasks"]
+    mx = s.get("max_effort", {}).get("max")
+    note = ("Beam, Case 2, high effort, 50 tasks. 1 run per point except 5 probes, which is the mean of 3 runs (dots = the single runs). "
+            "Exploratory runs (protocol case2-ext-v1). 95% CI = bootstrap over tasks "
+            f"({s['n_boot']:,} resamples). Tested = at least one header-ablation probe.")
+    if mx:
+        note += " The max-effort point is 1 run."
+    fig, top, bottom = pff.frame(
+        11.5, 5.4, CURVE_TITLE,
+        f"Left: pass rate by probe budget. Right: of the {n_hid} tasks whose recording hides a required header, how many Beam tested the header.",
+        note, bottom_in=0.6)
+    gs = fig.add_gridspec(1, 2, left=0.07, right=0.985, top=top, bottom=bottom, wspace=0.2)
+    ax_l, ax_r = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1])
+    xs = list(range(len(curve)))
+    labels = ["0\n(no probes)", "1", "2", "5\n(mean of 3 runs)"]
+    for ax in (ax_l, ax_r):
+        pff.style_axes(ax, "y")
+        ax.set_xlim(-0.6, len(curve) - 0.4 + (0.45 if mx else 0))
+        ax.set_xticks(xs, labels, fontsize=9.5, color=pff.INK)
+        ax.set_xlabel("probe budget (requests Beam may send to the practice server)", fontsize=9, color=pff.INK_2)
+    ax_l.set_ylim(0, 112)
+    ax_l.set_yticks([0, 25, 50, 75, 100])
+    ax_r.set_ylim(0, n_hid * 1.2)
+    ax_r.set_yticks(range(0, n_hid + 1, 5))
+    ax_l.plot(xs, [c["pass_rate"] for c in curve], color=beam, lw=2, zorder=3)
+    data = {"left": [], "right": []}
+    for i, c in enumerate(curve):
+        last = i == len(curve) - 1
+        ax_l.errorbar(i, c["pass_rate"], yerr=[[c["pass_rate"] - c["ci_low"]], [c["ci_high"] - c["pass_rate"]]], fmt="D" if last else "o",
+                      color=beam, ecolor=beam, elinewidth=1.4, capsize=4, ms=pff.MS + (1.5 if last else 0), mfc=dark if last else beam,
+                      mec=beam, zorder=4)
+        ax_l.text(i + 0.1, c["pass_rate"] - 3, f"{c['pass_rate']:.1f}", ha="left", va="top", fontsize=9, fontweight="bold", color=pff.INK, zorder=5)
+        data["left"].append({"budget": c["budget"], "runs": c["runs"], "pass_rate": c["pass_rate"], "ci_low": c["ci_low"], "ci_high": c["ci_high"]})
+        t = c["tested_header_n"]
+        ax_r.bar(i, t, width=0.55, color=dark if last else beam, edgecolor=beam, linewidth=1.3, zorder=3)
+        if last:
+            ax_r.scatter([i] * c["runs"], c["tested_header_n_per_run"], s=26, color=pff.SURFACE, edgecolor=pff.INK, linewidth=1, zorder=6)
+        text = f"{t:.1f}/{n_hid}" if last else f"{t:.0f}/{n_hid}"
+        ax_r.text(i, max([t, *c["tested_header_n_per_run"]]) + 0.7, text, ha="center", va="bottom", fontsize=9, fontweight="bold", color=pff.INK, zorder=5)
+        data["right"].append({"budget": c["budget"], "runs": c["runs"], "tested_header_n": t, "per_run": c["tested_header_n_per_run"],
+                              "hidden_header_tasks": n_hid})
+    handles = [Line2D([], [], marker="D", ls="", color=beam, mfc=dark, ms=8, label="5 probes: mean of 3 runs")]
+    if mx:
+        x = len(curve) - 1 + 0.45
+        ax_l.errorbar(x, mx["pass_rate"], yerr=[[mx["pass_rate"] - mx["ci_low"]], [mx["ci_high"] - mx["pass_rate"]]], fmt="s", color=pff.SLATE[2],
+                      ecolor=pff.SLATE[2], elinewidth=1.4, capsize=4, ms=pff.MS, zorder=4)
+        ax_l.annotate(f"5 probes at max effort\n{mx['pass_rate']:.1f} (1 run)", (x, mx["pass_rate"]), xytext=(x - 0.1, max(mx["pass_rate"] - 22, 8)),
+                      ha="center", va="top", fontsize=8.5, color=pff.INK, arrowprops=pff.LEADER)
+        handles.append(Line2D([], [], marker="s", ls="", color=pff.SLATE[2], ms=8, label="5 probes, max effort (1 run)"))
+        data["max_effort"] = {"pass_rate": mx["pass_rate"], "ci_low": mx["ci_low"], "ci_high": mx["ci_high"], "runs": 1,
+                              "tested_header_n": mx["tested_header_n"]}
+    ax_l.legend(handles=handles, loc="upper left", frameon=True, facecolor=pff.SURFACE, edgecolor=pff.GRID, fontsize=8.5, labelcolor=pff.INK)
+    ax_l.set_ylabel("pass rate on all 50 tasks (%)", fontsize=9, color=pff.INK_2)
+    ax_r.set_ylabel(f"hidden-header tasks where Beam tested the header (of {n_hid})", fontsize=9, color=pff.INK_2)
+    ax_l.set_title("More probes, higher pass rate", loc="left", fontsize=11, fontweight="bold", color=pff.INK, pad=6)
+    ax_r.set_title("From two probes on, Beam tests the header", loc="left", fontsize=11, fontweight="bold", color=pff.INK, pad=6)
+    return fig, {"title": CURVE_TITLE, "protocol": EXT_PROTOCOL, **data}
 
 
 def figure_kinds(failure: dict) -> list[str]:
@@ -419,7 +646,8 @@ def write_figures(s: dict, fig_dir: Path) -> list[str]:
     import plot_final as pff
 
     names = []
-    for name, maker in (("final_probing", fig_probing), ("final_failure_kinds", fig_failure_kinds)):
+    makers = [("final_probing", fig_probing), ("final_probe_curve", fig_probe_curve), ("final_failure_kinds", fig_failure_kinds)]
+    for name, maker in makers:
         fig, data = maker(s)
         pff.save(fig, fig_dir, name, data)
         names.append(name)

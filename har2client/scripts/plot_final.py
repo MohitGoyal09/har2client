@@ -9,7 +9,8 @@ Reads (read-only, no number is typed in here):
                                                    mean output tokens and the paired difference to Beam (high) per setting
   results/analysis/tierb50_effort/summary.json     Beam hidden-header split (Case 1)
   results/analysis/heal_controls/summary.json      H10: header hidden + hint / + evidence
-Beam high on Cases 1 and 3 is the per-task mean of 3 runs (scripts/high_runs.py via analyze_models.py); every other cell is 1 run.
+Beam high on Cases 1 and 3 and on Case 2 with 5 probes is the per-task mean of 3 runs (scripts/high_runs.py via analyze_models.py);
+every other cell is 1 run.
 Case 2 P20 (probe20) is dropped on load and appears in no figure.
 
 Writes results/figures/final_{scoreboard,leaderboard,effort_curves,information_gain,gap_vs_beam,beam_missing_info,cost_vs_score,
@@ -114,7 +115,7 @@ def frame(w: float, h: float, title: str, subtitle: str, note: str = "", bottom_
 
 def ci_note(doc: dict) -> str:
     return (f"95% CI = bootstrap over tasks ({doc['n_boot']:,} resamples). Pass rate = share of hidden tests passed. "
-            "Beam high on Cases 1 and 3 = mean of 3 runs; every other cell = 1 run.")
+            "Beam high on Cases 1 and 3 and on Case 2 with 5 probes = mean of 3 runs; every other cell = 1 run.")
 
 
 def n_text(rows: dict) -> str:
@@ -197,7 +198,7 @@ def fig_scoreboard(rows: dict, doc: dict):
     best = {s: max(rows[(m, e, s)]["pass_rate"] for m, e in ROW_ORDER) for s in SUITES}
     k = sum(best[s] == max(rows[("beam", e, s)]["pass_rate"] for e in EFFORTS) for s in SUITES)
     fig, top, bottom = frame(w, h, title.format(k=k),
-                             f"pass rate = share of hidden tests passed; Beam high = mean of 3 runs (Cases 1 and 3), others 1 run; {n_text(rows)}",
+                             f"pass rate = share of hidden tests passed; Beam high = mean of 3 runs (Cases 1 and 3, Case 2 with 5 probes), others 1 run; {n_text(rows)}",
                              "Outlined cell = highest in its column; gaps of a few points are within noise (see the gap chart). " + ci_note(doc),
                              bottom_in=0.1)
     ax = fig.add_axes([0.14, bottom, 0.84, top - bottom])
@@ -398,7 +399,7 @@ def fig_gap_vs_beam(rows: dict, doc: dict):
     title = "Without extra information GPT-OSS-120B matches or beats Beam; with it, Beam pulls ahead"
     fig, top, bottom = frame(10, 6.8, title,
                              "paired difference in pass rate, model minus Beam (high), in points, with 95% CI over the same tasks; "
-                             "Beam high is the mean of 3 runs on Cases 1 and 3", ci_note(doc), bottom_in=1.0)
+                             "Beam high is the mean of 3 runs on Cases 1 and 3 and on Case 2 with 5 probes", ci_note(doc), bottom_in=1.0)
     ax = fig.add_axes([0.25, bottom, 0.5, top - bottom - 0.04])
     style_axes(ax, "x")
     colors = {"beam_better": BEAM_BETTER, "other_better": OTHER_BETTER, "no_clear_difference": NEUTRAL}
@@ -469,14 +470,14 @@ def fig_beam_missing_info(rows: dict, doc: dict, effort_doc: dict, controls: dic
         ("header hidden + evidence (H10)", {"v": h10["c"]["pass_rate"] * 100, "n": h10["c"]["finished"], "runs": h10["c"]["runs_per_task"], "full": True}),
         ("Case 2: Beam may probe the live server", None),
         ("no probes", {"v": c2["probe0"]["pass_rate"], "n": c2["probe0"]["n"], "runs": 1, "full": False}),
-        ("up to 5 probes (P5)", {"v": c2["probe5"]["pass_rate"], "n": c2["probe5"]["n"], "runs": 1, "full": True}),
+        ("up to 5 probes (P5)", {"v": c2["probe5"]["pass_rate"], "n": c2["probe5"]["n"], "runs": c2["probe5"]["runs"], "full": True}),
         ("Case 3: repair a broken client", None),
         ("no hint", {"v": c2["v3base"]["pass_rate"], "n": c2["v3base"]["n"], "runs": c2["v3base"]["runs"], "full": False}),
         ("with hint", {"v": c2["v3hint"]["pass_rate"], "n": c2["v3hint"]["n"], "runs": c2["v3hint"]["runs"], "full": True}),
     ]
     fig, top, bottom = frame(10, 6.9, title, "Beam at high effort; bars show the share of hidden tests passed. Light bars: the missing piece is withheld; "
                              "solid bars: it is in the recording or supplied", "Case 1 header bars: 25 tasks each, mean of 3 runs; H10 hint and evidence: "
-                             "same 25 tasks, 1 run; Case 2: 50 tasks, 1 run; Case 3: 64 tasks, mean of 3 runs. "
+                             "same 25 tasks, 1 run; Case 2: 50 tasks, no probes 1 run, 5 probes mean of 3 runs; Case 3: 64 tasks, mean of 3 runs. "
                              "Whiskers are omitted where the analysis files hold no per-bar CI.", bottom_in=0.95)
     ax = fig.add_axes([0.27, bottom, 0.7, top - bottom])
     style_axes(ax, "x")
@@ -710,7 +711,7 @@ def fig_beam_by_effort(rows: dict, doc: dict, effort_doc: dict):
     fig, top, bottom = frame(12.5, 5.6, title,
                              "Beam only; light bars withhold the missing piece (hidden header, no probes, no hint), solid bars supply it "
                              "(header visible, up to 5 probes, hint)", "Case 1: 25 tasks per bar. Case 2: 50 tasks. Case 3: 64 tasks. "
-                             "High effort on Cases 1 and 3 is the mean of 3 runs; every other bar is 1 run. Case 1 header bars: "
+                             "High effort on Cases 1 and 3 and on Case 2 with 5 probes is the mean of 3 runs; every other bar is 1 run. Case 1 header bars: "
                              "results/analysis/tierb50_effort/summary.json. "
                              + ci_note(doc).split(" Beam high")[0].split(". ", 1)[1],
                              bottom_in=0.6)

@@ -59,9 +59,13 @@ class StaticSpace(unittest.TestCase):
     def test_no_hidden_task_data_in_the_site(self) -> None:
         tasks = json.loads((self.out / "data" / "tasks.json").read_text(encoding="utf-8"))["tasks"]
         self.assertGreater(len(tasks), 150)
-        allowed = {"id", "suite", "tier", "title", "goal", "features", "n_requests", "requests", "excerpt"}
+        # results / fails: per-setting pass rates and failure-kind indexes, numbers only (no task content)
+        allowed = {"id", "suite", "tier", "title", "goal", "features", "n_requests", "requests", "excerpt", "results", "fails"}
         for task in tasks:
             self.assertLessEqual(set(task), allowed)
+            for key in ("results", "fails"):
+                for values in task.get(key, {}).values():
+                    self.assertTrue(all(v is None or isinstance(v, (int, float)) for v in values), (task["id"], key))
         blob = (self.out / "data" / "tasks.json").read_text(encoding="utf-8") + (self.out / "index.html").read_text(encoding="utf-8")
         for name in h2c_release.HIDDEN_FILES:
             self.assertNotIn(name, blob)

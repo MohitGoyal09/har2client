@@ -1,0 +1,1123 @@
+{
+  "n_boot": 10000,
+  "seed": 20261024,
+  "pass_rate_unit": "percent (CSV scale is 0..1, multiplied by 100)",
+  "sources": {
+    "beam": "results/case2_probe/main_full/results.csv",
+    "other_models": "results/model_comparison/<slug>/{probe0,probe5}/results.csv",
+    "failure_kinds": "results/tierb50_v1.csv, tierb50_medium.csv, heal_v3_eval_{base,hint}_{low,medium,high}.csv, *_high_r2/_r3"
+  },
+  "hidden_header_tasks": 25,
+  "tasks": 50,
+  "other_models_missing_columns": [
+    "hidden_header",
+    "probes_used",
+    "probes_header_ablation",
+    "probes_auth_test",
+    "probes_paging_test",
+    "probes_etag_test",
+    "probes_other",
+    "probes_refused",
+    "ablated_hidden_header"
+  ],
+  "beam": {
+    "low": {
+      "placebo": {
+        "on": {
+          "n": 25,
+          "pass_rate": 24.0,
+          "ci_low": 8.0,
+          "ci_high": 40.0,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 1021.04,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": 0.0
+        },
+        "off": {
+          "n": 25,
+          "pass_rate": 82.28571428571429,
+          "ci_low": 66.85714285714285,
+          "ci_high": 94.85714285714286,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 1070.16,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        },
+        "all": {
+          "n": 50,
+          "pass_rate": 53.142857142857146,
+          "ci_low": 39.42857142857142,
+          "ci_high": 66.57142857142857,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 1045.6,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        }
+      },
+      "P5": {
+        "on": {
+          "n": 25,
+          "pass_rate": 50.285714285714285,
+          "ci_low": 31.428571428571427,
+          "ci_high": 69.14285714285714,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 1147.28,
+          "mean_probes_used": 1.44,
+          "mean_probes": {
+            "header_ablation": 0.32,
+            "auth_test": 0.76,
+            "paging_test": 0.08,
+            "etag_test": 0.0,
+            "other": 0.28,
+            "refused": 0.04
+          },
+          "tested_header_n": 4,
+          "tested_header_share": 16.0
+        },
+        "off": {
+          "n": 25,
+          "pass_rate": 79.42857142857143,
+          "ci_low": 63.42857142857143,
+          "ci_high": 94.28571428571429,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 944.0,
+          "mean_probes_used": 1.16,
+          "mean_probes": {
+            "header_ablation": 0.24,
+            "auth_test": 0.32,
+            "paging_test": 0.4,
+            "etag_test": 0.0,
+            "other": 0.2,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        },
+        "all": {
+          "n": 50,
+          "pass_rate": 64.85714285714285,
+          "ci_low": 51.142857142857146,
+          "ci_high": 77.14285714285715,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 1045.64,
+          "mean_probes_used": 1.3,
+          "mean_probes": {
+            "header_ablation": 0.28,
+            "auth_test": 0.54,
+            "paging_test": 0.24,
+            "etag_test": 0.0,
+            "other": 0.24,
+            "refused": 0.02
+          },
+          "tested_header_n": 4,
+          "tested_header_share": null
+        }
+      }
+    },
+    "medium": {
+      "placebo": {
+        "on": {
+          "n": 25,
+          "pass_rate": 16.0,
+          "ci_low": 4.0,
+          "ci_high": 32.0,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 2234.04,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": 0.0
+        },
+        "off": {
+          "n": 25,
+          "pass_rate": 76.57142857142857,
+          "ci_low": 60.0,
+          "ci_high": 91.42857142857143,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 2331.28,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        },
+        "all": {
+          "n": 50,
+          "pass_rate": 46.285714285714285,
+          "ci_low": 32.85714285714286,
+          "ci_high": 59.714285714285715,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 2282.66,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        }
+      },
+      "P5": {
+        "on": {
+          "n": 25,
+          "pass_rate": 78.28571428571428,
+          "ci_low": 61.714285714285715,
+          "ci_high": 92.57142857142857,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 2119.84,
+          "mean_probes_used": 2.68,
+          "mean_probes": {
+            "header_ablation": 0.84,
+            "auth_test": 0.64,
+            "paging_test": 0.36,
+            "etag_test": 0.0,
+            "other": 0.84,
+            "refused": 0.12
+          },
+          "tested_header_n": 10,
+          "tested_header_share": 40.0
+        },
+        "off": {
+          "n": 25,
+          "pass_rate": 97.14285714285714,
+          "ci_low": 94.28571428571428,
+          "ci_high": 99.42857142857143,
+          "invented_endpoint_calls_gt0": 1,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 2099.48,
+          "mean_probes_used": 2.48,
+          "mean_probes": {
+            "header_ablation": 0.28,
+            "auth_test": 0.68,
+            "paging_test": 0.76,
+            "etag_test": 0.0,
+            "other": 0.76,
+            "refused": 0.08
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        },
+        "all": {
+          "n": 50,
+          "pass_rate": 87.71428571428571,
+          "ci_low": 78.85714285714285,
+          "ci_high": 95.42857142857143,
+          "invented_endpoint_calls_gt0": 1,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 2109.66,
+          "mean_probes_used": 2.58,
+          "mean_probes": {
+            "header_ablation": 0.56,
+            "auth_test": 0.66,
+            "paging_test": 0.56,
+            "etag_test": 0.0,
+            "other": 0.8,
+            "refused": 0.1
+          },
+          "tested_header_n": 10,
+          "tested_header_share": null
+        }
+      }
+    },
+    "high": {
+      "placebo": {
+        "on": {
+          "n": 25,
+          "pass_rate": 32.0,
+          "ci_low": 16.0,
+          "ci_high": 52.0,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 6776.36,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": 0.0
+        },
+        "off": {
+          "n": 25,
+          "pass_rate": 67.42857142857143,
+          "ci_low": 48.0,
+          "ci_high": 84.0,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 4490.64,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        },
+        "all": {
+          "n": 50,
+          "pass_rate": 49.714285714285715,
+          "ci_low": 35.714285714285715,
+          "ci_high": 63.714285714285715,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 5633.5,
+          "mean_probes_used": 0.0,
+          "mean_probes": {
+            "header_ablation": 0.0,
+            "auth_test": 0.0,
+            "paging_test": 0.0,
+            "etag_test": 0.0,
+            "other": 0.0,
+            "refused": 0.0
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        }
+      },
+      "P5": {
+        "on": {
+          "n": 25,
+          "pass_rate": 99.42857142857143,
+          "ci_low": 98.28571428571429,
+          "ci_high": 100.0,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 5036.72,
+          "mean_probes_used": 3.88,
+          "mean_probes": {
+            "header_ablation": 1.48,
+            "auth_test": 0.68,
+            "paging_test": 0.2,
+            "etag_test": 0.12,
+            "other": 1.4,
+            "refused": 0.32
+          },
+          "tested_header_n": 17,
+          "tested_header_share": 68.0
+        },
+        "off": {
+          "n": 25,
+          "pass_rate": 92.0,
+          "ci_low": 80.0,
+          "ci_high": 100.0,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 4899.44,
+          "mean_probes_used": 3.64,
+          "mean_probes": {
+            "header_ablation": 0.44,
+            "auth_test": 0.76,
+            "paging_test": 0.96,
+            "etag_test": 0.08,
+            "other": 1.4,
+            "refused": 0.24
+          },
+          "tested_header_n": 0,
+          "tested_header_share": null
+        },
+        "all": {
+          "n": 50,
+          "pass_rate": 95.71428571428571,
+          "ci_low": 89.71428571428571,
+          "ci_high": 100.0,
+          "invented_endpoint_calls_gt0": 0,
+          "hardcoded_secret": 0,
+          "mean_completion_tokens": 4968.08,
+          "mean_probes_used": 3.76,
+          "mean_probes": {
+            "header_ablation": 0.96,
+            "auth_test": 0.72,
+            "paging_test": 0.58,
+            "etag_test": 0.1,
+            "other": 1.4,
+            "refused": 0.28
+          },
+          "tested_header_n": 17,
+          "tested_header_share": null
+        }
+      }
+    }
+  },
+  "other_models": {
+    "gpt-oss-120b-high": {
+      "label": "GPT-OSS-120B",
+      "effort": "high",
+      "arms": {
+        "placebo": {
+          "on": {
+            "n": 25,
+            "pass_rate": 45.142857142857146,
+            "ci_low": 26.285714285714285,
+            "ci_high": 64.0,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 5164.32,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 93.71428571428571,
+            "ci_low": 84.57142857142857,
+            "ci_high": 98.85714285714286,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 5640.0,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 69.42857142857143,
+            "ci_low": 56.57142857142857,
+            "ci_high": 81.42857142857143,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 5402.16,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        },
+        "P5": {
+          "on": {
+            "n": 25,
+            "pass_rate": 66.28571428571428,
+            "ci_low": 47.42857142857143,
+            "ci_high": 83.42857142857143,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 6113.28,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 98.28571428571429,
+            "ci_low": 95.42857142857143,
+            "ci_high": 100.0,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 5693.24,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 82.28571428571429,
+            "ci_low": 71.71428571428572,
+            "ci_high": 91.42857142857143,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 5903.26,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        }
+      }
+    },
+    "gpt-oss-120b-low": {
+      "label": "GPT-OSS-120B",
+      "effort": "low",
+      "arms": {
+        "placebo": {
+          "on": {
+            "n": 25,
+            "pass_rate": 30.857142857142858,
+            "ci_low": 14.285714285714285,
+            "ci_high": 49.14285714285714,
+            "invented_endpoint_calls_gt0": 3,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2201.56,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 69.14285714285714,
+            "ci_low": 51.42857142857143,
+            "ci_high": 85.14285714285714,
+            "invented_endpoint_calls_gt0": 4,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2199.92,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 50.0,
+            "ci_low": 36.85714285714286,
+            "ci_high": 63.42857142857143,
+            "invented_endpoint_calls_gt0": 7,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2200.74,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        },
+        "P5": {
+          "on": {
+            "n": 25,
+            "pass_rate": 31.428571428571427,
+            "ci_low": 15.428571428571429,
+            "ci_high": 50.285714285714285,
+            "invented_endpoint_calls_gt0": 6,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2269.2,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 93.71428571428571,
+            "ci_low": 84.57142857142857,
+            "ci_high": 98.85714285714286,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2324.04,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 62.57142857142857,
+            "ci_low": 49.42857142857143,
+            "ci_high": 75.42857142857143,
+            "invented_endpoint_calls_gt0": 6,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2296.62,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        }
+      }
+    },
+    "gpt-oss-120b-medium": {
+      "label": "GPT-OSS-120B",
+      "effort": "medium",
+      "arms": {
+        "placebo": {
+          "on": {
+            "n": 25,
+            "pass_rate": 32.57142857142857,
+            "ci_low": 16.0,
+            "ci_high": 50.857142857142854,
+            "invented_endpoint_calls_gt0": 4,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2060.04,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 80.57142857142857,
+            "ci_low": 65.71428571428572,
+            "ci_high": 92.57142857142857,
+            "invented_endpoint_calls_gt0": 4,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2180.76,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 56.57142857142857,
+            "ci_low": 43.42857142857143,
+            "ci_high": 69.42857142857143,
+            "invented_endpoint_calls_gt0": 8,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2120.4,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        },
+        "P5": {
+          "on": {
+            "n": 25,
+            "pass_rate": 37.714285714285715,
+            "ci_low": 19.42857142857143,
+            "ci_high": 56.57142857142857,
+            "invented_endpoint_calls_gt0": 2,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2320.6,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 77.14285714285714,
+            "ci_low": 60.57142857142857,
+            "ci_high": 91.42857142857143,
+            "invented_endpoint_calls_gt0": 4,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2137.08,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 57.42857142857143,
+            "ci_low": 44.285714285714285,
+            "ci_high": 70.28571428571428,
+            "invented_endpoint_calls_gt0": 6,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 2228.84,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        }
+      }
+    },
+    "qwen3.5-397b-thinking": {
+      "label": "Qwen3.5-397B-A17B",
+      "effort": "thinking",
+      "arms": {
+        "placebo": {
+          "on": {
+            "n": 25,
+            "pass_rate": 8.0,
+            "ci_low": 0.0,
+            "ci_high": 20.0,
+            "invented_endpoint_calls_gt0": 0,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 4175.24,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 72.0,
+            "ci_low": 55.42857142857143,
+            "ci_high": 86.28571428571428,
+            "invented_endpoint_calls_gt0": 1,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 3955.08,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 40.0,
+            "ci_low": 27.428571428571427,
+            "ci_high": 53.14285714285714,
+            "invented_endpoint_calls_gt0": 1,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 4065.16,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        },
+        "P5": {
+          "on": {
+            "n": 25,
+            "pass_rate": 29.142857142857142,
+            "ci_low": 13.142857142857142,
+            "ci_high": 46.857142857142854,
+            "invented_endpoint_calls_gt0": 2,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 4142.4,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "off": {
+            "n": 25,
+            "pass_rate": 66.85714285714285,
+            "ci_low": 49.714285714285715,
+            "ci_high": 82.28571428571428,
+            "invented_endpoint_calls_gt0": 2,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 3312.16,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          },
+          "all": {
+            "n": 50,
+            "pass_rate": 48.0,
+            "ci_low": 34.85714285714286,
+            "ci_high": 60.57142857142857,
+            "invented_endpoint_calls_gt0": 4,
+            "hardcoded_secret": 0,
+            "mean_completion_tokens": 3727.28,
+            "mean_probes_used": null,
+            "mean_probes": null,
+            "tested_header_n": null,
+            "tested_header_share": null
+          }
+        }
+      }
+    }
+  },
+  "conditional_on_testing": [
+    {
+      "model": "Beam",
+      "effort": "low",
+      "arm": "P5",
+      "hidden_header_tasks": 25,
+      "tested": {
+        "n": 4,
+        "pass_rate": 96.42857142857143,
+        "ci_low": 89.28571428571428,
+        "ci_high": 100.0,
+        "placebo_pass_rate_same_tasks": 0.0
+      },
+      "not_tested": {
+        "n": 21,
+        "pass_rate": 41.49659863945578,
+        "ci_low": 22.448979591836736,
+        "ci_high": 61.904761904761905,
+        "placebo_pass_rate_same_tasks": 28.571428571428573
+      }
+    },
+    {
+      "model": "Beam",
+      "effort": "medium",
+      "arm": "P5",
+      "hidden_header_tasks": 25,
+      "tested": {
+        "n": 10,
+        "pass_rate": 100.0,
+        "ci_low": 100.0,
+        "ci_high": 100.0,
+        "placebo_pass_rate_same_tasks": 0.0
+      },
+      "not_tested": {
+        "n": 15,
+        "pass_rate": 63.80952380952381,
+        "ci_low": 39.047619047619044,
+        "ci_high": 85.71428571428572,
+        "placebo_pass_rate_same_tasks": 26.666666666666668
+      }
+    },
+    {
+      "model": "Beam",
+      "effort": "high",
+      "arm": "P5",
+      "hidden_header_tasks": 25,
+      "tested": {
+        "n": 17,
+        "pass_rate": 100.0,
+        "ci_low": 100.0,
+        "ci_high": 100.0,
+        "placebo_pass_rate_same_tasks": 5.882352941176471
+      },
+      "not_tested": {
+        "n": 8,
+        "pass_rate": 98.21428571428571,
+        "ci_low": 94.64285714285714,
+        "ci_high": 100.0,
+        "placebo_pass_rate_same_tasks": 87.5
+      }
+    }
+  ],
+  "failure_kinds": {
+    "case1": {
+      "low": {
+        "runs": 1,
+        "task_rows": 50,
+        "failed_tests": 150.0,
+        "no_code_rows": 0,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.0,
+          "fail_bad_request_400": 98.0,
+          "fail_exception": 42.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.0,
+          "fail_precondition_428": 3.0,
+          "fail_return_mismatch": 0.0,
+          "fail_timeout": 7.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.0,
+          "fail_bad_request_400": 65.33333333333333,
+          "fail_exception": 28.000000000000004,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.0,
+          "fail_precondition_428": 2.0,
+          "fail_return_mismatch": 0.0,
+          "fail_timeout": 4.666666666666667,
+          "fail_wrong_op": 0.0
+        }
+      },
+      "medium": {
+        "runs": 1,
+        "task_rows": 50,
+        "failed_tests": 127.0,
+        "no_code_rows": 0,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.0,
+          "fail_bad_request_400": 105.0,
+          "fail_exception": 14.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.0,
+          "fail_precondition_428": 1.0,
+          "fail_return_mismatch": 0.0,
+          "fail_timeout": 7.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.0,
+          "fail_bad_request_400": 82.67716535433071,
+          "fail_exception": 11.023622047244094,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.0,
+          "fail_precondition_428": 0.7874015748031495,
+          "fail_return_mismatch": 0.0,
+          "fail_timeout": 5.511811023622047,
+          "fail_wrong_op": 0.0
+        }
+      },
+      "high": {
+        "runs": 3,
+        "task_rows": 150,
+        "failed_tests": 268.0,
+        "no_code_rows": 0,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 1.0,
+          "fail_bad_request_400": 259.0,
+          "fail_exception": 7.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.0,
+          "fail_precondition_428": 1.0,
+          "fail_return_mismatch": 0.0,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.3731343283582089,
+          "fail_bad_request_400": 96.64179104477611,
+          "fail_exception": 2.6119402985074625,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.0,
+          "fail_precondition_428": 0.3731343283582089,
+          "fail_return_mismatch": 0.0,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        }
+      }
+    },
+    "case3_base": {
+      "low": {
+        "runs": 1,
+        "task_rows": 64,
+        "failed_tests": 744.0,
+        "no_code_rows": 0,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 2.0,
+          "fail_bad_request_400": 187.0,
+          "fail_exception": 18.0,
+          "fail_incomplete_list": 11.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 18.0,
+          "fail_precondition_428": 4.0,
+          "fail_rate_limited_429": 81.0,
+          "fail_return_mismatch": 301.0,
+          "fail_state_mismatch": 106.0,
+          "fail_timeout": 16.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.2688172043010753,
+          "fail_bad_request_400": 25.134408602150536,
+          "fail_exception": 2.4193548387096775,
+          "fail_incomplete_list": 1.478494623655914,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 2.4193548387096775,
+          "fail_precondition_428": 0.5376344086021506,
+          "fail_rate_limited_429": 10.887096774193548,
+          "fail_return_mismatch": 40.456989247311824,
+          "fail_state_mismatch": 14.24731182795699,
+          "fail_timeout": 2.1505376344086025,
+          "fail_wrong_op": 0.0
+        }
+      },
+      "medium": {
+        "runs": 1,
+        "task_rows": 64,
+        "failed_tests": 685.0,
+        "no_code_rows": 0,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 2.0,
+          "fail_bad_request_400": 174.0,
+          "fail_exception": 2.0,
+          "fail_incomplete_list": 9.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 20.0,
+          "fail_rate_limited_429": 35.0,
+          "fail_return_mismatch": 315.0,
+          "fail_state_mismatch": 112.0,
+          "fail_timeout": 16.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.291970802919708,
+          "fail_bad_request_400": 25.401459854014597,
+          "fail_exception": 0.291970802919708,
+          "fail_incomplete_list": 1.313868613138686,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 2.9197080291970803,
+          "fail_rate_limited_429": 5.109489051094891,
+          "fail_return_mismatch": 45.98540145985402,
+          "fail_state_mismatch": 16.35036496350365,
+          "fail_timeout": 2.335766423357664,
+          "fail_wrong_op": 0.0
+        }
+      },
+      "high": {
+        "runs": 3,
+        "task_rows": 192,
+        "failed_tests": 1746.0,
+        "no_code_rows": 1,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 2.0,
+          "fail_bad_request_400": 440.0,
+          "fail_exception": 34.0,
+          "fail_incomplete_list": 30.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 3.0,
+          "fail_precondition_428": 4.0,
+          "fail_rate_limited_429": 56.0,
+          "fail_return_mismatch": 855.0,
+          "fail_state_mismatch": 306.0,
+          "fail_timeout": 16.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.11454753722794961,
+          "fail_bad_request_400": 25.20045819014891,
+          "fail_exception": 1.9473081328751431,
+          "fail_incomplete_list": 1.718213058419244,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.1718213058419244,
+          "fail_precondition_428": 0.22909507445589922,
+          "fail_rate_limited_429": 3.2073310423825885,
+          "fail_return_mismatch": 48.96907216494845,
+          "fail_state_mismatch": 17.525773195876287,
+          "fail_timeout": 0.9163802978235969,
+          "fail_wrong_op": 0.0
+        }
+      }
+    },
+    "case3_hint": {
+      "low": {
+        "runs": 1,
+        "task_rows": 64,
+        "failed_tests": 309.0,
+        "no_code_rows": 0,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 5.0,
+          "fail_bad_request_400": 131.0,
+          "fail_exception": 0.0,
+          "fail_incomplete_list": 4.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 18.0,
+          "fail_rate_limited_429": 78.0,
+          "fail_return_mismatch": 69.0,
+          "fail_state_mismatch": 4.0,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 1.6181229773462782,
+          "fail_bad_request_400": 42.394822006472495,
+          "fail_exception": 0.0,
+          "fail_incomplete_list": 1.2944983818770228,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 5.825242718446602,
+          "fail_rate_limited_429": 25.24271844660194,
+          "fail_return_mismatch": 22.330097087378643,
+          "fail_state_mismatch": 1.2944983818770228,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        }
+      },
+      "medium": {
+        "runs": 1,
+        "task_rows": 64,
+        "failed_tests": 251.0,
+        "no_code_rows": 0,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 1.0,
+          "fail_bad_request_400": 103.0,
+          "fail_exception": 1.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 23.0,
+          "fail_rate_limited_429": 102.0,
+          "fail_return_mismatch": 17.0,
+          "fail_state_mismatch": 4.0,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.398406374501992,
+          "fail_bad_request_400": 41.03585657370518,
+          "fail_exception": 0.398406374501992,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 9.163346613545817,
+          "fail_rate_limited_429": 40.63745019920319,
+          "fail_return_mismatch": 6.772908366533864,
+          "fail_state_mismatch": 1.593625498007968,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        }
+      },
+      "high": {
+        "runs": 3,
+        "task_rows": 192,
+        "failed_tests": 350.0,
+        "no_code_rows": 3,
+        "counts": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 2.0,
+          "fail_bad_request_400": 98.0,
+          "fail_exception": 17.0,
+          "fail_incomplete_list": 2.0,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 3.0,
+          "fail_rate_limited_429": 110.0,
+          "fail_return_mismatch": 106.0,
+          "fail_state_mismatch": 12.0,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        },
+        "shares": {
+          "fail_args_mismatch": 0.0,
+          "fail_auth_401": 0.5714285714285714,
+          "fail_bad_request_400": 28.000000000000004,
+          "fail_exception": 4.857142857142857,
+          "fail_incomplete_list": 0.5714285714285714,
+          "fail_no_request": 0.0,
+          "fail_not_found_404": 0.8571428571428572,
+          "fail_rate_limited_429": 31.428571428571427,
+          "fail_return_mismatch": 30.28571428571429,
+          "fail_state_mismatch": 3.428571428571429,
+          "fail_timeout": 0.0,
+          "fail_wrong_op": 0.0
+        }
+      }
+    }
+  }
+}

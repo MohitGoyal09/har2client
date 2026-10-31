@@ -120,6 +120,20 @@ Beam (high) is first on three of the five (on case 1 the gap to GPT-OSS-120B is 
 
 ![Beam at low, medium and high effort, with and without the missing piece](results/figures/final_beam_by_effort.png)
 
+### Beam tests its hypotheses (Case 2)
+
+In Case 2 Beam may send up to 5 requests to a practice server before it writes the client. We looked at the 25 tasks whose recording hides a required header. A task counts as "tested the header" when Beam sent at least one request that drops or changes that header to see what the server does. 1 run per task.
+
+| Effort | Probes used (mean, of 5) | Tested the header | Pass rate with 5 probes | Pass rate with no probes |
+|---|---:|---:|---:|---:|
+| low | 1.4 | 4/25 | 50.3% | 24.0% |
+| medium | 2.7 | 10/25 | 78.3% | 16.0% |
+| high | 3.9 | 17/25 | 99.4% | 32.0% |
+
+With more effort Beam uses more probes and tests the header more often, and it passes more of these tasks. Beam chose to test on the tasks that were hardest without probes (no-probe pass rate on those tasks: 0% to 6%), so the table shows that testing goes with success, not that every test causes it. GPT-OSS-120B gains less from the same probes on these tasks (low 30.9% to 31.4%, medium 32.6% to 37.7%, high 45.1% to 66.3%); its logs do not record which probes it sent, so we cannot say whether it tested the header. All numbers: `results/analysis/probing/summary.json` and `report.md`.
+
+![At higher effort Beam tests its hypotheses: share of hidden-header tasks where Beam tested the header, and pass rate with 5 probes against none](results/figures/final_probing.png)
+
 ## How to use
 
 ```python

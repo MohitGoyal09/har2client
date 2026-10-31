@@ -1,0 +1,206 @@
+{
+  "figure": "final_failure_kinds",
+  "title": "At higher effort Beam's Case 1 failures are almost all rejected requests; in Case 3 the mix shifts only a little",
+  "kinds": [
+    "fail_return_mismatch",
+    "fail_bad_request_400",
+    "fail_state_mismatch",
+    "fail_rate_limited_429",
+    "fail_exception",
+    "fail_timeout"
+  ],
+  "bars": [
+    {
+      "case": "case1",
+      "effort": "low",
+      "kind": "fail_bad_request_400",
+      "share": 65.33333333333333
+    },
+    {
+      "case": "case1",
+      "effort": "low",
+      "kind": "fail_exception",
+      "share": 28.000000000000004
+    },
+    {
+      "case": "case1",
+      "effort": "low",
+      "kind": "fail_timeout",
+      "share": 4.666666666666667
+    },
+    {
+      "case": "case1",
+      "effort": "low",
+      "kind": "other",
+      "share": 2.0
+    },
+    {
+      "case": "case1",
+      "effort": "medium",
+      "kind": "fail_bad_request_400",
+      "share": 82.67716535433071
+    },
+    {
+      "case": "case1",
+      "effort": "medium",
+      "kind": "fail_exception",
+      "share": 11.023622047244094
+    },
+    {
+      "case": "case1",
+      "effort": "medium",
+      "kind": "fail_timeout",
+      "share": 5.511811023622047
+    },
+    {
+      "case": "case1",
+      "effort": "medium",
+      "kind": "other",
+      "share": 0.7874015748031495
+    },
+    {
+      "case": "case1",
+      "effort": "high",
+      "kind": "fail_bad_request_400",
+      "share": 96.64179104477611
+    },
+    {
+      "case": "case1",
+      "effort": "high",
+      "kind": "fail_exception",
+      "share": 2.6119402985074625
+    },
+    {
+      "case": "case1",
+      "effort": "high",
+      "kind": "other",
+      "share": 0.7462686567164178
+    },
+    {
+      "case": "case3_base",
+      "effort": "low",
+      "kind": "fail_return_mismatch",
+      "share": 40.456989247311824
+    },
+    {
+      "case": "case3_base",
+      "effort": "low",
+      "kind": "fail_bad_request_400",
+      "share": 25.134408602150536
+    },
+    {
+      "case": "case3_base",
+      "effort": "low",
+      "kind": "fail_state_mismatch",
+      "share": 14.24731182795699
+    },
+    {
+      "case": "case3_base",
+      "effort": "low",
+      "kind": "fail_rate_limited_429",
+      "share": 10.887096774193548
+    },
+    {
+      "case": "case3_base",
+      "effort": "low",
+      "kind": "fail_exception",
+      "share": 2.4193548387096775
+    },
+    {
+      "case": "case3_base",
+      "effort": "low",
+      "kind": "fail_timeout",
+      "share": 2.1505376344086025
+    },
+    {
+      "case": "case3_base",
+      "effort": "low",
+      "kind": "other",
+      "share": 4.704301075268817
+    },
+    {
+      "case": "case3_base",
+      "effort": "medium",
+      "kind": "fail_return_mismatch",
+      "share": 45.98540145985402
+    },
+    {
+      "case": "case3_base",
+      "effort": "medium",
+      "kind": "fail_bad_request_400",
+      "share": 25.401459854014597
+    },
+    {
+      "case": "case3_base",
+      "effort": "medium",
+      "kind": "fail_state_mismatch",
+      "share": 16.35036496350365
+    },
+    {
+      "case": "case3_base",
+      "effort": "medium",
+      "kind": "fail_rate_limited_429",
+      "share": 5.109489051094891
+    },
+    {
+      "case": "case3_base",
+      "effort": "medium",
+      "kind": "fail_exception",
+      "share": 0.291970802919708
+    },
+    {
+      "case": "case3_base",
+      "effort": "medium",
+      "kind": "fail_timeout",
+      "share": 2.335766423357664
+    },
+    {
+      "case": "case3_base",
+      "effort": "medium",
+      "kind": "other",
+      "share": 4.525547445255475
+    },
+    {
+      "case": "case3_base",
+      "effort": "high",
+      "kind": "fail_return_mismatch",
+      "share": 48.96907216494845
+    },
+    {
+      "case": "case3_base",
+      "effort": "high",
+      "kind": "fail_bad_request_400",
+      "share": 25.20045819014891
+    },
+    {
+      "case": "case3_base",
+      "effort": "high",
+      "kind": "fail_state_mismatch",
+      "share": 17.525773195876287
+    },
+    {
+      "case": "case3_base",
+      "effort": "high",
+      "kind": "fail_rate_limited_429",
+      "share": 3.2073310423825885
+    },
+    {
+      "case": "case3_base",
+      "effort": "high",
+      "kind": "fail_exception",
+      "share": 1.9473081328751431
+    },
+    {
+      "case": "case3_base",
+      "effort": "high",
+      "kind": "fail_timeout",
+      "share": 0.9163802978235969
+    },
+    {
+      "case": "case3_base",
+      "effort": "high",
+      "kind": "other",
+      "share": 2.2336769759450172
+    }
+  ]
+}

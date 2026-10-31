@@ -7,6 +7,7 @@ Reads (never hard-codes a result):
   har2client/results/analysis/model_comparison/summary.json   the 7 settings x 5 benchmarks (pass rate, 95% CI, output tokens)
   har2client/results/analysis/{tierb50_effort,heal_v3_eval,heal_controls}/summary.json   case 1 header on/off, case 3 arms, verdicts
   har2client/results/case2_probe/main_full/summary.json        case 2 sanity check (counts)
+  har2client/results/analysis/probing/summary.json              case 2 header tests per effort (analyze_probing.py)
   release/build/dataset/*/data.jsonl                            visible task files only, through release/sync_space_data.py
   README.md, CITATION.cff                                       install / RL snippets and the BibTeX entry
   (per-task scores for the explorer come from analyze_models.load_beam / load_models, through static_space/per_task.py)
@@ -210,7 +211,7 @@ def join_and(items: list[str]) -> str:
     return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
 
 
-def build_findings(cells: dict, v3: dict, controls: dict, facts: dict, verdicts: list[dict]) -> list[dict]:
+def build_findings(cells: dict, v3: dict, controls: dict, facts: dict, verdicts: list[dict], probing: dict) -> list[dict]:
     """The six finding cards. Prose is written here; every number is read from the analysis files (cells, effort_facts, controls, v3)."""
     hi, lo = cells["beam-high"], cells["beam-low"]
     verdict = {v["id"].replace(" (base)", ""): v for v in verdicts}
@@ -228,6 +229,7 @@ def build_findings(cells: dict, v3: dict, controls: dict, facts: dict, verdicts:
     p0, p5 = hi["c2a"]["pass"], hi["c2b"]["pass"]
     n3, n_h10 = hi["c3a"]["n"], h10["steps"]["a"]["finished"]
     n2 = hi["c2a"]["n"]
+    t = {e: probing["beam"][e]["P5"]["on"] for e in EFFORTS}  # Case 2, hidden-header tasks, 5 probes: tested share and pass rate
 
     def pill(vid: str) -> tuple[str, str]:
         return verdict[vid]["status"].capitalize(), verdict[vid]["status"].replace(" ", "-")
@@ -263,13 +265,16 @@ def build_findings(cells: dict, v3: dict, controls: dict, facts: dict, verdicts:
          "tested": f"Case 1 tasks where the recording hides a required header (n = {n_h10}): add a hint, or add the missing evidence.",
          "result": f"Hint {sgn(h10_hint['mean'])} pts, evidence {sgn(h10_ev['mean'])} pts.",
          "why": "Beam cannot guess a header it never saw. Give it the evidence and the gap closes."},
-        {"id": "Case 2", "pill": ("Result", "result"), "claim": "Five probe requests nearly solve the hidden-header problem.",
-         "bars": [("No probes", None, p0, 0), ("Up to 5 probes", None, p5, 2)],
-         "caption": f"Pass rate, %. Beam, high effort, {n2} tasks, 1 run.",
-         "big": sgn(p5 - p0) + " pts", "big_cap": "five probes over none, high effort",
-         "tested": "Case 2: Beam runs as a tool-calling agent and may send requests to a practice server before it writes the client.",
-         "result": f"{f1(p0)}% with no probes to {f1(p5)}% with five, at high effort.",
-         "why": "Beam uses the server's replies to find what the recording does not show."},
+        {"id": "Case 2", "pill": ("Result", "result"), "claim": "At high effort, Beam runs its own experiments.",
+         "bars": [(e.capitalize() + " effort", f"{t[e]['tested_header_n']}/{t[e]['n']} tasks", t[e]["tested_header_share"], 2) for e in EFFORTS],
+         "caption": f"Share of the {t['high']['n']} hidden-header tasks where Beam tested the header, %. Beam, up to 5 probes, 1 run.",
+         "big": f"{t['high']['tested_header_n']}/{t['high']['n']}", "big_cap": "tasks where Beam tested the header, high effort",
+         "tested": f"Case 2, {t['high']['n']} tasks whose recording hides a required header. Beam may send 5 requests to a practice server.",
+         "result": (f"Tested the header in {t['low']['tested_header_n']}/{t['low']['n']}, {t['medium']['tested_header_n']}/{t['medium']['n']}, "
+                    f"{t['high']['tested_header_n']}/{t['high']['n']} tasks; pass rate on these tasks {f1(t['low']['pass_rate'])}% → "
+                    f"{f1(t['medium']['pass_rate'])}% → {f1(t['high']['pass_rate'])}%. "
+                    f"On all {n2} Case 2 tasks at high effort: {f1(p0)}% with no probes, {f1(p5)}% with five."),
+         "why": "With more effort Beam forms a guess, designs a request to test it, and writes the client from the answer."},
         {"id": "H19", "pill": pill("H19"), "claim": "More changes per release are harder to repair.",
          "bars": [("Single change", f"n = {fam['single']['n']}", fam_pct["single"], 2), ("3 changes", f"n = {fam['release3']['n']}", fam_pct["release3"], 1),
                   ("4 changes", f"n = {fam['release4']['n']}", fam_pct["release4"], 0)],
@@ -415,6 +420,7 @@ def build(out: Path) -> None:
     v3 = load(RESULTS / "analysis" / "heal_v3_eval" / "summary.json")
     controls = load(RESULTS / "analysis" / "heal_controls" / "summary.json")
     case2 = load(RESULTS / "case2_probe" / "main_full" / "summary.json")
+    probing = load(RESULTS / "analysis" / "probing" / "summary.json")
 
     cells = build_cells(comparison)
     detail = build_beam_detail(controls, v3, cells)
@@ -426,7 +432,7 @@ def build(out: Path) -> None:
     per_task.attach(tasks["tasks"], scores)
     n_checked = per_task.check_means(tasks["tasks"], scores, comparison, BENCHMARKS)  # raises unless every cell matches the leaderboard
     tasks["result_settings"], tasks["fail_kinds"] = scores["settings"], scores["fail_kinds"]
-    findings = build_findings(cells, v3, controls, facts, verdicts)
+    findings = build_findings(cells, v3, controls, facts, verdicts, probing)
     snippets = readme_blocks()
     cite = bibtex()
 

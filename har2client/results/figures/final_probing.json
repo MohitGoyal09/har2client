@@ -1,0 +1,62 @@
+{
+  "figure": "final_probing",
+  "title": "At higher effort Beam tests its hypotheses",
+  "left": [
+    {
+      "effort": "low",
+      "tested_header_share": 16.0,
+      "tested_header_n": 4,
+      "n": 25
+    },
+    {
+      "effort": "medium",
+      "tested_header_share": 40.0,
+      "tested_header_n": 10,
+      "n": 25
+    },
+    {
+      "effort": "high",
+      "tested_header_share": 68.0,
+      "tested_header_n": 17,
+      "n": 25
+    }
+  ],
+  "right": [
+    {
+      "effort": "low",
+      "arm": "no probes",
+      "pass_rate": 24.0,
+      "n": 25
+    },
+    {
+      "effort": "medium",
+      "arm": "no probes",
+      "pass_rate": 16.0,
+      "n": 25
+    },
+    {
+      "effort": "high",
+      "arm": "no probes",
+      "pass_rate": 32.0,
+      "n": 25
+    },
+    {
+      "effort": "low",
+      "arm": "up to 5 probes",
+      "pass_rate": 50.285714285714285,
+      "n": 25
+    },
+    {
+      "effort": "medium",
+      "arm": "up to 5 probes",
+      "pass_rate": 78.28571428571428,
+      "n": 25
+    },
+    {
+      "effort": "high",
+      "arm": "up to 5 probes",
+      "pass_rate": 99.42857142857143,
+      "n": 25
+    }
+  ]
+}

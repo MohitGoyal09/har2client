@@ -52,7 +52,7 @@ class ExportList(unittest.TestCase):
         self.assertIn("analysis/model_comparison/report.md", RESULTS_FILES)
 
     def test_the_final_figures_are_exported_and_shown_in_the_space(self) -> None:
-        names = [f"final_{n}.png" for n in ("scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score", "effort_matched", "all_scores", "beam_by_effort", "probing", "probe_curve", "failure_kinds")]
+        names = [f"final_{n}.png" for n in ("scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score", "effort_matched", "all_scores", "beam_by_effort", "probing", "probe_curve", "failure_kinds", "learnability")]
         self.assertEqual(list(h2c_release.FINAL_FIGURES), names)
         for name in names:
             self.assertIn(f"figures/{name}", RESULTS_FILES)

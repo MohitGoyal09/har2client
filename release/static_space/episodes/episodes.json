@@ -1,0 +1,248 @@
+{
+ "episodes": [
+  {
+   "id": "E1",
+   "task": "tierb_17_shipments",
+   "domain": "shipments",
+   "effort": "high",
+   "header": "X-Platform",
+   "probe_budget": 5,
+   "probes_used": 2,
+   "pass_rate": 1.0,
+   "contrast": false,
+   "steps": [
+    {
+     "kind": "probe",
+     "n": 1,
+     "label": "header_ablation",
+     "method": "GET",
+     "path": "/shipments",
+     "headers": [
+      {
+       "name": "X-Api-Key",
+       "value": "•••",
+       "tested": false
+      },
+      {
+       "name": "Accept",
+       "value": "application/json",
+       "tested": false
+      }
+     ],
+     "removed": "X-Platform",
+     "body": null,
+     "caption": "Sends a recorded request again without the `X-Platform` header, to test whether the server needs it."
+    },
+    {
+     "kind": "reply",
+     "n": 1,
+     "status": 400,
+     "body": "{\"error\":\"missing_header\",\"message\":\"header X-Platform is required\"}",
+     "caption": "The server rejects the request without the header (400)."
+    },
+    {
+     "kind": "probe",
+     "n": 2,
+     "label": "other",
+     "method": "GET",
+     "path": "/shipments",
+     "headers": [
+      {
+       "name": "X-Api-Key",
+       "value": "•••",
+       "tested": false
+      },
+      {
+       "name": "X-Platform",
+       "value": "web-1.2",
+       "tested": true
+      },
+      {
+       "name": "Accept",
+       "value": "application/json",
+       "tested": false
+      }
+     ],
+     "removed": null,
+     "body": null,
+     "caption": "Sends a request that includes the `X-Platform` header."
+    },
+    {
+     "kind": "reply",
+     "n": 2,
+     "status": 200,
+     "body": "{\"data\":[{\"id\":\"SHP-24795\",\"created_at\":\"2026-01-05T16:04:00Z\",\"carrier\":\"Tidewater Express\",\"status\":\"returned\",\"origin\":\"Reykjavik\",\"destination\":\"Perth\",\"we…",
+     "caption": "The server accepts the request (200)."
+    },
+    {
+     "kind": "submit",
+     "code": "def __init__(self, base_url: str, username: str, password: str) -> None:\n    self.base_url = base_url.rstrip(\"/\")\n    self.username = username\n    self.password = password\n    self._session = requests.Session()\n    self._session.headers.update(\n        {\n            \"x-api-key\": self.password,\n            \"x-platform\": \"web-1.2\",\n            \"accept\": \"application/json\",\n        }\n    )",
+     "has_header": true,
+     "caption": "Submits a client that always sends the header."
+    },
+    {
+     "kind": "result",
+     "pass_rate": 1.0,
+     "text": "Hidden tests passed: 100%"
+    }
+   ]
+  },
+  {
+   "id": "E2",
+   "task": "tierb_46_samples",
+   "domain": "samples",
+   "effort": "high",
+   "header": "X-App-Build",
+   "probe_budget": 5,
+   "probes_used": 3,
+   "pass_rate": 1.0,
+   "contrast": false,
+   "steps": [
+    {
+     "kind": "probe",
+     "n": 1,
+     "label": "header_ablation",
+     "method": "POST",
+     "path": "/auth/token",
+     "headers": [
+      {
+       "name": "Content-Type",
+       "value": "application/x-www-form-urlencoded",
+       "tested": false
+      }
+     ],
+     "removed": "X-App-Build",
+     "body": "username=•••&password=•••",
+     "caption": "Sends a recorded request again without the `X-App-Build` header, to test whether the server needs it."
+    },
+    {
+     "kind": "reply",
+     "n": 1,
+     "status": 400,
+     "body": "{\"error\":\"missing_header\",\"message\":\"header X-App-Build is required\"}",
+     "caption": "The server rejects the request without the header (400)."
+    },
+    {
+     "kind": "probe",
+     "n": 2,
+     "label": "auth_test",
+     "method": "POST",
+     "path": "/auth/token",
+     "headers": [
+      {
+       "name": "Content-Type",
+       "value": "application/x-www-form-urlencoded",
+       "tested": false
+      },
+      {
+       "name": "X-App-Build",
+       "value": "2148",
+       "tested": true
+      }
+     ],
+     "removed": null,
+     "body": "username=•••&password=•••",
+     "caption": "Tests the login flow."
+    },
+    {
+     "kind": "reply",
+     "n": 2,
+     "status": 200,
+     "body": "{\"data\":{\"token\":\"•••\",\"token_type\":\"Bearer\",\"expires_in\":3600},\"meta\":{\"request_id\":\"req_000002\"}}",
+     "caption": "The server accepts the request (200)."
+    },
+    {
+     "kind": "probe",
+     "n": 3,
+     "label": "other",
+     "method": "GET",
+     "path": "/records",
+     "headers": [
+      {
+       "name": "Authorization",
+       "value": "•••",
+       "tested": false
+      },
+      {
+       "name": "X-App-Build",
+       "value": "2148",
+       "tested": true
+      },
+      {
+       "name": "Accept",
+       "value": "application/json",
+       "tested": false
+      }
+     ],
+     "removed": null,
+     "body": null,
+     "caption": "Sends a request that includes the `X-App-Build` header."
+    },
+    {
+     "kind": "reply",
+     "n": 3,
+     "status": 200,
+     "body": "{\"data\":[{\"id\":\"SMP-58605\",\"created_at\":\"2026-01-05T10:36:00Z\",\"assay\":\"mass_spec\",\"lab\":\"harbor\",\"volume_ul\":72.4,\"collected_on\":\"2026-04-08\",\"batch\":\"B-3485\"…",
+     "caption": "The server accepts the request (200)."
+    },
+    {
+     "kind": "submit",
+     "code": "def __init__(self, base_url: str, username: str, password: str) -> None:\n    self.base_url = base_url.rstrip(\"/\")\n    self.username = username\n    self.password = password\n    self._token: Optional[str] = None\n    self._expires_at: float = 0.0\n    self._http = httpx.Client(\n        headers={\"X-App-Build\": \"2148\", \"Accept\": \"application/json\"},\n        timeout=30.0,\n    )",
+     "has_header": true,
+     "caption": "Submits a client that always sends the header."
+    },
+    {
+     "kind": "result",
+     "pass_rate": 1.0,
+     "text": "Hidden tests passed: 100%"
+    }
+   ]
+  },
+  {
+   "id": "E3",
+   "task": "tierb_25_tickets",
+   "domain": "tickets",
+   "effort": "high",
+   "header": "X-App-Build",
+   "probe_budget": 1,
+   "probes_used": 1,
+   "pass_rate": 0.0,
+   "contrast": true,
+   "steps": [
+    {
+     "kind": "note",
+     "text": "Only one probe allowed. Beam does not spend it on the header."
+    },
+    {
+     "kind": "probe",
+     "n": 1,
+     "label": "auth_test",
+     "method": "GET",
+     "path": "/openapi.json",
+     "headers": [],
+     "removed": null,
+     "body": null,
+     "caption": "Looks for a machine-readable API description."
+    },
+    {
+     "kind": "reply",
+     "n": 1,
+     "status": 404,
+     "body": "{\"error\":\"not_found\",\"message\":\"no such route\"}",
+     "caption": "The server has no such route (404)."
+    },
+    {
+     "kind": "submit",
+     "code": "def _request(self, method: str, path: str, **kwargs: Any) -> httpx.Response:\n    if \"sid\" not in self._client.cookies:\n        self._login()\n\n    headers = dict(kwargs.pop(\"headers\", {}) or {})\n    if method.upper() in {\"POST\", \"PUT\", \"PATCH\", \"DELETE\"} and self._csrf_token:\n        headers.setdefault(\"x-csrf-token\", self._csrf_token)\n    kwargs[\"headers\"] = headers\n\n    response = self._client.request(method, path, **kwargs)\n    if response.status_code == 401:\n        self._login()",
+     "has_header": false,
+     "caption": "Submits a client without the header."
+    },
+    {
+     "kind": "result",
+     "pass_rate": 0.0,
+     "text": "Hidden tests passed: 0%"
+    }
+   ]
+  }
+ ]
+}

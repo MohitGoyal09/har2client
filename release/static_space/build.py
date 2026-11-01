@@ -9,9 +9,10 @@ Reads (never hard-codes a result):
   har2client/results/case2_probe/main_full/summary.json        case 2 sanity check (counts)
   har2client/results/analysis/probing/summary.json              case 2 header tests per effort (analyze_probing.py)
   release/build/dataset/*/data.jsonl                            visible task files only, through release/sync_space_data.py
+  release/static_space/episodes/episodes.json                   three Case 2 episodes for the action replay (written by episodes.py, copied as is)
   README.md, CITATION.cff                                       install / RL snippets and the BibTeX entry
   (per-task scores for the explorer come from analyze_models.load_beam / load_models, through static_space/per_task.py)
-Writes release/build/static_space/: index.html, README.md (Space frontmatter), assets/{style.css,app.js,og.png}, data/{site.json,tasks.json}.
+Writes release/build/static_space/: index.html, README.md (Space frontmatter), assets/{style.css,app.js,og.png}, data/{site.json,tasks.json,episodes.json}.
 Run release/export_dataset.py first (the task explorer reads its output).
 """
 
@@ -40,6 +41,10 @@ DATASET_URL = "https://huggingface.co/datasets/Rockerleo/har2client"
 CODE_URL = "https://github.com/MohitGoyal09/har2client"
 PREREG_URL = CODE_URL + "/blob/main/har2client/PREREG.md"
 SPACE_URL = "https://huggingface.co/spaces/Rockerleo/har2client-leaderboard"
+EPISODES_JSON = HERE / "episodes" / "episodes.json"
+EPISODE_STEP_KINDS = ("note", "probe", "reply", "submit", "result")
+MEDIA_URL = DATASET_URL + "/resolve/main/media/"
+VIDEO_URL, POSTER_URL = MEDIA_URL + "har2client_demo.mp4", MEDIA_URL + "har2client_demo_poster.png"
 OG_FIGURE = RESULTS / "figures" / "final_beam_missing_info.png"
 MAX_REQUEST_ROWS = 60
 MAX_EXCERPT_CHARS = 1600
@@ -68,6 +73,19 @@ BENCHMARKS = [
 
 def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_episodes() -> str:
+    """The committed episodes file (episodes.py writes it), checked here and returned as compact JSON text."""
+    data = load(EPISODES_JSON)
+    episodes = data.get("episodes", [])
+    if len(episodes) != 3:
+        raise SystemExit(f"error: {EPISODES_JSON.name} has {len(episodes)} episodes, expected 3")
+    for ep in episodes:
+        bad = [s["kind"] for s in ep["steps"] if s["kind"] not in EPISODE_STEP_KINDS]
+        if bad or ep["steps"][-1]["kind"] != "result":
+            raise SystemExit(f"error: episode {ep['id']} has unknown step kinds {bad} or does not end with a result")
+    return json.dumps(data, separators=(",", ":"), ensure_ascii=False)
 
 
 def cell(row: dict) -> dict:
@@ -120,7 +138,7 @@ def build_signature(controls: dict, cells: dict) -> list[dict]:
          "withheld": steps["a"]["pass_rate"] * 100,
          "supplied": [{"label": "named in the goal text (hint)", "value": steps["b"]["pass_rate"] * 100},
                       {"label": "shown in the recording (evidence)", "value": steps["c"]["pass_rate"] * 100}],
-         "withheld_text": "One request header is hidden from the recording",
+         "withheld_text": "One required header looks optional in the recording",
          "supplied_text": "The missing header is named, or shown in a failed call",
          "scope": f"{steps['a']['finished']} Tier B tasks with the header hidden; withheld is the mean of {steps['a']['runs_per_task']} runs"},
         {"id": "case2", "case": "Case 2 · investigate", "n": b2["c2a"]["n"],
@@ -435,6 +453,7 @@ def build(out: Path) -> None:
     findings = build_findings(cells, v3, controls, facts, verdicts, probing)
     snippets = readme_blocks()
     cite = bibtex()
+    episodes_json = load_episodes()
 
     site = {
         "models": MODELS,
@@ -463,6 +482,10 @@ def build(out: Path) -> None:
         "H1_HIDDEN": f"{sig['case1']['withheld']:.1f}",
         "H1_SUPPLIED_LOW": f"{min(h10['b']['pass_rate'], h10['c']['pass_rate']) * 100:.1f}",
         "H1_SUPPLIED_HIGH": f"{max(h10['b']['pass_rate'], h10['c']['pass_rate']) * 100:.1f}",
+        "C2_NO_PROBES": f1(cells["beam-high"]["c2a"]["pass"]),
+        "C2_PROBES": f1(cells["beam-high"]["c2b"]["pass"]),
+        "VIDEO_URL": VIDEO_URL,
+        "POSTER_URL": POSTER_URL,
         "N_TIER_A": str(tasks["suites"]["tier_a"]),
         "N_TIER_B": str(tasks["suites"]["tier_b"]),
         "N_CASE3": str(tasks["suites"]["heal_v3"]),
@@ -479,7 +502,7 @@ def build(out: Path) -> None:
         "OG_IMAGE": SPACE_URL + "/resolve/main/assets/og.png",
         "SPACE_URL": SPACE_URL,
     })
-    if FORBIDDEN.search(page) or FORBIDDEN.search(site_json) or FORBIDDEN.search(tasks_json) or FORBIDDEN.search(space_readme()):
+    if FORBIDDEN.search(page) or FORBIDDEN.search(site_json) or FORBIDDEN.search(tasks_json) or FORBIDDEN.search(episodes_json) or FORBIDDEN.search(space_readme()):
         raise SystemExit("error: the P20 arm must not appear anywhere on the site")
 
     if out.exists():
@@ -492,6 +515,7 @@ def build(out: Path) -> None:
     shutil.copy(OG_FIGURE, out / "assets" / "og.png")
     (out / "data" / "site.json").write_text(json.dumps(site, indent=1), encoding="utf-8")
     (out / "data" / "tasks.json").write_text(tasks_json, encoding="utf-8")
+    (out / "data" / "episodes.json").write_text(episodes_json, encoding="utf-8")
     (out / "README.md").write_text(space_readme(), encoding="utf-8")
     js_kb = (out / "assets" / "app.js").stat().st_size / 1024
     tasks_kb = (out / "data" / "tasks.json").stat().st_size / 1024

@@ -21,6 +21,10 @@ sys.path.insert(0, str(RELEASE))
 import build as static_build  # noqa: E402
 import h2c_release  # noqa: E402
 
+# A secret-looking name followed by a real value (masked values are the bullet string), or a known credential shape anywhere.
+UNMASKED = re.compile(r"""(?:passw\w*|token|secret|csrf\w*|cookie|api[-_]?key)[\\"']*\s*[:=]\s*[\\"']*(?!•••)[A-Za-z0-9_.\-]{6,}""", re.I)
+CREDENTIAL = re.compile(r"eyJ[A-Za-z0-9_-]{6,}|Bearer\s+[A-Za-z0-9._-]{6,}|\bhf_[A-Za-z0-9]{6,}|\b(?:sk|tok|pw|user|sess)_[0-9A-Za-z]{6,}")
+STEP_KINDS = {"note", "probe", "reply", "submit", "result"}
 P20 = re.compile(r"probe20|\bP20\b", re.I)
 HAS_DATASET = any(h2c_release.DATASET_DIR.glob("*/data.jsonl"))
 
@@ -110,6 +114,57 @@ class StaticSpace(unittest.TestCase):
         js = (self.out / "assets" / "app.js").read_text(encoding="utf-8")
         self.assertLess(len(js.encode()), 60 * 1024)
         self.assertNotIn("innerHTML", js)
+
+    def test_episodes_are_in_the_build(self) -> None:
+        text = (self.out / "data" / "episodes.json").read_text(encoding="utf-8")
+        self.assertLess(len(text.encode()), 30 * 1024)
+        episodes = json.loads(text)["episodes"]
+        self.assertEqual([e["id"] for e in episodes], ["E1", "E2", "E3"])
+        for e in episodes:
+            self.assertLessEqual({"id", "task", "domain", "effort", "header", "probe_budget", "probes_used", "pass_rate", "contrast", "steps"}, set(e))
+            self.assertEqual(e["effort"], "high")
+            self.assertEqual(sum(1 for s in e["steps"] if s["kind"] == "probe"), e["probes_used"])
+            self.assertEqual(sum(1 for s in e["steps"] if s["kind"] == "reply"), e["probes_used"])
+            self.assertTrue(all(s["kind"] in STEP_KINDS for s in e["steps"]))
+            self.assertEqual(e["steps"][-1]["kind"], "result")
+            self.assertEqual(e["steps"][-1]["text"], f"Hidden tests passed: {e['pass_rate'] * 100:.0f}%")
+            for s in e["steps"]:
+                if s["kind"] == "reply":
+                    self.assertLessEqual(len(s["body"]), 160)
+                if s["kind"] == "submit":
+                    self.assertLessEqual(len(s["code"].splitlines()), 12)
+                    self.assertEqual(s["has_header"], e["header"].lower() in s["code"].lower())
+        self.assertEqual([e["contrast"] for e in episodes], [False, False, True])
+        self.assertEqual(episodes[2]["steps"][0]["kind"], "note")
+        self.assertLess(episodes[2]["pass_rate"], 1.0)
+        self.assertEqual(episodes[0]["pass_rate"], 1.0)
+        self.assertNotEqual(episodes[0]["domain"], episodes[1]["domain"])
+
+    def test_episodes_hold_no_unmasked_secret(self) -> None:
+        text = (self.out / "data" / "episodes.json").read_text(encoding="utf-8")
+        self.assertIsNone(CREDENTIAL.search(text), CREDENTIAL.search(text))
+        for e in json.loads(text)["episodes"]:  # requests and replies only: the client excerpt is code, where `self.password = password` is a name
+            wire = json.dumps([s for s in e["steps"] if s["kind"] in {"probe", "reply"}], ensure_ascii=False)
+            self.assertIsNone(UNMASKED.search(wire), UNMASKED.search(wire))
+            for s in e["steps"]:
+                for h in s.get("headers", []):
+                    if re.search(r"auth|cookie|token|csrf|key", h["name"], re.I):
+                        self.assertEqual(h["value"], "•••", h["name"])
+        self.assertIn("•••", text)
+        self.assertIsNone(P20.search(text))
+        for name in h2c_release.HIDDEN_FILES:
+            self.assertNotIn(name, text)
+
+    def test_hero_claim_and_video_are_built_from_site_data(self) -> None:
+        page = (self.out / "index.html").read_text(encoding="utf-8")
+        hi = self.site["cells"]["beam-high"]
+        self.assertIn(f"its pass rate goes from <b>{hi['c2a']['pass']:.1f}% &rarr; {hi['c2b']['pass']:.1f}%</b> (mean of 3 runs)", page)
+        self.assertIn(f'src="{static_build.VIDEO_URL}"', page)
+        self.assertIn(f'poster="{static_build.POSTER_URL}"', page)
+        csp = re.search(r'Content-Security-Policy" content="([^"]+)"', page).group(1)
+        self.assertRegex(csp, r"media-src [^;]*https://huggingface\.co[^;]*https://\*\.hf\.co")
+        self.assertRegex(csp, r"img-src [^;]*https://huggingface\.co")
+        self.assertIn('id="watch"', page)
 
     def test_page_has_one_h1_and_the_required_links(self) -> None:
         page = (self.out / "index.html").read_text(encoding="utf-8")

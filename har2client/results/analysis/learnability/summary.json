@@ -1,0 +1,1057 @@
+{
+  "n_boot": 10000,
+  "seed": 20261024,
+  "leaderboard_cells_checked": 35,
+  "benchmarks": {
+    "tierb50": {
+      "label": "Case 1: build",
+      "n_tasks": 50
+    },
+    "probe0": {
+      "label": "Case 2: no probes",
+      "n_tasks": 50
+    },
+    "probe5": {
+      "label": "Case 2: 5 probes",
+      "n_tasks": 50
+    },
+    "v3base": {
+      "label": "Case 3: repair, no hint",
+      "n_tasks": 64
+    },
+    "v3hint": {
+      "label": "Case 3: repair, with hint",
+      "n_tasks": 64
+    }
+  },
+  "settings": {
+    "beam-low": "Beam low",
+    "beam-medium": "Beam medium",
+    "beam-high": "Beam high",
+    "gpt-oss-120b-low": "GPT-OSS low",
+    "gpt-oss-120b-medium": "GPT-OSS medium",
+    "gpt-oss-120b-high": "GPT-OSS high",
+    "qwen3.5-397b-thinking": "Qwen3.5 thinking"
+  },
+  "runs_note": "Beam high has 3 runs per task on tierb50, probe5, v3base, v3hint; every other cell is 1 run.",
+  "dense_reward": {
+    "tierb50": {
+      "tasks": 50,
+      "rollouts": 450,
+      "partial_credit_share": {
+        "n": 50,
+        "value": 5.333333333333334,
+        "ci_low": 3.1111111111111107,
+        "ci_high": 7.555555555555555
+      },
+      "histogram_pct": {
+        "0": 37.11111111111111,
+        "(0, 0.25]": 0.2222222222222222,
+        "(0.25, 0.5]": 0.2222222222222222,
+        "(0.5, 0.75]": 0.8888888888888888,
+        "(0.75, 1)": 4.0,
+        "1": 57.55555555555556
+      }
+    },
+    "probe0": {
+      "tasks": 50,
+      "rollouts": 350,
+      "partial_credit_share": {
+        "n": 50,
+        "value": 10.0,
+        "ci_low": 6.0,
+        "ci_high": 14.571428571428571
+      },
+      "histogram_pct": {
+        "0": 45.14285714285714,
+        "(0, 0.25]": 0.8571428571428571,
+        "(0.25, 0.5]": 0.5714285714285714,
+        "(0.5, 0.75]": 1.7142857142857142,
+        "(0.75, 1)": 6.857142857142857,
+        "1": 44.857142857142854
+      }
+    },
+    "probe5": {
+      "tasks": 50,
+      "rollouts": 450,
+      "partial_credit_share": {
+        "n": 50,
+        "value": 9.555555555555555,
+        "ci_low": 6.222222222222221,
+        "ci_high": 13.333333333333332
+      },
+      "histogram_pct": {
+        "0": 21.555555555555554,
+        "(0, 0.25]": 0.2222222222222222,
+        "(0.25, 0.5]": 0.0,
+        "(0.5, 0.75]": 1.333333333333333,
+        "(0.75, 1)": 8.0,
+        "1": 68.88888888888889
+      }
+    },
+    "v3base": {
+      "tasks": 64,
+      "rollouts": 576,
+      "partial_credit_share": {
+        "n": 64,
+        "value": 62.15277777777778,
+        "ci_low": 53.99305555555556,
+        "ci_high": 70.13888888888889
+      },
+      "histogram_pct": {
+        "0": 14.583333333333332,
+        "(0, 0.25]": 46.70138888888889,
+        "(0.25, 0.5]": 4.166666666666666,
+        "(0.5, 0.75]": 9.201388888888888,
+        "(0.75, 1)": 2.083333333333333,
+        "1": 23.26388888888889
+      }
+    },
+    "v3hint": {
+      "tasks": 64,
+      "rollouts": 576,
+      "partial_credit_share": {
+        "n": 64,
+        "value": 31.25,
+        "ci_low": 25.17361111111111,
+        "ci_high": 37.673611111111114
+      },
+      "histogram_pct": {
+        "0": 11.631944444444443,
+        "(0, 0.25]": 16.493055555555554,
+        "(0.25, 0.5]": 6.423611111111111,
+        "(0.5, 0.75]": 2.6041666666666665,
+        "(0.75, 1)": 5.729166666666666,
+        "1": 57.11805555555556
+      }
+    }
+  },
+  "separation": {
+    "ordering": {
+      "tierb50": {
+        "n": 50,
+        "pass_rate": {
+          "beam-low": {
+            "n": 50,
+            "value": 57.142857142857146,
+            "ci_low": 43.42857142857143,
+            "ci_high": 70.85714285714285
+          },
+          "beam-medium": {
+            "n": 50,
+            "value": 63.714285714285715,
+            "ci_low": 50.0,
+            "ci_high": 76.0
+          },
+          "beam-high": {
+            "n": 50,
+            "value": 74.47619047619048,
+            "ci_low": 63.23809523809524,
+            "ci_high": 84.95238095238095
+          },
+          "gpt-oss-120b-low": {
+            "n": 50,
+            "value": 51.142857142857146,
+            "ci_low": 37.42857142857142,
+            "ci_high": 64.85714285714285
+          },
+          "gpt-oss-120b-medium": {
+            "n": 50,
+            "value": 53.714285714285715,
+            "ci_low": 40.57142857142857,
+            "ci_high": 66.57142857142857
+          },
+          "gpt-oss-120b-high": {
+            "n": 50,
+            "value": 69.71428571428572,
+            "ci_low": 56.0,
+            "ci_high": 82.0
+          },
+          "qwen3.5-397b-thinking": {
+            "n": 50,
+            "value": 36.0,
+            "ci_low": 23.714285714285715,
+            "ci_high": 48.857142857142854
+          }
+        },
+        "order_best_to_worst": [
+          "beam-high",
+          "gpt-oss-120b-high",
+          "beam-medium",
+          "beam-low",
+          "gpt-oss-120b-medium",
+          "gpt-oss-120b-low",
+          "qwen3.5-397b-thinking"
+        ],
+        "effort_monotone": {
+          "beam": true,
+          "gpt": true
+        }
+      },
+      "probe0": {
+        "n": 50,
+        "pass_rate": {
+          "beam-low": {
+            "n": 50,
+            "value": 53.142857142857146,
+            "ci_low": 39.42857142857142,
+            "ci_high": 66.85714285714285
+          },
+          "beam-medium": {
+            "n": 50,
+            "value": 46.285714285714285,
+            "ci_low": 32.57142857142857,
+            "ci_high": 60.0
+          },
+          "beam-high": {
+            "n": 50,
+            "value": 49.714285714285715,
+            "ci_low": 35.714285714285715,
+            "ci_high": 63.714285714285715
+          },
+          "gpt-oss-120b-low": {
+            "n": 50,
+            "value": 50.0,
+            "ci_low": 36.57142857142857,
+            "ci_high": 63.714285714285715
+          },
+          "gpt-oss-120b-medium": {
+            "n": 50,
+            "value": 56.57142857142857,
+            "ci_low": 43.42857142857143,
+            "ci_high": 69.42857142857143
+          },
+          "gpt-oss-120b-high": {
+            "n": 50,
+            "value": 69.42857142857143,
+            "ci_low": 56.857142857142854,
+            "ci_high": 81.14285714285714
+          },
+          "qwen3.5-397b-thinking": {
+            "n": 50,
+            "value": 40.0,
+            "ci_low": 27.142857142857142,
+            "ci_high": 53.14285714285714
+          }
+        },
+        "order_best_to_worst": [
+          "gpt-oss-120b-high",
+          "gpt-oss-120b-medium",
+          "beam-low",
+          "gpt-oss-120b-low",
+          "beam-high",
+          "beam-medium",
+          "qwen3.5-397b-thinking"
+        ],
+        "effort_monotone": {
+          "beam": false,
+          "gpt": true
+        }
+      },
+      "probe5": {
+        "n": 50,
+        "pass_rate": {
+          "beam-low": {
+            "n": 50,
+            "value": 64.85714285714285,
+            "ci_low": 51.42857142857143,
+            "ci_high": 77.42857142857143
+          },
+          "beam-medium": {
+            "n": 50,
+            "value": 87.71428571428571,
+            "ci_low": 78.85714285714285,
+            "ci_high": 95.14285714285714
+          },
+          "beam-high": {
+            "n": 50,
+            "value": 95.71428571428571,
+            "ci_low": 91.90476190476191,
+            "ci_high": 98.85714285714286
+          },
+          "gpt-oss-120b-low": {
+            "n": 50,
+            "value": 62.57142857142857,
+            "ci_low": 49.142857142857146,
+            "ci_high": 75.14285714285715
+          },
+          "gpt-oss-120b-medium": {
+            "n": 50,
+            "value": 57.42857142857143,
+            "ci_low": 44.0,
+            "ci_high": 70.28571428571428
+          },
+          "gpt-oss-120b-high": {
+            "n": 50,
+            "value": 82.28571428571429,
+            "ci_low": 71.42857142857143,
+            "ci_high": 91.71428571428571
+          },
+          "qwen3.5-397b-thinking": {
+            "n": 50,
+            "value": 48.0,
+            "ci_low": 35.14285714285714,
+            "ci_high": 60.57142857142857
+          }
+        },
+        "order_best_to_worst": [
+          "beam-high",
+          "beam-medium",
+          "gpt-oss-120b-high",
+          "beam-low",
+          "gpt-oss-120b-low",
+          "gpt-oss-120b-medium",
+          "qwen3.5-397b-thinking"
+        ],
+        "effort_monotone": {
+          "beam": true,
+          "gpt": false
+        }
+      },
+      "v3base": {
+        "n": 64,
+        "pass_rate": {
+          "beam-low": {
+            "n": 64,
+            "value": 31.61764705882353,
+            "ci_low": 23.529411764705884,
+            "ci_high": 40.16544117647059
+          },
+          "beam-medium": {
+            "n": 64,
+            "value": 37.04044117647059,
+            "ci_low": 28.40073529411765,
+            "ci_high": 46.231617647058826
+          },
+          "beam-high": {
+            "n": 64,
+            "value": 45.986519607843135,
+            "ci_low": 38.29656862745098,
+            "ci_high": 54.25857843137255
+          },
+          "gpt-oss-120b-low": {
+            "n": 64,
+            "value": 32.720588235294116,
+            "ci_low": 24.356617647058822,
+            "ci_high": 41.6360294117647
+          },
+          "gpt-oss-120b-medium": {
+            "n": 64,
+            "value": 34.375,
+            "ci_low": 26.102941176470587,
+            "ci_high": 43.01470588235294
+          },
+          "gpt-oss-120b-high": {
+            "n": 64,
+            "value": 58.54779411764706,
+            "ci_low": 49.54044117647059,
+            "ci_high": 68.01470588235294
+          },
+          "qwen3.5-397b-thinking": {
+            "n": 64,
+            "value": 29.59558823529412,
+            "ci_low": 21.691176470588236,
+            "ci_high": 37.95955882352941
+          }
+        },
+        "order_best_to_worst": [
+          "gpt-oss-120b-high",
+          "beam-high",
+          "beam-medium",
+          "gpt-oss-120b-medium",
+          "gpt-oss-120b-low",
+          "beam-low",
+          "qwen3.5-397b-thinking"
+        ],
+        "effort_monotone": {
+          "beam": true,
+          "gpt": true
+        }
+      },
+      "v3hint": {
+        "n": 64,
+        "pass_rate": {
+          "beam-low": {
+            "n": 64,
+            "value": 71.59926470588235,
+            "ci_low": 62.224264705882355,
+            "ci_high": 80.69852941176471
+          },
+          "beam-medium": {
+            "n": 64,
+            "value": 76.93014705882352,
+            "ci_low": 68.01470588235294,
+            "ci_high": 85.11029411764706
+          },
+          "beam-high": {
+            "n": 64,
+            "value": 87.71446078431373,
+            "ci_low": 81.64828431372548,
+            "ci_high": 92.95343137254902
+          },
+          "gpt-oss-120b-low": {
+            "n": 64,
+            "value": 47.70220588235294,
+            "ci_low": 37.408088235294116,
+            "ci_high": 58.088235294117645
+          },
+          "gpt-oss-120b-medium": {
+            "n": 64,
+            "value": 50.36764705882353,
+            "ci_low": 39.981617647058826,
+            "ci_high": 60.9375
+          },
+          "gpt-oss-120b-high": {
+            "n": 64,
+            "value": 57.8125,
+            "ci_low": 47.24264705882353,
+            "ci_high": 67.92279411764706
+          },
+          "qwen3.5-397b-thinking": {
+            "n": 64,
+            "value": 52.29779411764706,
+            "ci_low": 41.6360294117647,
+            "ci_high": 62.5
+          }
+        },
+        "order_best_to_worst": [
+          "beam-high",
+          "beam-medium",
+          "beam-low",
+          "gpt-oss-120b-high",
+          "qwen3.5-397b-thinking",
+          "gpt-oss-120b-medium",
+          "gpt-oss-120b-low"
+        ],
+        "effort_monotone": {
+          "beam": true,
+          "gpt": true
+        }
+      }
+    },
+    "pairwise": {
+      "tierb50": {
+        "Beam high vs Beam low": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 30.0,
+            "ci_low": 18.0,
+            "ci_high": 42.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 2.0,
+            "ci_low": 0.0,
+            "ci_high": 6.0
+          },
+          "tie_pct": 68.0,
+          "win_share_of_decided_pct": 93.75
+        },
+        "GPT-OSS high vs GPT-OSS low": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 26.0,
+            "ci_low": 14.0,
+            "ci_high": 38.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 4.0,
+            "ci_low": 0.0,
+            "ci_high": 10.0
+          },
+          "tie_pct": 70.0,
+          "win_share_of_decided_pct": 86.66666666666667
+        },
+        "Beam high vs Qwen3.5": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 58.0,
+            "ci_low": 44.0,
+            "ci_high": 72.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0
+          },
+          "tie_pct": 42.0,
+          "win_share_of_decided_pct": 100.0
+        }
+      },
+      "probe0": {
+        "Beam high vs Beam low": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 14.0,
+            "ci_low": 6.0,
+            "ci_high": 24.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 18.0,
+            "ci_low": 8.0,
+            "ci_high": 30.0
+          },
+          "tie_pct": 68.0,
+          "win_share_of_decided_pct": 43.75
+        },
+        "GPT-OSS high vs GPT-OSS low": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 34.0,
+            "ci_low": 22.0,
+            "ci_high": 48.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 6.0,
+            "ci_low": 0.0,
+            "ci_high": 14.0
+          },
+          "tie_pct": 60.0,
+          "win_share_of_decided_pct": 85.0
+        },
+        "Beam high vs Qwen3.5": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 32.0,
+            "ci_low": 20.0,
+            "ci_high": 46.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 14.0,
+            "ci_low": 6.0,
+            "ci_high": 24.0
+          },
+          "tie_pct": 54.0,
+          "win_share_of_decided_pct": 69.56521739130434
+        }
+      },
+      "probe5": {
+        "Beam high vs Beam low": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 42.0,
+            "ci_low": 28.0,
+            "ci_high": 56.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 4.0,
+            "ci_low": 0.0,
+            "ci_high": 10.0
+          },
+          "tie_pct": 54.0,
+          "win_share_of_decided_pct": 91.30434782608695
+        },
+        "GPT-OSS high vs GPT-OSS low": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 32.0,
+            "ci_low": 20.0,
+            "ci_high": 46.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 4.0,
+            "ci_low": 0.0,
+            "ci_high": 10.0
+          },
+          "tie_pct": 64.0,
+          "win_share_of_decided_pct": 88.88888888888889
+        },
+        "Beam high vs Qwen3.5": {
+          "n": 50,
+          "win": {
+            "n": 50,
+            "value": 66.0,
+            "ci_low": 52.0,
+            "ci_high": 78.0
+          },
+          "loss": {
+            "n": 50,
+            "value": 6.0,
+            "ci_low": 0.0,
+            "ci_high": 14.0
+          },
+          "tie_pct": 28.0,
+          "win_share_of_decided_pct": 91.66666666666667
+        }
+      },
+      "v3base": {
+        "Beam high vs Beam low": {
+          "n": 64,
+          "win": {
+            "n": 64,
+            "value": 46.875,
+            "ci_low": 34.375,
+            "ci_high": 59.375
+          },
+          "loss": {
+            "n": 64,
+            "value": 10.9375,
+            "ci_low": 4.6875,
+            "ci_high": 18.75
+          },
+          "tie_pct": 42.1875,
+          "win_share_of_decided_pct": 81.08108108108108
+        },
+        "GPT-OSS high vs GPT-OSS low": {
+          "n": 64,
+          "win": {
+            "n": 64,
+            "value": 53.125,
+            "ci_low": 40.625,
+            "ci_high": 65.625
+          },
+          "loss": {
+            "n": 64,
+            "value": 10.9375,
+            "ci_low": 3.125,
+            "ci_high": 18.75
+          },
+          "tie_pct": 35.9375,
+          "win_share_of_decided_pct": 82.92682926829268
+        },
+        "Beam high vs Qwen3.5": {
+          "n": 64,
+          "win": {
+            "n": 64,
+            "value": 50.0,
+            "ci_low": 37.5,
+            "ci_high": 62.5
+          },
+          "loss": {
+            "n": 64,
+            "value": 15.625,
+            "ci_low": 7.8125,
+            "ci_high": 25.0
+          },
+          "tie_pct": 34.375,
+          "win_share_of_decided_pct": 76.19047619047619
+        }
+      },
+      "v3hint": {
+        "Beam high vs Beam low": {
+          "n": 64,
+          "win": {
+            "n": 64,
+            "value": 34.375,
+            "ci_low": 23.4375,
+            "ci_high": 46.875
+          },
+          "loss": {
+            "n": 64,
+            "value": 14.0625,
+            "ci_low": 6.25,
+            "ci_high": 23.4375
+          },
+          "tie_pct": 51.5625,
+          "win_share_of_decided_pct": 70.96774193548387
+        },
+        "GPT-OSS high vs GPT-OSS low": {
+          "n": 64,
+          "win": {
+            "n": 64,
+            "value": 31.25,
+            "ci_low": 20.3125,
+            "ci_high": 42.1875
+          },
+          "loss": {
+            "n": 64,
+            "value": 18.75,
+            "ci_low": 9.375,
+            "ci_high": 28.125
+          },
+          "tie_pct": 50.0,
+          "win_share_of_decided_pct": 62.5
+        },
+        "Beam high vs Qwen3.5": {
+          "n": 64,
+          "win": {
+            "n": 64,
+            "value": 59.375,
+            "ci_low": 46.875,
+            "ci_high": 71.875
+          },
+          "loss": {
+            "n": 64,
+            "value": 4.6875,
+            "ci_low": 0.0,
+            "ci_high": 10.9375
+          },
+          "tie_pct": 35.9375,
+          "win_share_of_decided_pct": 92.6829268292683
+        }
+      }
+    },
+    "spearman_effort_vs_reward": {
+      "beam": {
+        "per_benchmark": {
+          "tierb50": {
+            "n": 50,
+            "value": 0.13062468525035778,
+            "ci_low": 0.06080944176577773,
+            "ci_high": 0.21316902883043376
+          },
+          "probe0": {
+            "n": 50,
+            "value": -0.024864266982803928,
+            "ci_low": -0.14492012346827748,
+            "ci_high": 0.09679001325408959
+          },
+          "probe5": {
+            "n": 50,
+            "value": 0.29483623863411673,
+            "ci_low": 0.16274393412989924,
+            "ci_high": 0.421097114958997
+          },
+          "v3base": {
+            "n": 64,
+            "value": 0.2517934986916882,
+            "ci_low": 0.15922022539434702,
+            "ci_high": 0.35161185143716966
+          },
+          "v3hint": {
+            "n": 64,
+            "value": 0.13630509306508365,
+            "ci_low": 0.02826141585412754,
+            "ci_high": 0.2468753046405635
+          }
+        },
+        "pooled": {
+          "n": 278,
+          "value": 0.1292473523591918,
+          "ci_low": 0.08562458828010777,
+          "ci_high": 0.17273531495575353
+        }
+      },
+      "gpt": {
+        "per_benchmark": {
+          "tierb50": {
+            "n": 50,
+            "value": 0.1632090933851371,
+            "ci_low": 0.05128145650122008,
+            "ci_high": 0.2789631795784492
+          },
+          "probe0": {
+            "n": 50,
+            "value": 0.18495218209110248,
+            "ci_low": 0.07065759789365078,
+            "ci_high": 0.30182016571799797
+          },
+          "probe5": {
+            "n": 50,
+            "value": 0.1772536077209665,
+            "ci_low": 0.06724828096530097,
+            "ci_high": 0.2862725227242892
+          },
+          "v3base": {
+            "n": 64,
+            "value": 0.2752865369650251,
+            "ci_low": 0.15474110440301053,
+            "ci_high": 0.39706291233671726
+          },
+          "v3hint": {
+            "n": 64,
+            "value": 0.11425153664497574,
+            "ci_low": 0.012630609924895819,
+            "ci_high": 0.22012266833520805
+          }
+        },
+        "pooled": {
+          "n": 278,
+          "value": 0.17515628495482444,
+          "ci_low": 0.1271033160719526,
+          "ci_high": 0.22492050855390372
+        }
+      }
+    }
+  },
+  "saturation": {
+    "tierb50": {
+      "n": 50,
+      "solved_by_no_setting": {
+        "n": 50,
+        "value": 18.0,
+        "ci_low": 8.0,
+        "ci_high": 28.0
+      },
+      "solved_by_every_setting": {
+        "n": 50,
+        "value": 12.0,
+        "ci_low": 4.0,
+        "ci_high": 22.0
+      },
+      "middle": {
+        "n": 50,
+        "value": 70.0,
+        "ci_low": 56.0,
+        "ci_high": 82.0
+      },
+      "none_count": 9,
+      "all_count": 6,
+      "middle_count": 35
+    },
+    "probe0": {
+      "n": 50,
+      "solved_by_no_setting": {
+        "n": 50,
+        "value": 20.0,
+        "ci_low": 10.0,
+        "ci_high": 32.0
+      },
+      "solved_by_every_setting": {
+        "n": 50,
+        "value": 4.0,
+        "ci_low": 0.0,
+        "ci_high": 10.0
+      },
+      "middle": {
+        "n": 50,
+        "value": 76.0,
+        "ci_low": 64.0,
+        "ci_high": 88.0
+      },
+      "none_count": 10,
+      "all_count": 2,
+      "middle_count": 38
+    },
+    "probe5": {
+      "n": 50,
+      "solved_by_no_setting": {
+        "n": 50,
+        "value": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "solved_by_every_setting": {
+        "n": 50,
+        "value": 14.0,
+        "ci_low": 6.0,
+        "ci_high": 24.0
+      },
+      "middle": {
+        "n": 50,
+        "value": 86.0,
+        "ci_low": 76.0,
+        "ci_high": 94.0
+      },
+      "none_count": 0,
+      "all_count": 7,
+      "middle_count": 43
+    },
+    "v3base": {
+      "n": 64,
+      "solved_by_no_setting": {
+        "n": 64,
+        "value": 1.5625,
+        "ci_low": 0.0,
+        "ci_high": 4.6875
+      },
+      "solved_by_every_setting": {
+        "n": 64,
+        "value": 3.125,
+        "ci_low": 0.0,
+        "ci_high": 7.8125
+      },
+      "middle": {
+        "n": 64,
+        "value": 95.3125,
+        "ci_low": 89.0625,
+        "ci_high": 100.0
+      },
+      "none_count": 1,
+      "all_count": 2,
+      "middle_count": 61
+    },
+    "v3hint": {
+      "n": 64,
+      "solved_by_no_setting": {
+        "n": 64,
+        "value": 3.125,
+        "ci_low": 0.0,
+        "ci_high": 7.8125
+      },
+      "solved_by_every_setting": {
+        "n": 64,
+        "value": 12.5,
+        "ci_low": 4.6875,
+        "ci_high": 20.3125
+      },
+      "middle": {
+        "n": 64,
+        "value": 84.375,
+        "ci_low": 75.0,
+        "ci_high": 92.1875
+      },
+      "none_count": 2,
+      "all_count": 8,
+      "middle_count": 54
+    }
+  },
+  "within_policy_variance": {
+    "tierb50": {
+      "runs_per_task": 3,
+      "n": 50,
+      "groups_with_signal": {
+        "n": 50,
+        "value": 20.0,
+        "ci_low": 10.0,
+        "ci_high": 32.0
+      },
+      "mean_within_task_std": {
+        "n": 50,
+        "value": 0.09567518746570944,
+        "ci_low": 0.039589732744431484,
+        "ci_high": 0.1567093587800413
+      },
+      "mean_std_where_runs_differ": 0.47837593732854716,
+      "all_runs_zero_count": 9,
+      "all_runs_one_count": 31,
+      "all_runs_equal_other_count": 0
+    },
+    "probe0": {
+      "runs_per_task": 1,
+      "note": "1 run per task: no within-task variance"
+    },
+    "probe5": {
+      "runs_per_task": 3,
+      "n": 50,
+      "groups_with_signal": {
+        "n": 50,
+        "value": 14.0,
+        "ci_low": 6.0,
+        "ci_high": 24.0
+      },
+      "mean_within_task_std": {
+        "n": 50,
+        "value": 0.06103417131433187,
+        "ci_low": 0.014846149779161807,
+        "ci_high": 0.11217090944255588
+      },
+      "mean_std_where_runs_differ": 0.43595836653094194,
+      "all_runs_zero_count": 0,
+      "all_runs_one_count": 43,
+      "all_runs_equal_other_count": 0
+    },
+    "v3base": {
+      "runs_per_task": 3,
+      "n": 64,
+      "groups_with_signal": {
+        "n": 64,
+        "value": 48.4375,
+        "ci_low": 35.9375,
+        "ci_high": 60.9375
+      },
+      "mean_within_task_std": {
+        "n": 64,
+        "value": 0.1587044354273262,
+        "ci_low": 0.11243906809277658,
+        "ci_high": 0.2086451305441319
+      },
+      "mean_std_where_runs_differ": 0.32764786668867346,
+      "all_runs_zero_count": 1,
+      "all_runs_one_count": 13,
+      "all_runs_equal_other_count": 19
+    },
+    "v3hint": {
+      "runs_per_task": 3,
+      "n": 64,
+      "groups_with_signal": {
+        "n": 64,
+        "value": 25.0,
+        "ci_low": 14.0625,
+        "ci_high": 35.9375
+      },
+      "mean_within_task_std": {
+        "n": 64,
+        "value": 0.09671667705016007,
+        "ci_low": 0.05239244127885451,
+        "ci_high": 0.1456789245720579
+      },
+      "mean_std_where_runs_differ": 0.3868667082006403,
+      "all_runs_zero_count": 2,
+      "all_runs_one_count": 43,
+      "all_runs_equal_other_count": 3
+    },
+    "pooled": {
+      "n": 228,
+      "groups_with_signal": {
+        "n": 228,
+        "value": 28.07017543859649,
+        "ci_low": 22.36842105263158,
+        "ci_high": 34.21052631578947
+      },
+      "mean_within_task_std": {
+        "n": 228,
+        "value": 0.10606324183140871,
+        "ci_low": 0.08200439582975444,
+        "ci_high": 0.13187681092159387
+      }
+    }
+  },
+  "headroom": {
+    "tierb50": {
+      "best_setting": "beam-high",
+      "best_label": "Beam high",
+      "best_pass_rate": 74.47619047619048,
+      "ci_low": 63.23809523809524,
+      "ci_high": 84.95238095238095,
+      "gap_to_100": 25.52380952380952,
+      "best_fully_solves_pct": 62.0,
+      "n": 50
+    },
+    "probe0": {
+      "best_setting": "gpt-oss-120b-high",
+      "best_label": "GPT-OSS high",
+      "best_pass_rate": 69.42857142857143,
+      "ci_low": 56.857142857142854,
+      "ci_high": 81.14285714285714,
+      "gap_to_100": 30.57142857142857,
+      "best_fully_solves_pct": 62.0,
+      "n": 50
+    },
+    "probe5": {
+      "best_setting": "beam-high",
+      "best_label": "Beam high",
+      "best_pass_rate": 95.71428571428571,
+      "ci_low": 91.90476190476191,
+      "ci_high": 98.85714285714286,
+      "gap_to_100": 4.285714285714292,
+      "best_fully_solves_pct": 86.0,
+      "n": 50
+    },
+    "v3base": {
+      "best_setting": "gpt-oss-120b-high",
+      "best_label": "GPT-OSS high",
+      "best_pass_rate": 58.54779411764706,
+      "ci_low": 49.54044117647059,
+      "ci_high": 68.01470588235294,
+      "gap_to_100": 41.45220588235294,
+      "best_fully_solves_pct": 35.9375,
+      "n": 64
+    },
+    "v3hint": {
+      "best_setting": "beam-high",
+      "best_label": "Beam high",
+      "best_pass_rate": 87.71446078431373,
+      "ci_low": 81.64828431372548,
+      "ci_high": 92.95343137254902,
+      "gap_to_100": 12.28553921568627,
+      "best_fully_solves_pct": 67.1875,
+      "n": 64
+    }
+  }
+}

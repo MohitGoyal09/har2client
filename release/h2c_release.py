@@ -23,7 +23,7 @@ COMPARISON_SUITES = ("tierb50", "v3base", "v3hint", "probe0", "probe5")
 # The final figures, in display order (the Space shows them first on the Findings tab).
 FINAL_FIGURES = tuple(f"final_{n}.png" for n in (
     "scoreboard", "leaderboard", "effort_curves", "information_gain", "gap_vs_beam", "beam_missing_info", "cost_vs_score",
-    "effort_matched", "all_scores", "beam_by_effort", "probing", "probe_curve", "failure_kinds"))
+    "effort_matched", "all_scores", "beam_by_effort", "probing", "probe_curve", "failure_kinds", "learnability"))
 CASE2_CSV = "case2_probe/main_full/results.csv"
 COMPARISON_SUMMARY = "analysis/model_comparison/summary.json"
 
@@ -51,6 +51,8 @@ RESULTS_FILES = (
     "analysis/model_comparison/report.md", "analysis/model_comparison/summary.json", "model_comparison/README.md",
     # case 2 probing behaviour and Beam failure kinds (scripts/analyze_probing.py)
     "analysis/probing/report.md", "analysis/probing/summary.json",
+    # is the reward learnable? (scripts/analyze_learnability.py; per-task rewards of the same 35 cells)
+    "analysis/learnability/report.md", "analysis/learnability/summary.json",
     *(f"model_comparison/{m}/{s}/results.csv" for m in COMPARISON_MODELS for s in COMPARISON_SUITES),
     # the final figures (the card and the Space show them; built by scripts/plot_final.py)
     *(f"figures/{n}" for n in FINAL_FIGURES),

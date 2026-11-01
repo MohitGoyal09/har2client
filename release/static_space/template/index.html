@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HAR2Client: write an API client from recorded traffic</title>
 <meta name="description" content="HAR2Client grades models on one skill: read recorded HTTP traffic, write client.py, pass hidden tests on a fresh server. Results for Beam, GPT-OSS-120B and Qwen3.5-397B-A17B.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://huggingface.co https://*.huggingface.co https://*.hf.co; media-src https://huggingface.co https://*.huggingface.co https://*.hf.co; connect-src 'self'; base-uri 'self'; form-action 'none'">
 <meta name="theme-color" content="#fcfcfb">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HAR2Client: write an API client from recorded traffic">
-<meta property="og:description" content="Beam scores {{H1_VISIBLE}}% when the recording shows everything and {{H1_HIDDEN}}% when one header is hidden.">
+<meta property="og:description" content="Beam scores {{H1_VISIBLE}}% when the recording shows everything and {{H1_HIDDEN}}% when one required header looks optional in the recording.">
 <meta property="og:image" content="{{OG_IMAGE}}">
 <meta property="og:image:width" content="2000">
 <meta property="og:image:height" content="1380">
@@ -35,6 +35,7 @@
       <a href="#information">Extra information</a>
       <a href="#beam">Beam</a>
       <a href="#findings">Findings</a>
+      <a href="#watch">Watch</a>
       <a href="#explore">Tasks</a>
       <a href="#method">Method</a>
       <a href="#use">Use it</a>
@@ -48,13 +49,18 @@
 <section class="hero" aria-labelledby="h1">
   <div class="hero-text">
     <p class="eyebrow">A benchmark and RL environment for API clients</p>
-    <h1 id="h1">Beam writes a near-perfect API client from recorded traffic, until the recording leaves one header out.</h1>
-    <p class="dek">It scores {{H1_VISIBLE}}% when the recording shows everything and {{H1_HIDDEN}}% when one header is hidden. Give it the missing piece and it recovers to {{H1_SUPPLIED_LOW}} to {{H1_SUPPLIED_HIGH}}%.</p>
+    <h1 id="h1">Beam reverse-engineers APIs from recorded traffic. Give it a server, and it tests its own guesses.</h1>
+    <p class="dek">It scores {{H1_VISIBLE}}% when the recording shows everything and {{H1_HIDDEN}}% when one required header looks optional in the recording. Give it the missing piece and it recovers to {{H1_SUPPLIED_LOW}} to {{H1_SUPPLIED_HIGH}}%.</p>
+    <p class="hero-claim">With five test requests at high effort, its pass rate goes from <b>{{C2_NO_PROBES}}% &rarr; {{C2_PROBES}}%</b> (mean of 3 runs).</p>
     <p class="hero-links">
       <a class="btn btn-ink" href="{{DATASET_URL}}">Dataset</a>
       <a class="btn btn-line" href="{{CODE_URL}}">Code</a>
       <a class="btn btn-line" href="{{PREREG_URL}}">Pre-registration</a>
     </p>
+    <figure class="hero-video">
+      <video controls preload="none" poster="{{POSTER_URL}}" src="{{VIDEO_URL}}">Your browser cannot play this video. It is in the dataset repo under media/.</video>
+      <figcaption>84-second tour, captioned</figcaption>
+    </figure>
   </div>
   <figure class="sig" id="sig" aria-label="Beam pass rate when the missing piece is withheld and when it is supplied">
     <noscript><p class="note">This chart needs JavaScript. The same numbers are in the leaderboard table below.</p></noscript>
@@ -171,20 +177,30 @@
   <p class="finds-note">{{NOT_SETTLED}}</p>
 </section>
 
-<!-- SECTION 7: explore -->
+<!-- SECTION 7: watch an episode (action replay from data/episodes.json) -->
+<section class="sec" id="watch" aria-labelledby="wa-h">
+  <div class="sec-head">
+    <p class="eyebrow">07 Watch an episode</p>
+    <h2 id="wa-h">Watch Beam run an experiment.</h2>
+    <p class="lede">Three real Case 2 episodes. The recording carries a header that the server secretly requires. With five probes at high effort, Beam tests it on the practice server and writes the client from the answer. With one probe, it guesses.</p>
+  </div>
+  <div id="episodes" class="episodes"><noscript><p class="note">This replay needs JavaScript.</p></noscript></div>
+</section>
+
+<!-- SECTION 8: explore -->
 <section class="sec" id="explore" aria-labelledby="ex-h">
   <div class="sec-head">
-    <p class="eyebrow">07 Explore a task</p>
+    <p class="eyebrow">08 Explore a task</p>
     <h2 id="ex-h">What the model sees.</h2>
     <p class="lede">Only the visible files are shown: the goal, the requests in the recording and one short excerpt. Hidden tests, credentials for grading and reference clients are not published.</p>
   </div>
   <div id="explorer" class="explorer"></div>
 </section>
 
-<!-- SECTION 8: method -->
+<!-- SECTION 9: method -->
 <section class="sec sec-method" id="method" aria-labelledby="me-h">
   <div class="sec-head">
-    <p class="eyebrow">08 Method</p>
+    <p class="eyebrow">09 Method</p>
     <h2 id="me-h">Hidden tests, no judge, hypotheses written first.</h2>
   </div>
   <div class="method-grid">
@@ -221,10 +237,10 @@
   </div>
 </section>
 
-<!-- SECTION 9: use it -->
+<!-- SECTION 10: use it -->
 <section class="sec" id="use" aria-labelledby="us-h">
   <div class="sec-head">
-    <p class="eyebrow">09 Use it</p>
+    <p class="eyebrow">10 Use it</p>
     <h2 id="us-h">Grade a client in three commands. Train against it as an environment.</h2>
   </div>
   <div class="use-grid">

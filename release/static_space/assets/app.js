@@ -643,6 +643,112 @@
     }
   }
 
+  /* ---------- watch an episode: an action replay of what Beam did (data/episodes.json, loaded when the section is near) ---------- */
+  function initEpisodes() {
+    var root = document.getElementById('episodes');
+    var STEP_MS = 1200;
+    root.append(h('div', { class: 'ex-skeleton', text: 'Loading episodes' }));
+    var started = false;
+    function start() {
+      if (started) return; started = true;
+      fetch('data/episodes.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { mount(d.episodes); }).catch(function () {
+        root.replaceChildren(h('p', { class: 'ex-empty', text: 'The episodes could not be loaded. They are in the dataset repo.' }));
+      });
+    }
+    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { start(); o.disconnect(); } }, { rootMargin: '800px' }).observe(root);
+    /* A caption is a fixed sentence; text between backticks is a header name. Text only, no HTML. */
+    function caption(text) {
+      var p = h('p', { class: 'tl-cap' });
+      text.split('`').forEach(function (part, i) { p.append(i % 2 ? h('code', { text: part }) : part); });
+      return p;
+    }
+    function stepBody(step, ep) {
+      if (step.kind === 'note') return [h('p', { class: 'tl-note', text: step.text })];
+      if (step.kind === 'probe') {
+        var lines = step.headers.map(function (x) {
+          return h('li', { class: x.tested ? 'is-tested' : null }, h('span', { class: 'hk', text: x.name + ': ' }), h('span', { class: x.value === '•••' ? 'hv hv-mask' : 'hv', text: x.value }));
+        });
+        if (step.removed) lines.push(h('li', { class: 'is-removed' }, h('span', { class: 'hk', text: step.removed + ': ' }), h('span', { class: 'hv', text: 'removed' })));
+        return [h('div', { class: 'card card-probe' },
+          h('p', { class: 'card-top' }, h('span', { class: 'card-k', text: 'Probe ' + step.n }), h('span', { class: 'card-tag', text: step.label.replace('_', ' ') })),
+          h('p', { class: 'req-line' }, h('b', { text: step.method }), ' ' + step.path),
+          lines.length ? h('ul', { class: 'hdrs', 'aria-label': 'Request headers' }, lines) : null,
+          step.body ? h('p', { class: 'req-body', text: step.body }) : null),
+          caption(step.caption)];
+      }
+      if (step.kind === 'reply') {
+        var ok = step.status < 300;
+        return [h('div', { class: 'card card-reply' },
+          h('p', { class: 'card-top' }, h('span', { class: 'card-k', text: 'Reply' }), h('span', { class: ok ? 'status status-ok' : 'status status-err', text: String(step.status) })),
+          h('p', { class: 'snippet', text: step.body })),
+          caption(step.caption)];
+      }
+      if (step.kind === 'submit') {
+        var key = ep.header.toLowerCase();
+        var code = h('code');
+        step.code.split('\n').forEach(function (ln) {
+          code.append(h('span', { class: step.has_header && ln.toLowerCase().indexOf(key) !== -1 ? 'cl cl-hit' : 'cl', text: ln + '\n' }));
+        });
+        return [h('div', { class: 'card card-code' },
+          h('p', { class: 'card-top' }, h('span', { class: 'card-k', text: 'client.py' }), h('span', { class: 'card-tag', text: 'excerpt' })),
+          h('pre', { tabindex: '0', 'aria-label': 'Excerpt of the submitted client' }, code)),
+          caption(step.caption)];
+      }
+      return [h('p', { class: step.pass_rate >= 1 ? 'pass-pill' : 'pass-pill pass-low', text: step.text })];
+    }
+    function mount(episodes) {
+      var tabs = h('div', { class: 'ep-tabs', role: 'tablist', 'aria-label': 'Episodes' });
+      var panel = h('div', { class: 'ep-panel', role: 'tabpanel', tabindex: '-1' });
+      var current = 0, shown = 1, timer = null, steps = [], ep = null;
+      var play = h('button', { type: 'button', class: 'tbtn ep-play', text: 'Play' });
+      var all = h('button', { type: 'button', class: 'tbtn', text: 'Show all' });
+      var live = h('p', { class: 'sr', 'aria-live': 'polite' });
+      function stop() { if (timer) { clearInterval(timer); timer = null; } play.textContent = shown >= steps.length ? 'Replay' : 'Play'; }
+      function paint() {
+        steps.forEach(function (li, i) { li.hidden = i >= shown; });
+        live.textContent = 'Step ' + Math.min(shown, steps.length) + ' of ' + steps.length;
+      }
+      function reveal(n) { shown = Math.min(steps.length, n); paint(); }
+      play.addEventListener('click', function () {
+        if (timer) { stop(); return; }
+        if (REDUCED) { reveal(steps.length); stop(); return; }
+        if (shown >= steps.length) reveal(1);
+        play.textContent = 'Pause';
+        timer = setInterval(function () { reveal(shown + 1); if (shown >= steps.length) stop(); }, STEP_MS);
+      });
+      all.addEventListener('click', function () { reveal(steps.length); stop(); });
+      function select(i, focus) {
+        stop();
+        current = i; ep = episodes[i]; shown = 1;
+        [].forEach.call(tabs.children, function (b, j) { b.setAttribute('aria-selected', String(j === i)); b.tabIndex = j === i ? 0 : -1; });
+        panel.setAttribute('aria-labelledby', 'ep-tab-' + i);
+        steps = ep.steps.map(function (st) { return h('li', { class: 'tl-item tl-' + st.kind }, h('div', { class: 'tl-body' }, stepBody(st, ep))); });
+        var facts = [['Task', ep.task], ['Domain', ep.domain], ['Effort', ep.effort], ['Probes', ep.probes_used + ' of ' + ep.probe_budget], ['Pass rate', pct(ep.pass_rate * 100) + '%']];
+        panel.replaceChildren(
+          h('p', { class: 'ep-lead', text: ep.contrast ? 'Contrast: the same kind of task with one probe. The header is never tested.' : 'The tested header is ' + ep.header + '.' }),
+          h('dl', { class: 'ep-facts' }, facts.map(function (f) { return h('div', null, h('dt', { text: f[0] }), h('dd', { text: f[1] })); })),
+          h('div', { class: 'ep-ctl' }, play, all), live,
+          h('ol', { class: 'tl', 'aria-label': 'Steps of the episode' }, steps));
+        paint(); stop();
+        if (focus) tabs.children[i].focus();
+      }
+      episodes.forEach(function (e, i) {
+        var b = h('button', { type: 'button', role: 'tab', id: 'ep-tab-' + i, class: 'ep-tab', 'aria-selected': 'false', tabindex: '-1' },
+          h('span', { class: 'ep-tab-k', text: 'Episode ' + (i + 1) }), h('span', { class: 'ep-tab-v', text: e.contrast ? 'One probe, a guess' : e.probes_used + ' probes, tested' }));
+        b.addEventListener('click', function () { select(i, false); });
+        b.addEventListener('keydown', function (ev) {
+          var n = episodes.length, k = ev.key, to = k === 'ArrowRight' ? (current + 1) % n : k === 'ArrowLeft' ? (current + n - 1) % n : k === 'Home' ? 0 : k === 'End' ? n - 1 : -1;
+          if (to < 0) return;
+          ev.preventDefault(); select(to, true);
+        });
+        tabs.append(b);
+      });
+      panel.setAttribute('aria-labelledby', 'ep-tab-0');
+      root.replaceChildren(tabs, panel);
+      select(0, false);
+    }
+  }
+
   /* ---------- nav scroll-spy, copy buttons ---------- */
   // Scroll only the nav bar sideways. Element.scrollIntoView would also scroll the page (and the
   // Hugging Face iframe) back toward the sticky link, which locks page scrolling.
@@ -688,6 +794,7 @@
   initGains();
   initBeam();
   initExplorer();
+  initEpisodes();
   initNav();
   initCopy();
 })();

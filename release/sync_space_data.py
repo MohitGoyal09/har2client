@@ -64,6 +64,10 @@ def copy_comparison(dest: Path, src: Path = RESULTS) -> None:
             shutil.copy(src / rel, dest / "results" / rel)
     (dest / "results" / "case2_probe" / "main_full").mkdir(parents=True)
     shutil.copy(src / CASE2_CSV, dest / "results" / CASE2_CSV)
+    ext = Path("case2_probe") / "ext" / "R1_P5_high_r2r3" / "results.csv"  # the two extra P5-high runs (mean of 3 with main_full)
+    if (src / ext).is_file():
+        (dest / "results" / ext).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(src / ext, dest / "results" / ext)
     (dest / "analysis" / "model_comparison").mkdir(parents=True)
     shutil.copy(src / COMPARISON_SUMMARY, dest / COMPARISON_SUMMARY)
 

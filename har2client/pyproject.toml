@@ -33,6 +33,9 @@ har2client = "har2client.cli:main"
 plots = [
     "matplotlib>=3.11.2",
 ]
+openenv = [
+    "openenv-core>=0.3",  # har2client.openenv_env: the environments served over OpenEnv
+]
 
 [dependency-groups]
 dev = ["pytest>=8", "matplotlib>=3.11.2"]  # matplotlib: the plot tests also importorskip it
@@ -46,6 +49,7 @@ testpaths = ["tests"]
 markers = ["slow: takes more than about 6 s; CI skips it on push with -m 'not slow' and runs it nightly"]
 
 [tool.ruff]
+extend-exclude = ["realapi/runs"]  # model-written clients, kept exactly as the model wrote them
 line-length = 130
 
 [tool.ruff.lint]

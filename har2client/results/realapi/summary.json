@@ -1,0 +1,140 @@
+{
+ "beam-high": {
+  "label": "Beam (high)",
+  "tests_passed": 51,
+  "tests_total": 51,
+  "pass_rate": 100.0,
+  "perfect_runs": 9,
+  "runs": 9,
+  "per_api": {
+   "restful_booker": {
+    "runs": 3,
+    "tests_passed": 18,
+    "tests_total": 18,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   },
+   "dummyjson": {
+    "runs": 3,
+    "tests_passed": 18,
+    "tests_total": 18,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   },
+   "petstore": {
+    "runs": 3,
+    "tests_passed": 15,
+    "tests_total": 15,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   }
+  }
+ },
+ "beam-low": {
+  "label": "Beam (low)",
+  "tests_passed": 51,
+  "tests_total": 51,
+  "pass_rate": 100.0,
+  "perfect_runs": 9,
+  "runs": 9,
+  "per_api": {
+   "restful_booker": {
+    "runs": 3,
+    "tests_passed": 18,
+    "tests_total": 18,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   },
+   "dummyjson": {
+    "runs": 3,
+    "tests_passed": 18,
+    "tests_total": 18,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   },
+   "petstore": {
+    "runs": 3,
+    "tests_passed": 15,
+    "tests_total": 15,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   }
+  }
+ },
+ "gpt-oss-120b-high": {
+  "label": "GPT-OSS-120B (high)",
+  "tests_passed": 33,
+  "tests_total": 51,
+  "pass_rate": 64.7,
+  "perfect_runs": 6,
+  "runs": 9,
+  "per_api": {
+   "restful_booker": {
+    "runs": 3,
+    "tests_passed": 18,
+    "tests_total": 18,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   },
+   "dummyjson": {
+    "runs": 3,
+    "tests_passed": 0,
+    "tests_total": 18,
+    "perfect_runs": 0,
+    "failed_tests": [],
+    "statuses": [
+     "context_overflow"
+    ]
+   },
+   "petstore": {
+    "runs": 3,
+    "tests_passed": 15,
+    "tests_total": 15,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   }
+  }
+ },
+ "qwen3.5-397b-thinking": {
+  "label": "Qwen3.5-397B-A17B (thinking on)",
+  "tests_passed": 51,
+  "tests_total": 51,
+  "pass_rate": 100.0,
+  "perfect_runs": 9,
+  "runs": 9,
+  "per_api": {
+   "restful_booker": {
+    "runs": 3,
+    "tests_passed": 18,
+    "tests_total": 18,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   },
+   "dummyjson": {
+    "runs": 3,
+    "tests_passed": 18,
+    "tests_total": 18,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   },
+   "petstore": {
+    "runs": 3,
+    "tests_passed": 15,
+    "tests_total": 15,
+    "perfect_runs": 3,
+    "failed_tests": [],
+    "statuses": []
+   }
+  }
+ }
+}

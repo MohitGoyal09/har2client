@@ -365,6 +365,8 @@ def case3_floor_sentence(b: Bundle) -> str:
 
 COMPARISON_SUMMARY = ("analysis", "model_comparison", "summary.json")
 CASE2_CSV = ("results", "case2_probe", "main_full", "results.csv")
+# the two extra P5-high runs (exploratory, protocol case2-ext-v1): with main_full they make that cell a mean of 3 runs
+CASE2_EXT_P5_HIGH = ("results", "case2_probe", "ext", "R1_P5_high_r2r3", "results.csv")
 # suite -> column label. Case 2 is compared on the placebo (probe0) and P5 (probe5) arms only.
 COMPARISON_SUITES = {"tierb50": "Case 1 (Tier B)", "v3base": "Case 3 base", "v3hint": "Case 3 + hint", "probe0": "Case 2 placebo", "probe5": "Case 2 P5"}
 CASE2_ARMS = {"probe0": "placebo", "probe5": "P5"}
@@ -378,12 +380,17 @@ COMPARISON_ROWS = (
 
 
 def _case2_cells() -> dict[tuple[str, str], tuple[float, float]]:
-    """(arm, effort) -> (mean pass rate in points, mean output tokens) over the tasks of Beam's case 2 run (1 run per cell; no code counts as 0)."""
+    """(arm, effort) -> (mean pass rate in points, mean output tokens) over Beam's case 2 runs (P5 high: 3 runs per task, else 1; no code counts as 0)."""
     per_cell: dict[tuple[str, str], list[tuple[float, float]]] = {}
-    with open(data_path(*CASE2_CSV), newline="", encoding="utf-8") as fh:
-        for r in csv.DictReader(fh):
-            rate = stats._num(r.get("pass_rate")) if r.get("status") == "ok" else 0.0
-            per_cell.setdefault((r["arm"], r["effort"]), []).append((rate, stats._num(r.get("completion_tokens"))))
+    for parts in (CASE2_CSV, CASE2_EXT_P5_HIGH):
+        if not data_path(*parts).is_file():
+            continue
+        with open(data_path(*parts), newline="", encoding="utf-8") as fh:
+            for r in csv.DictReader(fh):
+                if r.get("status") == "api_error":  # retried by the runner; the retry is the row that counts
+                    continue
+                rate = stats._num(r.get("pass_rate")) if r.get("status") == "ok" else 0.0
+                per_cell.setdefault((r["arm"], r["effort"]), []).append((rate, stats._num(r.get("completion_tokens"))))
     return {k: (stats.mean(v[0] for v in vals) * 100, stats.mean(v[1] for v in vals)) for k, vals in per_cell.items()}
 
 

@@ -176,6 +176,21 @@ if __name__ == "__main__":  # the grader uses spawned worker processes: keep thi
 
 The reward is execution-graded: each completion's code block runs against the hidden tests on a fresh server, and the reward is the share passed (0 if there is no code block or it does not parse). A runnable version is in `har2client/examples/grpo_train.py`.
 
+
+### Serve it with OpenEnv
+
+The same environments (Case 1 build, Case 2 probes, Case 3 repair) are also an [OpenEnv](https://pypi.org/project/openenv-core/) environment, with the same tasks, grader and reward:
+
+```bash
+cd har2client
+uv run --extra openenv uvicorn har2client.openenv_env.app:app --port 8000   # /reset, /step, /state, /schema, /ws
+```
+
+An episode runs over the WebSocket session: `{"type": "reset", "data": {"case": "build", "probe_budget": 5}}`, then
+`{"type": "step", "data": {"type": "probe", "request": {...}}}` up to the budget, then
+`{"type": "step", "data": {"type": "submit", "code": "<client.py>"}}`, which returns the reward (share of hidden tests passed).
+`har2client/openenv.yaml` describes the app; `case` can be `build` or `repair`.
+
 ## How grading works
 
 - **Fresh server.** The grader starts a new fake server with new data, a new key and a new host. A client that copies the recording fails.

@@ -167,6 +167,19 @@ The reward of a rollout is the share of hidden tests it passes (0 to 1). We chec
 
 This is evidence from evaluation data, not a training run: it shows the signal is graded, ordered and not saturated, not that a policy improves when trained on it.
 
+## Real-API check
+
+Do clients written from a recording work on **real** APIs? We recorded our own Chromium sessions on three public practice APIs (Restful-Booker: token cookie; DummyJSON: JWT bearer and pagination; Swagger Petstore v3: API-key header), wrote a `goal.md` for each in the Case 1 format, and graded each client with live tests that use fresh data. The reference clients pass every test and an empty client passes none. 3 runs per setting, the unchanged Case 1 prompt (`har2client/realapi/`, `results/realapi/report.md`).
+
+| Setting | Restful-Booker | DummyJSON | Petstore v3 | All tests |
+|---|---|---|---|---|
+| Beam (high) | 18/18 | 18/18 | 15/15 | 51/51 |
+| Beam (low) | 18/18 | 18/18 | 15/15 | 51/51 |
+| GPT-OSS-120B (high) | 18/18 | 0/18 (recording too long for its context) | 15/15 | 33/51 |
+| Qwen3.5-397B-A17B (thinking on) | 18/18 | 18/18 | 15/15 | 51/51 |
+
+Every model that could read the recording solved all three APIs. The DummyJSON recording is about 118K tokens, which does not fit GPT-OSS-120B's 131K context with the prompt; Beam's 1M context reads it whole. These real practice APIs have no hidden requirement, so the basics transfer and are easy; what separates models in HAR2Client is the hidden traps (a required header that looks optional, silent API changes). This is a small external check (3 APIs, 17 tests per run), not a benchmark split, and public practice APIs may appear in training data.
+
 ## How to use
 
 ```python

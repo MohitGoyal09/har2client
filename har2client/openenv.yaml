@@ -1,0 +1,6 @@
+spec_version: 1
+name: har2client
+type: space
+runtime: fastapi
+app: har2client.openenv_env.app:app
+port: 8000

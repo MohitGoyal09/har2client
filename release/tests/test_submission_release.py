@@ -110,7 +110,7 @@ class ComparisonNumbers(unittest.TestCase):
         gaps = tables.comparison_gap_table().set_index("Model (setting)")
         self.assertEqual(gaps.loc["Beam (high)"].tolist(), ["-"] * 5)
         self.assertEqual(gaps.loc["GPT-OSS-120B (high)", "Case 3 base"], "+12.6 [+3.0, +21.5]")
-        self.assertEqual(gaps.loc["Qwen3.5-397B-A17B (thinking on)", "Case 2 P5"], "-47.7 [-61.4, -33.7]")
+        self.assertEqual(gaps.loc["Qwen3.5-397B-A17B (thinking on)", "Case 2 P5"], "-47.7 [-61.0, -34.1]")
 
     def test_sentences_cover_every_suite(self) -> None:
         sentences = tables.comparison_sentences(self.bundle)

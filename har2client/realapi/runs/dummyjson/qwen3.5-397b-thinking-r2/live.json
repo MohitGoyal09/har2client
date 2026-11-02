@@ -1,0 +1,31 @@
+{
+ "api": "dummyjson",
+ "passed": 6,
+ "total": 6,
+ "tests": [
+  {
+   "test": "t_me",
+   "ok": true
+  },
+  {
+   "test": "t_all",
+   "ok": true
+  },
+  {
+   "test": "t_category",
+   "ok": true
+  },
+  {
+   "test": "t_search",
+   "ok": true
+  },
+  {
+   "test": "t_get",
+   "ok": true
+  },
+  {
+   "test": "t_add",
+   "ok": true
+  }
+ ]
+}

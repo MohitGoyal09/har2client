@@ -1,0 +1,27 @@
+{
+ "api": "petstore",
+ "passed": 5,
+ "total": 5,
+ "tests": [
+  {
+   "test": "t_create",
+   "ok": true
+  },
+  {
+   "test": "t_get",
+   "ok": true
+  },
+  {
+   "test": "t_find",
+   "ok": true
+  },
+  {
+   "test": "t_update",
+   "ok": true
+  },
+  {
+   "test": "t_delete",
+   "ok": true
+  }
+ ]
+}

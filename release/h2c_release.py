@@ -51,6 +51,8 @@ RESULTS_FILES = (
     "analysis/model_comparison/report.md", "analysis/model_comparison/summary.json", "model_comparison/README.md",
     # case 2 probing behaviour and Beam failure kinds (scripts/analyze_probing.py)
     "analysis/probing/report.md", "analysis/probing/summary.json",
+    # real-API check: clients from real browser recordings of three public APIs, live tests (har2client/realapi/)
+    "realapi/report.md", "realapi/summary.json", "realapi/results.csv",
     # is the reward learnable? (scripts/analyze_learnability.py; per-task rewards of the same 35 cells)
     "analysis/learnability/report.md", "analysis/learnability/summary.json",
     *(f"model_comparison/{m}/{s}/results.csv" for m in COMPARISON_MODELS for s in COMPARISON_SUITES),

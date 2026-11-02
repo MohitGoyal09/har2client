@@ -1,0 +1,31 @@
+{
+ "api": "restful_booker",
+ "passed": 6,
+ "total": 6,
+ "tests": [
+  {
+   "test": "t_create",
+   "ok": true
+  },
+  {
+   "test": "t_get",
+   "ok": true
+  },
+  {
+   "test": "t_filter",
+   "ok": true
+  },
+  {
+   "test": "t_list",
+   "ok": true
+  },
+  {
+   "test": "t_update",
+   "ok": true
+  },
+  {
+   "test": "t_delete",
+   "ok": true
+  }
+ ]
+}
